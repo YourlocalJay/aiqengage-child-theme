@@ -91,6 +91,24 @@ add_action('elementor/elements/categories_registered', 'aiqengage_add_elementor_
 require_once get_stylesheet_directory() . '/aiqengage-widgets.php';
 
 /**
+ * Load testing configuration in staging environments
+ */
+function aiqengage_load_testing_config() {
+    // Check if this is a staging/test environment
+    $is_staging = (
+        strpos($_SERVER['HTTP_HOST'], 'staging') !== false || 
+        strpos($_SERVER['HTTP_HOST'], 'test') !== false ||
+        isset($_GET['enable_theme_tests'])
+    );
+    
+    // Load testing configuration if we're in a staging environment
+    if ($is_staging && file_exists(get_stylesheet_directory() . '/test-scripts/testing-config.php')) {
+        require_once get_stylesheet_directory() . '/test-scripts/testing-config.php';
+    }
+}
+add_action('after_setup_theme', 'aiqengage_load_testing_config');
+
+/**
  * AJAX handler for lead form submissions
  */
 function aiqengage_subscribe_handler() {
