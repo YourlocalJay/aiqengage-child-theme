@@ -1,1 +1,131 @@
-/* Styles for ROI calculator widget */
+:root {
+  --aiq-roi-primary: #7c3aed;
+  --aiq-roi-primary-hover: #6d28d9;
+  --aiq-roi-secondary: #4f46e5;
+  --aiq-roi-bg: #1e1b4b;
+  --aiq-roi-bg-light: #2e2a6e;
+  --aiq-roi-text: #e9e7ff;
+  --aiq-roi-text-muted: #a5b4fc;
+  --aiq-roi-border: #4f46e5;
+  --aiq-roi-success: #10b981;
+  --aiq-roi-warning: #f59e0b;
+  --aiq-roi-error: #ef4444;
+}
+
+/* Base Styles */
+.aiq-roi-calculator {
+  --aiq-roi-radius: 12px;
+  --aiq-roi-spacing: 1.5rem;
+  --aiq-roi-input-height: 3rem;
+  
+  background: var(--aiq-roi-bg);
+  color: var(--aiq-roi-text);
+  border-radius: var(--aiq-roi-radius);
+  padding: var(--aiq-roi-spacing);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  max-width: 640px;
+  margin: 0 auto;
+  border: 1px solid var(--aiq-roi-border);
+}
+
+/* Header Styles */
+.aiq-roi-calculator__header {
+  margin-bottom: var(--aiq-roi-spacing);
+  text-align: center;
+}
+
+.aiq-roi-calculator__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.5rem;
+  background: linear-gradient(90deg, var(--aiq-roi-primary), var(--aiq-roi-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Input Grid */
+.aiq-roi-calculator__input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.aiq-roi-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.aiq-roi-input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--aiq-roi-text-muted);
+}
+
+.aiq-roi-input {
+  width: 100%;
+  height: var(--aiq-roi-input-height);
+  padding: 0 1rem;
+  background: var(--aiq-roi-bg-light);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+/* Results Styles */
+.aiq-roi-calculator__results {
+  margin-top: 2rem;
+  background: rgba(30, 27, 75, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: var(--aiq-roi-radius);
+  border: 1px solid var(--aiq-roi-border);
+}
+
+.aiq-roi-result-card h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 1.25rem;
+}
+
+.aiq-roi-result-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.aiq-roi-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed rgba(165, 180, 252, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .aiq-roi-calculator {
+    padding: 1.25rem;
+  }
+  
+  .aiq-roi-calculator__input-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.aiq-roi-calculator__results {
+  animation: fadeIn 0.3s ease-out forwards;
+}
