@@ -1,1 +1,149 @@
-/* Main stylesheet for AIQEngage theme */
+/**
+ * AIQEngage Main CSS
+ * All widget CSS should import or depend on these tokens.
+ */
+
+/*=================================
+ * Color Tokens
+ *=================================*/
+:root {
+  /* Primary Colors */
+  --aiq-primary-bg: #1A0938;
+  --aiq-secondary-bg: #2A1958;
+  --aiq-primary-text: #E0D6FF;
+  --aiq-accent: #9C4DFF;
+
+  /* Gradient Colors */
+  --aiq-gradient-start: #635BFF;
+  --aiq-gradient-mid: #7F5AF0;
+  --aiq-gradient-end: #8E6BFF;
+  
+  /* CTA Colors */
+  --aiq-cta-gradient-start: #9C4DFF;
+  --aiq-cta-gradient-end: #5E72E4;
+  --aiq-cta-hover-shadow: rgba(94, 114, 228, 0.4);
+
+  /* Badge Colors */
+  --aiq-badge-bg: rgba(126, 87, 194, 0.2);
+  --aiq-badge-border: #9C4DFF;
+  
+  /* Pro Tier Colors */
+  --aiq-pro-badge: #FFD700;
+  --aiq-pro-text: #1A0938;
+  
+  /* Semantic Colors */
+  --aiq-success: #4CAF50;
+  --aiq-warning: #FFC107;
+  --aiq-error: #F44336;
+  --aiq-info: #2196F3;
+}
+
+/*=================================
+ * Typography
+ *=================================*/
+:root {
+  /* Font Family */
+  --aiq-font-primary: 'Inter', sans-serif;
+  
+  /* Font Sizes */
+  --aiq-h1-size: 4.5rem;
+  --aiq-h2-size: 2.5rem;
+  --aiq-h3-size: 1.5rem;
+  --aiq-body-size: 1rem;
+  --aiq-small-size: 0.875rem;
+  
+  /* Font Weights */
+  --aiq-font-regular: 400;
+  --aiq-font-medium: 500;
+  --aiq-font-semibold: 600;
+  --aiq-font-bold: 700;
+  --aiq-font-extrabold: 800;
+  
+  /* Line Heights */
+  --aiq-line-height-heading: 1.2;
+  --aiq-line-height-body: 1.6;
+  
+  /* Mobile Typography */
+  --aiq-h1-size-mobile: 2.5rem;
+  --aiq-h2-size-mobile: 1.8rem;
+  --aiq-h3-size-mobile: 1.25rem;
+}
+
+/*=================================
+ * Component Tokens
+ *=================================*/
+:root {
+  /* Card Design */
+  --aiq-card-radius: 15px;
+  --aiq-card-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --aiq-card-border: 1px solid rgba(156, 77, 255, 0.3);
+  --aiq-card-padding: 1.5rem;
+  
+  /* Button Design */
+  --aiq-button-height: 48px;
+  --aiq-button-padding: 0.9rem 1.6rem;
+  --aiq-button-radius: 8px;
+  
+  /* Animation Timing */
+  --aiq-transition-fast: 0.2s;
+  --aiq-transition-medium: 0.3s;
+  --aiq-transition-slow: 0.5s;
+}
+
+/*=================================
+ * Base Resets
+ *=================================*/
+body {
+  background-color: var(--aiq-primary-bg);
+  color: var(--aiq-primary-text);
+  font-family: var(--aiq-font-primary);
+  line-height: var(--aiq-line-height-body);
+  font-weight: var(--aiq-font-regular);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--aiq-primary-text);
+  font-family: var(--aiq-font-primary);
+  line-height: var(--aiq-line-height-heading);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: var(--aiq-h1-size);
+  font-weight: var(--aiq-font-extrabold);
+}
+
+h2 {
+  font-size: var(--aiq-h2-size);
+  font-weight: var(--aiq-font-bold);
+}
+
+h3 {
+  font-size: var(--aiq-h3-size);
+  font-weight: var(--aiq-font-semibold);
+}
+
+a {
+  color: var(--aiq-accent);
+  text-decoration: none;
+  transition: color var(--aiq-transition-fast);
+}
+
+a:hover {
+  color: var(--aiq-gradient-end);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--aiq-h1-size-mobile);
+  }
+  
+  h2 {
+    font-size: var(--aiq-h2-size-mobile);
+  }
+  
+  h3 {
+    font-size: var(--aiq-h3-size-mobile);
+  }
+}
