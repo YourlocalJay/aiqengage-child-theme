@@ -56,7 +56,7 @@ aiqengage-child/
 ├── build/                     # Compiled assets
 ├── config/                    # Environment configurations
 ├── elementor-templates/       # JSON templates
-├── includes/                  # Core functionality files
+├── inc/                       # Core functionality files
 ├── languages/                 # Translation files
 ├── src/                       # Source files
 │   ├── Widgets/               # PSR-4 widget classes
