@@ -1,1 +1,173 @@
-/* Styles for progress bar widget */
+/* assets/css/widgets/progress-bar.css */
+
+/**
+ * AIQEngage Progress Bar Widget
+ * Version: 1.1
+ * Features: Responsive, Accessible, Customizable
+ */
+
+:root {
+  --aiq-progress-color: #9C4DFF;
+  --aiq-progress-bg: rgba(156, 77, 255, 0.2);
+  --aiq-progress-text: #FFFFFF;
+  --aiq-progress-height: 4px;
+  --aiq-progress-transition: 0.3s ease;
+}
+
+/* Base Progress Bar Styles */
+.aiq-progress-bar {
+  --aiq-progress-width: 0%;
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+}
+
+.aiq-progress-bar__container {
+  width: 100%;
+  height: var(--aiq-progress-height);
+  background-color: var(--aiq-progress-bg);
+  overflow: hidden;
+  border-radius: calc(var(--aiq-progress-height) / 2);
+}
+
+.aiq-progress-bar__indicator {
+  width: var(--aiq-progress-width);
+  height: 100%;
+  background-color: var(--aiq-progress-color);
+  transition: width var(--aiq-progress-transition);
+  border-radius: inherit;
+}
+
+/* Percentage Display Styles */
+.aiq-progress-bar__percentage {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--aiq-progress-text);
+  background-color: var(--aiq-progress-color);
+  border-radius: 12px;
+  position: absolute;
+  transition: all var(--aiq-progress-transition);
+  z-index: 1;
+}
+
+/* Percentage Position Variations */
+.aiq-progress-bar__percentage--start {
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.aiq-progress-bar__percentage--end {
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.aiq-progress-bar__percentage--fixed {
+  position: fixed;
+  right: 20px;
+}
+
+/* Position Modifiers */
+.aiq-progress-bar--top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.aiq-progress-bar--top .aiq-progress-bar__percentage--start,
+.aiq-progress-bar--top .aiq-progress-bar__percentage--end {
+  top: calc(100% + 8px);
+}
+
+.aiq-progress-bar--top .aiq-progress-bar__percentage--fixed {
+  top: 20px;
+}
+
+.aiq-progress-bar--bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.aiq-progress-bar--bottom .aiq-progress-bar__percentage--start,
+.aiq-progress-bar--bottom .aiq-progress-bar__percentage--end {
+  bottom: calc(100% + 8px);
+}
+
+.aiq-progress-bar--bottom .aiq-progress-bar__percentage--fixed {
+  bottom: 20px;
+}
+
+.aiq-progress-bar--inline {
+  position: relative;
+}
+
+.aiq-progress-bar--inline .aiq-progress-bar__percentage--start,
+.aiq-progress-bar--inline .aiq-progress-bar__percentage--end {
+  top: -18px;
+}
+
+/* Interactive States */
+.aiq-progress-bar:hover .aiq-progress-bar__indicator {
+  opacity: 0.9;
+}
+
+/* Accessibility Features */
+.aiq-progress-bar:focus-visible {
+  outline: 2px solid var(--aiq-progress-color);
+  outline-offset: 2px;
+}
+
+.aiq-progress-bar[aria-valuenow="0"] .aiq-progress-bar__percentage,
+.aiq-progress-bar[aria-valuenow="100"] .aiq-progress-bar__percentage {
+  opacity: 0.8;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .aiq-progress-bar__indicator,
+  .aiq-progress-bar__percentage {
+    transition: none !important;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  :root {
+    --aiq-progress-height: 3px;
+  }
+  
+  .aiq-progress-bar__percentage {
+    min-width: 30px;
+    padding: 1px 6px;
+    font-size: 0.6875rem;
+  }
+  
+  .aiq-progress-bar--inline .aiq-progress-bar__percentage--start,
+  .aiq-progress-bar--inline .aiq-progress-bar__percentage--end {
+    top: -14px;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (forced-colors: active) {
+  .aiq-progress-bar__indicator {
+    forced-color-adjust: none;
+    background-color: Highlight !important;
+  }
+  
+  .aiq-progress-bar__percentage {
+    border: 1px solid ButtonText;
+    background-color: ButtonFace !important;
+    color: ButtonText !important;
+  }
+}
