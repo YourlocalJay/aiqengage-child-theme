@@ -51,7 +51,11 @@ function aiqengage_child_enqueue_styles() {
         'is_elementor' => \Elementor\Plugin::$instance->preview->is_preview_mode(),
         'i18n' => array(
             'invalid_email' => __('Please enter a valid email address.', 'aiqengage'),
-            'network_error' => __('Network error. Please try again.', 'aiqengage')
+            'network_error' => __('Network error. Please try again.', 'aiqengage'),
+            'show_prompt' => __('Show Prompt', 'aiqengage'),
+            'hide_prompt' => __('Hide Prompt', 'aiqengage'),
+            'see_results' => __('See Results', 'aiqengage'),
+            'hide_results' => __('Hide Results', 'aiqengage')
         )
     ));
 }
