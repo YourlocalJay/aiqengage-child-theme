@@ -5,7 +5,7 @@
  * @package     AIQEngage_Child
  * @version     1.0.1
  * @author      AIQEngage Team
- * @copyright   Copyright (c) 2023, AIQEngage
+ * @copyright   Copyright (c) 2025, AIQEngage
  * @license     GPL-3.0+
  * @link        https://aiqengage.com
  */
