@@ -52,15 +52,17 @@ wp theme status aiqengage-child
 
 ```
 aiqengage-child/
+├── assets/                    # Compiled assets
 ├── build/                     # Compiled assets
 ├── config/                    # Environment configurations
+├── elementor-templates/       # JSON templates
+├── includes/                  # Core functionality files
+├── languages/                 # Translation files
 ├── src/                       # Source files
 │   ├── Widgets/               # PSR-4 widget classes
 │   ├── Assets/                # SCSS/JS source
 │   └── Templates/             # Twig templates
 ├── vendor/                    # Composer dependencies
-├── assets/                    # Compiled assets
-├── elementor-templates/       # JSON templates
 └── tests/                     # PHPUnit tests
 ```
 
