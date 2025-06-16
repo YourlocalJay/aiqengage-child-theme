@@ -1,310 +1,309 @@
-/* 
- * AIQEngage Main Styles
- * This file contains all the main styles for widgets and components
+/**
+ * AIQEngage Main CSS
+ * 
+ * This file contains CSS variables and shared styles used across the AIQEngage theme.
+ * It follows the brand style guide colors, typography, and component design rules.
  */
 
 /**
- * Core Brand Colors
+ * CSS Variables
+ * These variables are used throughout the theme for consistent styling
  */
 :root {
-    --primary-bg: #1A0938;
-    --secondary-bg: #2A1958;
-    --primary-text: #E0D6FF;
-    --secondary-text: rgba(224, 214, 255, 0.8);
-    --accent: #9C4DFF;
-    --gradient-start: #635BFF;
-    --gradient-mid: #7F5AF0;
-    --gradient-end: #8E6BFF;
-    --success: #4CAF50;
-    --error: #F44336;
-    --warning: #FFC107;
-    --info: #2196F3;
-    --pro-badge: #FFD700;
+  /* Brand Colors */
+  --aiq-background: #1A0938;            /* Deep Purple */
+  --aiq-card-background: #2A1958;       /* Medium Purple */
+  --aiq-text: #E0D6FF;                  /* Lavender */
+  --aiq-accent: #9C4DFF;                /* Accent Purple */
+  --aiq-gradient-start: #635BFF;        /* Electric Indigo */
+  --aiq-gradient-mid: #7F5AF0;          /* Medium Slate Blue */
+  --aiq-gradient-end: #8E6BFF;          /* Medium Purple */
+  --aiq-cta-gradient-start: #9C4DFF;    /* Start of CTA gradient */
+  --aiq-cta-gradient-end: #5E72E4;      /* End of CTA gradient */
+  --aiq-pro-badge: #FFD700;             /* Gold */
+  --aiq-pro-badge-text: #1A0938;        /* Deep Purple */
+  
+  /* Opacity Colors */
+  --aiq-card-border: rgba(156, 77, 255, 0.3);
+  --aiq-hover-background: rgba(156, 77, 255, 0.1);
+  --aiq-badge-background: rgba(126, 87, 194, 0.2);
+  --aiq-shadow-color: rgba(0, 0, 0, 0.3);
+  --aiq-hover-shadow: rgba(94, 114, 228, 0.4);
+  
+  /* Typography */
+  --aiq-font-family: 'Inter', sans-serif;
+  --aiq-h1-size: 4.5rem;
+  --aiq-h2-size: 2.5rem;
+  --aiq-h3-size: 1.5rem;
+  --aiq-body-size: 1rem;
+  --aiq-small-size: 0.875rem;
+  
+  /* Font Weights */
+  --aiq-weight-regular: 400;
+  --aiq-weight-medium: 500;
+  --aiq-weight-semibold: 600;
+  --aiq-weight-bold: 700;
+  --aiq-weight-extrabold: 800;
+  
+  /* Line Heights */
+  --aiq-line-height-heading: 1.2;
+  --aiq-line-height-body: 1.6;
+  
+  /* Spacing */
+  --aiq-spacing-xs: 0.5rem;
+  --aiq-spacing-sm: 1rem;
+  --aiq-spacing-md: 1.5rem;
+  --aiq-spacing-lg: 2rem;
+  --aiq-spacing-xl: 3rem;
+  
+  /* Border Radius */
+  --aiq-border-radius-sm: 8px;
+  --aiq-border-radius-md: 15px;
+  
+  /* Shadows */
+  --aiq-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --aiq-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.4);
+  
+  /* Transitions */
+  --aiq-transition-fast: 0.2s ease;
+  --aiq-transition-medium: 0.3s ease;
 }
 
 /**
- * Value Proposition Widget
+ * Base Typography Styles
  */
-.value-proposition {
-    position: relative;
-    padding: 2rem 0;
+body {
+  font-family: var(--aiq-font-family);
+  font-size: var(--aiq-body-size);
+  font-weight: var(--aiq-weight-regular);
+  line-height: var(--aiq-line-height-body);
+  color: var(--aiq-text);
+  background-color: var(--aiq-background);
 }
 
-.value-proposition.add-neural-bg::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../assets/images/neural-pattern.png');
-    opacity: 0.03;
-    z-index: 0;
+h1, .h1 {
+  font-size: var(--aiq-h1-size);
+  font-weight: var(--aiq-weight-extrabold);
+  line-height: 1.1;
+  margin-bottom: var(--aiq-spacing-md);
 }
 
-.value-proposition-grid {
-    display: grid;
-    position: relative;
-    z-index: 1;
+h2, .h2 {
+  font-size: var(--aiq-h2-size);
+  font-weight: var(--aiq-weight-bold);
+  line-height: 1.2;
+  margin-bottom: var(--aiq-spacing-md);
 }
 
-.feature-card {
-    background-color: var(--secondary-bg);
-    border: 1px solid rgba(156, 77, 255, 0.3);
-    border-radius: 15px;
-    padding: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+h3, .h3 {
+  font-size: var(--aiq-h3-size);
+  font-weight: var(--aiq-weight-semibold);
+  line-height: 1.3;
+  margin-bottom: var(--aiq-spacing-sm);
 }
 
-.feature-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+p {
+  margin-bottom: var(--aiq-spacing-md);
 }
 
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
-    border-radius: 15px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: -1;
+a {
+  color: var(--aiq-accent);
+  text-decoration: none;
+  transition: color var(--aiq-transition-fast);
 }
 
-.feature-card:hover::before {
-    opacity: 0.1;
-}
-
-.feature-card h3 {
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.feature-card p {
-    color: var(--primary-text);
-    margin-bottom: 1rem;
-}
-
-.feature-card .card-link {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.feature-card .card-link:hover {
-    text-decoration: underline;
-}
-
-.feature-card.animate {
-    animation-name: fadeInUp;
-    animation-fill-mode: both;
-}
-
-.feature-card.elementor-invisible {
-    opacity: 0;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+a:hover {
+  color: var(--aiq-gradient-end);
 }
 
 /**
- * Prompt Card Widget
+ * Common Utility Classes
  */
-.prompt-card {
-    position: relative;
-    padding: 1.5rem;
-    border-radius: 12px;
-    background-color: var(--secondary-bg);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(156, 77, 255, 0.3);
+.aiq-text-gradient {
+  background: linear-gradient(90deg, var(--aiq-gradient-start) 0%, var(--aiq-gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.prompt-card .pro-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--pro-badge);
-    color: var(--primary-bg);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
+.aiq-brand-gradient {
+  background: linear-gradient(90deg, var(--aiq-gradient-start) 0%, var(--aiq-gradient-mid) 50%, var(--aiq-gradient-end) 100%);
 }
 
-.prompt-card .copy-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
+.aiq-cta-gradient {
+  background: linear-gradient(90deg, var(--aiq-cta-gradient-start) 0%, var(--aiq-cta-gradient-end) 100%);
 }
 
-.prompt-card .copy-button.copied::after {
-    content: "Copied!";
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: #333;
-    color: white;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-size: 0.7rem;
-    white-space: nowrap;
-}
-
-.prompt-card .category-badge {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-    background: rgba(126, 87, 194, 0.2);
-    color: var(--primary-text);
-}
-
-.prompt-card h3 {
-    color: var(--primary-text);
-    margin: 0.5rem 0;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.prompt-card p {
-    color: var(--secondary-text);
-    margin-bottom: 1rem;
-}
-
-.prompt-card .prompt-content {
-    font-family: monospace;
-    white-space: pre-wrap;
-    padding: 1rem;
-    border-radius: 8px;
-    margin: 1rem 0;
-    background-color: var(--primary-bg);
-    color: var(--primary-text);
-    max-height: 200px;
-    overflow-y: auto;
-    transition: max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
-    border: 1px solid rgba(156, 77, 255, 0.2);
-}
-
-.prompt-card .prompt-content.collapsed {
-    max-height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    overflow: hidden;
-    border: none;
-}
-
-.prompt-card .toggle-button,
-.prompt-card .results-toggle {
-    background: rgba(156, 77, 255, 0.2);
-    border: none;
-    color: var(--accent);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.prompt-card .toggle-button:hover,
-.prompt-card .results-toggle:hover {
-    background: rgba(156, 77, 255, 0.4);
-}
-
-.prompt-card .results-preview {
-    background: rgba(156, 77, 255, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-    transition: all 0.3s ease;
-}
-
-.prompt-card .results-preview.hidden {
-    display: none;
+.aiq-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /**
- * Metric Badge Widget
+ * Responsive Typography
  */
-.metric-badge {
-    text-align: center;
-    padding: 1.5rem;
-    border-radius: 15px;
-    background-color: var(--secondary-bg);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(156, 77, 255, 0.3);
+@media (max-width: 768px) {
+  :root {
+    --aiq-h1-size: 2.5rem;
+    --aiq-h2-size: 1.8rem;
+    --aiq-h3-size: 1.25rem;
+  }
 }
 
-.metric-value {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-    color: var(--primary-text);
+/**
+ * Base Component Styles
+ * These are shared styles that can be used by specific widget CSS files
+ */
+
+/* Button Base Styles */
+.aiq-button {
+  display: inline-block;
+  min-height: 48px;
+  padding: 0.9rem 1.6rem;
+  border-radius: var(--aiq-border-radius-sm);
+  font-weight: var(--aiq-weight-semibold);
+  text-align: center;
+  cursor: pointer;
+  transition: transform var(--aiq-transition-medium), box-shadow var(--aiq-transition-medium);
 }
 
-.metric-value .value-symbol {
-    font-size: 1.5rem;
-    opacity: 0.8;
+.aiq-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--aiq-hover-shadow);
 }
 
-.metric-label {
-    font-size: 1rem;
-    opacity: 0.8;
-    margin-bottom: 0.5rem;
-    color: var(--secondary-text);
+.aiq-button:active {
+  transform: translateY(1px);
 }
 
-.trend-indicator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    gap: 0.3rem;
+.aiq-button--primary {
+  background: linear-gradient(90deg, var(--aiq-cta-gradient-start) 0%, var(--aiq-cta-gradient-end) 100%);
+  color: #FFFFFF;
 }
 
-.trend-indicator.up {
-    color: var(--success);
+.aiq-button--secondary {
+  background: transparent;
+  border: 1px solid var(--aiq-accent);
+  color: var(--aiq-text);
 }
 
-.trend-indicator.down {
-    color: var(--error);
+.aiq-button--secondary:hover {
+  background: var(--aiq-hover-background);
 }
 
-/* Responsive adjustments */
-@media (max-width: 767px) {
-    .value-proposition-grid {
-        grid-template-columns: 1fr !important;
-    }
-    
-    .metric-badge {
-        padding: 1rem;
-    }
-    
-    .metric-value {
-        font-size: 2rem;
-    }
+/* Card Base Styles */
+.aiq-card {
+  background-color: var(--aiq-card-background);
+  border-radius: var(--aiq-border-radius-md);
+  border: 1px solid var(--aiq-card-border);
+  padding: var(--aiq-spacing-md);
+  box-shadow: var(--aiq-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--aiq-transition-medium), box-shadow var(--aiq-transition-medium);
+}
+
+.aiq-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--aiq-shadow-hover);
+}
+
+/* Badge Base Styles */
+.aiq-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--aiq-badge-background);
+  border: 1px solid var(--aiq-accent);
+  border-radius: 999px;
+  font-size: var(--aiq-small-size);
+  font-weight: var(--aiq-weight-medium);
+  color: var(--aiq-text);
+}
+
+.aiq-badge--pro {
+  background-color: var(--aiq-pro-badge);
+  color: var(--aiq-pro-badge-text);
+  border: none;
+}
+
+/* Form Element Base Styles */
+.aiq-input {
+  height: 48px;
+  border-radius: var(--aiq-border-radius-sm);
+  border: 1px solid var(--aiq-card-border);
+  background-color: rgba(26, 9, 56, 0.6);
+  padding: 0 var(--aiq-spacing-sm);
+  color: var(--aiq-text);
+  width: 100%;
+  transition: border-color var(--aiq-transition-fast), box-shadow var(--aiq-transition-fast);
+}
+
+.aiq-input:focus {
+  border-color: var(--aiq-accent);
+  box-shadow: 0 0 0 3px rgba(156, 77, 255, 0.3);
+  outline: none;
+}
+
+.aiq-input::placeholder {
+  color: rgba(224, 214, 255, 0.4);
+}
+
+/* Table Base Styles */
+.aiq-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.aiq-table th {
+  background: var(--aiq-badge-background);
+  padding: var(--aiq-spacing-sm);
+  text-align: left;
+  font-weight: var(--aiq-weight-semibold);
+}
+
+.aiq-table td {
+  padding: var(--aiq-spacing-sm);
+  border: 1px solid var(--aiq-card-border);
+}
+
+.aiq-table tr:hover {
+  background: var(--aiq-hover-background);
+}
+
+/* Neural Pattern Background */
+.aiq-neural-pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%239C4DFF' stroke-width='0.5'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='50' cy='10' r='2'/%3E%3Ccircle cx='10' cy='50' r='2'/%3E%3Ccircle cx='50' cy='50' r='2'/%3E%3Cline x1='30' y1='30' x2='10' y2='10'/%3E%3Cline x1='30' y1='30' x2='50' y2='10'/%3E%3Cline x1='30' y1='30' x2='10' y2='50'/%3E%3Cline x1='30' y1='30' x2='50' y2='50'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  z-index: -1;
+}
+
+/* Accessibility Focus Styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--aiq-accent);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion Settings */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
