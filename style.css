@@ -5,7 +5,7 @@ Description: Child theme for AIQEngage with modular Elementor widgets and templa
 Author: Jason Slaughter
 Author URI: https://aiqengage.com
 Template: hello-elementor
-Version: 1.0.0
+Version: 1.0.1
 Text Domain: aiqengage-child
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -103,6 +103,23 @@ a:hover {
   :root {
     --aiq-spacing-unit: 0.75rem;
   }
+  
+  /* Increase touch targets */
+  .cta-button, .nav-link, .prompt-copy {
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+  
+  /* Improve readability on small screens */
+  body {
+    font-size: 16px; /* Ensure no text is smaller than 16px */
+  }
+  
+  /* Adjust card layouts for mobile */
+  .feature-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
 }
 
 /* =WordPress Core Alignment
@@ -117,4 +134,31 @@ a:hover {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* =Accessibility Improvements
+-------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.focus-visible:focus {
+  outline: 3px solid #9C4DFF !important;
+  outline-offset: 2px !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
