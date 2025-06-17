@@ -1,7 +1,7 @@
 <?php
 /**
- * Prompt Card Widget for Elementor
- *
+ * AIQ Prompt Card Widget
+ * 
  * @package AIQEngage
  * @since 1.0.0
  */
@@ -9,57 +9,63 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * AIQ_Prompt_Card_Widget class.
+ * Prompt Card Widget for Elementor
  */
 class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
 
     /**
-     * Get widget name.
-     *
-     * @return string
+     * Widget base constructor
+     */
+    public function __construct( $data = [], $args = null ) {
+        parent::__construct( $data, $args );
+        
+        // Register widget styles
+        add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_styles' ] );
+        
+        // Register widget scripts
+        add_action( 'elementor/frontend/after_register_scripts', [ $this, 'enqueue_scripts' ] );
+        
+        // Editor scripts
+        add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'enqueue_editor_scripts' ] );
+    }
+
+    /**
+     * Get widget name
      */
     public function get_name() {
         return 'aiq_prompt_card';
     }
 
     /**
-     * Get widget title.
-     *
-     * @return string
+     * Get widget title
      */
     public function get_title() {
         return esc_html__( 'Prompt Card', 'aiqengage' );
     }
 
     /**
-     * Get widget icon.
-     *
-     * @return string
+     * Get widget icon
      */
     public function get_icon() {
         return 'eicon-document-file';
     }
 
     /**
-     * Get widget categories.
-     *
-     * @return array
+     * Get widget categories
      */
     public function get_categories() {
         return [ 'aiqengage' ];
     }
 
     /**
-     * Get widget keywords.
-     *
-     * @return array
+     * Get widget keywords
      */
     public function get_keywords() {
-        return [ 'prompt', 'card', 'ai', 'template', 'aiq', 'engage' ];
+        return [ 'prompt', 'card', 'ai', 'template', 'copy', 'sample' ];
     }
 
     /**
-     * Register widget controls.
+     * Register widget controls
      */
     protected function register_controls() {
         $this->register_content_controls();
@@ -67,7 +73,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
     }
 
     /**
-     * Register content controls.
+     * Register content controls
      */
     protected function register_content_controls() {
         $this->start_controls_section(
@@ -81,7 +87,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'prompt_title',
             [
-                'label'       => esc_html__( 'Title', 'aiqengage' ),
+                'label'       => esc_html__( 'Prompt Title', 'aiqengage' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
                 'default'     => esc_html__( 'Reddit Engagement Prompt', 'aiqengage' ),
                 'placeholder' => esc_html__( 'Enter prompt title', 'aiqengage' ),
@@ -99,15 +105,18 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'reddit',
                 'options' => $this->get_category_options(),
+                'dynamic' => [
+                    'active' => true,
+                ],
             ]
         );
 
         $this->add_control(
             'custom_category',
             [
-                'label'       => esc_html__( 'Custom Category', 'aiqengage' ),
+                'label'       => esc_html__( 'Custom Category Name', 'aiqengage' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'Enter custom category', 'aiqengage' ),
+                'placeholder' => esc_html__( 'Enter custom category name', 'aiqengage' ),
                 'condition'   => [
                     'category' => 'custom',
                 ],
@@ -135,11 +144,10 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
             'prompt_body',
             [
                 'label'       => esc_html__( 'Prompt Content', 'aiqengage' ),
-                'type'        => \Elementor\Controls_Manager::CODE,
+                'type'        => \Elementor\Controls_Manager::TEXTAREA,
                 'default'     => $this->get_default_prompt_content(),
                 'placeholder' => esc_html__( 'Enter prompt content', 'aiqengage' ),
-                'language'    => 'text',
-                'rows'        => 15,
+                'rows'        => 10,
                 'dynamic'     => [
                     'active' => true,
                 ],
@@ -158,6 +166,18 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'variables_heading',
+            [
+                'label'     => esc_html__( 'Variables', 'aiqengage' ),
+                'type'      => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+                'condition' => [
+                    'show_variables' => 'yes',
+                ],
+            ]
+        );
+
         $repeater = new \Elementor\Repeater();
 
         $repeater->add_control(
@@ -166,60 +186,40 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
                 'label'       => esc_html__( 'Variable Name', 'aiqengage' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
                 'default'     => '[VARIABLE]',
-                'placeholder' => esc_html__( 'e.g. [SUBREDDIT]', 'aiqengage' ),
+                'placeholder' => esc_html__( 'Enter variable name with brackets []', 'aiqengage' ),
                 'label_block' => true,
-                'dynamic'     => [
-                    'active' => true,
-                ],
             ]
         );
 
         $repeater->add_control(
             'variable_description',
             [
-                'label'       => esc_html__( 'Description', 'aiqengage' ),
+                'label'       => esc_html__( 'Variable Description', 'aiqengage' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
                 'default'     => esc_html__( 'Replace with your specific value', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter description', 'aiqengage' ),
+                'placeholder' => esc_html__( 'Enter variable description', 'aiqengage' ),
                 'label_block' => true,
-                'dynamic'     => [
-                    'active' => true,
-                ],
             ]
         );
 
         $repeater->add_control(
             'example_value',
             [
-                'label'       => esc_html__( 'Example', 'aiqengage' ),
+                'label'       => esc_html__( 'Example Value', 'aiqengage' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
                 'default'     => esc_html__( 'Example: productivity', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter example', 'aiqengage' ),
+                'placeholder' => esc_html__( 'Enter example value', 'aiqengage' ),
                 'label_block' => true,
-                'dynamic'     => [
-                    'active' => true,
-                ],
             ]
         );
 
         $this->add_control(
             'variables',
             [
-                'label'       => esc_html__( 'Variables', 'aiqengage' ),
+                'label'       => esc_html__( 'Variables List', 'aiqengage' ),
                 'type'        => \Elementor\Controls_Manager::REPEATER,
                 'fields'      => $repeater->get_controls(),
-                'default'     => [
-                    [
-                        'variable_name'        => '[SUBREDDIT]',
-                        'variable_description' => esc_html__( 'The subreddit you want to target', 'aiqengage' ),
-                        'example_value'        => esc_html__( 'Example: r/productivity', 'aiqengage' ),
-                    ],
-                    [
-                        'variable_name'        => '[TOPIC]',
-                        'variable_description' => esc_html__( 'The specific topic for your comments', 'aiqengage' ),
-                        'example_value'        => esc_html__( 'Example: time management', 'aiqengage' ),
-                    ],
-                ],
+                'default'     => $this->get_default_variables(),
                 'title_field' => '{{{ variable_name }}}',
                 'condition'   => [
                     'show_variables' => 'yes',
@@ -230,6 +230,332 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'usage_tips',
             [
+                'label'       => esc_html__( 'Usage Tips', 'aiqengage' ),
+                'type'        => \Elementor\Controls_Manager::WYSIWYG,
+                'default'     => $this->get_default_usage_tips(),
+                'placeholder' => esc_html__( 'Enter usage tips', 'aiqengage' ),
+                'condition'   => [
+                    'show_variables' => 'yes',
+                ],
+                'dynamic'     => [
+                    'active' => true,
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+    }
+
+    /**
+     * Register style controls
+     */
+    protected function register_style_controls() {
+        $this->start_controls_section(
+            'section_style',
+            [
+                'label' => esc_html__( 'Style', 'aiqengage' ),
+                'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'accent_color',
+            [
+                'label'     => esc_html__( 'Accent Color', 'aiqengage' ),
+                'type'      => \Elementor\Controls_Manager::COLOR,
+                'default'   => '#9C4DFF',
+                'selectors' => [
+                    '{{WRAPPER}} .aiq-prompt-card__category' => 'border-color: {{VALUE}}; color: {{VALUE}};',
+                    '{{WRAPPER}} .aiq-prompt-card__copy-btn' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .aiq-prompt-card__toggle'   => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .aiq-prompt-card__title'    => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'card_icon',
+            [
+                'label'   => esc_html__( 'Card Icon', 'aiqengage' ),
+                'type'    => \Elementor\Controls_Manager::ICONS,
+                'default' => [
+                    'value'   => 'fas fa-comment-dots',
+                    'library' => 'fa-solid',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'is_pro',
+            [
+                'label'        => esc_html__( 'Pro/Locked Badge', 'aiqengage' ),
+                'type'         => \Elementor\Controls_Manager::SWITCHER,
+                'label_on'     => esc_html__( 'Show', 'aiqengage' ),
+                'label_off'    => esc_html__( 'Hide', 'aiqengage' ),
+                'return_value' => 'yes',
+                'default'      => 'no',
+            ]
+        );
+
+        $this->add_control(
+            'expanded_by_default',
+            [
+                'label'        => esc_html__( 'Expanded by Default', 'aiqengage' ),
+                'type'         => \Elementor\Controls_Manager::SWITCHER,
+                'label_on'     => esc_html__( 'Yes', 'aiqengage' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage' ),
+                'return_value' => 'yes',
+                'default'      => 'no',
+            ]
+        );
+
+        $this->add_control(
+            'card_background',
+            [
+                'label'     => esc_html__( 'Card Background', 'aiqengage' ),
+                'type'      => \Elementor\Controls_Manager::COLOR,
+                'default'   => '#2A1958',
+                'selectors' => [
+                    '{{WRAPPER}} .aiq-prompt-card' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'text_color',
+            [
+                'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+                'type'      => \Elementor\Controls_Manager::COLOR,
+                'default'   => '#E0D6FF',
+                'selectors' => [
+                    '{{WRAPPER}} .aiq-prompt-card' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'card_border',
+                'selector' => '{{WRAPPER}} .aiq-prompt-card',
+                'fields_options' => [
+                    'border' => [
+                        'default' => 'solid',
+                    ],
+                    'width' => [
+                        'default' => [
+                            'top' => '1',
+                            'right' => '1',
+                            'bottom' => '1',
+                            'left' => '1',
+                            'isLinked' => true,
+                        ],
+                    ],
+                    'color' => [
+                        'default' => 'rgba(156, 77, 255, 0.3)',
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'card_shadow',
+                'selector' => '{{WRAPPER}} .aiq-prompt-card',
+                'fields_options' => [
+                    'box_shadow_type' => [
+                        'default' => 'yes',
+                    ],
+                    'box_shadow' => [
+                        'default' => [
+                            'horizontal' => 0,
+                            'vertical' => 5,
+                            'blur' => 15,
+                            'spread' => 0,
+                            'color' => 'rgba(0,0,0,0.3)',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+    }
+
+    /**
+     * Get default category options
+     */
+    protected function get_category_options() {
+        return [
+            'reddit'    => esc_html__( 'Reddit', 'aiqengage' ),
+            'email'     => esc_html__( 'Email', 'aiqengage' ),
+            'landing'   => esc_html__( 'Landing Page', 'aiqengage' ),
+            'youtube'   => esc_html__( 'YouTube', 'aiqengage' ),
+            'product'   => esc_html__( 'Product Review', 'aiqengage' ),
+            'social'    => esc_html__( 'Social Media', 'aiqengage' ),
+            'seo'       => esc_html__( 'SEO', 'aiqengage' ),
+            'marketing' => esc_html__( 'Marketing', 'aiqengage' ),
+            'custom'    => esc_html__( 'Custom', 'aiqengage' ),
+        ];
+    }
+
+    /**
+     * Get default prompt content
+     */
+    protected function get_default_prompt_content() {
+        return 'Create 5 authentic Reddit comments for r/[SUBREDDIT] that:
+- Address common [TOPIC] problems with personal experience
+- Include specific details that show deep knowledge
+- End with actionable advice (no links)
+- Sound like a helpful community member, not a marketer
+- Range from 75-150 words each
+- Use casual language with occasional typos for authenticity';
+    }
+
+    /**
+     * Get default variables
+     */
+    protected function get_default_variables() {
+        return [
+            [
+                'variable_name'        => '[SUBREDDIT]',
+                'variable_description' => 'The subreddit you want to target',
+                'example_value'        => 'Example: r/productivity',
+            ],
+            [
+                'variable_name'        => '[TOPIC]',
+                'variable_description' => 'The specific topic for your comments',
+                'example_value'        => 'Example: time management',
+            ],
+        ];
+    }
+
+    /**
+     * Get default usage tips
+     */
+    protected function get_default_usage_tips() {
+        return '<ul>
+            <li>Replace [SUBREDDIT] with your target subreddit</li>
+            <li>Focus on providing genuine value first</li>
+            <li>Use these as templates, not exact copies</li>
+        </ul>';
+    }
+
+    /**
+     * Enqueue widget styles
+     */
+    public function enqueue_styles() {
+        wp_enqueue_style(
+            'aiq-prompt-card',
+            plugins_url( 'assets/css/aiq-prompt-card.css', __FILE__ ),
+            [],
+            filemtime( plugin_dir_path( __FILE__ ) . 'assets/css/aiq-prompt-card.css' )
+        );
+    }
+
+    /**
+     * Enqueue widget scripts
+     */
+    public function enqueue_scripts() {
+        wp_enqueue_script(
+            'aiq-prompt-card',
+            plugins_url( 'assets/js/aiq-prompt-card.js', __FILE__ ),
+            [ 'jquery', 'elementor-frontend' ],
+            filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/aiq-prompt-card.js' ),
+            true
+        );
+    }
+
+    /**
+     * Enqueue editor scripts
+     */
+    public function enqueue_editor_scripts() {
+        wp_enqueue_script(
+            'aiq-prompt-card-editor',
+            plugins_url( 'assets/js/aiq-prompt-card-editor.js', __FILE__ ),
+            [ 'jquery', 'elementor-editor' ],
+            filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/aiq-prompt-card-editor.js' ),
+            true
+        );
+    }
+
+    /**
+     * Render widget output
+     */
+    protected function render() {
+        $settings = $this->get_settings_for_display();
+        
+        // Prepare attributes
+        $this->add_render_attribute( 'wrapper', [
+            'class' => [
+                'aiq-prompt-card',
+                'aiq-prompt-card--' . $this->get_id(),
+            ],
+            'id' => 'aiq-prompt-card-' . $this->get_id(),
+            'data-widget-id' => $this->get_id(),
+        ]);
+        
+        // Add pro class if needed
+        if ( 'yes' === $settings['is_pro'] ) {
+            $this->add_render_attribute( 'wrapper', 'class', 'aiq-prompt-card--pro' );
+        }
+        
+        // Add expanded class if needed
+        $expanded = 'yes' === $settings['expanded_by_default'];
+        if ( $expanded ) {
+            $this->add_render_attribute( 'wrapper', 'class', 'aiq-prompt-card--expanded' );
+        }
+        
+        // Get category display name
+        $category_display = $this->get_category_display_name( $settings );
+        
+        // Localize script data
+        $this->localize_script_data();
+        
+        // Render the widget
+        include plugin_dir_path( __FILE__ ) . 'templates/prompt-card.php';
+    }
+
+    /**
+     * Get category display name
+     */
+    protected function get_category_display_name( $settings ) {
+        if ( 'custom' === $settings['category'] && ! empty( $settings['custom_category'] ) ) {
+            return esc_html( $settings['custom_category'] );
+        }
+        
+        $categories = $this->get_category_options();
+        return isset( $categories[ $settings['category'] ] ) 
+            ? $categories[ $settings['category'] ] 
+            : esc_html__( 'General', 'aiqengage' );
+    }
+
+    /**
+     * Localize script data
+     */
+    protected function localize_script_data() {
+        wp_localize_script(
+            'aiq-prompt-card',
+            'aiqPromptCardConfig',
+            [
+                'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+                'nonce'   => wp_create_nonce( 'aiq_prompt_card_nonce' ),
+                'i18n'    => [
+                    'copied' => esc_html__( 'Copied to clipboard!', 'aiqengage' ),
+                    'error'  => esc_html__( 'Failed to copy. Please try again.', 'aiqengage' ),
+                ],
+            ]
+        );
+    }
+
+    /**
+     * Content template for editor
+     */
+    protected function content_template() {
+        include plugin_dir_path( __FILE__ ) . 'templates/prompt-card-editor.php';
+    }
+}
                 'label'       => esc_html__( 'Usage Tips', 'aiqengage' ),
                 'type'        => \Elementor\Controls_Manager::WYSIWYG,
                 'default'     => '<ul>
