@@ -287,7 +287,7 @@ function aiqengage_missing_widgets_notice() {
     if (current_user_can('administrator')) {
         ?>
         <div class="notice notice-error">
-            <p><?php _e('AIQEngage Child Theme: Required directory "widgets/" does not exist. Some features may not work properly.', 'aiqengage'); ?></p>
+            <p><?php _e('AIQEngage Child Theme: Required directory "widgets/" does not exist. Some features may not work properly.', 'aiqengage-child'); ?></p>
         </div>
         <?php
     }
