@@ -2,15 +2,15 @@
 
 ![AIQEngage Theme Preview](assets/images/theme-preview.jpg)
 
-A production-ready Elementor child theme optimized for AI SaaS and automation businesses, featuring 18+ specialized widgets and enterprise-grade templates.
+A production-ready Elementor child theme optimized for AI SaaS and automation businesses, featuring 23 specialized widgets and enterprise-grade templates.
 
 ## 🌟 Key Features
 
-- **15+ Custom Elementor Widgets** designed for conversion optimization
+- **23 Custom Elementor Widgets** designed for conversion optimization
 - **Atomic CSS Architecture** with design token system
-- **WP-CLI Integration** for developer workflows
-- **Template Library** with 25+ prebuilt sections
-- **Performance-Optimized** (95+ PSI scores out of the box)
+- **Template Library** with prebuilt sections
+- **Performance-Optimized** with accessibility compliance
+- **Modular Asset System** for efficient loading
 
 ## 🛠 System Requirements
 
@@ -18,7 +18,7 @@ A production-ready Elementor child theme optimized for AI SaaS and automation bu
 | Component | Minimum Version | Recommended |
 |-----------|-----------------|-------------|
 | WordPress | 5.8 | 6.2+ |
-| PHP | 7.4 | 8.1 |
+| PHP | 7.4 | 8.1+ |
 | Elementor Pro | 3.5 | 3.12+ |
 | Hello Elementor | 2.4 | 2.8+ |
 
@@ -26,175 +26,224 @@ A production-ready Elementor child theme optimized for AI SaaS and automation bu
 - **Caching**: Redis Object Cache + OPcache
 - **CDN**: Cloudflare Enterprise
 - **Image Optimization**: WebP with AVIF fallback
-- **CI/CD**: GitHub Actions with deployment workflows
+- **Performance**: 95+ PageSpeed Insights scores
 
-## 🚀 Installation
+## 🚀 Quick Start
 
-### Option 1: WP-CLI (Recommended)
-```bash
-wp theme install https://github.com/aiqengage/child-theme/releases/latest/download/aiqengage-child.zip --activate
-wp elementor library sync
-```
-
-### Option 2: WordPress Admin
-1. Download latest release
-2. Navigate to Appearance → Themes → Add New
-3. Upload ZIP file
-4. Activate theme
+### Installation
+1. Download the latest release
+2. Upload to WordPress via Appearance → Themes → Add New
+3. Activate the theme
+4. Ensure Elementor Pro is active and updated
 
 ### Verification
-```bash
-wp theme status aiqengage-child
-# Expected output: Theme is active
-```
+Check that all widgets are available in Elementor by:
+1. Edit any page with Elementor
+2. Look for "AIQEngage Widgets" category in the widget panel
+3. Verify 23 widgets are available
+
+## 🧩 Available Widgets
+
+The theme includes 23 production-ready Elementor widgets:
+
+### Core Widgets
+- **404 Template** - Custom error page layouts
+- **Archive Loop** - Dynamic content loops
+- **Blueprint Flow** - Process visualization diagrams
+- **Chat Widget** - Interactive chat interfaces
+- **Comparison Matrix** - Feature comparison tables
+- **CTA Banner** - Call-to-action sections
+- **FAQ Accordion** - Expandable question sections
+- **Feature Section** - Product feature layouts
+- **Metric Badge** - Animated statistics displays
+- **Pricing Table** - Subscription plan comparisons
+- **Progress Bar** - Visual progress indicators
+- **Prompt Card** - AI prompt display and copy functionality
+- **Quiz Widget** - Interactive assessment tools
+- **Resource Card** - Content resource displays
+- **ROI Calculator** - Interactive calculators
+- **Testimonial Card** - Customer review displays
+- **Tool Card** - Software tool showcases
+- **Value Timeline** - Process and milestone timelines
+
+### Engagement Widgets
+- **Evergreen Countdown** - Dynamic countdown timers
+- **Exit Intent** - Exit-intent popup triggers
+
+All widgets follow AIQEngage brand guidelines and include:
+- Responsive design patterns
+- Accessibility compliance (WCAG 2.2 AA)
+- Performance optimization
+- Brand-consistent styling
 
 ## 🏗 Project Structure
 
 ```
 aiqengage-child/
 ├── assets/                    # Compiled assets
-├── build/                     # Compiled assets
-├── config/                    # Environment configurations
-├── elementor-templates/       # JSON templates
-├── inc/                       # Core functionality files
-├── languages/                 # Translation files
-├── src/                       # Source files
-│   ├── Widgets/               # PSR-4 widget classes
-│   ├── Assets/                # SCSS/JS source
-│   └── Templates/             # Twig templates
-├── vendor/                    # Composer dependencies
-└── tests/                     # PHPUnit tests
+│   ├── css/                   # Stylesheets with design tokens
+│   ├── js/                    # JavaScript functionality
+│   └── images/                # Theme images
+├── elementor-templates/       # Template library
+├── inc/                       # Core functionality
+│   ├── css_loader.php         # Asset management
+│   ├── widget-assets.php      # Widget asset registration
+│   ├── widget-loader.php      # Automatic widget registration
+│   └── template_registrations.php # Template library
+├── templates/                 # Custom page templates
+├── widgets/                   # 23 Elementor widgets
+├── functions.php              # Theme initialization
+└── style.css                  # Main stylesheet with tokens
 ```
 
-## 🧩 Widget Development
-
-### Creating New Widgets
-
-1. Generate scaffold:
-```bash
-wp aiqengage scaffold-widget Conversion_Funnel \
---category=marketing \
---icon=eicon-funnel
-```
-
-2. File structure created:
-```
-src/Widgets/ConversionFunnel.php
-assets/css/widgets/conversion-funnel.scss
-assets/js/widgets/conversion-funnel.js
-elementor-templates/conversion-funnel.json
-```
-
-### Registration Example
-```php
-namespace AIQEngage\Widgets;
-
-class ConversionFunnel extends \Elementor\Widget_Base {
-    public function get_name() {
-        return 'aiq-conversion-funnel';
-    }
-    // ... widget implementation
-}
-```
-
-## 🎨 Theming System
+## 🎨 Design System
 
 ### Design Tokens
+The theme uses CSS custom properties for consistent styling:
+
 ```scss
-// assets/css/core/_tokens.scss
 :root {
   // Color system
-  --aiq-primary: oklch(65% 0.26 275);
-  --aiq-surface-1: oklch(95% 0.01 275);
+  --aiq-primary-bg: #1A0938;
+  --aiq-secondary-bg: #2A1958;
+  --aiq-primary-text: #E0D6FF;
+  --aiq-accent: #9C4DFF;
   
   // Typography
-  --aiq-font-display: 'Inter', system-ui;
+  --aiq-font-primary: 'Inter', sans-serif;
+  --aiq-h1-size: 4.5rem;
+  --aiq-h2-size: 2.5rem;
+  --aiq-h3-size: 1.5rem;
   
   // Spacing
-  --aiq-space-unit: clamp(1rem, 0.5rem + 1vw, 1.5rem);
+  --aiq-card-padding: 1.5rem;
+  --aiq-card-radius: 15px;
 }
 ```
 
 ### Responsive Breakpoints
 | Name | Min-Width | Container Width |
-|------|-----------|-----------------|
-| SM | 576px | 540px |
-| MD | 768px | 720px |
-| LG | 992px | 960px |
-| XL | 1200px | 1140px |
+|------|-----------|-----------------| 
+| Mobile | 320px | 100% |
+| Tablet | 768px | 720px |
+| Desktop | 1025px | 1200px |
 
-## ⚡ Performance Optimization
+## ⚡ Performance Features
 
 ### Critical CSS Strategy
-```php
-add_action('wp_head', function() {
-    echo '<style>';
-    include get_theme_file_path('assets/css/critical/home.css');
-    echo '</style>';
-}, 5);
-```
+- Design tokens loaded with highest priority
+- Accessibility CSS loaded immediately after
+- Component styles loaded on demand
 
-### Lazy Loading Pattern
-```javascript
-// assets/js/utils/lazyLoader.js
-export class LazyLoader {
-  static observe(selector, callback, options = {}) {
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(callback, options).observe(selector);
-    } else {
-      // Fallback for older browsers
-      callback([{isIntersecting: true}]);
+### Asset Optimization
+- Modular CSS loading per component
+- JavaScript lazy loading for widgets
+- WebP image support with fallbacks
+- Inter font preloading with `font-display: swap`
+
+### Accessibility Compliance
+- WCAG 2.2 AA compliance
+- Screen reader support
+- Keyboard navigation
+- Reduced motion support
+- High contrast mode compatibility
+
+## 🔧 Widget Development
+
+### Auto-Registration System
+Widgets are automatically registered when placed in `/widgets/` directory with proper naming:
+
+**Supported Patterns:**
+- `class-{name}-widget.php` (preferred)
+- `aiq-{name}-widget.php` (legacy support)
+
+**Class Naming Convention:**
+```php
+// File: class-my-custom-widget.php
+class AIQ_My_Custom_Widget extends \Elementor\Widget_Base {
+    public function get_name() {
+        return 'aiq-my-custom';
     }
-  }
+    // ... widget implementation
 }
 ```
 
-## 🛠 Maintenance Commands
+### Asset Loading
+Each widget can have associated assets:
+- CSS: `/assets/css/widgets/{widget-name}.css`
+- JS: `/assets/js/widgets/{widget-name}.js`
 
-### Cache Management
-```bash
-# Flush all caches
-wp aiqengage flush-cache --all
+## 🛠 Maintenance
 
-# Regenerate CSS
-wp elementor css-regenerate
+### Updating Widgets
+1. Modify widget files in `/widgets/` directory
+2. Clear Elementor cache: Elementor → System Info → Regenerate CSS
+3. Test widget functionality in Elementor editor
+
+### Version Management
+- Theme version is defined in `style.css` header
+- PHP version constant in `functions.php`
+- Ensure both versions match for consistency
+
+### Debugging
+Enable widget debugging with:
+```php
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
 ```
 
-### Template Operations
-```bash
-# Export all templates
-wp elementor library export --all --format=zip
+Widget registration details will appear in debug logs.
 
-# Import from staging
-wp aiqengage import-templates /path/to/templates.zip
-```
+## 📋 Upgrade Instructions
+
+### From Version 1.0.2 to 1.0.3
+1. Backup your site
+2. Upload the new theme files
+3. Regenerate Elementor CSS
+4. Verify all widgets are functioning
+
+### Theme Activation Checklist
+- [ ] WordPress 5.8+ is installed
+- [ ] Elementor Pro is active and updated
+- [ ] Hello Elementor parent theme is available
+- [ ] All 23 widgets appear in Elementor
+- [ ] Site performance remains optimized
+
+## 📄 Documentation
+
+### Additional Resources
+- **ACCESSIBILITY_SUMMARY.md** - Comprehensive accessibility compliance details
+- **WIDGET_REGISTRATION_FIX.md** - Technical widget system documentation
+- **Brand Style Guide** - Design system and component guidelines
+
+### Support Resources
+- Theme follows WordPress coding standards
+- PSR-4 autoloading for widget organization
+- Comprehensive error handling and logging
 
 ## 🐛 Troubleshooting
 
-| Symptom | Diagnosis | Solution |
-|---------|-----------|----------|
-| Widgets not loading | Missing Elementor Pro | `wp plugin activate elementor-pro` |
-| Styles broken | CSS compilation failed | `npm run build:css` |
-| Template errors | JSON validation failed | `wp aiqengage validate-templates` |
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| Widgets not appearing | Elementor Pro not active | Activate Elementor Pro |
+| Styles not loading | CSS import paths incorrect | Check asset file paths |
+| JavaScript errors | Missing dependencies | Verify jQuery is loaded |
+| Widget registration fails | File naming mismatch | Follow naming conventions |
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create feature branch (`feat/widget-name`)
-3. Submit PR with:
-   - PHPCS passing (`composer lint:php`)
-   - Visual regression tests
-   - Updated documentation
+When contributing to the theme:
 
-```bash
-# Setup development environment
-npm install
-composer install
-wp aiqengage setup-dev
-```
+1. Follow the established file structure
+2. Use the design token system for styling
+3. Ensure accessibility compliance
+4. Test across all breakpoints
+5. Maintain widget naming conventions
 
 ---
 
 📄 **License**: GPL-3.0  
 📧 **Support**: [support@aiqengage.com](mailto:support@aiqengage.com)  
-🐦 **Twitter**: [@AIQEngage](https://twitter.com/AIQEngage)
+🌐 **Website**: [AIQEngage.com](https://aiqengage.com)  
+**Version**: 1.0.3  
+**Last Updated**: June 2025
