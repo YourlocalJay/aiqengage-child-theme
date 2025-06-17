@@ -25,7 +25,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__('404 / AI Lost?', 'aiqengage');
+        return esc_html__('404 / AI Lost?', 'aiqengage-child');
     }
 
     /**
@@ -70,7 +70,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__('Content', 'aiqengage'),
+                'label' => esc_html__('Content', 'aiqengage-child'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -78,9 +78,9 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'headline',
             [
-                'label' => esc_html__('Headline', 'aiqengage'),
+                'label' => esc_html__('Headline', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__('Lost in the Neural Network?', 'aiqengage'),
+                'default' => esc_html__('Lost in the Neural Network?', 'aiqengage-child'),
                 'label_block' => true,
                 'dynamic' => [
                     'active' => true,
@@ -91,9 +91,9 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'subheading',
             [
-                'label' => esc_html__('Subheading', 'aiqengage'),
+                'label' => esc_html__('Subheading', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => esc_html__('The page you\'re looking for doesn\'t exist. Perhaps our AI can help you find what you need.', 'aiqengage'),
+                'default' => esc_html__('The page you\'re looking for doesn\'t exist. Perhaps our AI can help you find what you need.', 'aiqengage-child'),
                 'label_block' => true,
                 'dynamic' => [
                     'active' => true,
@@ -104,13 +104,13 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'mascot_type',
             [
-                'label' => esc_html__('Mascot Type', 'aiqengage'),
+                'label' => esc_html__('Mascot Type', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'static',
                 'options' => [
-                    'static' => esc_html__('Static Image', 'aiqengage'),
-                    'lottie' => esc_html__('Lottie Animation', 'aiqengage'),
-                    'svg' => esc_html__('SVG', 'aiqengage'),
+                    'static' => esc_html__('Static Image', 'aiqengage-child'),
+                    'lottie' => esc_html__('Lottie Animation', 'aiqengage-child'),
+                    'svg' => esc_html__('SVG', 'aiqengage-child'),
                 ],
             ]
         );
@@ -118,7 +118,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'mascot_image',
             [
-                'label' => esc_html__('Mascot Image', 'aiqengage'),
+                'label' => esc_html__('Mascot Image', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -135,10 +135,10 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'lottie_url',
             [
-                'label' => esc_html__('Lottie URL', 'aiqengage'),
+                'label' => esc_html__('Lottie URL', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::URL,
-                'placeholder' => esc_html__('https://example.com/animation.json', 'aiqengage'),
-                'description' => esc_html__('Enter the URL of your Lottie JSON file', 'aiqengage'),
+                'placeholder' => esc_html__('https://example.com/animation.json', 'aiqengage-child'),
+                'description' => esc_html__('Enter the URL of your Lottie JSON file', 'aiqengage-child'),
                 'condition' => [
                     'mascot_type' => 'lottie',
                 ],
@@ -151,7 +151,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'svg_code',
             [
-                'label' => esc_html__('SVG Code', 'aiqengage'),
+                'label' => esc_html__('SVG Code', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::CODE,
                 'language' => 'html',
                 'rows' => 10,
@@ -167,10 +167,10 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_search',
             [
-                'label' => esc_html__('Show Search Form', 'aiqengage'),
+                'label' => esc_html__('Show Search Form', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'aiqengage'),
-                'label_off' => esc_html__('No', 'aiqengage'),
+                'label_on' => esc_html__('Yes', 'aiqengage-child'),
+                'label_off' => esc_html__('No', 'aiqengage-child'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -179,9 +179,9 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'search_placeholder',
             [
-                'label' => esc_html__('Search Placeholder', 'aiqengage'),
+                'label' => esc_html__('Search Placeholder', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__('Search our knowledge base...', 'aiqengage'),
+                'default' => esc_html__('Search our knowledge base...', 'aiqengage-child'),
                 'condition' => [
                     'show_search' => 'yes',
                 ],
@@ -194,10 +194,10 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_cta',
             [
-                'label' => esc_html__('Show CTA Button', 'aiqengage'),
+                'label' => esc_html__('Show CTA Button', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'aiqengage'),
-                'label_off' => esc_html__('No', 'aiqengage'),
+                'label_on' => esc_html__('Yes', 'aiqengage-child'),
+                'label_off' => esc_html__('No', 'aiqengage-child'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -206,9 +206,9 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'cta_text',
             [
-                'label' => esc_html__('CTA Text', 'aiqengage'),
+                'label' => esc_html__('CTA Text', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__('Return to Home', 'aiqengage'),
+                'default' => esc_html__('Return to Home', 'aiqengage-child'),
                 'condition' => [
                     'show_cta' => 'yes',
                 ],
@@ -221,7 +221,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'cta_link',
             [
-                'label' => esc_html__('CTA Link', 'aiqengage'),
+                'label' => esc_html__('CTA Link', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::URL,
                 'placeholder' => esc_url(home_url()),
                 'default' => [
@@ -246,7 +246,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_layout',
             [
-                'label' => esc_html__('Layout', 'aiqengage'),
+                'label' => esc_html__('Layout', 'aiqengage-child'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -254,7 +254,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'content_max_width',
             [
-                'label' => esc_html__('Content Max Width', 'aiqengage'),
+                'label' => esc_html__('Content Max Width', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range' => [
@@ -276,7 +276,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'padding',
             [
-                'label' => esc_html__('Padding', 'aiqengage'),
+                'label' => esc_html__('Padding', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -298,7 +298,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_background',
             [
-                'label' => esc_html__('Background', 'aiqengage'),
+                'label' => esc_html__('Background', 'aiqengage-child'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -307,7 +307,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Background::get_type(),
             [
                 'name' => 'background',
-                'label' => esc_html__('Background', 'aiqengage'),
+                'label' => esc_html__('Background', 'aiqengage-child'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .aiq-404-template',
                 'fields_options' => [
@@ -333,10 +333,10 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_neural_pattern',
             [
-                'label' => esc_html__('Show Neural Pattern', 'aiqengage'),
+                'label' => esc_html__('Show Neural Pattern', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'aiqengage'),
-                'label_off' => esc_html__('No', 'aiqengage'),
+                'label_on' => esc_html__('Yes', 'aiqengage-child'),
+                'label_off' => esc_html__('No', 'aiqengage-child'),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'separator' => 'before',
@@ -346,7 +346,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'pattern_color',
             [
-                'label' => esc_html__('Pattern Color', 'aiqengage'),
+                'label' => esc_html__('Pattern Color', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
                 'selectors' => [
@@ -361,7 +361,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'pattern_opacity',
             [
-                'label' => esc_html__('Pattern Opacity', 'aiqengage'),
+                'label' => esc_html__('Pattern Opacity', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -387,7 +387,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_typography',
             [
-                'label' => esc_html__('Typography', 'aiqengage'),
+                'label' => esc_html__('Typography', 'aiqengage-child'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -395,7 +395,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'heading_style',
             [
-                'label' => esc_html__('Headline', 'aiqengage'),
+                'label' => esc_html__('Headline', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::HEADING,
             ]
         );
@@ -403,7 +403,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'headline_color',
             [
-                'label' => esc_html__('Color', 'aiqengage'),
+                'label' => esc_html__('Color', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#E0D6FF',
                 'selectors' => [
@@ -416,7 +416,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'headline_typography',
-                'label' => esc_html__('Typography', 'aiqengage'),
+                'label' => esc_html__('Typography', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-404-template__headline',
                 'fields_options' => [
                     'typography' => ['default' => 'yes'],
@@ -440,7 +440,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'headline_margin',
             [
-                'label' => esc_html__('Margin', 'aiqengage'),
+                'label' => esc_html__('Margin', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -457,7 +457,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'subheading_style',
             [
-                'label' => esc_html__('Subheading', 'aiqengage'),
+                'label' => esc_html__('Subheading', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -466,7 +466,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'subheading_color',
             [
-                'label' => esc_html__('Color', 'aiqengage'),
+                'label' => esc_html__('Color', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => 'rgba(224, 214, 255, 0.8)',
                 'selectors' => [
@@ -479,7 +479,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'subheading_typography',
-                'label' => esc_html__('Typography', 'aiqengage'),
+                'label' => esc_html__('Typography', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-404-template__subheading',
                 'fields_options' => [
                     'typography' => ['default' => 'yes'],
@@ -503,7 +503,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'subheading_margin',
             [
-                'label' => esc_html__('Margin', 'aiqengage'),
+                'label' => esc_html__('Margin', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -522,7 +522,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_search',
             [
-                'label' => esc_html__('Search Form', 'aiqengage'),
+                'label' => esc_html__('Search Form', 'aiqengage-child'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_search' => 'yes',
@@ -533,7 +533,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'search_width',
             [
-                'label' => esc_html__('Width', 'aiqengage'),
+                'label' => esc_html__('Width', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range' => [
@@ -555,7 +555,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'search_input_style',
             [
-                'label' => esc_html__('Input Field', 'aiqengage'),
+                'label' => esc_html__('Input Field', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::HEADING,
             ]
         );
@@ -563,7 +563,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'search_input_color',
             [
-                'label' => esc_html__('Text Color', 'aiqengage'),
+                'label' => esc_html__('Text Color', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#E0D6FF',
                 'selectors' => [
@@ -575,7 +575,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'search_input_bg',
             [
-                'label' => esc_html__('Background Color', 'aiqengage'),
+                'label' => esc_html__('Background Color', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => 'rgba(26, 9, 56, 0.6)',
                 'selectors' => [
@@ -587,7 +587,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'search_input_border',
             [
-                'label' => esc_html__('Border Color', 'aiqengage'),
+                'label' => esc_html__('Border Color', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => 'rgba(156, 77, 255, 0.3)',
                 'selectors' => [
@@ -599,7 +599,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'search_input_focus',
             [
-                'label' => esc_html__('Focus Border Color', 'aiqengage'),
+                'label' => esc_html__('Focus Border Color', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
                 'selectors' => [
@@ -611,7 +611,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'search_button_style',
             [
-                'label' => esc_html__('Search Button', 'aiqengage'),
+                'label' => esc_html__('Search Button', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -620,7 +620,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'search_button_color',
             [
-                'label' => esc_html__('Color', 'aiqengage'),
+                'label' => esc_html__('Color', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
                 'selectors' => [
@@ -632,7 +632,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'search_button_hover',
             [
-                'label' => esc_html__('Hover Color', 'aiqengage'),
+                'label' => esc_html__('Hover Color', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#E0D6FF',
                 'selectors' => [
@@ -644,7 +644,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'search_margin',
             [
-                'label' => esc_html__('Margin', 'aiqengage'),
+                'label' => esc_html__('Margin', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -663,7 +663,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_cta',
             [
-                'label' => esc_html__('CTA Button', 'aiqengage'),
+                'label' => esc_html__('CTA Button', 'aiqengage-child'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_cta' => 'yes',
@@ -674,7 +674,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'cta_color',
             [
-                'label' => esc_html__('Text Color', 'aiqengage'),
+                'label' => esc_html__('Text Color', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#FFFFFF',
                 'selectors' => [
@@ -687,7 +687,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'cta_typography',
-                'label' => esc_html__('Typography', 'aiqengage'),
+                'label' => esc_html__('Typography', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-404-template__cta',
                 'fields_options' => [
                     'typography' => ['default' => 'yes'],
@@ -706,7 +706,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Background::get_type(),
             [
                 'name' => 'cta_background',
-                'label' => esc_html__('Background', 'aiqengage'),
+                'label' => esc_html__('Background', 'aiqengage-child'),
                 'types' => ['classic', 'gradient'],
                 'selector' => '{{WRAPPER}} .aiq-404-template__cta',
                 'fields_options' => [
@@ -727,7 +727,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'cta_shadow',
-                'label' => esc_html__('Box Shadow', 'aiqengage'),
+                'label' => esc_html__('Box Shadow', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-404-template__cta',
                 'fields_options' => [
                     'box_shadow_type' => ['default' => 'yes'],
@@ -747,7 +747,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'cta_padding',
             [
-                'label' => esc_html__('Padding', 'aiqengage'),
+                'label' => esc_html__('Padding', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
@@ -767,7 +767,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'cta_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'aiqengage'),
+                'label' => esc_html__('Border Radius', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -784,7 +784,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'cta_hover_animation',
             [
-                'label' => esc_html__('Hover Animation', 'aiqengage'),
+                'label' => esc_html__('Hover Animation', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
                 'default' => 'float',
             ]
@@ -795,7 +795,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_mascot',
             [
-                'label' => esc_html__('Mascot', 'aiqengage'),
+                'label' => esc_html__('Mascot', 'aiqengage-child'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -803,7 +803,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'mascot_width',
             [
-                'label' => esc_html__('Width', 'aiqengage'),
+                'label' => esc_html__('Width', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range' => [
@@ -825,12 +825,12 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'mascot_animation',
             [
-                'label' => esc_html__('Animation', 'aiqengage'),
+                'label' => esc_html__('Animation', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
-                    '' => esc_html__('None', 'aiqengage'),
-                    'float' => esc_html__('Float', 'aiqengage'),
-                    'pulse' => esc_html__('Pulse', 'aiqengage'),
+                    '' => esc_html__('None', 'aiqengage-child'),
+                    'float' => esc_html__('Float', 'aiqengage-child'),
+                    'pulse' => esc_html__('Pulse', 'aiqengage-child'),
                 ],
                 'default' => 'float',
             ]
@@ -839,7 +839,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'mascot_animation_duration',
             [
-                'label' => esc_html__('Animation Duration', 'aiqengage'),
+                'label' => esc_html__('Animation Duration', 'aiqengage-child'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['s'],
                 'range' => [
@@ -863,7 +863,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'mascot_shadow',
-                'label' => esc_html__('Box Shadow', 'aiqengage'),
+                'label' => esc_html__('Box Shadow', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-404-template__mascot-image, {{WRAPPER}} .aiq-404-template__lottie, {{WRAPPER}} .aiq-404-template__svg',
                 'fields_options' => [
                     'box_shadow_type' => ['default' => 'yes'],
@@ -891,7 +891,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
 
         $this->add_render_attribute('wrapper', 'class', 'aiq-404-template');
         $this->add_render_attribute('wrapper', 'role', 'region');
-        $this->add_render_attribute('wrapper', 'aria-label', esc_attr__('Page Not Found', 'aiqengage'));
+        $this->add_render_attribute('wrapper', 'aria-label', esc_attr__('Page Not Found', 'aiqengage-child'));
 
         // CTA link attributes
         $cta_link = $settings['cta_link']['url'] ?? home_url();
@@ -928,8 +928,8 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
                     <?php if ('yes' === $settings['show_search']) : ?>
                         <div class="aiq-404-template__search">
                             <form role="search" method="get" class="aiq-404-template__search-form" action="<?php echo esc_url(home_url('/')); ?>">
-                                <input type="search" class="aiq-404-template__search-input" placeholder="<?php echo esc_attr($settings['search_placeholder']); ?>" value="<?php echo get_search_query(); ?>" name="s" aria-label="<?php esc_attr_e('Search', 'aiqengage'); ?>">
-                                <button type="submit" class="aiq-404-template__search-button" aria-label="<?php esc_attr_e('Search', 'aiqengage'); ?>">
+                                <input type="search" class="aiq-404-template__search-input" placeholder="<?php echo esc_attr($settings['search_placeholder']); ?>" value="<?php echo get_search_query(); ?>" name="s" aria-label="<?php esc_attr_e('Search', 'aiqengage-child'); ?>">
+                                <button type="submit" class="aiq-404-template__search-button" aria-label="<?php esc_attr_e('Search', 'aiqengage-child'); ?>">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -948,7 +948,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
 
                 <div class="aiq-404-template__mascot <?php echo esc_attr($mascot_animation_class); ?>">
                     <?php if ('static' === $settings['mascot_type'] && !empty($settings['mascot_image']['url'])) : ?>
-                        <img src="<?php echo esc_url($settings['mascot_image']['url']); ?>" alt="<?php esc_attr_e('AI Assistant', 'aiqengage'); ?>" class="aiq-404-template__mascot-image">
+                        <img src="<?php echo esc_url($settings['mascot_image']['url']); ?>" alt="<?php esc_attr_e('AI Assistant', 'aiqengage-child'); ?>" class="aiq-404-template__mascot-image">
                     <?php elseif ('lottie' === $settings['mascot_type'] && !empty($settings['lottie_url']['url'])) : ?>
                         <div class="aiq-404-template__lottie" data-lottie-url="<?php echo esc_url($settings['lottie_url']['url']); ?>" data-animation-duration="<?php echo esc_attr($settings['mascot_animation_duration']['size']); ?>"></div>
                     <?php elseif ('svg' === $settings['mascot_type'] && !empty($settings['svg_code'])) : ?>
@@ -1007,8 +1007,8 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
                     <# if ('yes' === settings.show_search) { #>
                         <div class="aiq-404-template__search">
                             <form role="search" method="get" class="aiq-404-template__search-form" action="<?php echo esc_url(home_url('/')); ?>">
-                                <input type="search" class="aiq-404-template__search-input" placeholder="{{ settings.search_placeholder }}" value="<?php echo get_search_query(); ?>" name="s" aria-label="<?php esc_attr_e('Search', 'aiqengage'); ?>">
-                                <button type="submit" class="aiq-404-template__search-button" aria-label="<?php esc_attr_e('Search', 'aiqengage'); ?>">
+                                <input type="search" class="aiq-404-template__search-input" placeholder="{{ settings.search_placeholder }}" value="<?php echo get_search_query(); ?>" name="s" aria-label="<?php esc_attr_e('Search', 'aiqengage-child'); ?>">
+                                <button type="submit" class="aiq-404-template__search-button" aria-label="<?php esc_attr_e('Search', 'aiqengage-child'); ?>">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1027,7 +1027,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
 
                 <div class="aiq-404-template__mascot {{ mascotAnimationClass }}">
                     <# if ('static' === settings.mascot_type && settings.mascot_image.url) { #>
-                        <img src="{{ settings.mascot_image.url }}" alt="<?php esc_attr_e('AI Assistant', 'aiqengage'); ?>" class="aiq-404-template__mascot-image">
+                        <img src="{{ settings.mascot_image.url }}" alt="<?php esc_attr_e('AI Assistant', 'aiqengage-child'); ?>" class="aiq-404-template__mascot-image">
                     <# } else if ('lottie' === settings.mascot_type && settings.lottie_url.url) { #>
                         <div class="aiq-404-template__lottie" data-lottie-url="{{ settings.lottie_url.url }}" data-animation-duration="{{ settings.mascot_animation_duration.size }}"></div>
                     <# } else if ('svg' === settings.mascot_type && settings.svg_code) { #>
