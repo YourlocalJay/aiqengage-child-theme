@@ -1,1 +1,284 @@
-/* Styles for CTA banner widget */
+/* assets/css/widgets/cta-banner.css */
+
+/* CTA Banner Base Styles */
+.aiq-cta-banner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(90deg, #2A1958, #1A0938);
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 100;
+}
+
+/* Sticky Banner Styles */
+.aiq-c/* assets/css/widgets/cta-banner.css */
+
+/* CTA Banner Base Styles */
+.aiq-cta-banner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(90deg, #2A1958, #1A0938);
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 100;
+}
+
+/* Sticky Banner Styles */
+.aiq-cta-banner--sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+}
+
+.aiq-cta-banner--sticky-top {
+    top: 0;
+    transform: translateY(-100%);
+}
+
+.aiq-cta-banner--sticky-top.aiq-cta-banner--visible {
+    transform: translateY(0);
+}
+
+.aiq-cta-banner--sticky-bottom {
+    bottom: 0;
+    transform: translateY(100%);
+}
+
+.aiq-cta-banner--sticky-bottom.aiq-cta-banner--visible {
+    transform: translateY(0);
+}
+
+/* Full Width Banner */
+.aiq-cta-banner--full-width {
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+/* Banner Content Styles */
+.aiq-cta-banner__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Typography Styles */
+.aiq-cta-banner__headline {
+    color: #E0D6FF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 0 0 15px 0;
+}
+
+.aiq-cta-banner__subheadline {
+    color: rgba(224, 214, 255, 0.8);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0 0 15px 0;
+}
+
+/* Buttons Container */
+.aiq-cta-banner__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.aiq-cta-banner__buttons--vertical {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Button Base Styles */
+.aiq-cta-banner__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.2;
+    border-radius: 8px;
+    text-decoration: none;
+    min-height: 48px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Primary Button */
+.aiq-cta-banner__button--primary {
+    background: linear-gradient(90deg, #9C4DFF 0%, #5E72E4 100%);
+    color: #FFFFFF;
+    border: none;
+}
+
+.aiq-cta-banner__button--primary:hover,
+.aiq-cta-banner__button--primary:focus {
+    background: linear-gradient(90deg, #8c45e5 0%, #5467cd 100%);
+    color: #FFFFFF;
+    box-shadow: 0 5px 15px rgba(94, 114, 228, 0.4);
+}
+
+/* Secondary Button */
+.aiq-cta-banner__button--secondary {
+    background-color: rgba(156, 77, 255, 0.2);
+    color: #E0D6FF;
+    border: 1px solid #9C4DFF;
+}
+
+.aiq-cta-banner__button--secondary:hover,
+.aiq-cta-banner__button--secondary:focus {
+    background-color: rgba(156, 77, 255, 0.3);
+    color: #E0D6FF;
+    border-color: #B673FF;
+}
+
+/* Button Hover Animations */
+.aiq-cta-banner__button--animate-float:hover {
+    transform: translateY(-2px);
+}
+
+.aiq-cta-banner__button--animate-pulse:hover {
+    animation: aiq-pulse 1.5s infinite;
+}
+
+.aiq-cta-banner__button--animate-transform:hover {
+    transform: scale(1.05);
+}
+
+@keyframes aiq-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Pro Badge */
+.aiq-cta-banner__pro-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: #FFD700;
+    color: #1A0938;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 12px;
+    margin-left: 10px;
+}
+
+.aiq-cta-banner__pro-badge-icon {
+    margin-right: 4px;
+}
+
+/* Close Button */
+.aiq-cta-banner__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.aiq-cta-banner__close:hover,
+.aiq-cta-banner__close:focus {
+    opacity: 1;
+    outline: none;
+}
+
+/* Accessibility Focus Styles */
+.aiq-cta-banner__button:focus,
+.aiq-cta-banner__close:focus {
+    outline: 2px solid #9C4DFF;
+    outline-offset: 2px;
+}
+
+/* Responsive Layout for Desktop */
+@media (min-width: 768px) {
+    .aiq-cta-banner {
+        padding: 20px 30px;
+    }
+    
+    .aiq-cta-banner[style*="flex-direction: row"] .aiq-cta-banner__content {
+        margin-bottom: 0;
+        margin-right: 20px;
+    }
+    
+    .aiq-cta-banner[style*="flex-direction: row"] .aiq-cta-banner__content,
+    .aiq-cta-banner[style*="flex-direction: row"] .aiq-cta-banner__buttons {
+        padding: 10px 0;
+    }
+}
+
+/* Responsive Layout for Mobile */
+@media (max-width: 767px) {
+    .aiq-cta-banner {
+        padding: 15px;
+    }
+    
+    .aiq-cta-banner__headline {
+        font-size: 16px;
+    }
+    
+    .aiq-cta-banner__subheadline {
+        font-size: 13px;
+    }
+    
+    .aiq-cta-banner__button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+    
+    .aiq-cta-banner__buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .aiq-cta-banner__button:not(:last-child) {
+        margin-right: 0 !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .aiq-cta-banner__pro-badge {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+/* Reverse button order for better mobile UX */
+@media (max-width: 767px) {
+    .aiq-cta-banner[style*="flex-direction: row"] {
+        flex-direction: column !important;
+    }
+    
+    .aiq-cta-banner[style*="flex-direction: row"] .aiq-cta-banner__content,
+    .aiq-cta-banner[style*="flex-direction: row"] .aiq-cta-banner__buttons {
+        width: 100% !important;
+    }
+}
