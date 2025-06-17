@@ -39,7 +39,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__('Blueprint Flow', 'aiqengage');
+        return esc_html__('Blueprint Flow', 'aiqengage-child');
     }
 
     /**
@@ -76,7 +76,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__('Blueprint Flow', 'aiqengage'),
+                'label' => esc_html__('Blueprint Flow', 'aiqengage-child'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -84,9 +84,9 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'flow_title',
             [
-                'label' => esc_html__('Flow Title', 'aiqengage'),
+                'label' => esc_html__('Flow Title', 'aiqengage-child'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Automation Blueprint', 'aiqengage'),
+                'default' => esc_html__('Automation Blueprint', 'aiqengage-child'),
                 'label_block' => true,
             ]
         );
@@ -94,9 +94,9 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'flow_description',
             [
-                'label' => esc_html__('Flow Description', 'aiqengage'),
+                'label' => esc_html__('Flow Description', 'aiqengage-child'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Complete process flow for your automation system.', 'aiqengage'),
+                'default' => esc_html__('Complete process flow for your automation system.', 'aiqengage-child'),
                 'label_block' => true,
             ]
         );
@@ -104,13 +104,13 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'flow_type',
             [
-                'label' => esc_html__('Flow Type', 'aiqengage'),
+                'label' => esc_html__('Flow Type', 'aiqengage-child'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'flowchart',
                 'options' => [
-                    'flowchart' => esc_html__('Flowchart', 'aiqengage'),
-                    'grid' => esc_html__('Grid', 'aiqengage'),
-                    'timeline' => esc_html__('Timeline', 'aiqengage'),
+                    'flowchart' => esc_html__('Flowchart', 'aiqengage-child'),
+                    'grid' => esc_html__('Grid', 'aiqengage-child'),
+                    'timeline' => esc_html__('Timeline', 'aiqengage-child'),
                 ],
             ]
         );
@@ -118,12 +118,12 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'flow_direction',
             [
-                'label' => esc_html__('Flow Direction', 'aiqengage'),
+                'label' => esc_html__('Flow Direction', 'aiqengage-child'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'horizontal',
                 'options' => [
-                    'horizontal' => esc_html__('Horizontal', 'aiqengage'),
-                    'vertical' => esc_html__('Vertical', 'aiqengage'),
+                    'horizontal' => esc_html__('Horizontal', 'aiqengage-child'),
+                    'vertical' => esc_html__('Vertical', 'aiqengage-child'),
                 ],
             ]
         );
@@ -131,25 +131,25 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'show_connectors',
             [
-                'label' => esc_html__('Show Connectors', 'aiqengage'),
+                'label' => esc_html__('Show Connectors', 'aiqengage-child'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-                'label_on' => esc_html__('Yes', 'aiqengage'),
-                'label_off' => esc_html__('No', 'aiqengage'),
+                'label_on' => esc_html__('Yes', 'aiqengage-child'),
+                'label_off' => esc_html__('No', 'aiqengage-child'),
             ]
         );
 
         $this->add_control(
             'connector_style',
             [
-                'label' => esc_html__('Connector Style', 'aiqengage'),
+                'label' => esc_html__('Connector Style', 'aiqengage-child'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'line',
                 'options' => [
-                    'line' => esc_html__('Line', 'aiqengage'),
-                    'arrow' => esc_html__('Arrow', 'aiqengage'),
-                    'dashed' => esc_html__('Dashed Line', 'aiqengage'),
-                    'dotted' => esc_html__('Dotted Line', 'aiqengage'),
+                    'line' => esc_html__('Line', 'aiqengage-child'),
+                    'arrow' => esc_html__('Arrow', 'aiqengage-child'),
+                    'dashed' => esc_html__('Dashed Line', 'aiqengage-child'),
+                    'dotted' => esc_html__('Dotted Line', 'aiqengage-child'),
                 ],
                 'condition' => [
                     'show_connectors' => 'yes',
@@ -162,9 +162,9 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $repeater->add_control(
             'node_title',
             [
-                'label' => esc_html__('Node Title', 'aiqengage'),
+                'label' => esc_html__('Node Title', 'aiqengage-child'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Process Step', 'aiqengage'),
+                'default' => esc_html__('Process Step', 'aiqengage-child'),
                 'label_block' => true,
             ]
         );
@@ -172,9 +172,9 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $repeater->add_control(
             'node_description',
             [
-                'label' => esc_html__('Node Description', 'aiqengage'),
+                'label' => esc_html__('Node Description', 'aiqengage-child'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Description of this step in the process.', 'aiqengage'),
+                'default' => esc_html__('Description of this step in the process.', 'aiqengage-child'),
                 'label_block' => true,
             ]
         );
@@ -182,19 +182,19 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $repeater->add_control(
             'node_icon_type',
             [
-                'label' => esc_html__('Icon Type', 'aiqengage'),
+                'label' => esc_html__('Icon Type', 'aiqengage-child'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'icon' => [
-                        'title' => esc_html__('Icon', 'aiqengage'),
+                        'title' => esc_html__('Icon', 'aiqengage-child'),
                         'icon' => 'eicon-star',
                     ],
                     'image' => [
-                        'title' => esc_html__('Image', 'aiqengage'),
+                        'title' => esc_html__('Image', 'aiqengage-child'),
                         'icon' => 'eicon-image',
                     ],
                     'none' => [
-                        'title' => esc_html__('None', 'aiqengage'),
+                        'title' => esc_html__('None', 'aiqengage-child'),
                         'icon' => 'eicon-ban',
                     ],
                 ],
@@ -205,7 +205,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $repeater->add_control(
             'node_icon',
             [
-                'label' => esc_html__('Icon', 'aiqengage'),
+                'label' => esc_html__('Icon', 'aiqengage-child'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'fas fa-star',
@@ -220,7 +220,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $repeater->add_control(
             'node_image',
             [
-                'label' => esc_html__('Image', 'aiqengage'),
+                'label' => esc_html__('Image', 'aiqengage-child'),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -234,7 +234,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $repeater->add_control(
             'node_accent_color',
             [
-                'label' => esc_html__('Accent Color', 'aiqengage'),
+                'label' => esc_html__('Accent Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
             ]
@@ -243,15 +243,15 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $repeater->add_control(
             'node_callout',
             [
-                'label' => esc_html__('Callout Badge', 'aiqengage'),
+                'label' => esc_html__('Callout Badge', 'aiqengage-child'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
                 'options' => [
-                    'none' => esc_html__('None', 'aiqengage'),
-                    'pro-tip' => esc_html__('Pro Tip', 'aiqengage'),
-                    'automated' => esc_html__('Automated Step', 'aiqengage'),
-                    'manual' => esc_html__('Manual Step', 'aiqengage'),
-                    'critical' => esc_html__('Critical Step', 'aiqengage'),
+                    'none' => esc_html__('None', 'aiqengage-child'),
+                    'pro-tip' => esc_html__('Pro Tip', 'aiqengage-child'),
+                    'automated' => esc_html__('Automated Step', 'aiqengage-child'),
+                    'manual' => esc_html__('Manual Step', 'aiqengage-child'),
+                    'critical' => esc_html__('Critical Step', 'aiqengage-child'),
                 ],
             ]
         );
@@ -259,24 +259,24 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $repeater->add_control(
             'node_metric',
             [
-                'label' => esc_html__('Metric Label', 'aiqengage'),
+                'label' => esc_html__('Metric Label', 'aiqengage-child'),
                 'type' => Controls_Manager::TEXT,
                 'default' => '',
                 'label_block' => true,
-                'placeholder' => esc_html__('e.g. 27% conversion rate', 'aiqengage'),
+                'placeholder' => esc_html__('e.g. 27% conversion rate', 'aiqengage-child'),
             ]
         );
 
         $this->add_control(
             'nodes',
             [
-                'label' => esc_html__('Flow Nodes', 'aiqengage'),
+                'label' => esc_html__('Flow Nodes', 'aiqengage-child'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'node_title' => esc_html__('Step 1: Research', 'aiqengage'),
-                        'node_description' => esc_html__('Identify target audience and pain points.', 'aiqengage'),
+                        'node_title' => esc_html__('Step 1: Research', 'aiqengage-child'),
+                        'node_description' => esc_html__('Identify target audience and pain points.', 'aiqengage-child'),
                         'node_icon_type' => 'icon',
                         'node_icon' => [
                             'value' => 'fas fa-search',
@@ -286,8 +286,8 @@ class Blueprint_Flow_Widget extends Widget_Base {
                         'node_callout' => 'none',
                     ],
                     [
-                        'node_title' => esc_html__('Step 2: Content Creation', 'aiqengage'),
-                        'node_description' => esc_html__('Generate AI-powered content at scale.', 'aiqengage'),
+                        'node_title' => esc_html__('Step 2: Content Creation', 'aiqengage-child'),
+                        'node_description' => esc_html__('Generate AI-powered content at scale.', 'aiqengage-child'),
                         'node_icon_type' => 'icon',
                         'node_icon' => [
                             'value' => 'fas fa-edit',
@@ -298,8 +298,8 @@ class Blueprint_Flow_Widget extends Widget_Base {
                         'node_metric' => '5X faster creation',
                     ],
                     [
-                        'node_title' => esc_html__('Step 3: Distribution', 'aiqengage'),
-                        'node_description' => esc_html__('Automated publishing to multiple platforms.', 'aiqengage'),
+                        'node_title' => esc_html__('Step 3: Distribution', 'aiqengage-child'),
+                        'node_description' => esc_html__('Automated publishing to multiple platforms.', 'aiqengage-child'),
                         'node_icon_type' => 'icon',
                         'node_icon' => [
                             'value' => 'fas fa-share-alt',
@@ -320,7 +320,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->start_controls_section(
             'section_roi_calculator',
             [
-                'label' => esc_html__('ROI Calculator', 'aiqengage'),
+                'label' => esc_html__('ROI Calculator', 'aiqengage-child'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -328,20 +328,20 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'show_roi_calculator',
             [
-                'label' => esc_html__('Show ROI Calculator', 'aiqengage'),
+                'label' => esc_html__('Show ROI Calculator', 'aiqengage-child'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
-                'label_on' => esc_html__('Yes', 'aiqengage'),
-                'label_off' => esc_html__('No', 'aiqengage'),
+                'label_on' => esc_html__('Yes', 'aiqengage-child'),
+                'label_off' => esc_html__('No', 'aiqengage-child'),
             ]
         );
 
         $this->add_control(
             'roi_title',
             [
-                'label' => esc_html__('Calculator Title', 'aiqengage'),
+                'label' => esc_html__('Calculator Title', 'aiqengage-child'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Calculate Your ROI', 'aiqengage'),
+                'default' => esc_html__('Calculate Your ROI', 'aiqengage-child'),
                 'condition' => [
                     'show_roi_calculator' => 'yes',
                 ],
@@ -351,9 +351,9 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'roi_description',
             [
-                'label' => esc_html__('Calculator Description', 'aiqengage'),
+                'label' => esc_html__('Calculator Description', 'aiqengage-child'),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Adjust the values below to see potential returns.', 'aiqengage'),
+                'default' => esc_html__('Adjust the values below to see potential returns.', 'aiqengage-child'),
                 'condition' => [
                     'show_roi_calculator' => 'yes',
                 ],
@@ -365,22 +365,22 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $roi_fields_repeater->add_control(
             'field_label',
             [
-                'label' => esc_html__('Field Label', 'aiqengage'),
+                'label' => esc_html__('Field Label', 'aiqengage-child'),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__('Input Value', 'aiqengage'),
+                'default' => esc_html__('Input Value', 'aiqengage-child'),
             ]
         );
 
         $roi_fields_repeater->add_control(
             'field_type',
             [
-                'label' => esc_html__('Field Type', 'aiqengage'),
+                'label' => esc_html__('Field Type', 'aiqengage-child'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'number',
                 'options' => [
-                    'number' => esc_html__('Number', 'aiqengage'),
-                    'slider' => esc_html__('Slider', 'aiqengage'),
-                    'percentage' => esc_html__('Percentage', 'aiqengage'),
+                    'number' => esc_html__('Number', 'aiqengage-child'),
+                    'slider' => esc_html__('Slider', 'aiqengage-child'),
+                    'percentage' => esc_html__('Percentage', 'aiqengage-child'),
                 ],
             ]
         );
@@ -388,7 +388,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $roi_fields_repeater->add_control(
             'field_default',
             [
-                'label' => esc_html__('Default Value', 'aiqengage'),
+                'label' => esc_html__('Default Value', 'aiqengage-child'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 10,
             ]
@@ -397,7 +397,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $roi_fields_repeater->add_control(
             'field_min',
             [
-                'label' => esc_html__('Minimum Value', 'aiqengage'),
+                'label' => esc_html__('Minimum Value', 'aiqengage-child'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 0,
                 'condition' => [
@@ -409,7 +409,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $roi_fields_repeater->add_control(
             'field_max',
             [
-                'label' => esc_html__('Maximum Value', 'aiqengage'),
+                'label' => esc_html__('Maximum Value', 'aiqengage-child'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 100,
                 'condition' => [
@@ -421,7 +421,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $roi_fields_repeater->add_control(
             'field_step',
             [
-                'label' => esc_html__('Step', 'aiqengage'),
+                'label' => esc_html__('Step', 'aiqengage-child'),
                 'type' => Controls_Manager::NUMBER,
                 'default' => 1,
                 'min' => 0.1,
@@ -435,17 +435,17 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'roi_fields',
             [
-                'label' => esc_html__('Calculator Fields', 'aiqengage'),
+                'label' => esc_html__('Calculator Fields', 'aiqengage-child'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $roi_fields_repeater->get_controls(),
                 'default' => [
                     [
-                        'field_label' => esc_html__('Monthly Traffic', 'aiqengage'),
+                        'field_label' => esc_html__('Monthly Traffic', 'aiqengage-child'),
                         'field_type' => 'number',
                         'field_default' => 1000,
                     ],
                     [
-                        'field_label' => esc_html__('Conversion Rate (%)', 'aiqengage'),
+                        'field_label' => esc_html__('Conversion Rate (%)', 'aiqengage-child'),
                         'field_type' => 'percentage',
                         'field_default' => 3,
                         'field_min' => 0,
@@ -453,7 +453,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
                         'field_step' => 0.1,
                     ],
                     [
-                        'field_label' => esc_html__('Average Order Value ($)', 'aiqengage'),
+                        'field_label' => esc_html__('Average Order Value ($)', 'aiqengage-child'),
                         'field_type' => 'number',
                         'field_default' => 50,
                     ],
@@ -468,12 +468,12 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'roi_formula',
             [
-                'label' => esc_html__('ROI Formula', 'aiqengage'),
+                'label' => esc_html__('ROI Formula', 'aiqengage-child'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'traffic_conversion_value',
                 'options' => [
-                    'traffic_conversion_value' => esc_html__('Traffic × Conversion × Value', 'aiqengage'),
-                    'custom' => esc_html__('Custom Formula', 'aiqengage'),
+                    'traffic_conversion_value' => esc_html__('Traffic × Conversion × Value', 'aiqengage-child'),
+                    'custom' => esc_html__('Custom Formula', 'aiqengage-child'),
                 ],
                 'condition' => [
                     'show_roi_calculator' => 'yes',
@@ -484,7 +484,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'roi_custom_formula',
             [
-                'label' => esc_html__('Custom Formula JavaScript', 'aiqengage'),
+                'label' => esc_html__('Custom Formula JavaScript', 'aiqengage-child'),
                 'type' => Controls_Manager::CODE,
                 'language' => 'javascript',
                 'rows' => 10,
@@ -502,7 +502,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->start_controls_section(
             'section_style_general',
             [
-                'label' => esc_html__('General', 'aiqengage'),
+                'label' => esc_html__('General', 'aiqengage-child'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -510,7 +510,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'flow_accent_color',
             [
-                'label' => esc_html__('Flow Accent Color', 'aiqengage'),
+                'label' => esc_html__('Flow Accent Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
                 'selectors' => [
@@ -522,7 +522,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'flow_background_color',
             [
-                'label' => esc_html__('Flow Background Color', 'aiqengage'),
+                'label' => esc_html__('Flow Background Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#2A1958',
                 'selectors' => [
@@ -534,7 +534,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'flow_text_color',
             [
-                'label' => esc_html__('Flow Text Color', 'aiqengage'),
+                'label' => esc_html__('Flow Text Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#E0D6FF',
                 'selectors' => [
@@ -547,7 +547,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'flow_typography',
-                'label' => esc_html__('Typography', 'aiqengage'),
+                'label' => esc_html__('Typography', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-blueprint-flow',
             ]
         );
@@ -555,7 +555,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_responsive_control(
             'flow_padding',
             [
-                'label' => esc_html__('Padding', 'aiqengage'),
+                'label' => esc_html__('Padding', 'aiqengage-child'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -576,7 +576,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'flow_border',
-                'label' => esc_html__('Border', 'aiqengage'),
+                'label' => esc_html__('Border', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-blueprint-flow',
             ]
         );
@@ -584,7 +584,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'flow_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'aiqengage'),
+                'label' => esc_html__('Border Radius', 'aiqengage-child'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'default' => [
@@ -605,7 +605,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'flow_box_shadow',
-                'label' => esc_html__('Box Shadow', 'aiqengage'),
+                'label' => esc_html__('Box Shadow', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-blueprint-flow',
             ]
         );
@@ -616,7 +616,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->start_controls_section(
             'section_style_nodes',
             [
-                'label' => esc_html__('Nodes', 'aiqengage'),
+                'label' => esc_html__('Nodes', 'aiqengage-child'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -624,7 +624,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'node_background_color',
             [
-                'label' => esc_html__('Node Background Color', 'aiqengage'),
+                'label' => esc_html__('Node Background Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#1A0938',
                 'selectors' => [
@@ -636,7 +636,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_responsive_control(
             'node_padding',
             [
-                'label' => esc_html__('Node Padding', 'aiqengage'),
+                'label' => esc_html__('Node Padding', 'aiqengage-child'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -657,7 +657,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'node_border',
-                'label' => esc_html__('Node Border', 'aiqengage'),
+                'label' => esc_html__('Node Border', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-blueprint-flow__node',
             ]
         );
@@ -665,7 +665,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'node_border_radius',
             [
-                'label' => esc_html__('Node Border Radius', 'aiqengage'),
+                'label' => esc_html__('Node Border Radius', 'aiqengage-child'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'default' => [
@@ -686,7 +686,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'node_box_shadow',
-                'label' => esc_html__('Node Box Shadow', 'aiqengage'),
+                'label' => esc_html__('Node Box Shadow', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-blueprint-flow__node',
             ]
         );
@@ -694,7 +694,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'node_spacing',
             [
-                'label' => esc_html__('Node Spacing', 'aiqengage'),
+                'label' => esc_html__('Node Spacing', 'aiqengage-child'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -718,7 +718,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'heading_node_title',
             [
-                'label' => esc_html__('Node Title', 'aiqengage'),
+                'label' => esc_html__('Node Title', 'aiqengage-child'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -728,7 +728,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'node_title_typography',
-                'label' => esc_html__('Typography', 'aiqengage'),
+                'label' => esc_html__('Typography', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-blueprint-flow__node-title',
             ]
         );
@@ -736,7 +736,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'node_title_color',
             [
-                'label' => esc_html__('Title Color', 'aiqengage'),
+                'label' => esc_html__('Title Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#E0D6FF',
                 'selectors' => [
@@ -748,7 +748,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'heading_node_description',
             [
-                'label' => esc_html__('Node Description', 'aiqengage'),
+                'label' => esc_html__('Node Description', 'aiqengage-child'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -758,7 +758,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'node_description_typography',
-                'label' => esc_html__('Typography', 'aiqengage'),
+                'label' => esc_html__('Typography', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-blueprint-flow__node-description',
             ]
         );
@@ -766,7 +766,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'node_description_color',
             [
-                'label' => esc_html__('Description Color', 'aiqengage'),
+                'label' => esc_html__('Description Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(224, 214, 255, 0.8)',
                 'selectors' => [
@@ -781,7 +781,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->start_controls_section(
             'section_style_connectors',
             [
-                'label' => esc_html__('Connectors', 'aiqengage'),
+                'label' => esc_html__('Connectors', 'aiqengage-child'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_connectors' => 'yes',
@@ -792,7 +792,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'connector_color',
             [
-                'label' => esc_html__('Connector Color', 'aiqengage'),
+                'label' => esc_html__('Connector Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#7F5AF0',
                 'selectors' => [
@@ -804,7 +804,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'connector_width',
             [
-                'label' => esc_html__('Connector Width', 'aiqengage'),
+                'label' => esc_html__('Connector Width', 'aiqengage-child'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -827,7 +827,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'connector_style_options',
             [
-                'label' => esc_html__('Connector Styles', 'aiqengage'),
+                'label' => esc_html__('Connector Styles', 'aiqengage-child'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -836,7 +836,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'connector_dash_length',
             [
-                'label' => esc_html__('Dash Length', 'aiqengage'),
+                'label' => esc_html__('Dash Length', 'aiqengage-child'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -863,7 +863,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'connector_gap_length',
             [
-                'label' => esc_html__('Gap Length', 'aiqengage'),
+                'label' => esc_html__('Gap Length', 'aiqengage-child'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -890,7 +890,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'arrow_size',
             [
-                'label' => esc_html__('Arrow Size', 'aiqengage'),
+                'label' => esc_html__('Arrow Size', 'aiqengage-child'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -919,7 +919,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->start_controls_section(
             'section_style_callouts',
             [
-                'label' => esc_html__('Callouts', 'aiqengage'),
+                'label' => esc_html__('Callouts', 'aiqengage-child'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -927,7 +927,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'callout_background_color',
             [
-                'label' => esc_html__('Callout Background Color', 'aiqengage'),
+                'label' => esc_html__('Callout Background Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(126, 87, 194, 0.2)',
                 'selectors' => [
@@ -939,7 +939,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'callout_text_color',
             [
-                'label' => esc_html__('Callout Text Color', 'aiqengage'),
+                'label' => esc_html__('Callout Text Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#E0D6FF',
                 'selectors' => [
@@ -951,7 +951,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'callout_border_color',
             [
-                'label' => esc_html__('Callout Border Color', 'aiqengage'),
+                'label' => esc_html__('Callout Border Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
                 'selectors' => [
@@ -964,7 +964,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'callout_typography',
-                'label' => esc_html__('Typography', 'aiqengage'),
+                'label' => esc_html__('Typography', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-blueprint-flow__node-callout',
             ]
         );
@@ -972,7 +972,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'callout_border_radius',
             [
-                'label' => esc_html__('Callout Border Radius', 'aiqengage'),
+                'label' => esc_html__('Callout Border Radius', 'aiqengage-child'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range' => [
@@ -999,7 +999,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_responsive_control(
             'callout_padding',
             [
-                'label' => esc_html__('Callout Padding', 'aiqengage'),
+                'label' => esc_html__('Callout Padding', 'aiqengage-child'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -1022,7 +1022,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->start_controls_section(
             'section_style_roi_calculator',
             [
-                'label' => esc_html__('ROI Calculator', 'aiqengage'),
+                'label' => esc_html__('ROI Calculator', 'aiqengage-child'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_roi_calculator' => 'yes',
@@ -1033,7 +1033,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'calculator_background_color',
             [
-                'label' => esc_html__('Calculator Background Color', 'aiqengage'),
+                'label' => esc_html__('Calculator Background Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#1A0938',
                 'selectors' => [
@@ -1046,7 +1046,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'calculator_border',
-                'label' => esc_html__('Calculator Border', 'aiqengage'),
+                'label' => esc_html__('Calculator Border', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-blueprint-flow__roi-calculator',
             ]
         );
@@ -1054,7 +1054,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'calculator_border_radius',
             [
-                'label' => esc_html__('Calculator Border Radius', 'aiqengage'),
+                'label' => esc_html__('Calculator Border Radius', 'aiqengage-child'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'default' => [
@@ -1074,7 +1074,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_responsive_control(
             'calculator_padding',
             [
-                'label' => esc_html__('Calculator Padding', 'aiqengage'),
+                'label' => esc_html__('Calculator Padding', 'aiqengage-child'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -1095,7 +1095,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'calculator_box_shadow',
-                'label' => esc_html__('Calculator Box Shadow', 'aiqengage'),
+                'label' => esc_html__('Calculator Box Shadow', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-blueprint-flow__roi-calculator',
             ]
         );
@@ -1103,7 +1103,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'heading_calculator_results',
             [
-                'label' => esc_html__('Calculator Results', 'aiqengage'),
+                'label' => esc_html__('Calculator Results', 'aiqengage-child'),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -1112,7 +1112,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'results_background_color',
             [
-                'label' => esc_html__('Results Background Color', 'aiqengage'),
+                'label' => esc_html__('Results Background Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(156, 77, 255, 0.1)',
                 'selectors' => [
@@ -1124,7 +1124,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'results_text_color',
             [
-                'label' => esc_html__('Results Text Color', 'aiqengage'),
+                'label' => esc_html__('Results Text Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#E0D6FF',
                 'selectors' => [
@@ -1136,7 +1136,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'results_accent_color',
             [
-                'label' => esc_html__('Results Accent Color', 'aiqengage'),
+                'label' => esc_html__('Results Accent Color', 'aiqengage-child'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
                 'selectors' => [
@@ -1149,7 +1149,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'results_typography',
-                'label' => esc_html__('Typography', 'aiqengage'),
+                'label' => esc_html__('Typography', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-blueprint-flow__roi-result',
             ]
         );
@@ -1158,7 +1158,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'results_value_typography',
-                'label' => esc_html__('Value Typography', 'aiqengage'),
+                'label' => esc_html__('Value Typography', 'aiqengage-child'),
                 'selector' => '{{WRAPPER}} .aiq-blueprint-flow__roi-value',
             ]
         );
@@ -1166,7 +1166,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_responsive_control(
             'results_padding',
             [
-                'label' => esc_html__('Results Padding', 'aiqengage'),
+                'label' => esc_html__('Results Padding', 'aiqengage-child'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -1186,7 +1186,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
         $this->add_control(
             'results_border_radius',
             [
-                'label' => esc_html__('Results Border Radius', 'aiqengage'),
+                'label' => esc_html__('Results Border Radius', 'aiqengage-child'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'default' => [
@@ -1250,7 +1250,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
                     $this->add_render_attribute($node_key, [
                         'class' => 'aiq-blueprint-flow__node',
                         'role' => 'listitem',
-                        'aria-label' => sprintf(__('Step %d: %s', 'aiqengage'), $node_count, $node['node_title']),
+                        'aria-label' => sprintf(__('Step %d: %s', 'aiqengage-child'), $node_count, $node['node_title']),
                         'data-node-id' => $id_int . $index,
                         'style' => '--node-accent:' . $node['node_accent_color'] . ';',
                         'tabindex' => '0',
@@ -1281,16 +1281,16 @@ class Blueprint_Flow_Widget extends Widget_Base {
                                 <?php 
                                 switch ($node['node_callout']) {
                                     case 'pro-tip':
-                                        echo esc_html__('Pro Tip', 'aiqengage');
+                                        echo esc_html__('Pro Tip', 'aiqengage-child');
                                         break;
                                     case 'automated':
-                                        echo esc_html__('Automated Step', 'aiqengage');
+                                        echo esc_html__('Automated Step', 'aiqengage-child');
                                         break;
                                     case 'manual':
-                                        echo esc_html__('Manual Step', 'aiqengage');
+                                        echo esc_html__('Manual Step', 'aiqengage-child');
                                         break;
                                     case 'critical':
-                                        echo esc_html__('Critical Step', 'aiqengage');
+                                        echo esc_html__('Critical Step', 'aiqengage-child');
                                         break;
                                 }
                                 ?>
@@ -1357,7 +1357,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
                         <?php endforeach; ?>
                         
                         <div class="aiq-blueprint-flow__roi-result">
-                            <span class="aiq-blueprint-flow__roi-result-label"><?php esc_html_e('Estimated ROI:', 'aiqengage'); ?></span>
+                            <span class="aiq-blueprint-flow__roi-result-label"><?php esc_html_e('Estimated ROI:', 'aiqengage-child'); ?></span>
                             <span class="aiq-blueprint-flow__roi-value">$0</span>
                         </div>
                         
