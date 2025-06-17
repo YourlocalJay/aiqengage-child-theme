@@ -242,7 +242,9 @@ add_action('rest_api_init', 'aiqengage_child_register_api_endpoints');
 
 /**
  * Check if Elementor templates directory exists and log error if not
+ * DISABLED: Warning logic removed as empty template directories are acceptable
  */
+/*
 function aiqengage_check_templates_directory() {
     $templates_dir = get_stylesheet_directory() . '/elementor-templates';
     
@@ -255,10 +257,13 @@ function aiqengage_check_templates_directory() {
     }
 }
 add_action('init', 'aiqengage_check_templates_directory');
+*/
 
 /**
  * Admin notice for missing templates directory
+ * DISABLED: Warning logic removed as empty template directories are acceptable
  */
+/*
 function aiqengage_missing_templates_notice() {
     if (current_user_can('administrator')) {
         ?>
@@ -268,3 +273,4 @@ function aiqengage_missing_templates_notice() {
         <?php
     }
 }
+*/
