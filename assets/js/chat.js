@@ -1,9 +1,10 @@
 // assets/js/chat.js
 
 /**
- * AIQEngage Chat Widget
+ * AIQEngage Chat Widget - Enhanced with Full Accessibility Support
  * 
  * A modular chat widget for the AIQEngage Elementor theme
+ * Features: Focus management, ARIA support, keyboard navigation, screen reader announcements
  */
 (function () {
     'use strict';
@@ -49,8 +50,16 @@
         const state = {
             messages: [],
             isTyping: false,
-            chatOpen: settings.layoutType === 'standard'
+            chatOpen: settings.layoutType === 'standard',
+            previouslyFocusedElement: null,
+            focusableElements: []
         };
+
+        // Set up accessibility attributes
+        setupAccessibilityAttributes();
+        
+        // Focus management and trap setup
+        setupFocusManagement();
 
         // Event listeners
         if (bubble) {
@@ -65,7 +74,16 @@
 
         if (closeButton) {
             closeButton.addEventListener('click', toggleChat);
+            closeButton.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleChat();
+                }
+            });
         }
+
+        // Global keyboard event handler for ESC key
+        document.addEventListener('keydown', handleGlobalKeydown);
 
         // Input and send functionality
         sendButton.addEventListener('click', sendMessage);
@@ -94,22 +112,161 @@
         }
 
         /**
+         * Set up accessibility attributes for the chat widget
+         */
+        function setupAccessibilityAttributes() {
+            // Set up modal role for floating chat
+            if (settings.layoutType === 'floating') {
+                container.setAttribute('role', 'dialog');
+                container.setAttribute('aria-modal', 'true');
+                container.setAttribute('aria-labelledby', 'chat-title');
+                container.setAttribute('aria-describedby', 'chat-description');
+                
+                // Add heading for screen readers
+                if (!container.querySelector('#chat-title')) {
+                    const title = document.createElement('h2');
+                    title.id = 'chat-title';
+                    title.className = 'sr-only';
+                    title.textContent = settings.aiName + ' Chat Assistant';
+                    container.insertBefore(title, container.firstChild);
+                }
+                
+                // Add description for screen readers
+                if (!container.querySelector('#chat-description')) {
+                    const description = document.createElement('p');
+                    description.id = 'chat-description';
+                    description.className = 'sr-only';
+                    description.textContent = 'Interactive chat with AI assistant. Use Tab to navigate, Enter to activate buttons, Escape to close.';
+                    container.insertBefore(description, container.firstChild);
+                }
+            }
+
+            // Set up messages container as live region
+            messagesContainer.setAttribute('aria-live', 'polite');
+            messagesContainer.setAttribute('aria-label', 'Chat messages');
+            messagesContainer.setAttribute('role', 'log');
+
+            // Set up input field
+            inputField.setAttribute('aria-label', 'Type your message');
+            inputField.setAttribute('aria-describedby', 'send-instructions');
+            
+            // Add instructions for screen readers
+            if (!widget.querySelector('#send-instructions')) {
+                const instructions = document.createElement('div');
+                instructions.id = 'send-instructions';
+                instructions.className = 'sr-only';
+                instructions.textContent = settings.sendOnEnter === 'yes' ? 
+                    'Press Enter to send message, Shift+Enter for new line' : 
+                    'Use the send button to send your message';
+                inputField.parentNode.appendChild(instructions);
+            }
+
+            // Set up send button
+            sendButton.setAttribute('aria-label', 'Send message');
+
+            // Set up close button if exists
+            if (closeButton) {
+                closeButton.setAttribute('aria-label', 'Close chat');
+            }
+
+            // Set up bubble if exists
+            if (bubble) {
+                bubble.setAttribute('aria-label', 'Open chat with ' + settings.aiName);
+                bubble.setAttribute('role', 'button');
+                bubble.setAttribute('tabindex', '0');
+            }
+        }
+
+        /**
+         * Set up focus management and trap
+         */
+        function setupFocusManagement() {
+            updateFocusableElements();
+        }
+
+        /**
+         * Update the list of focusable elements within the chat
+         */
+        function updateFocusableElements() {
+            const focusableSelectors = [
+                'a[href]',
+                'button:not([disabled])',
+                'input:not([disabled])',
+                'textarea:not([disabled])',
+                'select:not([disabled])',
+                '[tabindex]:not([tabindex="-1"])'
+            ].join(', ');
+
+            state.focusableElements = Array.from(container.querySelectorAll(focusableSelectors))
+                .filter(el => el.offsetParent !== null); // Only visible elements
+        }
+
+        /**
+         * Handle global keyboard events (primarily ESC key)
+         */
+        function handleGlobalKeydown(e) {
+            if (e.key === 'Escape' && state.chatOpen && settings.layoutType === 'floating') {
+                e.preventDefault();
+                toggleChat();
+            }
+            
+            // Handle Tab key for focus trapping in floating chat
+            if (e.key === 'Tab' && state.chatOpen && settings.layoutType === 'floating') {
+                handleTabKey(e);
+            }
+        }
+
+        /**
+         * Handle Tab key for focus trapping
+         */
+        function handleTabKey(e) {
+            if (state.focusableElements.length === 0) return;
+
+            const firstElement = state.focusableElements[0];
+            const lastElement = state.focusableElements[state.focusableElements.length - 1];
+
+            if (e.shiftKey) {
+                // Shift + Tab
+                if (document.activeElement === firstElement) {
+                    e.preventDefault();
+                    lastElement.focus();
+                }
+            } else {
+                // Tab
+                if (document.activeElement === lastElement) {
+                    e.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        }
+
+        /**
          * Toggle the chat open/closed state (for floating chat)
          */
         function toggleChat() {
             if (settings.layoutType !== 'floating') return;
             
+            const wasOpen = state.chatOpen;
             state.chatOpen = !state.chatOpen;
             
             if (state.chatOpen) {
+                // Store previously focused element
+                state.previouslyFocusedElement = document.activeElement;
+                
                 container.style.display = 'flex';
                 // Animate opening
                 setTimeout(() => {
                     container.style.opacity = '1';
                     container.style.transform = 'translateY(0)';
                     
+                    // Update focusable elements
+                    updateFocusableElements();
+                    
                     // Focus on input after opening
                     inputField.focus();
+                    
+                    // Announce opening to screen readers
+                    announceToScreenReader('Chat opened');
                 }, 10);
                 
                 // Remove notification pulse
@@ -124,6 +281,16 @@
                 // Hide after animation
                 setTimeout(() => {
                     container.style.display = 'none';
+                    
+                    // Restore focus to previously focused element
+                    if (state.previouslyFocusedElement && document.body.contains(state.previouslyFocusedElement)) {
+                        state.previouslyFocusedElement.focus();
+                    } else if (bubble) {
+                        bubble.focus();
+                    }
+                    
+                    // Announce closing to screen readers
+                    announceToScreenReader('Chat closed');
                 }, 300);
             }
         }
@@ -227,10 +394,12 @@
             
             // Add ARIA attributes for accessibility
             messageEl.setAttribute('role', 'listitem');
+            messageEl.setAttribute('aria-label', `Message from ${sender === 'ai' ? settings.aiName : 'You'}: ${text}`);
             
             // Create avatar
             const avatarEl = document.createElement('div');
             avatarEl.className = 'aiq-chat__avatar';
+            avatarEl.setAttribute('aria-hidden', 'true');
             
             const avatarImg = document.createElement('img');
             if (sender === 'ai') {
@@ -265,6 +434,9 @@
             // Scroll to bottom
             scrollToBottom();
             
+            // Announce new message to screen readers
+            announceToScreenReader(`New message from ${sender === 'ai' ? settings.aiName : 'You'}: ${text}`);
+            
             // Notify floating chat if minimized
             if (settings.layoutType === 'floating' && !state.chatOpen && sender === 'ai' && bubble) {
                 bubble.classList.add('pulse');
@@ -277,18 +449,10 @@
         function showTypingIndicator() {
             state.isTyping = true;
             typingIndicator.style.display = 'flex';
+            typingIndicator.setAttribute('aria-label', `${settings.aiName} is typing`);
             
             // Announce typing to screen readers
-            const srAnnounce = document.createElement('div');
-            srAnnounce.className = 'sr-only';
-            srAnnounce.setAttribute('aria-live', 'polite');
-            srAnnounce.textContent = `${settings.aiName} is typing...`;
-            widget.appendChild(srAnnounce);
-            
-            // Remove after announcement
-            setTimeout(() => {
-                widget.removeChild(srAnnounce);
-            }, 1000);
+            announceToScreenReader(`${settings.aiName} is typing...`);
         }
 
         /**
@@ -309,11 +473,29 @@
             quickRepliesContainer.innerHTML = '';
             
             // Add reply buttons
-            replies.forEach(reply => {
+            replies.forEach((reply, index) => {
                 const replyBtn = document.createElement('button');
                 replyBtn.className = 'aiq-chat__quick-reply-btn';
                 replyBtn.textContent = reply;
                 replyBtn.setAttribute('type', 'button');
+                replyBtn.setAttribute('aria-label', `Quick reply: ${reply}`);
+                
+                // Keyboard support for quick replies
+                replyBtn.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft' && index > 0) {
+                        e.preventDefault();
+                        quickRepliesContainer.children[index - 1].focus();
+                    } else if (e.key === 'ArrowRight' && index < replies.length - 1) {
+                        e.preventDefault();
+                        quickRepliesContainer.children[index + 1].focus();
+                    } else if (e.key === 'Home') {
+                        e.preventDefault();
+                        quickRepliesContainer.children[0].focus();
+                    } else if (e.key === 'End') {
+                        e.preventDefault();
+                        quickRepliesContainer.children[replies.length - 1].focus();
+                    }
+                });
                 
                 replyBtn.addEventListener('click', () => {
                     // Add as user message
@@ -331,6 +513,13 @@
             
             // Show the container
             quickRepliesContainer.style.display = 'block';
+            quickRepliesContainer.setAttribute('aria-label', 'Quick reply options');
+            
+            // Update focusable elements
+            updateFocusableElements();
+            
+            // Announce quick replies availability
+            announceToScreenReader(`${replies.length} quick reply options available. Use arrow keys to navigate.`);
         }
 
         /**
@@ -338,6 +527,7 @@
          */
         function hideQuickReplies() {
             quickRepliesContainer.style.display = 'none';
+            updateFocusableElements();
         }
 
         /**
@@ -345,6 +535,35 @@
          */
         function scrollToBottom() {
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        /**
+         * Announce message to screen readers
+         */
+        function announceToScreenReader(message) {
+            // Create or get the announcer element
+            let announcer = document.getElementById('aiq-chat-announcer');
+            if (!announcer) {
+                announcer = document.createElement('div');
+                announcer.id = 'aiq-chat-announcer';
+                announcer.setAttribute('aria-live', 'polite');
+                announcer.setAttribute('aria-atomic', 'true');
+                announcer.className = 'sr-only';
+                document.body.appendChild(announcer);
+            }
+            
+            // Clear previous announcement
+            announcer.textContent = '';
+            
+            // Make announcement after a brief delay to ensure screen readers pick it up
+            setTimeout(() => {
+                announcer.textContent = message;
+            }, 100);
+            
+            // Clear after announcement
+            setTimeout(() => {
+                announcer.textContent = '';
+            }, 3000);
         }
 
         /**
