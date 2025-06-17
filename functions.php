@@ -72,6 +72,7 @@ add_action('wp_head', 'aiqengage_add_resource_hints', 1);
 
 /**
  * Enqueue Theme Assets
+ * CRITICAL: Ensure main.css with design tokens loads first
  */
 function aiqengage_child_enqueue_assets() {
     // Parent theme styles
@@ -82,11 +83,19 @@ function aiqengage_child_enqueue_assets() {
         AIQENGAGE_CHILD_VERSION
     );
     
-    // Child theme styles
+    // PRIORITY 1: Main CSS with design tokens (MUST load first)
+    wp_enqueue_style(
+        'aiq-main-css',
+        AIQENGAGE_CHILD_URL . 'assets/css/main.css',
+        ['hello-elementor'],
+        AIQENGAGE_CHILD_VERSION
+    );
+    
+    // PRIORITY 2: Child theme styles
     wp_enqueue_style(
         'aiqengage-child',
         AIQENGAGE_CHILD_URL . 'style.css',
-        ['hello-elementor'],
+        ['hello-elementor', 'aiq-main-css'],
         AIQENGAGE_CHILD_VERSION
     );
 }
