@@ -67,7 +67,99 @@ class ROI_Calculator_Widget extends Widget_Base {
             'default' => 100,
         ]);
 
-        // ... (similar controls for other default values)
+        $this->add_control('default_conversion_rate', [
+            'label' => __('Conversion Rate (%)', 'aiqengage-child'),
+            'type' => Controls_Manager::NUMBER,
+            'min' => 0,
+            'max' => 100,
+            'step' => 0.1,
+            'default' => 3.5,
+        ]);
+
+        $this->add_control('default_commission_rate', [
+            'label' => __('Commission Rate (%)', 'aiqengage-child'),
+            'type' => Controls_Manager::NUMBER,
+            'min' => 0,
+            'max' => 100,
+            'step' => 0.1,
+            'default' => 30,
+        ]);
+
+        $this->add_control('default_product_price', [
+            'label' => __('Product Price ($)', 'aiqengage-child'),
+            'type' => Controls_Manager::NUMBER,
+            'min' => 0,
+            'step' => 0.01,
+            'default' => 97,
+        ]);
+
+        $this->add_control('default_setup_cost', [
+            'label' => __('Setup Cost ($)', 'aiqengage-child'),
+            'type' => Controls_Manager::NUMBER,
+            'min' => 0,
+            'step' => 0.01,
+            'default' => 500,
+        ]);
+
+        $this->add_control('default_monthly_cost', [
+            'label' => __('Monthly Operating Cost ($)', 'aiqengage-child'),
+            'type' => Controls_Manager::NUMBER,
+            'min' => 0,
+            'step' => 0.01,
+            'default' => 150,
+        ]);
+
+        $this->end_controls_section();
+
+        // Calculator Options Section
+        $this->start_controls_section('options_section', [
+            'label' => __('Calculator Options', 'aiqengage-child'),
+            'tab' => Controls_Manager::TAB_CONTENT,
+        ]);
+
+        $this->add_control('show_advanced_fields', [
+            'label' => __('Show Advanced Fields', 'aiqengage-child'),
+            'type' => Controls_Manager::SWITCHER,
+            'label_on' => __('Show', 'aiqengage-child'),
+            'label_off' => __('Hide', 'aiqengage-child'),
+            'return_value' => 'yes',
+            'default' => 'no',
+        ]);
+
+        $this->add_control('enable_csv_export', [
+            'label' => __('Enable CSV Export', 'aiqengage-child'),
+            'type' => Controls_Manager::SWITCHER,
+            'label_on' => __('Enable', 'aiqengage-child'),
+            'label_off' => __('Disable', 'aiqengage-child'),
+            'return_value' => 'yes',
+            'default' => 'yes',
+        ]);
+
+        $this->add_control('enable_projections', [
+            'label' => __('Enable Projections Chart', 'aiqengage-child'),
+            'type' => Controls_Manager::SWITCHER,
+            'label_on' => __('Enable', 'aiqengage-child'),
+            'label_off' => __('Disable', 'aiqengage-child'),
+            'return_value' => 'yes',
+            'default' => 'yes',
+        ]);
+
+        $this->add_control('projection_months', [
+            'label' => __('Projection Period (Months)', 'aiqengage-child'),
+            'type' => Controls_Manager::NUMBER,
+            'min' => 1,
+            'max' => 24,
+            'default' => 12,
+            'condition' => [
+                'enable_projections' => 'yes',
+            ],
+        ]);
+
+        $this->add_control('currency_symbol', [
+            'label' => __('Currency Symbol', 'aiqengage-child'),
+            'type' => Controls_Manager::TEXT,
+            'default' => '$',
+        ]);
 
         $this->end_controls_section();
 
@@ -77,7 +169,104 @@ class ROI_Calculator_Widget extends Widget_Base {
             'tab' => Controls_Manager::TAB_STYLE,
         ]);
 
-        // ... (style controls here)
+        $this->add_control('background_color', [
+            'label' => __('Background Color', 'aiqengage-child'),
+            'type' => Controls_Manager::COLOR,
+            'default' => '#2A1958',
+            'selectors' => [
+                '{{WRAPPER}} .aiq-roi-calculator' => 'background-color: {{VALUE}};',
+            ],
+        ]);
+
+        $this->add_control('border_color', [
+            'label' => __('Border Color', 'aiqengage-child'),
+            'type' => Controls_Manager::COLOR,
+            'default' => 'rgba(156, 77, 255, 0.3)',
+            'selectors' => [
+                '{{WRAPPER}} .aiq-roi-calculator' => 'border-color: {{VALUE}};',
+            ],
+        ]);
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'title_typography',
+                'label' => __('Title Typography', 'aiqengage-child'),
+                'selector' => '{{WRAPPER}} .aiq-roi-calculator__title',
+            ]
+        );
+
+        $this->add_control('title_color', [
+            'label' => __('Title Color', 'aiqengage-child'),
+            'type' => Controls_Manager::COLOR,
+            'default' => '#E0D6FF',
+            'selectors' => [
+                '{{WRAPPER}} .aiq-roi-calculator__title' => 'color: {{VALUE}};',
+            ],
+        ]);
+
+        $this->add_control('input_background', [
+            'label' => __('Input Background', 'aiqengage-child'),
+            'type' => Controls_Manager::COLOR,
+            'default' => 'rgba(26, 9, 56, 0.6)',
+            'selectors' => [
+                '{{WRAPPER}} .aiq-roi-input' => 'background-color: {{VALUE}};',
+            ],
+        ]);
+
+        $this->add_control('input_border_color', [
+            'label' => __('Input Border Color', 'aiqengage-child'),
+            'type' => Controls_Manager::COLOR,
+            'default' => 'rgba(156, 77, 255, 0.3)',
+            'selectors' => [
+                '{{WRAPPER}} .aiq-roi-input' => 'border-color: {{VALUE}};',
+            ],
+        ]);
+
+        $this->add_control('input_text_color', [
+            'label' => __('Input Text Color', 'aiqengage-child'),
+            'type' => Controls_Manager::COLOR,
+            'default' => '#E0D6FF',
+            'selectors' => [
+                '{{WRAPPER}} .aiq-roi-input' => 'color: {{VALUE}};',
+            ],
+        ]);
+
+        $this->add_control('button_background', [
+            'label' => __('Button Background', 'aiqengage-child'),
+            'type' => Controls_Manager::COLOR,
+            'default' => '#9C4DFF',
+            'selectors' => [
+                '{{WRAPPER}} .aiq-roi-calculator__button' => 'background-color: {{VALUE}};',
+            ],
+        ]);
+
+        $this->add_control('button_text_color', [
+            'label' => __('Button Text Color', 'aiqengage-child'),
+            'type' => Controls_Manager::COLOR,
+            'default' => '#FFFFFF',
+            'selectors' => [
+                '{{WRAPPER}} .aiq-roi-calculator__button' => 'color: {{VALUE}};',
+            ],
+        ]);
+
+        $this->add_control('result_background', [
+            'label' => __('Results Background', 'aiqengage-child'),
+            'type' => Controls_Manager::COLOR,
+            'default' => 'rgba(156, 77, 255, 0.1)',
+            'selectors' => [
+                '{{WRAPPER}} .aiq-roi-result-card' => 'background-color: {{VALUE}};',
+            ],
+        ]);
+
+        $this->add_control('result_text_color', [
+            'label' => __('Results Text Color', 'aiqengage-child'),
+            'type' => Controls_Manager::COLOR,
+            'default' => '#E0D6FF',
+            'selectors' => [
+                '{{WRAPPER}} .aiq-roi-result-card' => 'color: {{VALUE}};',
+            ],
+        ]);
 
         $this->end_controls_section();
     }
@@ -107,10 +296,49 @@ class ROI_Calculator_Widget extends Widget_Base {
                             'min' => 0,
                             'max' => 100,
                             'step' => 0.1,
-                            'value' => 3.5
+                            'value' => $settings['default_conversion_rate']
                         ]); ?>
                         
-                        <!-- More input fields -->
+                        <?php $this->render_input_field('commission', __('Commission Rate (%)', 'aiqengage-child'), 'number', [
+                            'min' => 0,
+                            'max' => 100,
+                            'step' => 0.1,
+                            'value' => $settings['default_commission_rate']
+                        ]); ?>
+                        
+                        <?php $this->render_input_field('price', __('Product Price (' . esc_html($settings['currency_symbol']) . ')', 'aiqengage-child'), 'number', [
+                            'min' => 0,
+                            'step' => 0.01,
+                            'value' => $settings['default_product_price']
+                        ]); ?>
+                        
+                        <?php $this->render_input_field('setup_cost', __('Setup Cost (' . esc_html($settings['currency_symbol']) . ')', 'aiqengage-child'), 'number', [
+                            'min' => 0,
+                            'step' => 0.01,
+                            'value' => $settings['default_setup_cost']
+                        ]); ?>
+                        
+                        <?php $this->render_input_field('monthly_cost', __('Monthly Cost (' . esc_html($settings['currency_symbol']) . ')', 'aiqengage-child'), 'number', [
+                            'min' => 0,
+                            'step' => 0.01,
+                            'value' => $settings['default_monthly_cost']
+                        ]); ?>
+                        
+                        <?php if ('yes' === $settings['show_advanced_fields']) : ?>
+                            <?php $this->render_input_field('growth_rate', __('Monthly Growth Rate (%)', 'aiqengage-child'), 'number', [
+                                'min' => -50,
+                                'max' => 100,
+                                'step' => 0.1,
+                                'value' => 5
+                            ]); ?>
+                            
+                            <?php $this->render_input_field('churn_rate', __('Monthly Churn Rate (%)', 'aiqengage-child'), 'number', [
+                                'min' => 0,
+                                'max' => 100,
+                                'step' => 0.1,
+                                'value' => 2
+                            ]); ?>
+                        <?php endif; ?>
                     </div>
                     
                     <div class="aiq-roi-calculator__actions">
@@ -120,6 +348,11 @@ class ROI_Calculator_Widget extends Widget_Base {
                         <button type="reset" class="aiq-roi-calculator__reset">
                             <?php esc_html_e('Reset', 'aiqengage-child'); ?>
                         </button>
+                        <?php if ('yes' === $settings['enable_csv_export']) : ?>
+                            <button type="button" class="aiq-roi-calculator__export" disabled>
+                                <?php esc_html_e('Export CSV', 'aiqengage-child'); ?>
+                            </button>
+                        <?php endif; ?>
                     </div>
                 </form>
                 
@@ -129,11 +362,37 @@ class ROI_Calculator_Widget extends Widget_Base {
                         <div class="aiq-roi-result-grid">
                             <div class="aiq-roi-result-item">
                                 <span class="aiq-roi-result-label"><?php esc_html_e('Monthly Revenue:', 'aiqengage-child'); ?></span>
-                                <span class="aiq-roi-result-value" data-result="monthly">$0</span>
+                                <span class="aiq-roi-result-value" data-result="monthly"><?php echo esc_html($settings['currency_symbol']); ?>0</span>
                             </div>
-                            <!-- More result items -->
+                            <div class="aiq-roi-result-item">
+                                <span class="aiq-roi-result-label"><?php esc_html_e('Annual Revenue:', 'aiqengage-child'); ?></span>
+                                <span class="aiq-roi-result-value" data-result="annual"><?php echo esc_html($settings['currency_symbol']); ?>0</span>
+                            </div>
+                            <div class="aiq-roi-result-item">
+                                <span class="aiq-roi-result-label"><?php esc_html_e('ROI Percentage:', 'aiqengage-child'); ?></span>
+                                <span class="aiq-roi-result-value" data-result="roi">0%</span>
+                            </div>
+                            <div class="aiq-roi-result-item">
+                                <span class="aiq-roi-result-label"><?php esc_html_e('Breakeven Time:', 'aiqengage-child'); ?></span>
+                                <span class="aiq-roi-result-value" data-result="breakeven">-</span>
+                            </div>
+                            <div class="aiq-roi-result-item">
+                                <span class="aiq-roi-result-label"><?php esc_html_e('Net Profit (Year 1):', 'aiqengage-child'); ?></span>
+                                <span class="aiq-roi-result-value" data-result="profit"><?php echo esc_html($settings['currency_symbol']); ?>0</span>
+                            </div>
+                            <div class="aiq-roi-result-item">
+                                <span class="aiq-roi-result-label"><?php esc_html_e('Total Investment:', 'aiqengage-child'); ?></span>
+                                <span class="aiq-roi-result-value" data-result="investment"><?php echo esc_html($settings['currency_symbol']); ?>0</span>
+                            </div>
                         </div>
                     </div>
+                    
+                    <?php if ('yes' === $settings['enable_projections']) : ?>
+                        <div class="aiq-roi-projections">
+                            <h4><?php echo sprintf(__('%d-Month Projections', 'aiqengage-child'), $settings['projection_months']); ?></h4>
+                            <canvas id="aiq-roi-chart-<?php echo esc_attr($this->get_id()); ?>" width="400" height="200"></canvas>
+                        </div>
+                    <?php endif; ?>
                 </output>
             </div>
         </section>
