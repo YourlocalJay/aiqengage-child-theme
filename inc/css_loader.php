@@ -3,9 +3,10 @@
  * AIQEngage Child Theme - CSS Loader
  *
  * Conditionally enqueues widget-specific CSS based on Elementor widgets used on the page.
+ * All widget CSS depends on main.css (design tokens) to ensure proper token availability.
  *
  * @package   AIQEngage_Child
- * @version   1.0.1
+ * @version   1.0.2
  * @author    AIQEngage Team
  * @license   GPL-3.0+
  */
@@ -79,6 +80,7 @@ add_filter('wp_get_attachment_image_attributes', 'aiqengage_optimize_image_loadi
 
 /**
  * Enqueue widget CSS based on used widgets.
+ * CRITICAL: All widget CSS now depends on 'aiq-main-css' to ensure design tokens are available.
  */
 function aiqengage_child_enqueue_widget_styles() {
     // Only run on front-end
@@ -112,6 +114,7 @@ function aiqengage_child_enqueue_widget_styles() {
     $used_widgets = array_unique($used_widgets);
 
     // Enqueue each CSS file if its widget was used
+    // CRITICAL: Each widget CSS depends on 'aiq-main-css' for design tokens
     $enqueued = false;
     foreach ($mapping as $widget_name => $css_file) {
         if (in_array($widget_name, $used_widgets, true)) {
@@ -119,7 +122,7 @@ function aiqengage_child_enqueue_widget_styles() {
             wp_enqueue_style(
                 $handle,
                 trailingslashit(get_stylesheet_directory_uri()) . "assets/css/widgets/{$css_file}",
-                ['aiqengage-child'],
+                ['aiq-main-css'], // CRITICAL: Depend on main.css for design tokens
                 AIQENGAGE_CHILD_VERSION
             );
             $enqueued = true;
@@ -135,7 +138,7 @@ function aiqengage_child_enqueue_widget_styles() {
                 wp_enqueue_style(
                     $handle,
                     trailingslashit(get_stylesheet_directory_uri()) . "assets/css/widgets/{$mapping[$widget_name]}",
-                    ['aiqengage-child'],
+                    ['aiq-main-css'], // CRITICAL: Depend on main.css for design tokens
                     AIQENGAGE_CHILD_VERSION
                 );
             }
