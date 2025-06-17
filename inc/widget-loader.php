@@ -3,7 +3,7 @@
  * AIQEngage Elementor Widget Loader
  * 
  * @package     AIQEngage_Child
- * @version     1.0.1
+ * @version     1.0.2
  * @author      AIQEngage Team
  * @copyright   Copyright (c) 2025, AIQEngage
  * @license     GPL-3.0+
@@ -101,13 +101,35 @@ if (!function_exists('aiqengage_child_load_elementor_widgets')) {
             return;
         }
 
-        // Get all widget files matching the pattern
-        $widget_files = glob($widgets_dir . 'class-*-widget.php');
+        // Get all widget files matching multiple patterns
+        $widget_files = [];
+        
+        // Pattern 1: class-*-widget.php (standard naming)
+        $pattern_1 = glob($widgets_dir . 'class-*-widget.php');
+        if ($pattern_1) {
+            $widget_files = array_merge($widget_files, $pattern_1);
+        }
+        
+        // Pattern 2: aiq-*-widget.php (legacy naming)
+        $pattern_2 = glob($widgets_dir . 'aiq-*-widget.php');
+        if ($pattern_2) {
+            $widget_files = array_merge($widget_files, $pattern_2);
+        }
+        
+        // Remove duplicates
+        $widget_files = array_unique($widget_files);
+
+        if (WP_DEBUG && !empty($widget_files)) {
+            error_log('AIQEngage: Found ' . count($widget_files) . ' widget files: ' . implode(', ', array_map('basename', $widget_files)));
+        }
 
         // Require each widget file and collect class names
         $widget_classes = [];
         foreach ($widget_files as $file) {
-            $widget_classes[] = aiqengage_child_process_widget_file($file);
+            $class_name = aiqengage_child_process_widget_file($file);
+            if ($class_name) {
+                $widget_classes[] = $class_name;
+            }
         }
 
         // Register valid widgets with Elementor
@@ -124,19 +146,28 @@ if (!function_exists('aiqengage_child_load_elementor_widgets')) {
         try {
             require_once $file;
 
-            // Extract class name from filename
+            // Extract class name from filename using improved logic
             $filename = basename($file, '.php');
-            $class_name = str_replace('class-', '', $filename);
-            $class_name = str_replace('-', '_', $class_name);
-            $class_name = implode('_', array_map('ucfirst', explode('_', $class_name)));
+            $class_name = aiqengage_child_filename_to_class_name($filename);
+
+            if (WP_DEBUG) {
+                error_log("AIQEngage: Processing widget file: $filename -> $class_name");
+            }
 
             // Verify the class exists and extends Widget_Base
             if (class_exists($class_name) && is_subclass_of($class_name, '\\Elementor\\Widget_Base')) {
+                if (WP_DEBUG) {
+                    error_log("AIQEngage: Successfully loaded widget class: $class_name");
+                }
                 return $class_name;
             }
 
             if (WP_DEBUG) {
-                error_log("AIQEngage: Widget class {$class_name} is invalid or doesn't extend \\Elementor\\Widget_Base");
+                if (!class_exists($class_name)) {
+                    error_log("AIQEngage: Widget class {$class_name} does not exist in file {$filename}");
+                } else {
+                    error_log("AIQEngage: Widget class {$class_name} doesn't extend \\Elementor\\Widget_Base");
+                }
             }
             return null;
         } catch (Exception $e) {
@@ -148,6 +179,40 @@ if (!function_exists('aiqengage_child_load_elementor_widgets')) {
     }
 
     /**
+     * Convert filename to class name with proper AIQ_ prefix handling
+     * 
+     * @param string $filename Widget filename without extension
+     * @return string Expected class name
+     */
+    function aiqengage_child_filename_to_class_name($filename) {
+        // Handle different filename patterns
+        if (strpos($filename, 'class-') === 0) {
+            // Remove 'class-' prefix
+            $name_part = substr($filename, 6);
+        } elseif (strpos($filename, 'aiq-') === 0) {
+            // Remove 'aiq-' prefix (legacy naming)
+            $name_part = substr($filename, 4);
+        } else {
+            // Use full filename
+            $name_part = $filename;
+        }
+        
+        // Remove '-widget' suffix if present
+        if (substr($name_part, -7) === '-widget') {
+            $name_part = substr($name_part, 0, -7);
+        }
+        
+        // Convert hyphenated name to class name format
+        // Split by hyphens, capitalize each part, join with underscores
+        $parts = explode('-', $name_part);
+        $formatted_parts = array_map('ucfirst', $parts);
+        $class_suffix = implode('_', $formatted_parts);
+        
+        // Always use AIQ_ prefix for our widgets
+        return 'AIQ_' . $class_suffix . '_Widget';
+    }
+
+    /**
      * Register widgets with Elementor
      * 
      * @param array $widget_classes Array of valid widget class names
@@ -155,18 +220,28 @@ if (!function_exists('aiqengage_child_load_elementor_widgets')) {
     function aiqengage_child_register_with_elementor($widget_classes) {
         // Early exit if Elementor is not loaded properly
         if (!class_exists('\\Elementor\\Plugin') || !isset(\\Elementor\\Plugin::instance()->widgets_manager)) {
+            if (WP_DEBUG) {
+                error_log('AIQEngage: Elementor Plugin or widgets_manager not available');
+            }
             return;
         }
             
         $widget_manager = \\Elementor\\Plugin::instance()->widgets_manager;
         $registered_count = 0;
+        $failed_widgets = [];
 
         foreach ($widget_classes as $class) {
             if ($class) {
                 try {
-                    $widget_manager->register(new $class());
+                    $widget_instance = new $class();
+                    $widget_manager->register($widget_instance);
                     $registered_count++;
+                    
+                    if (WP_DEBUG) {
+                        error_log("AIQEngage: Successfully registered widget: {$class}");
+                    }
                 } catch (Exception $e) {
+                    $failed_widgets[] = $class;
                     if (WP_DEBUG) {
                         error_log("AIQEngage: Failed to register widget {$class} - " . $e->getMessage());
                     }
@@ -174,9 +249,14 @@ if (!function_exists('aiqengage_child_load_elementor_widgets')) {
             }
         }
         
-        // Log success message when widgets are registered
-        if (WP_DEBUG && $registered_count > 0) {
-            error_log("AIQEngage: Successfully registered {$registered_count} widgets");
+        // Log summary
+        if (WP_DEBUG) {
+            if ($registered_count > 0) {
+                error_log("AIQEngage: Successfully registered {$registered_count} widgets");
+            }
+            if (!empty($failed_widgets)) {
+                error_log("AIQEngage: Failed to register widgets: " . implode(', ', $failed_widgets));
+            }
         }
     }
 
