@@ -24,7 +24,7 @@ function aiqengage_missing_templates_notice() {
     if (current_user_can('administrator')) {
         ?>
         <div class="notice notice-error">
-            <p><?php _e('AIQEngage Child Theme: Required directory "elementor-templates/" does not exist. Custom Elementor templates will not be available.', 'aiqengage'); ?></p>
+            <p><?php _e('AIQEngage Child Theme: Required directory "elementor-templates/" does not exist. Custom Elementor templates will not be available.', 'aiqengage-child'); ?></p>
         </div>
         <?php
     }
