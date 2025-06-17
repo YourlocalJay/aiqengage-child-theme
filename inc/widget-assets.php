@@ -3,7 +3,7 @@
  * AIQEngage Widget Asset Registration
  * 
  * @package     AIQEngage_Child
- * @version     1.0.1
+ * @version     1.0.2
  * @author      AIQEngage Team
  * @copyright   Copyright (c) 2025, AIQEngage
  * @license     GPL-3.0+
@@ -216,70 +216,3 @@ function aiqengage_init_widget_assets() {
 
 // Initialize the widget asset system
 aiqengage_init_widget_assets();
-
-/**
- * Create placeholder asset files for any missing widget assets
- * This function can be used to generate empty placeholder files for widgets that need them
- */
-function aiqengage_create_missing_widget_assets() {
-    // Only run this in development/debug mode
-    if (!WP_DEBUG) {
-        return;
-    }
-    
-    $missing_assets = [
-        // Check for files that don't exist and create them
-        'aiq-archive-loop' => [
-            'js' => 'assets/js/archive-loop.js'
-        ],
-        'aiq-pricing-table' => [
-            'js' => 'assets/js/pricing-table.js'
-        ],
-        'aiq-resource-card' => [
-            'js' => 'assets/js/resource-card.js'
-        ]
-    ];
-    
-    $created_files = [];
-    
-    foreach ($missing_assets as $handle => $files) {
-        foreach ($files as $type => $file_path) {
-            $full_path = AIQENGAGE_CHILD_PATH . $file_path;
-            
-            if (!file_exists($full_path)) {
-                // Create directory if it doesn't exist
-                $dir = dirname($full_path);
-                if (!is_dir($dir)) {
-                    wp_mkdir_p($dir);
-                }
-                
-                // Create placeholder file
-                if ($type === 'css') {
-                    $content = "/* {$handle} Widget Styles */\n\n/* Add your widget-specific styles here */\n";
-                } else {
-                    $content = "/* {$handle} Widget Scripts */\n\n(function($) {\n    'use strict';\n    \n    // Add your widget-specific JavaScript here\n    \n})(jQuery);\n";
-                }
-                
-                if (file_put_contents($full_path, $content)) {
-                    $created_files[] = $full_path;
-                }
-            }
-        }
-    }
-    
-    if (!empty($created_files)) {
-        error_log('AIQEngage: Created ' . count($created_files) . ' placeholder asset files: ' . implode(', ', $created_files));
-    }
-}
-
-/**
- * Admin action to create missing assets (only for admins in debug mode)
- */
-function aiqengage_admin_create_missing_assets() {
-    if (current_user_can('administrator') && WP_DEBUG && isset($_GET['aiq_create_assets'])) {
-        aiqengage_create_missing_widget_assets();
-        wp_redirect(remove_query_arg('aiq_create_assets'));
-        exit;
-    }
-}
-add_action('admin_init', 'aiqengage_admin_create_missing_assets');
