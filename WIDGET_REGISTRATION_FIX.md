@@ -1,72 +1,171 @@
-# AIQEngage Widget Auto-Registration Fix - Summary
+# AIQEngage Widget Registration System Documentation
 
-## Issues Fixed
+## Widget Auto-Registration Overview
 
-### 1. Widget File Naming Convention Mismatch
-**Problem**: The widget loader was scanning for files with the pattern `class-*-widget.php`, but the Prompt Card widget was named `aiq-prompt-card-widget.php`, causing it to be skipped.
+The AIQEngage child theme includes an automatic widget registration system that scans the `/widgets/` directory and registers all valid Elementor widgets without manual intervention.
 
-**Solution**: 
-- Renamed `aiq-prompt-card-widget.php` to `class-prompt-card-widget.php` to follow the standard convention
-- Updated the widget loader to support both `class-*-widget.php` and `aiq-*-widget.php` patterns for backward compatibility
+## How It Works
 
-### 2. Class Name Conversion Logic
-**Problem**: The widget loader's filename-to-class-name conversion logic didn't properly handle the `AIQ_` prefix used by all widgets.
+### File Scanning
+The system scans for widget files using two supported naming patterns:
 
-**Solution**: 
-- Implemented new `aiqengage_child_filename_to_class_name()` function that:
-  - Handles both `class-` and `aiq-` filename prefixes
-  - Properly removes `-widget` suffixes
-  - Converts hyphenated names to proper class format (e.g., `cta-banner` → `Cta_Banner`)
-  - Always applies the `AIQ_` prefix and `_Widget` suffix
+1. **Preferred Pattern**: `class-{name}-widget.php`
+2. **Legacy Pattern**: `aiq-{name}-widget.php` (maintained for backward compatibility)
 
-### 3. Improved Error Handling and Debugging
-**Problem**: Limited debugging information made it difficult to identify widget registration failures.
+### Class Name Convention
+All widget classes must follow the `AIQ_{Name}_Widget` format:
 
-**Solution**:
-- Added comprehensive debug logging throughout the registration process
-- Enhanced error reporting for class existence and inheritance validation
-- Added summary logging of registration success/failure counts
+```php
+// File: class-my-custom-widget.php
+class AIQ_My_Custom_Widget extends \Elementor\Widget_Base {
+    public function get_name() {
+        return 'aiq-my-custom';
+    }
+    
+    public function get_title() {
+        return __('My Custom Widget', 'aiqengage-child');
+    }
+    
+    // ... rest of widget implementation
+}
+```
 
-## Files Modified
+### Filename to Class Name Conversion
 
-1. **inc/widget-loader.php** - Complete rewrite of widget detection and registration logic
-2. **widgets/class-prompt-card-widget.php** - New properly named Prompt Card widget file
-3. **widgets/aiq-prompt-card-widget.php** - Removed (replaced by above)
+The system automatically converts filenames to class names:
 
-## Current Widget Registration Status
+| Filename | Expected Class Name |
+|----------|-------------------|
+| `class-cta-banner-widget.php` | `AIQ_Cta_Banner_Widget` |
+| `class-metric-badge-widget.php` | `AIQ_Metric_Badge_Widget` |
+| `aiq-legacy-widget.php` | `AIQ_Legacy_Widget` |
 
-The updated loader now properly detects and registers all 21 widget files:
+## Currently Registered Widgets (23 Total)
 
-**Pattern 1 (`class-*-widget.php`)**: 20 widgets
-- class-404-template-widget.php → AIQ_404_Template_Widget
-- class-archive-loop-widget.php → AIQ_Archive_Loop_Widget  
-- class-blueprint-flow-widget.php → AIQ_Blueprint_Flow_Widget
-- class-chat-widget.php → AIQ_Chat_Widget
-- class-comparison-matrix-widget.php → AIQ_Comparison_Matrix_Widget
-- class-cta-banner-widget.php → AIQ_Cta_Banner_Widget
-- class-evergreen-countdown-widget.php → AIQ_Evergreen_Countdown_Widget
-- class-exit-intent-widget.php → AIQ_Exit_Intent_Widget
-- class-faq-accordion-widget.php → AIQ_Faq_Accordion_Widget
-- class-feature-section-widget.php → AIQ_Feature_Section_Widget
-- class-metric-badge-widget.php → AIQ_Metric_Badge_Widget
-- class-pricing-table-widget.php → AIQ_Pricing_Table_Widget
-- class-progress-bar-widget.php → AIQ_Progress_Bar_Widget
-- class-prompt-card-widget.php → AIQ_Prompt_Card_Widget
-- class-quiz-widget.php → AIQ_Quiz_Widget
-- class-resource-card-widget.php → AIQ_Resource_Card_Widget
-- class-roi-calculator-widget.php → AIQ_Roi_Calculator_Widget
-- class-testimonial-card-widget.php → AIQ_Testimonial_Card_Widget
-- class-tool-card-widget.php → AIQ_Tool_Card_Widget
-- class-value-timeline-widget.php → AIQ_Value_Timeline_Widget
+### Core Widgets
+- **404 Template** (`AIQ_404_Template_Widget`)
+- **Archive Loop** (`AIQ_Archive_Loop_Widget`)
+- **Blueprint Flow** (`AIQ_Blueprint_Flow_Widget`)
+- **Chat Widget** (`AIQ_Chat_Widget`)
+- **Comparison Matrix** (`AIQ_Comparison_Matrix_Widget`)
+- **CTA Banner** (`AIQ_Cta_Banner_Widget`)
+- **FAQ Accordion** (`AIQ_Faq_Accordion_Widget`)
+- **Feature Section** (`AIQ_Feature_Section_Widget`)
+- **Metric Badge** (`AIQ_Metric_Badge_Widget`)
+- **Pricing Table** (`AIQ_Pricing_Table_Widget`)
+- **Progress Bar** (`AIQ_Progress_Bar_Widget`)
+- **Prompt Card** (`AIQ_Prompt_Card_Widget`)
+- **Quiz Widget** (`AIQ_Quiz_Widget`)
+- **Resource Card** (`AIQ_Resource_Card_Widget`)
+- **ROI Calculator** (`AIQ_Roi_Calculator_Widget`)
+- **Testimonial Card** (`AIQ_Testimonial_Card_Widget`)
+- **Tool Card** (`AIQ_Tool_Card_Widget`)
+- **Value Timeline** (`AIQ_Value_Timeline_Widget`)
 
-**Pattern 2 (`aiq-*-widget.php`)**: 0 widgets (legacy pattern, no longer used)
+### Engagement Widgets
+- **Evergreen Countdown** (`AIQ_Evergreen_Countdown_Widget`)
+- **Exit Intent** (`AIQ_Exit_Intent_Widget`)
 
-## Verification
+### Legacy Support
+- **AiQ Prompt Card** (`AIQ_Prompt_Card_Widget`) - Duplicate support for backward compatibility
 
-All widgets in the `/widgets/` directory should now be automatically detected and registered with Elementor. The enhanced debug logging will provide detailed information about the registration process when `WP_DEBUG` is enabled.
+## Widget Development Guidelines
 
-The widget loader is now robust and will handle:
-- Both naming conventions
-- Proper class name conversion with AIQ_ prefix
-- Comprehensive error handling and reporting
-- Future widgets following either naming pattern
+### Creating New Widgets
+
+1. **Create the widget file** in `/widgets/` using the preferred naming pattern:
+   ```
+   /widgets/class-my-new-widget.php
+   ```
+
+2. **Implement the widget class**:
+   ```php
+   <?php
+   if (!defined('ABSPATH')) exit;
+   
+   class AIQ_My_New_Widget extends \Elementor\Widget_Base {
+       public function get_name() {
+           return 'aiq-my-new';
+       }
+       
+       public function get_title() {
+           return __('My New Widget', 'aiqengage-child');
+       }
+       
+       public function get_icon() {
+           return 'eicon-elementor';
+       }
+       
+       public function get_categories() {
+           return ['aiqengage'];
+       }
+       
+       protected function register_controls() {
+           // Define widget controls
+       }
+       
+       protected function render() {
+           // Output widget HTML
+       }
+   }
+   ```
+
+3. **The widget will be automatically registered** when the theme loads.
+
+### Widget Assets
+Each widget can have associated CSS and JavaScript files:
+- CSS: `/assets/css/widgets/{widget-name}.css`
+- JS: `/assets/js/widgets/{widget-name}.js`
+
+These are loaded automatically by the asset management system.
+
+## Debugging Widget Registration
+
+### Enable Debug Logging
+```php
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+```
+
+### Debug Information Logged
+- Widget file discovery
+- Class name conversion
+- Registration success/failure
+- Error details for failed registrations
+
+### Common Issues and Solutions
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| Widget not appearing | File naming doesn't match pattern | Use `class-{name}-widget.php` format |
+| Class not found | Class name doesn't match expected format | Follow `AIQ_{Name}_Widget` convention |
+| Widget not extending base class | Missing parent class | Extend `\Elementor\Widget_Base` |
+| Registration fails | Syntax errors in widget file | Check PHP syntax and debug logs |
+
+## System Requirements
+
+- **WordPress**: 5.8+
+- **Elementor Pro**: 3.5+
+- **PHP**: 7.4+
+
+## Performance Considerations
+
+- Widgets are registered only on pages using Elementor
+- Asset loading is optimized per widget usage
+- Debug logging can be disabled in production
+
+## Maintenance
+
+### Adding New Widgets
+Simply place properly named widget files in `/widgets/` directory - no manual registration required.
+
+### Updating Existing Widgets
+Modify widget files directly and clear Elementor cache to see changes.
+
+### Removing Widgets
+Delete widget files and clear Elementor cache to remove from available widgets.
+
+---
+
+**Last Updated**: June 2025  
+**System Version**: 1.0.3
