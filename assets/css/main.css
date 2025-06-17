@@ -36,6 +36,11 @@
   --aiq-warning: #FFC107;
   --aiq-error: #F44336;
   --aiq-info: #2196F3;
+
+  /* Accessibility Colors */
+  --aiq-focus-color: #FFFF00;
+  --aiq-focus-ring: 3px solid var(--aiq-focus-color);
+  --aiq-focus-shadow: 0 0 0 3px rgba(255, 255, 0, 0.5);
 }
 
 /*=================================
@@ -91,6 +96,89 @@
 }
 
 /*=================================
+ * Accessibility & Focus Styles
+ *=================================*/
+
+/* Screen Reader Only */
+.aiq-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Global Focus Styles - High Contrast for Accessibility */
+*:focus {
+  outline: var(--aiq-focus-ring);
+  outline-offset: 2px;
+  box-shadow: var(--aiq-focus-shadow);
+}
+
+/* Button Focus Styles */
+button:focus,
+.aiq-button:focus,
+.elementor-button:focus,
+input[type="submit"]:focus,
+input[type="button"]:focus {
+  outline: var(--aiq-focus-ring);
+  outline-offset: 2px;
+  box-shadow: var(--aiq-focus-shadow);
+}
+
+/* Link Focus Styles */
+a:focus {
+  outline: var(--aiq-focus-ring);
+  outline-offset: 2px;
+  box-shadow: var(--aiq-focus-shadow);
+  text-decoration: underline;
+}
+
+/* Form Element Focus Styles */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: var(--aiq-focus-ring);
+  outline-offset: 1px;
+  box-shadow: var(--aiq-focus-shadow);
+  border-color: var(--aiq-focus-color);
+}
+
+/* Interactive Element Focus for Widgets */
+.aiq-interactive:focus,
+[role="button"]:focus,
+[role="tab"]:focus,
+[tabindex]:focus {
+  outline: var(--aiq-focus-ring);
+  outline-offset: 2px;
+  box-shadow: var(--aiq-focus-shadow);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --aiq-primary-text: #FFFFFF;
+    --aiq-accent: #FFFF00;
+    --aiq-focus-color: #FF0000;
+  }
+}
+
+/*=================================
  * Base Resets
  *=================================*/
 body {
@@ -131,6 +219,19 @@ a {
 
 a:hover {
   color: var(--aiq-gradient-end);
+}
+
+/* Touch Target Minimum Sizes for Mobile Accessibility */
+button,
+.aiq-button,
+a,
+input,
+select,
+textarea,
+[role="button"],
+[tabindex] {
+  min-height: 44px;
+  min-width: 44px;
 }
 
 /* Media Queries */
