@@ -91,11 +91,19 @@ function aiqengage_child_enqueue_assets() {
         AIQENGAGE_CHILD_VERSION
     );
     
-    // PRIORITY 2: Child theme styles
+    // PRIORITY 2: Accessibility CSS (critical for screen readers)
+    wp_enqueue_style(
+        'aiq-accessibility-css',
+        AIQENGAGE_CHILD_URL . 'assets/css/accessibility.css',
+        ['aiq-main-css'],
+        AIQENGAGE_CHILD_VERSION
+    );
+    
+    // PRIORITY 3: Child theme styles
     wp_enqueue_style(
         'aiqengage-child',
         AIQENGAGE_CHILD_URL . 'style.css',
-        ['hello-elementor', 'aiq-main-css'],
+        ['hello-elementor', 'aiq-main-css', 'aiq-accessibility-css'],
         AIQENGAGE_CHILD_VERSION
     );
 }
