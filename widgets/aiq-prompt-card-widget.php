@@ -31,7 +31,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'AIQ Prompt Card', 'aiqengage' );
+        return esc_html__( 'AIQ Prompt Card', 'aiqengage-child' );
     }
 
     /**
@@ -69,7 +69,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__( 'Prompt Content', 'aiqengage' ),
+                'label' => esc_html__( 'Prompt Content', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -77,10 +77,10 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'prompt_title',
             [
-                'label' => esc_html__( 'Prompt Title', 'aiqengage' ),
+                'label' => esc_html__( 'Prompt Title', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__( 'Claude Prompt', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter prompt title', 'aiqengage' ),
+                'default' => esc_html__( 'Claude Prompt', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter prompt title', 'aiqengage-child' ),
                 'label_block' => true,
             ]
         );
@@ -88,16 +88,16 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'prompt_category',
             [
-                'label' => esc_html__( 'Category', 'aiqengage' ),
+                'label' => esc_html__( 'Category', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'general',
                 'options' => [
-                    'general' => esc_html__( 'General', 'aiqengage' ),
-                    'reddit' => esc_html__( 'Reddit', 'aiqengage' ),
-                    'email' => esc_html__( 'Email', 'aiqengage' ),
-                    'content' => esc_html__( 'Content Creation', 'aiqengage' ),
-                    'marketing' => esc_html__( 'Marketing', 'aiqengage' ),
-                    'automation' => esc_html__( 'Automation', 'aiqengage' ),
+                    'general' => esc_html__( 'General', 'aiqengage-child' ),
+                    'reddit' => esc_html__( 'Reddit', 'aiqengage-child' ),
+                    'email' => esc_html__( 'Email', 'aiqengage-child' ),
+                    'content' => esc_html__( 'Content Creation', 'aiqengage-child' ),
+                    'marketing' => esc_html__( 'Marketing', 'aiqengage-child' ),
+                    'automation' => esc_html__( 'Automation', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -105,32 +105,32 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'prompt_content',
             [
-                'label' => esc_html__( 'Prompt Content', 'aiqengage' ),
+                'label' => esc_html__( 'Prompt Content', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'rows' => 10,
-                'default' => esc_html__( 'Enter your Claude prompt here...', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter your Claude prompt here...', 'aiqengage' ),
+                'default' => esc_html__( 'Enter your Claude prompt here...', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter your Claude prompt here...', 'aiqengage-child' ),
             ]
         );
 
         $this->add_control(
             'prompt_description',
             [
-                'label' => esc_html__( 'Description', 'aiqengage' ),
+                'label' => esc_html__( 'Description', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'rows' => 3,
-                'default' => esc_html__( 'Brief description of what this prompt does and how to use it.', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter prompt description...', 'aiqengage' ),
+                'default' => esc_html__( 'Brief description of what this prompt does and how to use it.', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter prompt description...', 'aiqengage-child' ),
             ]
         );
 
         $this->add_control(
             'show_variables',
             [
-                'label' => esc_html__( 'Show Variables Panel', 'aiqengage' ),
+                'label' => esc_html__( 'Show Variables Panel', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'aiqengage' ),
-                'label_off' => esc_html__( 'Hide', 'aiqengage' ),
+                'label_on' => esc_html__( 'Show', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'Hide', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -139,22 +139,22 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'prompt_variables',
             [
-                'label' => esc_html__( 'Variables', 'aiqengage' ),
+                'label' => esc_html__( 'Variables', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => [
                     [
                         'name' => 'variable_name',
-                        'label' => esc_html__( 'Variable Name', 'aiqengage' ),
+                        'label' => esc_html__( 'Variable Name', 'aiqengage-child' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => esc_html__( 'VARIABLE', 'aiqengage' ),
-                        'placeholder' => esc_html__( 'e.g., TOPIC, NICHE, etc.', 'aiqengage' ),
+                        'default' => esc_html__( 'VARIABLE', 'aiqengage-child' ),
+                        'placeholder' => esc_html__( 'e.g., TOPIC, NICHE, etc.', 'aiqengage-child' ),
                     ],
                     [
                         'name' => 'variable_description',
-                        'label' => esc_html__( 'Description', 'aiqengage' ),
+                        'label' => esc_html__( 'Description', 'aiqengage-child' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => esc_html__( 'Description of the variable', 'aiqengage' ),
-                        'placeholder' => esc_html__( 'What this variable represents', 'aiqengage' ),
+                        'default' => esc_html__( 'Description of the variable', 'aiqengage-child' ),
+                        'placeholder' => esc_html__( 'What this variable represents', 'aiqengage-child' ),
                     ],
                 ],
                 'default' => [
@@ -177,10 +177,10 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'expandable',
             [
-                'label' => esc_html__( 'Expandable Content', 'aiqengage' ),
+                'label' => esc_html__( 'Expandable Content', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -189,10 +189,10 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'pro_only',
             [
-                'label' => esc_html__( 'Pro Only', 'aiqengage' ),
+                'label' => esc_html__( 'Pro Only', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -204,7 +204,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style',
             [
-                'label' => esc_html__( 'Card Style', 'aiqengage' ),
+                'label' => esc_html__( 'Card Style', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -212,7 +212,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'card_background',
             [
-                'label' => esc_html__( 'Background Color', 'aiqengage' ),
+                'label' => esc_html__( 'Background Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#2A1958',
                 'selectors' => [
@@ -224,7 +224,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'card_border_color',
             [
-                'label' => esc_html__( 'Border Color', 'aiqengage' ),
+                'label' => esc_html__( 'Border Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => 'rgba(156, 77, 255, 0.3)',
                 'selectors' => [
@@ -237,7 +237,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'title_typography',
-                'label' => esc_html__( 'Title Typography', 'aiqengage' ),
+                'label' => esc_html__( 'Title Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-prompt-card__title',
             ]
         );
@@ -245,7 +245,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'title_color',
             [
-                'label' => esc_html__( 'Title Color', 'aiqengage' ),
+                'label' => esc_html__( 'Title Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
                 'selectors' => [
@@ -258,7 +258,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'content_typography',
-                'label' => esc_html__( 'Content Typography', 'aiqengage' ),
+                'label' => esc_html__( 'Content Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-prompt-card__content',
             ]
         );
@@ -266,7 +266,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'content_color',
             [
-                'label' => esc_html__( 'Content Color', 'aiqengage' ),
+                'label' => esc_html__( 'Content Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#E0D6FF',
                 'selectors' => [
@@ -278,7 +278,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_background',
             [
-                'label' => esc_html__( 'Copy Button Background', 'aiqengage' ),
+                'label' => esc_html__( 'Copy Button Background', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
                 'selectors' => [
@@ -290,7 +290,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_color',
             [
-                'label' => esc_html__( 'Copy Button Text Color', 'aiqengage' ),
+                'label' => esc_html__( 'Copy Button Text Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#FFFFFF',
                 'selectors' => [
@@ -336,14 +336,14 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
             <div class="aiq-prompt-card__content <?php echo 'yes' === $settings['expandable'] ? 'aiq-prompt-card__content--expandable' : ''; ?>">
                 <pre class="aiq-prompt-card__prompt"><code><?php echo esc_html( $settings['prompt_content'] ); ?></code></pre>
                 <button class="aiq-prompt-card__copy-btn" data-copy-text="<?php echo esc_attr( $settings['prompt_content'] ); ?>">
-                    <span class="copy-text"><?php esc_html_e( 'Copy', 'aiqengage' ); ?></span>
-                    <span class="copied-text" style="display: none;"><?php esc_html_e( 'Copied!', 'aiqengage' ); ?></span>
+                    <span class="copy-text"><?php esc_html_e( 'Copy', 'aiqengage-child' ); ?></span>
+                    <span class="copied-text" style="display: none;"><?php esc_html_e( 'Copied!', 'aiqengage-child' ); ?></span>
                 </button>
             </div>
             
             <?php if ( 'yes' === $settings['show_variables'] && ! empty( $settings['prompt_variables'] ) ) : ?>
                 <div class="aiq-prompt-card__variables">
-                    <h4 class="aiq-prompt-card__variables-title"><?php esc_html_e( 'Variables', 'aiqengage' ); ?></h4>
+                    <h4 class="aiq-prompt-card__variables-title"><?php esc_html_e( 'Variables', 'aiqengage-child' ); ?></h4>
                     <ul class="aiq-prompt-card__variables-list">
                         <?php foreach ( $settings['prompt_variables'] as $variable ) : ?>
                             <li class="aiq-prompt-card__variable">
@@ -358,8 +358,8 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
             <?php if ( 'yes' === $settings['expandable'] ) : ?>
                 <div class="aiq-prompt-card__toggle">
                     <button class="aiq-prompt-card__expand-btn">
-                        <span class="expand-text"><?php esc_html_e( 'Show More', 'aiqengage' ); ?></span>
-                        <span class="collapse-text" style="display: none;"><?php esc_html_e( 'Show Less', 'aiqengage' ); ?></span>
+                        <span class="expand-text"><?php esc_html_e( 'Show More', 'aiqengage-child' ); ?></span>
+                        <span class="collapse-text" style="display: none;"><?php esc_html_e( 'Show Less', 'aiqengage-child' ); ?></span>
                     </button>
                 </div>
             <?php endif; ?>
