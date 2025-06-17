@@ -1,1 +1,405 @@
-/* Styles for tool card widget */
+/* assets/css/widgets/tool-card.css */
+
+/**
+ * AIQ Tool Card Component
+ * Version: 1.1.0
+ * 
+ * Features:
+ * - Fully responsive design
+ * - Accessibility optimized
+ * - Performance optimized animations
+ * - CSS variables for easy theming
+ * - BEM naming convention
+ * - Reduced motion support
+ * - List and card view modes
+ */
+
+:root {
+  /* Design Tokens */
+  --aiq-card-bg: #2A1958;
+  --aiq-card-text: #E0D6FF;
+  --aiq-card-text-muted: rgba(224, 214, 255, 0.8);
+  --aiq-card-text-dimmed: rgba(224, 214, 255, 0.6);
+  --aiq-accent: #9C4DFF;
+  --aiq-border: rgba(156, 77, 255, 0.3);
+  --aiq-gradient: linear-gradient(90deg, #9C4DFF 0%, #5E72E4 100%);
+  --aiq-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --aiq-highlight: rgba(156, 77, 255, 0.1);
+  --aiq-verified: #FFD700;
+  --aiq-transition: 0.3s ease;
+  --aiq-border-radius: 15px;
+  --aiq-logo-size: 64px;
+  --aiq-logo-bg: rgba(156, 77, 255, 0.2);
+  --aiq-badge-bg: var(--aiq-accent);
+  --aiq-button-padding: 0.9rem 1.6rem;
+  
+  /* Category Colors */
+  --aiq-category-writer: #9C4DFF;
+  --aiq-category-automation: #635BFF;
+  --aiq-category-research: #7F5AF0;
+  --aiq-category-design: #8E6BFF;
+  --aiq-category-analytics: #5E72E4;
+  --aiq-category-productivity: #A0AEC0;
+}
+
+/* Base Card Styles */
+.aiq-tool-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--aiq-card-bg);
+  border-radius: var(--aiq-border-radius);
+  border: 1px solid var(--aiq-border);
+  box-shadow: var(--aiq-shadow);
+  padding: 1.5rem;
+  color: var(--aiq-card-text);
+  height: 100%;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+}
+
+/* Hover Effects */
+.aiq-tool-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.aiq-tool-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #635BFF, #8E6BFF);
+  border-radius: var(--aiq-border-radius);
+  opacity: 0;
+  transition: opacity var(--aiq-transition);
+  z-index: -1;
+}
+
+.aiq-tool-card:hover::before {
+  opacity: 0.1;
+}
+
+/* Card Elements */
+.aiq-tool-card__badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--aiq-badge-bg);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(156, 77, 255, 0.4);
+}
+
+.aiq-tool-card__logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  height: var(--aiq-logo-size);
+}
+
+.aiq-tool-card__logo {
+  width: var(--aiq-logo-size);
+  height: var(--aiq-logo-size);
+  object-fit: contain;
+  border-radius: 8px;
+  background-color: var(--aiq-logo-bg);
+  padding: 0.5rem;
+}
+
+/* Card Content Structure */
+.aiq-tool-card__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.aiq-tool-card__header {
+  margin-bottom: 0.75rem;
+}
+
+.aiq-tool-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--aiq-card-text);
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+/* Meta Information */
+.aiq-tool-card__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.aiq-tool-card__category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--category-color, var(--aiq-accent));
+  background-color: rgba(var(--category-color-rgb, 156, 77, 255), 0.1);
+  border: 1px solid rgba(var(--category-color-rgb, 156, 77, 255), 0.3);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Verified Badge */
+.aiq-tool-card__verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--aiq-verified);
+}
+
+.aiq-tool-card__verified svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* Rating System */
+.aiq-tool-card__rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.aiq-tool-card__star {
+  color: var(--aiq-card-text-dimmed);
+  font-size: 1rem;
+}
+
+.aiq-tool-card__star--active {
+  color: var(--aiq-verified);
+}
+
+.aiq-tool-card__rating-text {
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--aiq-card-text-muted);
+}
+
+/* Description */
+.aiq-tool-card__description {
+  margin-bottom: 1.25rem;
+  color: var(--aiq-card-text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Footer & CTA */
+.aiq-tool-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.aiq-tool-card__price {
+  display: flex;
+  flex-direction: column;
+}
+
+.aiq-tool-card__price-original {
+  font-size: 0.875rem;
+  color: var(--aiq-card-text-dimmed);
+  text-decoration: line-through;
+  margin-bottom: 0.25rem;
+}
+
+.aiq-tool-card__price-current {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--aiq-card-text);
+}
+
+/* Primary Button */
+.aiq-tool-card__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: var(--aiq-button-padding);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: white;
+  background: var(--aiq-gradient);
+  text-decoration: none;
+  transition: transform var(--aiq-transition), box-shadow var(--aiq-transition);
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+  will-change: transform, box-shadow;
+}
+
+.aiq-tool-card__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(94, 114, 228, 0.4);
+}
+
+.aiq-tool-card__button:active {
+  transform: translateY(1px);
+}
+
+/* List View Variant */
+.aiq-tool-card--list {
+  flex-direction: row;
+  align-items: center;
+  padding: 1.25rem;
+}
+
+.aiq-tool-card--list .aiq-tool-card__logo-wrapper {
+  margin-right: 1.25rem;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.aiq-tool-card--list .aiq-tool-card__content {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.aiq-tool-card--list .aiq-tool-card__header {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 0;
+  margin-right: 1.5rem;
+}
+
+.aiq-tool-card--list .aiq-tool-card__description {
+  display: none;
+}
+
+.aiq-tool-card--list .aiq-tool-card__footer {
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+/* Category-specific Styles */
+.aiq-tool-card[data-category="writer"] {
+  --category-color: var(--aiq-category-writer);
+  --category-color-rgb: 156, 77, 255;
+}
+
+.aiq-tool-card[data-category="automation"] {
+  --category-color: var(--aiq-category-automation);
+  --category-color-rgb: 99, 91, 255;
+}
+
+.aiq-tool-card[data-category="research"] {
+  --category-color: var(--aiq-category-research);
+  --category-color-rgb: 127, 90, 240;
+}
+
+.aiq-tool-card[data-category="design"] {
+  --category-color: var(--aiq-category-design);
+  --category-color-rgb: 142, 107, 255;
+}
+
+.aiq-tool-card[data-category="analytics"] {
+  --category-color: var(--aiq-category-analytics);
+  --category-color-rgb: 94, 114, 228;
+}
+
+.aiq-tool-card[data-category="productivity"] {
+  --category-color: var(--aiq-category-productivity);
+  --category-color-rgb: 160, 174, 192;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .aiq-tool-card--list {
+    flex-direction: column;
+  }
+  
+  .aiq-tool-card--list .aiq-tool-card__logo-wrapper {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .aiq-tool-card--list .aiq-tool-card__content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .aiq-tool-card--list .aiq-tool-card__description {
+    display: block;
+  }
+  
+  .aiq-tool-card--list .aiq-tool-card__header {
+    margin-bottom: 0.75rem;
+    margin-right: 0;
+    min-width: 100%;
+  }
+  
+  .aiq-tool-card--list .aiq-tool-card__footer {
+    width: 100%;
+    margin-top: 1rem;
+    justify-content: space-between;
+  }
+  
+  .aiq-tool-card__footer {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .aiq-tool-card__price {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  
+  .aiq-tool-card__price-original {
+    margin-bottom: 0;
+  }
+  
+  .aiq-tool-card__button {
+    width: 100%;
+  }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .aiq-tool-card,
+  .aiq-tool-card::before,
+  .aiq-tool-card__button {
+    transition: none !important;
+  }
+  
+  .aiq-tool-card:hover {
+    transform: none;
+  }
+  
+  .aiq-tool-card__button:hover {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .aiq-tool-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    break-inside: avoid;
+  }
+  
+  .aiq-tool-card__button {
+    display: none;
+  }
+}
