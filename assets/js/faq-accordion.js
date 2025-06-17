@@ -51,15 +51,32 @@
         const questions = accordion.querySelectorAll(CONFIG.selectors.question);
         const defaultOpen = accordion.dataset.defaultOpen || 'first';
         
+        // Set up accordion container ARIA attributes
+        accordion.setAttribute('role', 'presentation');
+        
         // Initialize default states
         questions.forEach((question, index) => {
             const item = question.closest(CONFIG.selectors.item);
             const answer = item.querySelector(CONFIG.selectors.answer);
             
-            // Set initial ARIA attributes
+            // Generate unique IDs if not present
+            if (!question.id) {
+                question.id = `faq-question-${accordion.id || 'default'}-${index}`;
+            }
+            if (!answer.id) {
+                answer.id = `faq-answer-${accordion.id || 'default'}-${index}`;
+            }
+            
+            // Set up button attributes for question
+            question.setAttribute('role', 'button');
+            question.setAttribute('tabindex', '0');
             question.setAttribute('aria-expanded', 'false');
             question.setAttribute('aria-controls', answer.id);
+            
+            // Set up answer panel attributes
+            answer.setAttribute('role', 'region');
             answer.setAttribute('aria-labelledby', question.id);
+            answer.setAttribute('aria-hidden', 'true');
             
             // Set initial state based on defaultOpen
             if (defaultOpen === 'all' || (defaultOpen === 'first' && index === 0)) {
@@ -67,9 +84,16 @@
             }
             
             // Add event listeners
-            question.addEventListener('click', () => toggleItem(item));
+            question.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleItem(item);
+            });
+            
             question.addEventListener('keydown', (e) => handleKeyboardNavigation(e, questions, index));
         });
+        
+        // Announce accordion setup to screen readers
+        announceToScreenReader(`FAQ accordion with ${questions.length} questions loaded. Use Tab to navigate questions, Enter or Space to expand, arrow keys to move between questions.`);
     }
     
     /**
@@ -81,27 +105,66 @@
         const items = accordion.querySelectorAll(CONFIG.selectors.item);
         const noResults = accordion.querySelector(CONFIG.selectors.noResults);
         
+        // Set up search input accessibility
+        searchInput.setAttribute('aria-label', 'Search FAQ questions');
+        searchInput.setAttribute('aria-describedby', 'search-instructions');
+        
+        // Add search instructions for screen readers
+        let instructions = accordion.querySelector('#search-instructions');
+        if (!instructions) {
+            instructions = document.createElement('div');
+            instructions.id = 'search-instructions';
+            instructions.className = 'sr-only';
+            instructions.textContent = 'Type to search through FAQ questions. Results will be filtered as you type.';
+            searchInput.parentNode.appendChild(instructions);
+        }
+        
         // Debounce search input to improve performance
         const debouncedSearch = debounce(function() {
             const searchTerm = this.value.trim().toLowerCase();
             let hasResults = false;
+            let visibleCount = 0;
             
             items.forEach(item => {
-                const questionText = item.dataset.question.toLowerCase();
-                const isMatch = questionText.includes(searchTerm);
+                const questionText = item.dataset.question?.toLowerCase() || 
+                                   item.querySelector(CONFIG.selectors.question).textContent.toLowerCase();
+                const answerText = item.querySelector(CONFIG.selectors.answer).textContent.toLowerCase();
+                const isMatch = !searchTerm || questionText.includes(searchTerm) || answerText.includes(searchTerm);
                 
                 item.classList.toggle(CONFIG.classes.hidden, !isMatch);
+                item.setAttribute('aria-hidden', !isMatch);
                 
-                if (isMatch) hasResults = true;
+                if (isMatch) {
+                    hasResults = true;
+                    visibleCount++;
+                }
             });
             
             // Show/hide no results message
             if (noResults) {
                 noResults.style.display = hasResults || !searchTerm ? 'none' : 'block';
+                if (!hasResults && searchTerm) {
+                    noResults.setAttribute('aria-live', 'polite');
+                    noResults.textContent = `No results found for "${searchTerm}"`;
+                }
+            }
+            
+            // Announce search results to screen readers
+            if (searchTerm) {
+                announceToScreenReader(`${visibleCount} question${visibleCount !== 1 ? 's' : ''} found for "${searchTerm}"`);
             }
         }, 300);
         
         searchInput.addEventListener('input', debouncedSearch);
+        
+        // Clear search on Escape
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                this.value = '';
+                debouncedSearch.call(this);
+                announceToScreenReader('Search cleared, showing all questions');
+            }
+        });
     }
     
     /**
@@ -116,6 +179,7 @@
         
         // Update ARIA attributes
         question.setAttribute('aria-expanded', isOpening.toString());
+        answer.setAttribute('aria-hidden', (!isOpening).toString());
         
         // Handle animations based on prefers-reduced-motion
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -124,17 +188,35 @@
             // No animation for users who prefer reduced motion
             item.classList.toggle(CONFIG.classes.active, isOpening);
             answer.style.display = isOpening ? 'block' : 'none';
+            
+            // Focus management for screen readers
+            if (isOpening) {
+                // Set tabindex on answer content for potential focus
+                answer.setAttribute('tabindex', '-1');
+                // Announce state change
+                announceToScreenReader(`Question expanded: ${question.textContent}`);
+            } else {
+                answer.removeAttribute('tabindex');
+                announceToScreenReader(`Question collapsed: ${question.textContent}`);
+            }
             return;
         }
         
         if (isOpening) {
             // Open the item
             item.classList.add(CONFIG.classes.active);
-            animateOpen(answer);
+            animateOpen(answer, () => {
+                // After animation, announce to screen readers
+                announceToScreenReader(`Question expanded: ${question.textContent}`);
+                // Set up focus management
+                answer.setAttribute('tabindex', '-1');
+            });
         } else {
             // Close the item
             animateClose(answer, () => {
                 item.classList.remove(CONFIG.classes.active);
+                answer.removeAttribute('tabindex');
+                announceToScreenReader(`Question collapsed: ${question.textContent}`);
             });
         }
     }
@@ -142,8 +224,9 @@
     /**
      * Animate opening an accordion answer
      * @param {HTMLElement} answer The answer element to animate
+     * @param {Function} callback Optional callback after animation
      */
-    function animateOpen(answer) {
+    function animateOpen(answer, callback) {
         // Store the current padding values
         const computedStyle = window.getComputedStyle(answer);
         const paddingTop = computedStyle.paddingTop;
@@ -176,6 +259,8 @@
             answer.style.removeProperty('padding-top');
             answer.style.removeProperty('padding-bottom');
             answer.style.removeProperty('transition');
+            
+            if (callback) callback();
         }, CONFIG.animationDuration);
     }
     
@@ -231,6 +316,16 @@
      */
     function handleKeyboardNavigation(event, questions, currentIndex) {
         const key = event.key;
+        
+        // Handle activation keys
+        if (key === 'Enter' || key === ' ') {
+            event.preventDefault();
+            const item = questions[currentIndex].closest(CONFIG.selectors.item);
+            toggleItem(item);
+            return;
+        }
+        
+        // Handle navigation keys
         const isArrowKey = key === 'ArrowDown' || key === 'ArrowUp';
         const isHomeOrEnd = key === 'Home' || key === 'End';
         
@@ -256,13 +351,47 @@
                 break;
         }
         
+        // Move focus to target question
         questions[targetIndex].focus();
         
-        // Optionally open the item when navigating with keyboard
+        // Announce navigation to screen readers
+        announceToScreenReader(`Question ${targetIndex + 1} of ${questions.length}: ${questions[targetIndex].textContent}`);
+        
+        // Optionally open the item when navigating with Ctrl+Arrow keys
         if (isArrowKey && event.ctrlKey) {
             const item = questions[targetIndex].closest(CONFIG.selectors.item);
             toggleItem(item, true);
         }
+    }
+    
+    /**
+     * Announce message to screen readers
+     * @param {string} message The message to announce
+     */
+    function announceToScreenReader(message) {
+        // Create or get the announcer element
+        let announcer = document.getElementById('faq-announcer');
+        if (!announcer) {
+            announcer = document.createElement('div');
+            announcer.id = 'faq-announcer';
+            announcer.setAttribute('aria-live', 'polite');
+            announcer.setAttribute('aria-atomic', 'true');
+            announcer.className = 'sr-only';
+            document.body.appendChild(announcer);
+        }
+        
+        // Clear previous announcement
+        announcer.textContent = '';
+        
+        // Make announcement after a brief delay to ensure screen readers pick it up
+        setTimeout(() => {
+            announcer.textContent = message;
+        }, 100);
+        
+        // Clear after announcement
+        setTimeout(() => {
+            announcer.textContent = '';
+        }, 3000);
     }
     
     /**
