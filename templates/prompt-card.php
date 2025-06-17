@@ -18,7 +18,7 @@ $category_display = $this->get_category_display_name( $settings );
 
 <div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
     <?php if ( 'yes' === $settings['is_pro'] ) : ?>
-        <div class="aiq-prompt-card__pro-badge" aria-label="<?php esc_attr_e( 'Pro Content', 'aiqengage' ); ?>">
+        <div class="aiq-prompt-card__pro-badge" aria-label="<?php esc_attr_e( 'Pro Content', 'aiqengage-child' ); ?>">
             <span class="aiq-prompt-card__pro-badge-text">PRO</span>
             <span class="aiq-prompt-card__pro-badge-icon">🔒</span>
         </div>
@@ -40,22 +40,22 @@ $category_display = $this->get_category_display_name( $settings );
 
         <div class="aiq-prompt-card__actions">
             <button type="button" class="aiq-prompt-card__copy-btn" 
-                    aria-label="<?php esc_attr_e( 'Copy prompt to clipboard', 'aiqengage' ); ?>"
+                    aria-label="<?php esc_attr_e( 'Copy prompt to clipboard', 'aiqengage-child' ); ?>"
                     data-prompt-id="<?php echo esc_attr( $card_id ); ?>">
                 <span class="aiq-prompt-card__copy-icon">
                     <i class="fas fa-copy" aria-hidden="true"></i>
                 </span>
-                <span class="aiq-prompt-card__copy-text"><?php esc_html_e( 'Copy', 'aiqengage' ); ?></span>
+                <span class="aiq-prompt-card__copy-text"><?php esc_html_e( 'Copy', 'aiqengage-child' ); ?></span>
             </button>
             
             <button type="button" class="aiq-prompt-card__toggle" 
                     aria-expanded="<?php echo $expanded ? 'true' : 'false'; ?>" 
                     aria-controls="<?php echo esc_attr( $card_id ); ?>-content">
                 <span class="aiq-prompt-card__toggle-text aiq-prompt-card__toggle-text--expand">
-                    <?php esc_html_e( 'Show Prompt', 'aiqengage' ); ?>
+                    <?php esc_html_e( 'Show Prompt', 'aiqengage-child' ); ?>
                 </span>
                 <span class="aiq-prompt-card__toggle-text aiq-prompt-card__toggle-text--collapse">
-                    <?php esc_html_e( 'Hide Prompt', 'aiqengage' ); ?>
+                    <?php esc_html_e( 'Hide Prompt', 'aiqengage-child' ); ?>
                 </span>
                 <span class="aiq-prompt-card__toggle-icon">
                     <i class="fas fa-chevron-down" aria-hidden="true"></i>
@@ -73,14 +73,14 @@ $category_display = $this->get_category_display_name( $settings );
         
         <?php if ( 'yes' === $settings['show_variables'] && ! empty( $settings['variables'] ) ) : ?>
             <div class="aiq-prompt-card__variables">
-                <h4 class="aiq-prompt-card__variables-title"><?php esc_html_e( 'Variables', 'aiqengage' ); ?></h4>
+                <h4 class="aiq-prompt-card__variables-title"><?php esc_html_e( 'Variables', 'aiqengage-child' ); ?></h4>
                 <div class="aiq-prompt-card__variables-table-wrapper">
                     <table class="aiq-prompt-card__variables-table">
                         <thead>
                             <tr>
-                                <th><?php esc_html_e( 'Variable', 'aiqengage' ); ?></th>
-                                <th><?php esc_html_e( 'Description', 'aiqengage' ); ?></th>
-                                <th><?php esc_html_e( 'Example', 'aiqengage' ); ?></th>
+                                <th><?php esc_html_e( 'Variable', 'aiqengage-child' ); ?></th>
+                                <th><?php esc_html_e( 'Description', 'aiqengage-child' ); ?></th>
+                                <th><?php esc_html_e( 'Example', 'aiqengage-child' ); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -103,7 +103,7 @@ $category_display = $this->get_category_display_name( $settings );
 
                 <?php if ( ! empty( $settings['usage_tips'] ) ) : ?>
                     <div class="aiq-prompt-card__tips">
-                        <h4 class="aiq-prompt-card__tips-title"><?php esc_html_e( 'Usage Tips', 'aiqengage' ); ?></h4>
+                        <h4 class="aiq-prompt-card__tips-title"><?php esc_html_e( 'Usage Tips', 'aiqengage-child' ); ?></h4>
                         <div class="aiq-prompt-card__tips-content">
                             <?php echo wp_kses_post( $settings['usage_tips'] ); ?>
                         </div>
@@ -114,6 +114,6 @@ $category_display = $this->get_category_display_name( $settings );
     </div>
 
     <div class="aiq-prompt-card__copied-message" aria-live="polite">
-        <?php esc_html_e( 'Copied to clipboard!', 'aiqengage' ); ?>
+        <?php esc_html_e( 'Copied to clipboard!', 'aiqengage-child' ); ?>
     </div>
 </div>
