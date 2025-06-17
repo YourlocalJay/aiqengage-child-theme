@@ -1,244 +1,121 @@
 /**
- * AIQEngage Prompt Card Grid Scripts
- * Version: 1.0.0
+ * Prompt Card Widget - Enhanced JavaScript
+ *
+ * @package AIQEngage
+ * @version 1.0.0
  */
 
-(function($) {
+( function( $ ) {
     'use strict';
-
+    
     /**
      * Initialize Prompt Card functionality
      */
     function initPromptCards() {
+        // Toggle expand/collapse
+        $( document ).on( 'click', '.aiq-prompt-card__toggle', function() {
+            const $card = $( this ).closest( '.aiq-prompt-card' );
+            $card.toggleClass( 'aiq-prompt-card--expanded' );
+            
+            // Update aria-expanded attribute
+            const isExpanded = $card.hasClass( 'aiq-prompt-card--expanded' );
+            $( this ).attr( 'aria-expanded', isExpanded );
+            
+            // If expanded, focus on the prompt content
+            if ( isExpanded ) {
+                setTimeout( () => {
+                    $card.find( '.aiq-prompt-card__prompt' ).attr( 'tabindex', '-1' ).focus();
+                }, 300 );
+            }
+        });
+        
         // Copy to clipboard functionality
-        $('.aiq-prompt-card-copy').on('click', function(e) {
+        $( document ).on( 'click', '.aiq-prompt-card__copy-btn', function( e ) {
             e.preventDefault();
+            const $card = $( this ).closest( '.aiq-prompt-card' );
+            const $promptText = $card.find( '.aiq-prompt-card__prompt' );
+            const textToCopy = $promptText.text().trim();
             
-            const targetId = $(this).data('target');
-            const textToCopy = $('#' + targetId).text();
-            const $button = $(this);
-            const originalText = $button.find('.aiq-copy-text').text();
+            copyToClipboard( textToCopy ).then( () => {
+                showCopiedMessage( $card );
+                announceForScreenReaders( 'Prompt copied to clipboard' );
+            }).catch( ( err ) => {
+                console.error( 'Failed to copy: ', err );
+                alert( 'Failed to copy the prompt. Please try again.' );
+            });
+        });
+        
+        // Variable insert functionality
+        $( document ).on( 'click', '.aiq-prompt-card__variable-insert', function( e ) {
+            e.preventDefault();
+            const variableName = $( this ).data( 'variable' );
+            const promptId = $( this ).data( 'prompt-id' );
+            const $card = $( '#' + promptId );
+            const $promptText = $card.find( '.aiq-prompt-card__prompt' );
             
-            // Copy to clipboard
-            navigator.clipboard.writeText(textToCopy).then(function() {
-                // Success feedback
-                $button.find('.aiq-copy-text').text('Copied!');
-                $button.addClass('copied');
+            copyToClipboard( variableName ).then( () => {
+                highlightVariableInPrompt( $promptText, variableName );
+                announceForScreenReaders( 'Variable ' + variableName + ' copied to clipboard' );
+            }).catch( ( err ) => {
+                console.error( 'Failed to copy variable: ', err );
+                alert( 'Failed to copy the variable. Please try again.' );
+            });
+        });
+    }
+    
+    /**
+     * Copy text to clipboard using modern API with fallback
+     * 
+     * @param {string} text - The text to copy
+     * @return {Promise} A promise that resolves when copy is complete
+     */
+    function copyToClipboard( text ) {
+        // Use modern clipboard API if available
+        if ( navigator.clipboard && window.isSecureContext ) {
+            return navigator.clipboard.writeText( text );
+        }
+        
+        // Fallback for older browsers
+        return new Promise( ( resolve, reject ) => {
+            try {
+                const $temp = $( '<textarea>' );
+                $( 'body' ).append( $temp );
+                $temp.val( text ).select();
                 
-                // Reset after 2 seconds
-                setTimeout(function() {
-                    $button.find('.aiq-copy-text').text(originalText);
-                    $button.removeClass('copied');
-                }, 2000);
-            }).catch(function(err) {
-                // Fallback for older browsers
-                fallbackCopyTextToClipboard(textToCopy, $button, originalText);
-            });
-        });
-
-        // Toggle results
-        $('.aiq-prompt-card-toggle-btn').on('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = $(this).data('target');
-            const $results = $('#' + targetId);
-            const $icon = $(this).find('.aiq-toggle-icon');
-            
-            $results.slideToggle(300, function() {
-                if ($results.is(':visible')) {
-                    $results.addClass('active');
-                    $icon.text('−');
+                const success = document.execCommand( 'copy' );
+                $temp.remove();
+                
+                if ( success ) {
+                    resolve();
                 } else {
-                    $results.removeClass('active');
-                    $icon.text('+');
+                    reject( new Error( 'execCommand copy failed' ) );
                 }
-            });
-        });
-
-        // Category filter
-        $('.aiq-category-filter button').on('click', function(e) {
-            e.preventDefault();
-            
-            const filter = $(this).data('filter');
-            const $grid = $(this).closest('.elementor-widget-container').find('.aiq-prompt-grid');
-            const $cards = $grid.find('.aiq-prompt-card');
-            
-            // Update active state
-            $(this).siblings().removeClass('active');
-            $(this).addClass('active');
-            
-            // Filter cards
-            if (filter === 'all') {
-                $cards.fadeIn(300);
-            } else {
-                $cards.each(function() {
-                    if ($(this).data('category') === filter) {
-                        $(this).fadeIn(300);
-                    } else {
-                        $(this).fadeOut(200);
-                    }
-                });
+            } catch ( err ) {
+                reject( err );
             }
-            
-            // Optional: rearrange layout for best fit
-            setTimeout(function() {
-                rearrangeGrid($grid);
-            }, 350);
         });
     }
-
+    
     /**
-     * Fallback copy to clipboard for browsers that don't support Clipboard API
+     * Show the "Copied" message
+     * 
+     * @param {jQuery} $card - The card element
      */
-    function fallbackCopyTextToClipboard(text, $button, originalText) {
-        const textArea = document.createElement("textarea");
-        textArea.value = text;
+    function showCopiedMessage( $card ) {
+        $card.addClass( 'aiq-prompt-card--copied' );
         
-        // Make the textarea out of viewport
-        textArea.style.position = "fixed";
-        textArea.style.left = "-999999px";
-        textArea.style.top = "-999999px";
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        
-        try {
-            const successful = document.execCommand('copy');
-            if (successful) {
-                $button.find('.aiq-copy-text').text('Copied!');
-                $button.addClass('copied');
-            } else {
-                $button.find('.aiq-copy-text').text('Failed!');
-            }
-        } catch (err) {
-            $button.find('.aiq-copy-text').text('Failed!');
-        }
-        
-        // Cleanup
-        document.body.removeChild(textArea);
-        
-        // Reset after 2 seconds
-        setTimeout(function() {
-            $button.find('.aiq-copy-text').text(originalText);
-            $button.removeClass('copied');
-        }, 2000);
+        // Hide message after 2 seconds
+        setTimeout( () => {
+            $card.removeClass( 'aiq-prompt-card--copied' );
+        }, 2000 );
     }
-
+    
     /**
-     * Rearrange grid for best fit after filtering
+     * Highlight a variable in the prompt text
+     * 
+     * @param {jQuery} $promptText - The prompt text element
+     * @param {string} variableName - The variable name to highlight
      */
-    function rearrangeGrid($grid) {
-        // This function could be used for advanced layout adjustments
-        // For example, implementing a masonry-like layout
-        // Currently just a placeholder for future enhancements
-    }
-
-    /**
-     * Handle user interactions like hover effects
-     */
-    function setupInteractions() {
-        // Add hover effect to cards
-        $('.aiq-prompt-card').hover(
-            function() {
-                $(this).css('transform', 'translateY(-3px)');
-                $(this).css('box-shadow', '0 8px 20px rgba(0, 0, 0, 0.4)');
-            },
-            function() {
-                $(this).css('transform', 'translateY(0)');
-                $(this).css('box-shadow', '0 5px 15px rgba(0, 0, 0, 0.3)');
-            }
-        );
-        
-        // Add hover effect to filter buttons
-        $('.aiq-category-filter button').hover(
-            function() {
-                if (!$(this).hasClass('active')) {
-                    $(this).css('background-color', 'rgba(126, 87, 194, 0.3)');
-                }
-            },
-            function() {
-                if (!$(this).hasClass('active')) {
-                    $(this).css('background-color', 'rgba(126, 87, 194, 0.2)');
-                }
-            }
-        );
-    }
-
-    /**
-     * Handle responsive adaptations
-     */
-    function setupResponsive() {
-        const handleResize = function() {
-            if (window.innerWidth <= 767) {
-                // Mobile adjustments
-                $('.aiq-prompt-card-copy .aiq-copy-text').hide();
-            } else {
-                // Desktop layout
-                $('.aiq-prompt-card-copy .aiq-copy-text').show();
-            }
-        };
-        
-        // Initial call
-        handleResize();
-        
-        // Bind to window resize
-        $(window).on('resize', handleResize);
-    }
-
-    /**
-     * Initialize animations
-     */
-    function setupAnimations() {
-        // Use Intersection Observer for revealing elements on scroll
-        if ('IntersectionObserver' in window) {
-            const config = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('aiq-animated');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, config);
-            
-            document.querySelectorAll('.aiq-prompt-card').forEach(function(card) {
-                observer.observe(card);
-            });
-        } else {
-            // Fallback for browsers that don't support IntersectionObserver
-            document.querySelectorAll('.aiq-prompt-card').forEach(function(card) {
-                card.classList.add('aiq-animated');
-            });
-        }
-    }
-
-    /**
-     * Initialize functionality when Elementor frontend is available
-     */
-    $(window).on('elementor/frontend/init', function() {
-        if (typeof elementorFrontend !== 'undefined') {
-            elementorFrontend.hooks.addAction('frontend/element_ready/aiq-prompt-card-grid.default', function($scope) {
-                initPromptCards();
-                setupInteractions();
-                setupResponsive();
-                setupAnimations();
-            });
-        }
-    });
-
-    /**
-     * Initialize when document is ready (fallback)
-     */
-    $(document).ready(function() {
-        initPromptCards();
-        setupInteractions();
-        setupResponsive();
-        setupAnimations();
-    });
-
-})(jQuery);
+    function highlightVariableInPrompt( $promptText, variableName ) {
+        const html = $promptText.html();
+        const regex = new RegExp
