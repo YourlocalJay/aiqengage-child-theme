@@ -191,7 +191,7 @@ function aiqengage_missing_css_notice() {
     if (current_user_can('administrator')) {
         ?>
         <div class="notice notice-error">
-            <p><?php _e('AIQEngage Child Theme: Required directory "assets/css/widgets/" does not exist. Widget styling may not work properly.', 'aiqengage'); ?></p>
+            <p><?php _e('AIQEngage Child Theme: Required directory "assets/css/widgets/" does not exist. Widget styling may not work properly.', 'aiqengage-child'); ?></p>
         </div>
         <?php
     }
