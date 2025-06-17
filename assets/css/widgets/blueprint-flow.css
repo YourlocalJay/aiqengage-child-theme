@@ -227,4 +227,369 @@
 }
 
 /* Vertical Connectors */
-.aiq-blueprint/* Styles for blueprint flow widget */
+.aiq-blueprint/* Styles for blueprint flow widget *//* Vertical Connectors */
+.aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector {
+    height: 30px;
+    align-self: center;
+    width: 100%;
+}
+
+.aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: var(--connector-width);
+    background-color: var(--connector-color);
+    transform: translateX(-50%);
+}
+
+/* Connector Styles - Line */
+.aiq-blueprint-flow__connector--line::before {
+    /* Default style, no additional properties needed */
+}
+
+/* Connector Styles - Arrow */
+.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--arrow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: var(--arrow-size) solid transparent;
+    border-bottom: var(--arrow-size) solid transparent;
+    border-left: var(--arrow-size) solid var(--connector-color);
+    transform: translateY(-50%);
+}
+
+.aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector--arrow::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: var(--arrow-size) solid transparent;
+    border-right: var(--arrow-size) solid transparent;
+    border-top: var(--arrow-size) solid var(--connector-color);
+    transform: translateX(-50%);
+}
+
+/* Connector Styles - Dashed */
+.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--dashed::before {
+    background-image: linear-gradient(
+        to right,
+        var(--connector-color) var(--connector-dash-length),
+        transparent var(--connector-dash-length),
+        transparent calc(var(--connector-dash-length) + var(--connector-gap-length)),
+        var(--connector-color) calc(var(--connector-dash-length) + var(--connector-gap-length))
+    );
+    background-size: calc(var(--connector-dash-length) + var(--connector-gap-length) + var(--connector-dash-length)) 100%;
+    background-repeat: repeat-x;
+}
+
+.aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector--dashed::before {
+    background-image: linear-gradient(
+        to bottom,
+        var(--connector-color) var(--connector-dash-length),
+        transparent var(--connector-dash-length),
+        transparent calc(var(--connector-dash-length) + var(--connector-gap-length)),
+        var(--connector-color) calc(var(--connector-dash-length) + var(--connector-gap-length))
+    );
+    background-size: 100% calc(var(--connector-dash-length) + var(--connector-gap-length) + var(--connector-dash-length));
+    background-repeat: repeat-y;
+}
+
+/* Connector Styles - Dotted */
+.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--dotted::before {
+    background-image: radial-gradient(
+        circle,
+        var(--connector-color) 25%,
+        transparent 25%
+    );
+    background-size: calc(var(--connector-dash-length) + var(--connector-gap-length)) 100%;
+    background-repeat: repeat-x;
+    height: var(--connector-dash-length);
+}
+
+.aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector--dotted::before {
+    background-image: radial-gradient(
+        circle,
+        var(--connector-color) 25%,
+        transparent 25%
+    );
+    background-size: 100% calc(var(--connector-dash-length) + var(--connector-gap-length));
+    background-repeat: repeat-y;
+    width: var(--connector-dash-length);
+}
+
+/* Timeline Layout */
+.aiq-blueprint-flow--timeline .aiq-blueprint-flow__nodes {
+    position: relative;
+    padding-left: 30px;
+}
+
+.aiq-blueprint-flow--timeline.aiq-blueprint-flow--vertical .aiq-blueprint-flow__nodes::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--connector-color);
+}
+
+.aiq-blueprint-flow--timeline.aiq-blueprint-flow--vertical .aiq-blueprint-flow__node::before {
+    content: '';
+    position: absolute;
+    left: -35px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--node-accent);
+    z-index: 1;
+}
+
+.aiq-blueprint-flow--timeline.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 15px;
+    height: 2px;
+    background-color: var(--connector-color);
+}
+
+.aiq-blueprint-flow--timeline.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__node::before {
+    content: '';
+    position: absolute;
+    top: -35px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--node-accent);
+    z-index: 1;
+}
+
+/* ROI Calculator Styles */
+.aiq-blueprint-flow__roi-calculator {
+    margin-top: 40px;
+    background-color: #1A0938;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(156, 77, 255, 0.3);
+}
+
+.aiq-blueprint-flow__roi-title {
+    color: var(--flow-text-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 15px;
+    text-align: center;
+}
+
+.aiq-blueprint-flow__roi-description {
+    color: rgba(224, 214, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.aiq-blueprint-flow__roi-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.aiq-blueprint-flow__roi-field {
+    margin-bottom: 15px;
+}
+
+.aiq-blueprint-flow__roi-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--flow-text-color);
+    font-size: 0.9rem;
+}
+
+.aiq-blueprint-flow__roi-input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(156, 77, 255, 0.3);
+    background-color: rgba(26, 9, 56, 0.6);
+    color: var(--flow-text-color);
+    font-size: 0.9rem;
+}
+
+.aiq-blueprint-flow__roi-input:focus {
+    outline: none;
+    border-color: var(--flow-accent-color);
+    box-shadow: 0 0 0 2px rgba(156, 77, 255, 0.3);
+}
+
+.aiq-blueprint-flow__roi-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.aiq-blueprint-flow__roi-slider {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 6px;
+    background: rgba(156, 77, 255, 0.2);
+    border-radius: 3px;
+    outline: none;
+}
+
+.aiq-blueprint-flow__roi-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--flow-accent-color);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.aiq-blueprint-flow__roi-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 50%;
+    background: var(--flow-accent-color);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.aiq-blueprint-flow__roi-slider:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 3px rgba(156, 77, 255, 0.3);
+}
+
+.aiq-blueprint-flow__roi-slider:focus::-moz-range-thumb {
+    box-shadow: 0 0 0 3px rgba(156, 77, 255, 0.3);
+}
+
+.aiq-blueprint-flow__roi-slider-value {
+    min-width: 50px;
+    font-size: 0.9rem;
+    color: var(--flow-text-color);
+    font-weight: 600;
+}
+
+.aiq-blueprint-flow__roi-result {
+    grid-column: 1 / -1;
+    background-color: rgba(156, 77, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aiq-blueprint-flow__roi-result-label {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.aiq-blueprint-flow__roi-value {
+    color: var(--flow-accent-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .aiq-blueprint-flow {
+        padding: 25px;
+    }
+    
+    .aiq-blueprint-flow__title {
+        font-size: 1.8rem;
+    }
+    
+    .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes {
+        flex-wrap: wrap;
+    }
+    
+    .aiq-blueprint-flow__roi-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .aiq-blueprint-flow {
+        padding: 20px;
+    }
+    
+    .aiq-blueprint-flow__title {
+        font-size: 1.5rem;
+    }
+    
+    .aiq-blueprint-flow__node-title {
+        font-size: 1.1rem;
+    }
+    
+    .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes {
+        flex-direction: column;
+    }
+    
+    .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector {
+        width: auto;
+        height: 30px;
+    }
+    
+    .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector::before {
+        width: 2px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--arrow::after {
+        top: auto;
+        bottom: 0;
+        right: auto;
+        left: 50%;
+        border-left: var(--arrow-size) solid transparent;
+        border-right: var(--arrow-size) solid transparent;
+        border-top: var(--arrow-size) solid var(--connector-color);
+        border-bottom: none;
+        transform: translateX(-50%);
+    }
+    
+    .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--dashed::before {
+        background-image: linear-gradient(
+            to bottom,
+            var(--connector-color) var(--connector-dash-length),
+            transparent var(--connector-dash-length),
+            transparent calc(var(--connector-dash-length) + var(--connector-gap-length)),
+            var(--connector-color) calc(var(--connector-dash-length) + var(--connector-gap-length))
+        );
+        background-size: 100% calc(var(--connector-dash-length) + var(--connector-gap-length) + var(--connector-dash-length));
+        background-repeat: repeat-y;
+    }
+    
+    .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--dotted::before {
+        background-image: radial-gradient(
+            circle,
+            var(--connector-color) 25%,
+            transparent 25%
+        );
+        background-size: 100% calc(var(--connector-dash-length) + var(--connector-gap-length));
+        background-repeat: repeat-y;
+        width: var(--connector-dash-length);
+        height: auto;
+    }
+}
