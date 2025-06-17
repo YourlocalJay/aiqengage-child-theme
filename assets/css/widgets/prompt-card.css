@@ -1,1 +1,319 @@
-/* Styles for prompt card widget */
+/**
+ * AIQEngage Prompt Card Grid Styles
+ * Version: 1.0.0
+ */
+
+/* Variables based on AIQEngage brand style guide */
+:root {
+    --aiq-bg-color: #1A0938;
+    --aiq-card-bg: #2A1958;
+    --aiq-text-color: #E0D6FF;
+    --aiq-text-muted: rgba(224, 214, 255, 0.8);
+    --aiq-accent-color: #9C4DFF;
+    --aiq-accent-gradient: linear-gradient(90deg, #635BFF 0%, #7F5AF0 50%, #8E6BFF 100%);
+    --aiq-border-color: rgba(156, 77, 255, 0.3);
+    --aiq-pro-badge: #FFD700;
+    --aiq-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --aiq-transition: all 0.3s ease;
+    --aiq-card-radius: 15px;
+    --aiq-button-radius: 8px;
+}
+
+/* Category Filter */
+.aiq-category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.aiq-category-filter button {
+    background-color: rgba(126, 87, 194, 0.2);
+    color: var(--aiq-text-color);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--aiq-transition);
+}
+
+.aiq-category-filter button:hover {
+    background-color: rgba(126, 87, 194, 0.3);
+}
+
+.aiq-category-filter button.active {
+    background-color: var(--aiq-accent-color);
+    color: white;
+}
+
+/* Prompt Grid */
+.aiq-prompt-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+/* Prompt Card */
+.aiq-prompt-card {
+    background-color: var(--aiq-card-bg);
+    border-radius: var(--aiq-card-radius);
+    border: 1px solid var(--aiq-border-color);
+    box-shadow: var(--aiq-shadow);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--aiq-text-color);
+    transition: var(--aiq-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.aiq-prompt-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Card Header */
+.aiq-prompt-card-header {
+    margin-bottom: 1.25rem;
+}
+
+.aiq-prompt-card-category {
+    display: inline-block;
+    color: var(--aiq-accent-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.aiq-prompt-pro-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    background-color: var(--aiq-pro-badge);
+    color: #1A0938;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.aiq-prompt-card-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--aiq-text-color);
+    line-height: 1.3;
+}
+
+.aiq-prompt-card-description {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--aiq-text-muted);
+    margin: 0;
+}
+
+/* Card Body */
+.aiq-prompt-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.aiq-prompt-card-content-wrapper {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.aiq-prompt-card-content {
+    background-color: rgba(26, 9, 56, 0.6);
+    border: 1px solid rgba(156, 77, 255, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: var(--aiq-text-color);
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Copy Button */
+.aiq-prompt-card-copy {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: var(--aiq-accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0.8;
+    transition: var(--aiq-transition);
+}
+
+.aiq-prompt-card-copy:hover {
+    opacity: 1;
+}
+
+.aiq-copy-icon {
+    font-size: 0.875rem;
+}
+
+/* Results Toggle */
+.aiq-prompt-card-results-toggle {
+    margin-top: auto;
+}
+
+.aiq-prompt-card-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--aiq-accent-color);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.aiq-toggle-icon {
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.aiq-prompt-card-results {
+    background-color: rgba(26, 9, 56, 0.4);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--aiq-text-muted);
+    display: none;
+}
+
+.aiq-prompt-card-results.active {
+    display: block;
+}
+
+/* Pro Locked Content */
+.aiq-prompt-card-locked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    min-height: 200px;
+    background-color: rgba(26, 9, 56, 0.4);
+    border-radius: 8px;
+}
+
+.aiq-prompt-card-lock-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--aiq-pro-badge);
+    opacity: 0.8;
+}
+
+.aiq-prompt-card-lock-text {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.aiq-prompt-card-upgrade-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #9C4DFF 0%, #5E72E4 100%);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--aiq-button-radius);
+    font-weight: 600;
+    transition: var(--aiq-transition);
+}
+
+.aiq-prompt-card-upgrade-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(94, 114, 228, 0.4);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .aiq-prompt-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .aiq-prompt-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .aiq-category-filter {
+        overflow-x: auto;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .aiq-category-filter button {
+        white-space: nowrap;
+    }
+    
+    .aiq-prompt-card-copy {
+        padding: 8px;
+    }
+    
+    .aiq-copy-text {
+        display: none;
+    }
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.aiq-prompt-card {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Custom Scrollbar for Prompt Content */
+.aiq-prompt-card-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.aiq-prompt-card-content::-webkit-scrollbar-track {
+    background: rgba(26, 9, 56, 0.4);
+    border-radius: 8px;
+}
+
+.aiq-prompt-card-content::-webkit-scrollbar-thumb {
+    background: var(--aiq-accent-color);
+    border-radius: 8px;
+}
+
+.aiq-prompt-card-content::-webkit-scrollbar-thumb:hover {
+    background: #7F5AF0;
+}
