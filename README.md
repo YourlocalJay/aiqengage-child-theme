@@ -183,7 +183,7 @@ Each widget can have associated assets:
 ### Version Management
 - Theme version is defined in `style.css` header
 - PHP version constant in `functions.php`
-- Ensure both versions match for consistency
+- Both versions are currently synchronized at 1.0.3
 
 ### Debugging
 Enable widget debugging with:
@@ -213,8 +213,8 @@ Widget registration details will appear in debug logs.
 
 ### Additional Resources
 - **ACCESSIBILITY_SUMMARY.md** - Comprehensive accessibility compliance details
-- **WIDGET_REGISTRATION_FIX.md** - Technical widget system documentation
-- **Brand Style Guide** - Design system and component guidelines
+- **WIDGET_SYSTEM.md** - Complete widget development and registration documentation
+- **Brand Style Guide** - Design system and component guidelines (external)
 
 ### Support Resources
 - Theme follows WordPress coding standards
