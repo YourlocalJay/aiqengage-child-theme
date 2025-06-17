@@ -44,6 +44,7 @@ add_action('after_setup_theme', 'aiqengage_child_theme_setup');
 function aiqengage_child_load_includes() {
     $includes = [
         '/inc/css_loader.php',          // Asset management
+        '/inc/widget-assets.php',       // Widget asset registration
         '/inc/widget-loader.php',       // Elementor widgets
         '/inc/template_registrations.php', // Template library
     ];
