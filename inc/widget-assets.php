@@ -3,7 +3,7 @@
  * AIQEngage Widget Asset Registration
  * 
  * @package     AIQEngage_Child
- * @version     1.0.2
+ * @version     1.0.3
  * @author      AIQEngage Team
  * @copyright   Copyright (c) 2025, AIQEngage
  * @license     GPL-3.0+
@@ -14,6 +14,7 @@ defined('ABSPATH') || exit;
 
 /**
  * Register all widget assets for proper dependency handling
+ * CRITICAL: All widget CSS now depends on 'aiq-main-css' for design tokens
  */
 function aiqengage_register_widget_assets() {
     // Only register assets, don't enqueue them - Elementor will handle enqueuing based on dependencies
@@ -172,7 +173,7 @@ function aiqengage_register_widget_assets() {
             wp_register_style(
                 $handle,
                 AIQENGAGE_CHILD_URL . $asset_config['css'],
-                [],
+                ['aiq-main-css'], // CRITICAL: All widget CSS depends on main.css for design tokens
                 $version
             );
         } else {
@@ -202,7 +203,7 @@ function aiqengage_register_widget_assets() {
     
     // Log registration completion for debugging
     if (WP_DEBUG) {
-        error_log('AIQEngage: Registered ' . count($widget_assets) . ' widget asset handles');
+        error_log('AIQEngage: Registered ' . count($widget_assets) . ' widget asset handles (all CSS depends on aiq-main-css)');
     }
 }
 
