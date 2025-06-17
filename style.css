@@ -1,14 +1,18 @@
 /*
 Theme Name: AIQEngage Child Theme
 Theme URI: https://aiqengage.com
-Description: Child theme for AIQEngage with modular Elementor widgets and templates
+Description: Production-ready Elementor child theme for AI SaaS and automation businesses, featuring 23 specialized widgets, atomic CSS architecture, and enterprise-grade templates optimized for conversion.
 Author: Jason Slaughter
 Author URI: https://aiqengage.com
 Template: hello-elementor
-Version: 1.0.2
+Version: 1.0.3
 Text Domain: aiqengage-child
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: ai, automation, saas, elementor, child-theme, business, conversion
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Requires at least: 5.8
+Tested up to: 6.2
+Requires PHP: 7.4
 */
 
 /* =Theme Imports
