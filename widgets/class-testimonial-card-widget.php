@@ -33,7 +33,7 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'AIQ Testimonial Card', 'aiq-theme' );
+        return esc_html__( 'AIQ Testimonial Card', 'aiqengage-child' );
     }
 
     /**
@@ -72,7 +72,7 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__( 'Content', 'aiq-theme' ),
+                'label' => esc_html__( 'Content', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -80,11 +80,11 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'testimonial_text',
             [
-                'label'       => esc_html__( 'Testimonial Text', 'aiq-theme' ),
+                'label'       => esc_html__( 'Testimonial Text', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXTAREA,
                 'rows'        => 5,
-                'default'     => esc_html__( 'The Claude Vault prompts saved me hours of testing and trial-and-error. I was able to automate my content workflow in just one afternoon.', 'aiq-theme' ),
-                'placeholder' => esc_html__( 'Enter testimonial text', 'aiq-theme' ),
+                'default'     => esc_html__( 'The Claude Vault prompts saved me hours of testing and trial-and-error. I was able to automate my content workflow in just one afternoon.', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter testimonial text', 'aiqengage-child' ),
                 'dynamic'     => [
                     'active' => true,
                 ],
@@ -94,10 +94,10 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'author_name',
             [
-                'label'       => esc_html__( 'Author Name', 'aiq-theme' ),
+                'label'       => esc_html__( 'Author Name', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Sarah Johnson', 'aiq-theme' ),
-                'placeholder' => esc_html__( 'Enter author name', 'aiq-theme' ),
+                'default'     => esc_html__( 'Sarah Johnson', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter author name', 'aiqengage-child' ),
                 'dynamic'     => [
                     'active' => true,
                 ],
@@ -107,10 +107,10 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'author_title',
             [
-                'label'       => esc_html__( 'Author Role/Title', 'aiq-theme' ),
+                'label'       => esc_html__( 'Author Role/Title', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Content Creator', 'aiq-theme' ),
-                'placeholder' => esc_html__( 'Enter author role or title', 'aiq-theme' ),
+                'default'     => esc_html__( 'Content Creator', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter author role or title', 'aiqengage-child' ),
                 'dynamic'     => [
                     'active' => true,
                 ],
@@ -120,7 +120,7 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'author_image',
             [
-                'label'   => esc_html__( 'Author Image', 'aiq-theme' ),
+                'label'   => esc_html__( 'Author Image', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -134,10 +134,10 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'enable_rating',
             [
-                'label'        => esc_html__( 'Enable Star Rating', 'aiq-theme' ),
+                'label'        => esc_html__( 'Enable Star Rating', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiq-theme' ),
-                'label_off'    => esc_html__( 'No', 'aiq-theme' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -146,7 +146,7 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'star_rating',
             [
-                'label'     => esc_html__( 'Star Rating', 'aiq-theme' ),
+                'label'     => esc_html__( 'Star Rating', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
@@ -167,10 +167,10 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'enable_metric',
             [
-                'label'        => esc_html__( 'Enable Highlight Metric', 'aiq-theme' ),
+                'label'        => esc_html__( 'Enable Highlight Metric', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiq-theme' ),
-                'label_off'    => esc_html__( 'No', 'aiq-theme' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -179,10 +179,10 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'metric_value',
             [
-                'label'       => esc_html__( 'Metric Value', 'aiq-theme' ),
+                'label'       => esc_html__( 'Metric Value', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( '317%', 'aiq-theme' ),
-                'placeholder' => esc_html__( 'e.g., 317%', 'aiq-theme' ),
+                'default'     => esc_html__( '317%', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'e.g., 317%', 'aiqengage-child' ),
                 'condition'   => [
                     'enable_metric' => 'yes',
                 ],
@@ -195,10 +195,10 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'metric_label',
             [
-                'label'       => esc_html__( 'Metric Label', 'aiq-theme' ),
+                'label'       => esc_html__( 'Metric Label', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'ROI', 'aiq-theme' ),
-                'placeholder' => esc_html__( 'e.g., ROI, Growth', 'aiq-theme' ),
+                'default'     => esc_html__( 'ROI', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'e.g., ROI, Growth', 'aiqengage-child' ),
                 'condition'   => [
                     'enable_metric' => 'yes',
                 ],
@@ -214,7 +214,7 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style',
             [
-                'label' => esc_html__( 'Style', 'aiq-theme' ),
+                'label' => esc_html__( 'Style', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -222,13 +222,13 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'card_style',
             [
-                'label'   => esc_html__( 'Card Style', 'aiq-theme' ),
+                'label'   => esc_html__( 'Card Style', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'standard',
                 'options' => [
-                    'standard' => esc_html__( 'Standard', 'aiq-theme' ),
-                    'minimal'  => esc_html__( 'Minimal', 'aiq-theme' ),
-                    'bordered' => esc_html__( 'Bordered', 'aiq-theme' ),
+                    'standard' => esc_html__( 'Standard', 'aiqengage-child' ),
+                    'minimal'  => esc_html__( 'Minimal', 'aiqengage-child' ),
+                    'bordered' => esc_html__( 'Bordered', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -236,7 +236,7 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'card_background',
             [
-                'label'     => esc_html__( 'Card Background', 'aiq-theme' ),
+                'label'     => esc_html__( 'Card Background', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#2A1958',
                 'selectors' => [
@@ -248,7 +248,7 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'accent_color',
             [
-                'label'     => esc_html__( 'Accent Color', 'aiq-theme' ),
+                'label'     => esc_html__( 'Accent Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#9C4DFF',
                 'selectors' => [
@@ -262,7 +262,7 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'aiq-theme' ),
+                'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#E0D6FF',
                 'selectors' => [
@@ -275,7 +275,7 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'secondary_text_color',
             [
-                'label'     => esc_html__( 'Secondary Text Color', 'aiq-theme' ),
+                'label'     => esc_html__( 'Secondary Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(224, 214, 255, 0.8)',
                 'selectors' => [
@@ -288,10 +288,10 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'is_pro',
             [
-                'label'        => esc_html__( 'Show Pro Badge', 'aiq-theme' ),
+                'label'        => esc_html__( 'Show Pro Badge', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiq-theme' ),
-                'label_off'    => esc_html__( 'No', 'aiq-theme' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => '',
             ]
@@ -330,7 +330,7 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         $stars_html = '';
         if ( 'yes' === $settings['enable_rating'] && ! empty( $settings['star_rating']['size'] ) ) {
             $rating = $settings['star_rating']['size'];
-            $stars_html = '<div class="aiq-testimonial-card__stars" aria-label="' . esc_attr( sprintf( __( '%s out of 5 stars', 'aiq-theme' ), $rating ) ) . '">';
+            $stars_html = '<div class="aiq-testimonial-card__stars" aria-label="' . esc_attr( sprintf( __( '%s out of 5 stars', 'aiqengage-child' ), $rating ) ) . '">';
             $stars_html .= '<div class="aiq-testimonial-card__stars-filled" style="width:' . ( $rating * 20 ) . '%"></div>';
             $stars_html .= '</div>';
         }
@@ -351,7 +351,7 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         // Pro badge
         $pro_badge = '';
         if ( 'yes' === $settings['is_pro'] ) {
-            $pro_badge = '<div class="aiq-testimonial-card__pro-badge" aria-label="' . esc_attr__( 'Premium content', 'aiq-theme' ) . '">🔒</div>';
+            $pro_badge = '<div class="aiq-testimonial-card__pro-badge" aria-label="' . esc_attr__( 'Premium content', 'aiqengage-child' ) . '">🔒</div>';
         }
         
         ?>
