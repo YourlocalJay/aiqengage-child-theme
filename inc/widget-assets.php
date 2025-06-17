@@ -26,140 +26,140 @@ function aiqengage_register_widget_assets() {
         // Feature Section Widget
         'aiq-feature-section' => [
             'css' => 'assets/css/widgets/feature-section.css',
-            'js'  => 'assets/js/widgets/feature-section.js',
+            'js'  => 'assets/js/feature-section.js',
             'deps' => ['jquery']
         ],
         
         // Prompt Card Widget
         'aiq-prompt-card' => [
-            'css' => 'assets/css/widgets/prompt-card.css',
-            'js'  => 'assets/js/widgets/prompt-card.js',
+            'css' => 'assets/css/widgets/aiq-prompt-card.css',
+            'js'  => 'assets/js/aiq-prompt-card.js',
             'deps' => ['jquery']
         ],
         
         // CTA Banner Widget
         'aiq-cta-banner' => [
             'css' => 'assets/css/widgets/cta-banner.css',
-            'js'  => 'assets/js/widgets/cta-banner.js',
+            'js'  => 'assets/js/cta-banner.js',
             'deps' => ['jquery']
         ],
         
         // Comparison Matrix Widget
         'aiq-comparison-matrix' => [
             'css' => 'assets/css/widgets/comparison-matrix.css',
-            'js'  => 'assets/js/widgets/comparison-matrix.js',
+            'js'  => 'assets/js/comparison-matrix.js',
             'deps' => ['jquery']
         ],
         
         // Metric Badge Widget
         'aiq-metric-badge' => [
             'css' => 'assets/css/widgets/metric-badge.css',
-            'js'  => 'assets/js/widgets/metric-badge.js',
+            'js'  => 'assets/js/metric-badge.js',
             'deps' => ['jquery']
         ],
         
         // Blueprint Flow Widget
         'aiq-blueprint-flow' => [
             'css' => 'assets/css/widgets/blueprint-flow.css',
-            'js'  => 'assets/js/widgets/blueprint-flow.js',
+            'js'  => 'assets/js/blueprint-flow.js',
             'deps' => ['jquery']
         ],
         
         // Chat Widget
         'aiq-chat' => [
             'css' => 'assets/css/widgets/chat.css',
-            'js'  => 'assets/js/widgets/chat.js',
+            'js'  => 'assets/js/chat.js',
             'deps' => ['jquery']
         ],
         
         // FAQ Accordion Widget
         'aiq-faq-accordion' => [
             'css' => 'assets/css/widgets/faq-accordion.css',
-            'js'  => 'assets/js/widgets/faq-accordion.js',
+            'js'  => 'assets/js/faq-accordion.js',
             'deps' => ['jquery']
         ],
         
         // Exit Intent Widget
         'aiq-exit-intent' => [
             'css' => 'assets/css/widgets/exit-intent.css',
-            'js'  => 'assets/js/widgets/exit-intent.js',
+            'js'  => 'assets/js/exit-intent.js',
             'deps' => ['jquery']
         ],
         
         // Evergreen Countdown Widget
         'aiq-evergreen-countdown' => [
             'css' => 'assets/css/widgets/evergreen-countdown.css',
-            'js'  => 'assets/js/widgets/evergreen-countdown.js',
+            'js'  => 'assets/js/evergreen-countdown.js',
             'deps' => ['jquery']
         ],
         
         // Pricing Table Widget
         'aiq-pricing-table' => [
             'css' => 'assets/css/widgets/pricing-table.css',
-            'js'  => 'assets/js/widgets/pricing-table.js',
+            'js'  => 'assets/js/pricing-table.js',
             'deps' => ['jquery']
         ],
         
         // Progress Bar Widget
         'aiq-progress-bar' => [
             'css' => 'assets/css/widgets/progress-bar.css',
-            'js'  => 'assets/js/widgets/progress-bar.js',
+            'js'  => 'assets/js/progress-bar.js',
             'deps' => ['jquery']
         ],
         
         // Quiz Widget
         'aiq-quiz' => [
             'css' => 'assets/css/widgets/quiz.css',
-            'js'  => 'assets/js/widgets/quiz.js',
+            'js'  => 'assets/js/quiz.js',
             'deps' => ['jquery']
         ],
         
         // Resource Card Widget
         'aiq-resource-card' => [
             'css' => 'assets/css/widgets/resource-card.css',
-            'js'  => 'assets/js/widgets/resource-card.js',
+            'js'  => 'assets/js/resource-card.js',
             'deps' => ['jquery']
         ],
         
         // ROI Calculator Widget
         'aiq-roi-calculator' => [
             'css' => 'assets/css/widgets/roi-calculator.css',
-            'js'  => 'assets/js/widgets/roi-calculator.js',
+            'js'  => 'assets/js/roi-calculator.js',
             'deps' => ['jquery']
         ],
         
         // Testimonial Card Widget
         'aiq-testimonial-card' => [
             'css' => 'assets/css/widgets/testimonial-card.css',
-            'js'  => 'assets/js/widgets/testimonial-card.js',
+            'js'  => 'assets/js/testimonial-card.js',
             'deps' => ['jquery']
         ],
         
         // Tool Card Widget
         'aiq-tool-card' => [
             'css' => 'assets/css/widgets/tool-card.css',
-            'js'  => 'assets/js/widgets/tool-card.js',
+            'js'  => 'assets/js/tool-card.js',
             'deps' => ['jquery']
         ],
         
         // Value Timeline Widget
         'aiq-value-timeline' => [
             'css' => 'assets/css/widgets/value-timeline.css',
-            'js'  => 'assets/js/widgets/value-timeline.js',
+            'js'  => 'assets/js/value-timeline.js',
             'deps' => ['jquery']
         ],
         
         // Archive Loop Widget
         'aiq-archive-loop' => [
             'css' => 'assets/css/widgets/archive-loop.css',
-            'js'  => 'assets/js/widgets/archive-loop.js',
+            'js'  => 'assets/js/archive-loop.js',
             'deps' => ['jquery']
         ],
         
         // 404 Template Widget
         'aiq-404-template' => [
             'css' => 'assets/css/widgets/404-template.css',
-            'js'  => 'assets/js/widgets/404-template.js',
+            'js'  => 'assets/js/404-template.js',
             'deps' => ['jquery']
         ]
     ];
@@ -176,7 +176,7 @@ function aiqengage_register_widget_assets() {
                 $version
             );
         } else {
-            // Create placeholder file if needed - log for debugging
+            // Log for debugging when file is missing
             if (WP_DEBUG) {
                 error_log("AIQEngage: Missing CSS file for widget handle '{$handle}': {$css_path}");
             }
@@ -193,7 +193,7 @@ function aiqengage_register_widget_assets() {
                 true
             );
         } else {
-            // Create placeholder file if needed - log for debugging
+            // Log for debugging when file is missing
             if (WP_DEBUG) {
                 error_log("AIQEngage: Missing JS file for widget handle '{$handle}': {$js_path}");
             }
@@ -210,7 +210,7 @@ function aiqengage_register_widget_assets() {
  * Initialize widget asset registration
  */
 function aiqengage_init_widget_assets() {
-    // Hook the registration to init action
+    // Hook the registration to init action with priority 5 to run early
     add_action('init', 'aiqengage_register_widget_assets', 5);
 }
 
@@ -227,46 +227,42 @@ function aiqengage_create_missing_widget_assets() {
         return;
     }
     
-    $widget_handles = [
-        'aiq-feature-section', 'aiq-prompt-card', 'aiq-cta-banner', 'aiq-comparison-matrix',
-        'aiq-metric-badge', 'aiq-blueprint-flow', 'aiq-chat', 'aiq-faq-accordion',
-        'aiq-exit-intent', 'aiq-evergreen-countdown', 'aiq-pricing-table', 'aiq-progress-bar',
-        'aiq-quiz', 'aiq-resource-card', 'aiq-roi-calculator', 'aiq-testimonial-card',
-        'aiq-tool-card', 'aiq-value-timeline', 'aiq-archive-loop', 'aiq-404-template'
+    $missing_assets = [
+        // Check for files that don't exist and create them
+        'aiq-archive-loop' => [
+            'js' => 'assets/js/archive-loop.js'
+        ],
+        'aiq-pricing-table' => [
+            'js' => 'assets/js/pricing-table.js'
+        ],
+        'aiq-resource-card' => [
+            'js' => 'assets/js/resource-card.js'
+        ]
     ];
     
     $created_files = [];
     
-    foreach ($widget_handles as $handle) {
-        // Check if CSS file exists
-        $css_file = AIQENGAGE_CHILD_PATH . "assets/css/widgets/" . str_replace('aiq-', '', $handle) . ".css";
-        if (!file_exists($css_file)) {
-            // Create directory if it doesn't exist
-            $css_dir = dirname($css_file);
-            if (!is_dir($css_dir)) {
-                wp_mkdir_p($css_dir);
-            }
+    foreach ($missing_assets as $handle => $files) {
+        foreach ($files as $type => $file_path) {
+            $full_path = AIQENGAGE_CHILD_PATH . $file_path;
             
-            // Create placeholder CSS file
-            $css_content = "/* {$handle} Widget Styles */\n\n/* Add your widget-specific styles here */\n";
-            if (file_put_contents($css_file, $css_content)) {
-                $created_files[] = $css_file;
-            }
-        }
-        
-        // Check if JS file exists
-        $js_file = AIQENGAGE_CHILD_PATH . "assets/js/widgets/" . str_replace('aiq-', '', $handle) . ".js";
-        if (!file_exists($js_file)) {
-            // Create directory if it doesn't exist
-            $js_dir = dirname($js_file);
-            if (!is_dir($js_dir)) {
-                wp_mkdir_p($js_dir);
-            }
-            
-            // Create placeholder JS file
-            $js_content = "/* {$handle} Widget Scripts */\n\n(function($) {\n    'use strict';\n    \n    // Add your widget-specific JavaScript here\n    \n})(jQuery);\n";
-            if (file_put_contents($js_file, $js_content)) {
-                $created_files[] = $js_file;
+            if (!file_exists($full_path)) {
+                // Create directory if it doesn't exist
+                $dir = dirname($full_path);
+                if (!is_dir($dir)) {
+                    wp_mkdir_p($dir);
+                }
+                
+                // Create placeholder file
+                if ($type === 'css') {
+                    $content = "/* {$handle} Widget Styles */\n\n/* Add your widget-specific styles here */\n";
+                } else {
+                    $content = "/* {$handle} Widget Scripts */\n\n(function($) {\n    'use strict';\n    \n    // Add your widget-specific JavaScript here\n    \n})(jQuery);\n";
+                }
+                
+                if (file_put_contents($full_path, $content)) {
+                    $created_files[] = $full_path;
+                }
             }
         }
     }
