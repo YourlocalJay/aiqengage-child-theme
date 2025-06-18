@@ -2,7 +2,7 @@
 /**
  * Enhanced Progress Bar Widget for AIQEngage
  *
- * @package AIQEngage
+ * @package AIQEngage_Child
  */
 
 if (!defined('ABSPATH')) {
@@ -29,7 +29,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__('Reading Progress Bar', 'aiqengage');
+        return esc_html__('Reading Progress Bar', 'aiqengage-child');
     }
 
     /**
@@ -67,7 +67,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__('Settings', 'aiqengage'),
+                'label' => esc_html__('Settings', 'aiqengage-child'),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -75,13 +75,13 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'bar_position',
             [
-                'label'   => esc_html__('Bar Position', 'aiqengage'),
+                'label'   => esc_html__('Bar Position', 'aiqengage-child'),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'top',
                 'options' => [
-                    'top'    => esc_html__('Top of Page', 'aiqengage'),
-                    'bottom' => esc_html__('Bottom of Page', 'aiqengage'),
-                    'inline' => esc_html__('Inline (Widget Position)', 'aiqengage'),
+                    'top'    => esc_html__('Top of Page', 'aiqengage-child'),
+                    'bottom' => esc_html__('Bottom of Page', 'aiqengage-child'),
+                    'inline' => esc_html__('Inline (Widget Position)', 'aiqengage-child'),
                 ],
             ]
         );
@@ -89,10 +89,10 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_percentage',
             [
-                'label'        => esc_html__('Show Percentage', 'aiqengage'),
+                'label'        => esc_html__('Show Percentage', 'aiqengage-child'),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__('Show', 'aiqengage'),
-                'label_off'    => esc_html__('Hide', 'aiqengage'),
+                'label_on'     => esc_html__('Show', 'aiqengage-child'),
+                'label_off'    => esc_html__('Hide', 'aiqengage-child'),
                 'return_value' => 'yes',
                 'default'      => 'no',
             ]
@@ -101,13 +101,13 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'percentage_position',
             [
-                'label'     => esc_html__('Percentage Position', 'aiqengage'),
+                'label'     => esc_html__('Percentage Position', 'aiqengage-child'),
                 'type'      => \Elementor\Controls_Manager::SELECT,
                 'default'   => 'end',
                 'options'   => [
-                    'start' => esc_html__('Start of Bar', 'aiqengage'),
-                    'end'   => esc_html__('End of Bar', 'aiqengage'),
-                    'fixed' => esc_html__('Fixed Right', 'aiqengage'),
+                    'start' => esc_html__('Start of Bar', 'aiqengage-child'),
+                    'end'   => esc_html__('End of Bar', 'aiqengage-child'),
+                    'fixed' => esc_html__('Fixed Right', 'aiqengage-child'),
                 ],
                 'condition' => [
                     'show_percentage' => 'yes',
@@ -118,13 +118,13 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'display_condition',
             [
-                'label'   => esc_html__('Display On', 'aiqengage'),
+                'label'   => esc_html__('Display On', 'aiqengage-child'),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'posts',
                 'options' => [
-                    'posts'      => esc_html__('Posts & Pages Only', 'aiqengage'),
-                    'everywhere' => esc_html__('Everywhere', 'aiqengage'),
-                    'custom'     => esc_html__('Custom Conditions', 'aiqengage'),
+                    'posts'      => esc_html__('Posts & Pages Only', 'aiqengage-child'),
+                    'everywhere' => esc_html__('Everywhere', 'aiqengage-child'),
+                    'custom'     => esc_html__('Custom Conditions', 'aiqengage-child'),
                 ],
             ]
         );
@@ -132,9 +132,9 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'custom_conditions',
             [
-                'label'       => esc_html__('Custom Display Conditions', 'aiqengage'),
+                'label'       => esc_html__('Custom Display Conditions', 'aiqengage-child'),
                 'type'        => \Elementor\Controls_Manager::TEXTAREA,
-                'description' => esc_html__('Enter PHP conditional tags separated by new lines (e.g., is_front_page(), is_category())', 'aiqengage'),
+                'description' => esc_html__('Enter PHP conditional tags separated by new lines (e.g., is_front_page(), is_category())', 'aiqengage-child'),
                 'condition'   => [
                     'display_condition' => 'custom',
                 ],
@@ -144,7 +144,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'animation_speed',
             [
-                'label'   => esc_html__('Animation Speed (ms)', 'aiqengage'),
+                'label'   => esc_html__('Animation Speed (ms)', 'aiqengage-child'),
                 'type'    => \Elementor\Controls_Manager::NUMBER,
                 'default' => 100,
                 'min'     => 0,
@@ -159,7 +159,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style',
             [
-                'label' => esc_html__('Style', 'aiqengage'),
+                'label' => esc_html__('Style', 'aiqengage-child'),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -167,7 +167,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'bar_color',
             [
-                'label'     => esc_html__('Bar Color', 'aiqengage'),
+                'label'     => esc_html__('Bar Color', 'aiqengage-child'),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#9C4DFF',
                 'selectors' => [
@@ -180,7 +180,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'bar_background',
             [
-                'label'     => esc_html__('Bar Background', 'aiqengage'),
+                'label'     => esc_html__('Bar Background', 'aiqengage-child'),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(156, 77, 255, 0.2)',
                 'selectors' => [
@@ -192,7 +192,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'bar_height',
             [
-                'label'      => esc_html__('Bar Height', 'aiqengage'),
+                'label'      => esc_html__('Bar Height', 'aiqengage-child'),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -215,7 +215,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'percentage_color',
             [
-                'label'     => esc_html__('Percentage Text Color', 'aiqengage'),
+                'label'     => esc_html__('Percentage Text Color', 'aiqengage-child'),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#FFFFFF',
                 'selectors' => [
@@ -241,7 +241,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'percentage_padding',
             [
-                'label'      => esc_html__('Percentage Padding', 'aiqengage'),
+                'label'      => esc_html__('Percentage Padding', 'aiqengage-child'),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
@@ -256,7 +256,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'z_index',
             [
-                'label'     => esc_html__('Z-Index', 'aiqengage'),
+                'label'     => esc_html__('Z-Index', 'aiqengage-child'),
                 'type'      => \Elementor\Controls_Manager::NUMBER,
                 'default'   => 999,
                 'min'       => 1,
@@ -274,7 +274,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'fixed_position_offset',
             [
-                'label'      => esc_html__('Fixed Position Offset', 'aiqengage'),
+                'label'      => esc_html__('Fixed Position Offset', 'aiqengage-child'),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range'      => [
@@ -318,7 +318,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         if ('custom' === $settings['display_condition'] && !empty($settings['custom_conditions'])) {
             $conditions = array_filter(array_map('trim', explode("\n", $settings['custom_conditions'])));
             foreach ($conditions as $condition) {
-                if (function_exists($condition) {
+                if (function_exists($condition)) {
                     if (call_user_func($condition)) {
                         return true;
                     }
