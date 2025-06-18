@@ -1,0 +1,16 @@
+PLACEHOLDER: This file needs to be replaced with an actual screenshot of the AIQEngage theme.
+
+Required specifications for theme-preview.jpg:
+- Minimum size: 880x660 pixels
+- Format: JPG or PNG
+- Content: Screenshot of the homepage or key theme features
+- Should showcase the dark purple theme with AI automation elements
+- Include the neural pattern background and key widgets/components
+
+TO REPLACE THIS PLACEHOLDER:
+1. Take a screenshot of the live theme (minimum 880x660px)
+2. Save as theme-preview.jpg or theme-preview.png
+3. Replace this file in /assets/images/
+4. Update references in README.md if changing file extension
+
+This placeholder ensures the file path exists while the real image is prepared.
