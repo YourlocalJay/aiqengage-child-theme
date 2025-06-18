@@ -31,7 +31,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Archive Loop', 'aiqengage' );
+        return esc_html__( 'Archive Loop', 'aiqengage-child' );
     }
 
     /**
@@ -69,7 +69,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__( 'Archive Loop Settings', 'aiqengage' ),
+                'label' => esc_html__( 'Archive Loop Settings', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -77,7 +77,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'post_type',
             [
-                'label' => esc_html__( 'Post Type', 'aiqengage' ),
+                'label' => esc_html__( 'Post Type', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'post',
                 'options' => $this->get_post_types(),
@@ -87,7 +87,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'posts_per_page',
             [
-                'label' => esc_html__( 'Posts Per Page', 'aiqengage' ),
+                'label' => esc_html__( 'Posts Per Page', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 6,
                 'min' => 1,
@@ -98,13 +98,13 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'layout_type',
             [
-                'label' => esc_html__( 'Layout', 'aiqengage' ),
+                'label' => esc_html__( 'Layout', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'grid',
                 'options' => [
-                    'grid' => esc_html__( 'Grid', 'aiqengage' ),
-                    'list' => esc_html__( 'List', 'aiqengage' ),
-                    'masonry' => esc_html__( 'Masonry', 'aiqengage' ),
+                    'grid' => esc_html__( 'Grid', 'aiqengage-child' ),
+                    'list' => esc_html__( 'List', 'aiqengage-child' ),
+                    'masonry' => esc_html__( 'Masonry', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -112,14 +112,14 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'columns',
             [
-                'label' => esc_html__( 'Columns', 'aiqengage' ),
+                'label' => esc_html__( 'Columns', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => '3',
                 'options' => [
-                    '1' => esc_html__( '1 Column', 'aiqengage' ),
-                    '2' => esc_html__( '2 Columns', 'aiqengage' ),
-                    '3' => esc_html__( '3 Columns', 'aiqengage' ),
-                    '4' => esc_html__( '4 Columns', 'aiqengage' ),
+                    '1' => esc_html__( '1 Column', 'aiqengage-child' ),
+                    '2' => esc_html__( '2 Columns', 'aiqengage-child' ),
+                    '3' => esc_html__( '3 Columns', 'aiqengage-child' ),
+                    '4' => esc_html__( '4 Columns', 'aiqengage-child' ),
                 ],
                 'condition' => [
                     'layout_type' => [ 'grid', 'masonry' ],
@@ -130,10 +130,10 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_image',
             [
-                'label' => esc_html__( 'Show Featured Image', 'aiqengage' ),
+                'label' => esc_html__( 'Show Featured Image', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'aiqengage' ),
-                'label_off' => esc_html__( 'Hide', 'aiqengage' ),
+                'label_on' => esc_html__( 'Show', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'Hide', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -142,14 +142,14 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'image_size',
             [
-                'label' => esc_html__( 'Image Size', 'aiqengage' ),
+                'label' => esc_html__( 'Image Size', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'medium',
                 'options' => [
-                    'thumbnail' => esc_html__( 'Thumbnail', 'aiqengage' ),
-                    'medium' => esc_html__( 'Medium', 'aiqengage' ),
-                    'large' => esc_html__( 'Large', 'aiqengage' ),
-                    'full' => esc_html__( 'Full Size', 'aiqengage' ),
+                    'thumbnail' => esc_html__( 'Thumbnail', 'aiqengage-child' ),
+                    'medium' => esc_html__( 'Medium', 'aiqengage-child' ),
+                    'large' => esc_html__( 'Large', 'aiqengage-child' ),
+                    'full' => esc_html__( 'Full Size', 'aiqengage-child' ),
                 ],
                 'condition' => [
                     'show_image' => 'yes',
@@ -160,10 +160,10 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_title',
             [
-                'label' => esc_html__( 'Show Title', 'aiqengage' ),
+                'label' => esc_html__( 'Show Title', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'aiqengage' ),
-                'label_off' => esc_html__( 'Hide', 'aiqengage' ),
+                'label_on' => esc_html__( 'Show', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'Hide', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -172,7 +172,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'title_tag',
             [
-                'label' => esc_html__( 'Title HTML Tag', 'aiqengage' ),
+                'label' => esc_html__( 'Title HTML Tag', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'h2',
                 'options' => [
@@ -192,10 +192,10 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_excerpt',
             [
-                'label' => esc_html__( 'Show Excerpt', 'aiqengage' ),
+                'label' => esc_html__( 'Show Excerpt', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'aiqengage' ),
-                'label_off' => esc_html__( 'Hide', 'aiqengage' ),
+                'label_on' => esc_html__( 'Show', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'Hide', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -204,7 +204,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'excerpt_length',
             [
-                'label' => esc_html__( 'Excerpt Length (words)', 'aiqengage' ),
+                'label' => esc_html__( 'Excerpt Length (words)', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 20,
                 'min' => 5,
@@ -218,10 +218,10 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_meta',
             [
-                'label' => esc_html__( 'Show Meta Data', 'aiqengage' ),
+                'label' => esc_html__( 'Show Meta Data', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'aiqengage' ),
-                'label_off' => esc_html__( 'Hide', 'aiqengage' ),
+                'label_on' => esc_html__( 'Show', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'Hide', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -230,16 +230,16 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'meta_fields',
             [
-                'label' => esc_html__( 'Meta Fields', 'aiqengage' ),
+                'label' => esc_html__( 'Meta Fields', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT2,
                 'multiple' => true,
                 'default' => [ 'date', 'author' ],
                 'options' => [
-                    'date' => esc_html__( 'Date', 'aiqengage' ),
-                    'author' => esc_html__( 'Author', 'aiqengage' ),
-                    'category' => esc_html__( 'Category', 'aiqengage' ),
-                    'tags' => esc_html__( 'Tags', 'aiqengage' ),
-                    'comments' => esc_html__( 'Comments Count', 'aiqengage' ),
+                    'date' => esc_html__( 'Date', 'aiqengage-child' ),
+                    'author' => esc_html__( 'Author', 'aiqengage-child' ),
+                    'category' => esc_html__( 'Category', 'aiqengage-child' ),
+                    'tags' => esc_html__( 'Tags', 'aiqengage-child' ),
+                    'comments' => esc_html__( 'Comments Count', 'aiqengage-child' ),
                 ],
                 'condition' => [
                     'show_meta' => 'yes',
@@ -250,10 +250,10 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_read_more',
             [
-                'label' => esc_html__( 'Show Read More Button', 'aiqengage' ),
+                'label' => esc_html__( 'Show Read More Button', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'aiqengage' ),
-                'label_off' => esc_html__( 'Hide', 'aiqengage' ),
+                'label_on' => esc_html__( 'Show', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'Hide', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -262,9 +262,9 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'read_more_text',
             [
-                'label' => esc_html__( 'Read More Text', 'aiqengage' ),
+                'label' => esc_html__( 'Read More Text', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__( 'Read More', 'aiqengage' ),
+                'default' => esc_html__( 'Read More', 'aiqengage-child' ),
                 'condition' => [
                     'show_read_more' => 'yes',
                 ],
@@ -274,10 +274,10 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_pagination',
             [
-                'label' => esc_html__( 'Show Pagination', 'aiqengage' ),
+                'label' => esc_html__( 'Show Pagination', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'aiqengage' ),
-                'label_off' => esc_html__( 'Hide', 'aiqengage' ),
+                'label_on' => esc_html__( 'Show', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'Hide', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -289,7 +289,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style',
             [
-                'label' => esc_html__( 'Archive Loop Style', 'aiqengage' ),
+                'label' => esc_html__( 'Archive Loop Style', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -297,7 +297,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'card_background',
             [
-                'label' => esc_html__( 'Card Background', 'aiqengage' ),
+                'label' => esc_html__( 'Card Background', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#2A1958',
                 'selectors' => [
@@ -309,7 +309,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'card_border_color',
             [
-                'label' => esc_html__( 'Card Border Color', 'aiqengage' ),
+                'label' => esc_html__( 'Card Border Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => 'rgba(156, 77, 255, 0.3)',
                 'selectors' => [
@@ -322,7 +322,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'title_typography',
-                'label' => esc_html__( 'Title Typography', 'aiqengage' ),
+                'label' => esc_html__( 'Title Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .archive-loop-item__title',
             ]
         );
@@ -330,7 +330,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'title_color',
             [
-                'label' => esc_html__( 'Title Color', 'aiqengage' ),
+                'label' => esc_html__( 'Title Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#E0D6FF',
                 'selectors' => [
@@ -342,7 +342,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'title_hover_color',
             [
-                'label' => esc_html__( 'Title Hover Color', 'aiqengage' ),
+                'label' => esc_html__( 'Title Hover Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
                 'selectors' => [
@@ -355,7 +355,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'content_typography',
-                'label' => esc_html__( 'Content Typography', 'aiqengage' ),
+                'label' => esc_html__( 'Content Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .archive-loop-item__excerpt',
             ]
         );
@@ -363,7 +363,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'content_color',
             [
-                'label' => esc_html__( 'Content Color', 'aiqengage' ),
+                'label' => esc_html__( 'Content Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => 'rgba(224, 214, 255, 0.8)',
                 'selectors' => [
@@ -375,7 +375,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'meta_color',
             [
-                'label' => esc_html__( 'Meta Color', 'aiqengage' ),
+                'label' => esc_html__( 'Meta Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => 'rgba(224, 214, 255, 0.6)',
                 'selectors' => [
@@ -387,7 +387,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_background',
             [
-                'label' => esc_html__( 'Button Background', 'aiqengage' ),
+                'label' => esc_html__( 'Button Background', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
                 'selectors' => [
@@ -399,7 +399,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_text_color',
             [
-                'label' => esc_html__( 'Button Text Color', 'aiqengage' ),
+                'label' => esc_html__( 'Button Text Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#FFFFFF',
                 'selectors' => [
@@ -443,7 +443,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
         $query = new \WP_Query( $query_args );
         
         if ( ! $query->have_posts() ) {
-            echo '<p>' . esc_html__( 'No posts found.', 'aiqengage' ) . '</p>';
+            echo '<p>' . esc_html__( 'No posts found.', 'aiqengage-child' ) . '</p>';
             return;
         }
         
@@ -500,8 +500,8 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
                         'total' => $query->max_num_pages,
                         'current' => max( 1, get_query_var( 'paged' ) ),
                         'format' => '?paged=%#%',
-                        'prev_text' => esc_html__( '« Previous', 'aiqengage' ),
-                        'next_text' => esc_html__( 'Next »', 'aiqengage' ),
+                        'prev_text' => esc_html__( '« Previous', 'aiqengage-child' ),
+                        'next_text' => esc_html__( 'Next »', 'aiqengage-child' ),
                     ] );
                     ?>
                 </div>
@@ -526,7 +526,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
                     $meta_items[] = '<span class="meta-date">' . get_the_date() . '</span>';
                     break;
                 case 'author':
-                    $meta_items[] = '<span class="meta-author">' . esc_html__( 'By', 'aiqengage' ) . ' ' . get_the_author() . '</span>';
+                    $meta_items[] = '<span class="meta-author">' . esc_html__( 'By', 'aiqengage-child' ) . ' ' . get_the_author() . '</span>';
                     break;
                 case 'category':
                     $categories = get_the_category_list( ', ' );
@@ -543,7 +543,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
                 case 'comments':
                     $comments_count = get_comments_number();
                     if ( $comments_count > 0 ) {
-                        $meta_items[] = '<span class="meta-comments">' . sprintf( _n( '%s Comment', '%s Comments', $comments_count, 'aiqengage' ), $comments_count ) . '</span>';
+                        $meta_items[] = '<span class="meta-comments">' . sprintf( _n( '%s Comment', '%s Comments', $comments_count, 'aiqengage-child' ), $comments_count ) . '</span>';
                     }
                     break;
             }
