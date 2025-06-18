@@ -32,7 +32,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'AI Chat Assistant', 'aiqengage' );
+        return esc_html__( 'AI Chat Assistant', 'aiqengage-child' );
     }
 
     /**
@@ -71,7 +71,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_general',
             [
-                'label' => esc_html__( 'General Settings', 'aiqengage' ),
+                'label' => esc_html__( 'General Settings', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -79,10 +79,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'chat_title',
             [
-                'label'       => esc_html__( 'Chat Title', 'aiqengage' ),
+                'label'       => esc_html__( 'Chat Title', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Your Personal AI Guide', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter chat title', 'aiqengage' ),
+                'default'     => esc_html__( 'Your Personal AI Guide', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter chat title', 'aiqengage-child' ),
                 'label_block' => true,
             ]
         );
@@ -90,10 +90,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'chat_subtitle',
             [
-                'label'       => esc_html__( 'Chat Subtitle', 'aiqengage' ),
+                'label'       => esc_html__( 'Chat Subtitle', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Let Claude help you find the perfect automation solution', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter chat subtitle', 'aiqengage' ),
+                'default'     => esc_html__( 'Let Claude help you find the perfect automation solution', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter chat subtitle', 'aiqengage-child' ),
                 'label_block' => true,
             ]
         );
@@ -101,12 +101,12 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'layout_type',
             [
-                'label'   => esc_html__( 'Layout Type', 'aiqengage' ),
+                'label'   => esc_html__( 'Layout Type', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'standard',
                 'options' => [
-                    'standard' => esc_html__( 'Standard (Full Width)', 'aiqengage' ),
-                    'floating' => esc_html__( 'Floating Bubble', 'aiqengage' ),
+                    'standard' => esc_html__( 'Standard (Full Width)', 'aiqengage-child' ),
+                    'floating' => esc_html__( 'Floating Bubble', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -117,7 +117,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_ai_assistant',
             [
-                'label' => esc_html__( 'AI Assistant Settings', 'aiqengage' ),
+                'label' => esc_html__( 'AI Assistant Settings', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -125,17 +125,17 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'ai_name',
             [
-                'label'       => esc_html__( 'AI Assistant Name', 'aiqengage' ),
+                'label'       => esc_html__( 'AI Assistant Name', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Claude', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter AI name', 'aiqengage' ),
+                'default'     => esc_html__( 'Claude', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter AI name', 'aiqengage-child' ),
             ]
         );
 
         $this->add_control(
             'ai_avatar',
             [
-                'label'   => esc_html__( 'AI Avatar', 'aiqengage' ),
+                'label'   => esc_html__( 'AI Avatar', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -146,10 +146,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'greeting_message',
             [
-                'label'       => esc_html__( 'Greeting Message', 'aiqengage' ),
+                'label'       => esc_html__( 'Greeting Message', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXTAREA,
-                'default'     => esc_html__( 'Hi! I\'m your AI guide. What are you looking to achieve with Claude?', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter greeting message', 'aiqengage' ),
+                'default'     => esc_html__( 'Hi! I\'m your AI guide. What are you looking to achieve with Claude?', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter greeting message', 'aiqengage-child' ),
                 'rows'        => 5,
             ]
         );
@@ -160,7 +160,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_sample_messages',
             [
-                'label' => esc_html__( 'Sample Messages', 'aiqengage' ),
+                'label' => esc_html__( 'Sample Messages', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -170,12 +170,12 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $repeater->add_control(
             'sender',
             [
-                'label'   => esc_html__( 'Sender', 'aiqengage' ),
+                'label'   => esc_html__( 'Sender', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'ai',
                 'options' => [
-                    'ai'   => esc_html__( 'AI Assistant', 'aiqengage' ),
-                    'user' => esc_html__( 'User', 'aiqengage' ),
+                    'ai'   => esc_html__( 'AI Assistant', 'aiqengage-child' ),
+                    'user' => esc_html__( 'User', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -183,10 +183,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $repeater->add_control(
             'message',
             [
-                'label'       => esc_html__( 'Message', 'aiqengage' ),
+                'label'       => esc_html__( 'Message', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXTAREA,
-                'default'     => esc_html__( 'Sample message', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter message', 'aiqengage' ),
+                'default'     => esc_html__( 'Sample message', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter message', 'aiqengage-child' ),
                 'rows'        => 3,
             ]
         );
@@ -194,10 +194,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $repeater->add_control(
             'is_quick_reply',
             [
-                'label'        => esc_html__( 'Is Quick Reply Button', 'aiqengage' ),
+                'label'        => esc_html__( 'Is Quick Reply Button', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off'    => esc_html__( 'No', 'aiqengage' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => 'no',
                 'condition'    => [
@@ -209,32 +209,32 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'sample_messages',
             [
-                'label'       => esc_html__( 'Messages', 'aiqengage' ),
+                'label'       => esc_html__( 'Messages', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::REPEATER,
                 'fields'      => $repeater->get_controls(),
                 'default'     => [
                     [
                         'sender'  => 'ai',
-                        'message' => esc_html__( 'Hi! I\'m your AI guide. What are you looking to achieve with Claude?', 'aiqengage' ),
+                        'message' => esc_html__( 'Hi! I\'m your AI guide. What are you looking to achieve with Claude?', 'aiqengage-child' ),
                     ],
                     [
                         'sender'        => 'ai',
-                        'message'       => esc_html__( 'I want to generate more traffic', 'aiqengage' ),
+                        'message'       => esc_html__( 'I want to generate more traffic', 'aiqengage-child' ),
                         'is_quick_reply' => 'yes',
                     ],
                     [
                         'sender'        => 'ai',
-                        'message'       => esc_html__( 'I need help with conversions', 'aiqengage' ),
+                        'message'       => esc_html__( 'I need help with conversions', 'aiqengage-child' ),
                         'is_quick_reply' => 'yes',
                     ],
                     [
                         'sender'        => 'ai',
-                        'message'       => esc_html__( 'I\'m looking for content automation', 'aiqengage' ),
+                        'message'       => esc_html__( 'I\'m looking for content automation', 'aiqengage-child' ),
                         'is_quick_reply' => 'yes',
                     ],
                     [
                         'sender'        => 'ai',
-                        'message'       => esc_html__( 'I want to set up affiliate systems', 'aiqengage' ),
+                        'message'       => esc_html__( 'I want to set up affiliate systems', 'aiqengage-child' ),
                         'is_quick_reply' => 'yes',
                     ],
                 ],
@@ -248,7 +248,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_api_integration',
             [
-                'label' => esc_html__( 'API Integration', 'aiqengage' ),
+                'label' => esc_html__( 'API Integration', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -256,10 +256,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'enable_api',
             [
-                'label'        => esc_html__( 'Enable API Integration', 'aiqengage' ),
+                'label'        => esc_html__( 'Enable API Integration', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off'    => esc_html__( 'No', 'aiqengage' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => 'no',
             ]
@@ -268,9 +268,9 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'api_endpoint',
             [
-                'label'       => esc_html__( 'API Endpoint URL', 'aiqengage' ),
+                'label'       => esc_html__( 'API Endpoint URL', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'https://your-api-endpoint.com/chat', 'aiqengage' ),
+                'placeholder' => esc_html__( 'https://your-api-endpoint.com/chat', 'aiqengage-child' ),
                 'label_block' => true,
                 'condition'   => [
                     'enable_api' => 'yes',
@@ -282,7 +282,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
             'api_instructions',
             [
                 'type'            => \Elementor\Controls_Manager::RAW_HTML,
-                'raw'             => esc_html__( 'The API endpoint should accept POST requests with a JSON body containing {"message": "user message"} and return {"response": "AI response"}', 'aiqengage' ),
+                'raw'             => esc_html__( 'The API endpoint should accept POST requests with a JSON body containing {"message": "user message"} and return {"response": "AI response"}', 'aiqengage-child' ),
                 'content_classes' => 'elementor-descriptor',
                 'condition'       => [
                     'enable_api' => 'yes',
@@ -293,10 +293,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'fallback_message',
             [
-                'label'       => esc_html__( 'Fallback Message', 'aiqengage' ),
+                'label'       => esc_html__( 'Fallback Message', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXTAREA,
-                'default'     => esc_html__( 'I\'m having trouble connecting right now. Please try again later or contact support.', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter fallback message', 'aiqengage' ),
+                'default'     => esc_html__( 'I\'m having trouble connecting right now. Please try again later or contact support.', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter fallback message', 'aiqengage-child' ),
                 'rows'        => 4,
                 'condition'   => [
                     'enable_api' => 'yes',
@@ -310,7 +310,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_input_settings',
             [
-                'label' => esc_html__( 'Input Settings', 'aiqengage' ),
+                'label' => esc_html__( 'Input Settings', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -318,30 +318,30 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'input_placeholder',
             [
-                'label'       => esc_html__( 'Input Placeholder', 'aiqengage' ),
+                'label'       => esc_html__( 'Input Placeholder', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Type your message here...', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter placeholder text', 'aiqengage' ),
+                'default'     => esc_html__( 'Type your message here...', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter placeholder text', 'aiqengage-child' ),
             ]
         );
 
         $this->add_control(
             'button_text',
             [
-                'label'       => esc_html__( 'Send Button Text', 'aiqengage' ),
+                'label'       => esc_html__( 'Send Button Text', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Send', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter button text', 'aiqengage' ),
+                'default'     => esc_html__( 'Send', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter button text', 'aiqengage-child' ),
             ]
         );
 
         $this->add_control(
             'send_on_enter',
             [
-                'label'        => esc_html__( 'Send on Enter', 'aiqengage' ),
+                'label'        => esc_html__( 'Send on Enter', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off'    => esc_html__( 'No', 'aiqengage' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -350,10 +350,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_quick_replies',
             [
-                'label'        => esc_html__( 'Show Quick Replies', 'aiqengage' ),
+                'label'        => esc_html__( 'Show Quick Replies', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off'    => esc_html__( 'No', 'aiqengage' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -365,7 +365,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_additional_info',
             [
-                'label' => esc_html__( 'Additional Information', 'aiqengage' ),
+                'label' => esc_html__( 'Additional Information', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -373,10 +373,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_privacy_notice',
             [
-                'label'        => esc_html__( 'Show Privacy Notice', 'aiqengage' ),
+                'label'        => esc_html__( 'Show Privacy Notice', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off'    => esc_html__( 'No', 'aiqengage' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -385,10 +385,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'privacy_notice_text',
             [
-                'label'       => esc_html__( 'Privacy Notice Text', 'aiqengage' ),
+                'label'       => esc_html__( 'Privacy Notice Text', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXTAREA,
-                'default'     => esc_html__( 'This chat is for guidance only. Your conversation data is not stored.', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter privacy notice', 'aiqengage' ),
+                'default'     => esc_html__( 'This chat is for guidance only. Your conversation data is not stored.', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter privacy notice', 'aiqengage-child' ),
                 'rows'        => 2,
                 'condition'   => [
                     'show_privacy_notice' => 'yes',
@@ -399,10 +399,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_human_help',
             [
-                'label'        => esc_html__( 'Show Human Help Option', 'aiqengage' ),
+                'label'        => esc_html__( 'Show Human Help Option', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off'    => esc_html__( 'No', 'aiqengage' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -411,10 +411,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'human_help_text',
             [
-                'label'       => esc_html__( 'Human Help Text', 'aiqengage' ),
+                'label'       => esc_html__( 'Human Help Text', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Need Human Help?', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter human help text', 'aiqengage' ),
+                'default'     => esc_html__( 'Need Human Help?', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter human help text', 'aiqengage-child' ),
                 'condition'   => [
                     'show_human_help' => 'yes',
                 ],
@@ -424,10 +424,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'human_help_email',
             [
-                'label'       => esc_html__( 'Contact Email', 'aiqengage' ),
+                'label'       => esc_html__( 'Contact Email', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'support@aiqengage.com', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter contact email', 'aiqengage' ),
+                'default'     => esc_html__( 'support@aiqengage.com', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter contact email', 'aiqengage-child' ),
                 'condition'   => [
                     'show_human_help' => 'yes',
                 ],
@@ -440,7 +440,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_container',
             [
-                'label' => esc_html__( 'Container', 'aiqengage' ),
+                'label' => esc_html__( 'Container', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -448,7 +448,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'chat_height',
             [
-                'label'      => esc_html__( 'Chat Height', 'aiqengage' ),
+                'label'      => esc_html__( 'Chat Height', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px', 'vh' ],
                 'range'      => [
@@ -479,7 +479,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'chat_max_width',
             [
-                'label'      => esc_html__( 'Chat Max Width', 'aiqengage' ),
+                'label'      => esc_html__( 'Chat Max Width', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range'      => [
@@ -510,7 +510,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'bubble_size',
             [
-                'label'      => esc_html__( 'Bubble Size', 'aiqengage' ),
+                'label'      => esc_html__( 'Bubble Size', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range'      => [
@@ -536,7 +536,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'chat_background',
             [
-                'label'     => esc_html__( 'Chat Background', 'aiqengage' ),
+                'label'     => esc_html__( 'Chat Background', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#2A1958',
                 'selectors' => [
@@ -556,7 +556,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'chat_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'aiqengage' ),
+                'label'      => esc_html__( 'Border Radius', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'default'    => [
@@ -587,7 +587,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_header',
             [
-                'label' => esc_html__( 'Header', 'aiqengage' ),
+                'label' => esc_html__( 'Header', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -595,7 +595,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'header_background',
             [
-                'label'     => esc_html__( 'Header Background', 'aiqengage' ),
+                'label'     => esc_html__( 'Header Background', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#1A0938',
                 'selectors' => [
@@ -607,7 +607,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'header_text_color',
             [
-                'label'     => esc_html__( 'Header Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Header Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#E0D6FF',
                 'selectors' => [
@@ -621,7 +621,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'header_title_typography',
-                'label'    => esc_html__( 'Title Typography', 'aiqengage' ),
+                'label'    => esc_html__( 'Title Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-chat__title',
             ]
         );
@@ -630,7 +630,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'header_subtitle_typography',
-                'label'    => esc_html__( 'Subtitle Typography', 'aiqengage' ),
+                'label'    => esc_html__( 'Subtitle Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-chat__subtitle',
             ]
         );
@@ -638,7 +638,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'header_padding',
             [
-                'label'      => esc_html__( 'Padding', 'aiqengage' ),
+                'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'default'    => [
@@ -661,7 +661,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_messages',
             [
-                'label' => esc_html__( 'Messages', 'aiqengage' ),
+                'label' => esc_html__( 'Messages', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -669,7 +669,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'message_spacing',
             [
-                'label'      => esc_html__( 'Message Spacing', 'aiqengage' ),
+                'label'      => esc_html__( 'Message Spacing', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range'      => [
@@ -692,7 +692,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'message_padding',
             [
-                'label'      => esc_html__( 'Message Padding', 'aiqengage' ),
+                'label'      => esc_html__( 'Message Padding', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em' ],
                 'default'    => [
@@ -712,7 +712,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'message_border_radius',
             [
-                'label'      => esc_html__( 'Message Border Radius', 'aiqengage' ),
+                'label'      => esc_html__( 'Message Border Radius', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'default'    => [
@@ -733,7 +733,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'ai_message_heading',
             [
-                'label'     => esc_html__( 'AI Messages', 'aiqengage' ),
+                'label'     => esc_html__( 'AI Messages', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -742,7 +742,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'ai_message_background',
             [
-                'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#1A0938',
                 'selectors' => [
@@ -754,7 +754,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'ai_message_text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#E0D6FF',
                 'selectors' => [
@@ -767,7 +767,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'ai_message_typography',
-                'label'    => esc_html__( 'Typography', 'aiqengage' ),
+                'label'    => esc_html__( 'Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-chat__message--ai .aiq-chat__message-bubble',
             ]
         );
@@ -776,7 +776,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'user_message_heading',
             [
-                'label'     => esc_html__( 'User Messages', 'aiqengage' ),
+                'label'     => esc_html__( 'User Messages', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -785,7 +785,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'user_message_background',
             [
-                'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#9C4DFF',
                 'selectors' => [
@@ -797,7 +797,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'user_message_text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#FFFFFF',
                 'selectors' => [
@@ -810,7 +810,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'user_message_typography',
-                'label'    => esc_html__( 'Typography', 'aiqengage' ),
+                'label'    => esc_html__( 'Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-chat__message--user .aiq-chat__message-bubble',
             ]
         );
@@ -819,7 +819,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'quick_reply_heading',
             [
-                'label'     => esc_html__( 'Quick Reply Buttons', 'aiqengage' ),
+                'label'     => esc_html__( 'Quick Reply Buttons', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
@@ -831,7 +831,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'quick_reply_background',
             [
-                'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(126, 87, 194, 0.2)',
                 'selectors' => [
@@ -846,7 +846,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'quick_reply_text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#E0D6FF',
                 'selectors' => [
@@ -861,7 +861,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'quick_reply_border_color',
             [
-                'label'     => esc_html__( 'Border Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Border Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#9C4DFF',
                 'selectors' => [
@@ -879,7 +879,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_input',
             [
-                'label' => esc_html__( 'Input Area', 'aiqengage' ),
+                'label' => esc_html__( 'Input Area', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -887,7 +887,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'input_background',
             [
-                'label'     => esc_html__( 'Input Background', 'aiqengage' ),
+                'label'     => esc_html__( 'Input Background', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(26, 9, 56, 0.6)',
                 'selectors' => [
@@ -899,7 +899,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'input_text_color',
             [
-                'label'     => esc_html__( 'Input Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Input Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#E0D6FF',
                 'selectors' => [
@@ -912,7 +912,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'input_border_color',
             [
-                'label'     => esc_html__( 'Input Border Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Input Border Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(156, 77, 255, 0.3)',
                 'selectors' => [
@@ -924,7 +924,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'input_focus_border_color',
             [
-                'label'     => esc_html__( 'Input Focus Border Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Input Focus Border Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#9C4DFF',
                 'selectors' => [
@@ -936,7 +936,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_background',
             [
-                'label'     => esc_html__( 'Button Background', 'aiqengage' ),
+                'label'     => esc_html__( 'Button Background', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#9C4DFF',
                 'selectors' => [
@@ -948,7 +948,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_text_color',
             [
-                'label'     => esc_html__( 'Button Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Button Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#FFFFFF',
                 'selectors' => [
@@ -960,7 +960,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_hover_background',
             [
-                'label'     => esc_html__( 'Button Hover Background', 'aiqengage' ),
+                'label'     => esc_html__( 'Button Hover Background', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#8E6BFF',
                 'selectors' => [
@@ -972,7 +972,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'input_padding',
             [
-                'label'      => esc_html__( 'Input Padding', 'aiqengage' ),
+                'label'      => esc_html__( 'Input Padding', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em' ],
                 'default'    => [
@@ -992,7 +992,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'input_height',
             [
-                'label'      => esc_html__( 'Input Height', 'aiqengage' ),
+                'label'      => esc_html__( 'Input Height', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range'      => [
@@ -1015,7 +1015,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'input_border_radius',
             [
-                'label'      => esc_html__( 'Input Border Radius', 'aiqengage' ),
+                'label'      => esc_html__( 'Input Border Radius', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'default'    => [
@@ -1035,7 +1035,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_border_radius',
             [
-                'label'      => esc_html__( 'Button Border Radius', 'aiqengage' ),
+                'label'      => esc_html__( 'Button Border Radius', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'default'    => [
@@ -1058,7 +1058,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_additional_info',
             [
-                'label' => esc_html__( 'Additional Information', 'aiqengage' ),
+                'label' => esc_html__( 'Additional Information', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1066,7 +1066,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'info_text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(224, 214, 255, 0.6)',
                 'selectors' => [
@@ -1079,7 +1079,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'info_link_color',
             [
-                'label'     => esc_html__( 'Link Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Link Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#9C4DFF',
                 'selectors' => [
@@ -1092,7 +1092,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'info_typography',
-                'label'    => esc_html__( 'Typography', 'aiqengage' ),
+                'label'    => esc_html__( 'Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-chat__privacy-notice, {{WRAPPER}} .aiq-chat__human-help',
             ]
         );
@@ -1100,7 +1100,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'info_padding',
             [
-                'label'      => esc_html__( 'Padding', 'aiqengage' ),
+                'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'default'    => [
@@ -1165,7 +1165,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
         ?>
         <div class="aiq-chat <?php echo esc_attr( $layout_class ); ?>" id="<?php echo esc_attr( $chat_id ); ?>" data-settings='<?php echo esc_attr( wp_json_encode( $js_settings ) ); ?>'>
             <?php if ( 'floating' === $settings['layout_type'] ) : ?>
-                <div class="aiq-chat__bubble" aria-label="<?php echo esc_attr__( 'Open chat assistant', 'aiqengage' ); ?>" role="button" tabindex="0">
+                <div class="aiq-chat__bubble" aria-label="<?php echo esc_attr__( 'Open chat assistant', 'aiqengage-child' ); ?>" role="button" tabindex="0">
                     <img src="<?php echo esc_url( $ai_avatar_url ); ?>" alt="<?php echo esc_attr( $settings['ai_name'] ); ?>" class="aiq-chat__bubble-avatar">
                 </div>
             <?php endif; ?>
@@ -1177,7 +1177,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
                         <p class="aiq-chat__subtitle"><?php echo esc_html( $settings['chat_subtitle'] ); ?></p>
                     </div>
                     <?php if ( 'floating' === $settings['layout_type'] ) : ?>
-                        <button type="button" class="aiq-chat__close" aria-label="<?php echo esc_attr__( 'Close chat', 'aiqengage' ); ?>">×</button>
+                        <button type="button" class="aiq-chat__close" aria-label="<?php echo esc_attr__( 'Close chat', 'aiqengage-child' ); ?>">×</button>
                     <?php endif; ?>
                 </div>
 
@@ -1198,10 +1198,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
                     <textarea 
                         class="aiq-chat__input" 
                         placeholder="<?php echo esc_attr( $settings['input_placeholder'] ); ?>"
-                        aria-label="<?php echo esc_attr__( 'Type your message', 'aiqengage' ); ?>"
+                        aria-label="<?php echo esc_attr__( 'Type your message', 'aiqengage-child' ); ?>"
                         rows="1"
                     ></textarea>
-                    <button type="button" class="aiq-chat__send-btn" aria-label="<?php echo esc_attr__( 'Send message', 'aiqengage' ); ?>">
+                    <button type="button" class="aiq-chat__send-btn" aria-label="<?php echo esc_attr__( 'Send message', 'aiqengage-child' ); ?>">
                         <?php echo esc_html( $settings['button_text'] ); ?>
                     </button>
                 </div>
