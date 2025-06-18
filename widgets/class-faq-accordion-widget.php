@@ -74,16 +74,16 @@ class AIQ_FAQ_Accordion_Widget extends \Elementor\Widget_Base {
         if (\Elementor\Plugin::$instance->preview->is_preview_mode()) {
             wp_enqueue_style(
                 'aiq-faq-accordion',
-                plugins_url('/assets/css/faq-accordion.css', __FILE__),
+                get_stylesheet_directory_uri() . '/assets/css/faq-accordion.css',
                 [],
-                filemtime(plugin_dir_path(__FILE__) . '/assets/css/faq-accordion.css')
+                filemtime(get_stylesheet_directory() . '/assets/css/faq-accordion.css')
             );
             
             wp_enqueue_script(
                 'aiq-faq-accordion',
-                plugins_url('/assets/js/faq-accordion.js', __FILE__),
+                get_stylesheet_directory_uri() . '/assets/js/faq-accordion.js',
                 ['jquery'],
-                filemtime(plugin_dir_path(__FILE__) . '/assets/js/faq-accordion.js'),
+                filemtime(get_stylesheet_directory() . '/assets/js/faq-accordion.js'),
                 true
             );
         }
@@ -820,7 +820,7 @@ class AIQ_FAQ_Accordion_Widget extends \Elementor\Widget_Base {
             
             <div class="aiq-faq-accordion__items">
                 <?php foreach ($settings['faq_items'] as $index => $item) : 
-                    if (empty($item['question']) {
+                    if (empty($item['question'])) {
                         continue;
                     }
                     
