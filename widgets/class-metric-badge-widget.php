@@ -2,7 +2,7 @@
 /**
  * Metric Badge Widget for Elementor
  *
- * @package AIQEngage
+ * @package AIQEngage_Child
  * @since 1.0.0
  */
 
@@ -36,17 +36,17 @@ class Metric_Badge_Widget extends Widget_Base {
         // Register widget scripts and styles
         wp_register_script(
             'aiq-metric-badge',
-            AIQ_ENGAGE_URL . 'assets/js/widgets/metric-badge.js',
+            AIQENGAGE_CHILD_URL . 'assets/js/widgets/metric-badge.js',
             ['jquery', 'elementor-frontend'],
-            AIQ_ENGAGE_VERSION,
+            AIQENGAGE_CHILD_VERSION,
             true
         );
         
         wp_register_style(
             'aiq-metric-badge',
-            AIQ_ENGAGE_URL . 'assets/css/widgets/metric-badge.css',
+            AIQENGAGE_CHILD_URL . 'assets/css/widgets/metric-badge.css',
             [],
-            AIQ_ENGAGE_VERSION
+            AIQENGAGE_CHILD_VERSION
         );
     }
 
@@ -83,7 +83,7 @@ class Metric_Badge_Widget extends Widget_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Metric Badge', 'aiqengage' );
+        return esc_html__( 'Metric Badge', 'aiqengage-child' );
     }
 
     /**
@@ -101,7 +101,7 @@ class Metric_Badge_Widget extends Widget_Base {
      * @return array
      */
     public function get_categories() {
-        return ['aiqengage-elements'];
+        return ['aiqengage'];
     }
 
     /**
@@ -128,7 +128,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__( 'Content', 'aiqengage' ),
+                'label' => esc_html__( 'Content', 'aiqengage-child' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -136,10 +136,10 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'metric_label',
             [
-                'label' => esc_html__( 'Label', 'aiqengage' ),
+                'label' => esc_html__( 'Label', 'aiqengage-child' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'ROI', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter metric label', 'aiqengage' ),
+                'default' => esc_html__( 'ROI', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter metric label', 'aiqengage-child' ),
                 'label_block' => true,
                 'dynamic' => [
                     'active' => true,
@@ -150,10 +150,10 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'metric_value',
             [
-                'label' => esc_html__( 'Value', 'aiqengage' ),
+                'label' => esc_html__( 'Value', 'aiqengage-child' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => '387%',
-                'placeholder' => esc_html__( 'Enter metric value', 'aiqengage' ),
+                'placeholder' => esc_html__( 'Enter metric value', 'aiqengage-child' ),
                 'label_block' => true,
                 'dynamic' => [
                     'active' => true,
@@ -164,20 +164,20 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'enable_counter',
             [
-                'label' => esc_html__( 'Animated Counter', 'aiqengage' ),
+                'label' => esc_html__( 'Animated Counter', 'aiqengage-child' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
-                'description' => esc_html__( 'Animate numeric values from zero to the target value', 'aiqengage' ),
+                'description' => esc_html__( 'Animate numeric values from zero to the target value', 'aiqengage-child' ),
             ]
         );
 
         $this->add_control(
             'counter_speed',
             [
-                'label' => esc_html__( 'Animation Duration (ms)', 'aiqengage' ),
+                'label' => esc_html__( 'Animation Duration (ms)', 'aiqengage-child' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -198,14 +198,14 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'trend_indicator',
             [
-                'label' => esc_html__( 'Trend Indicator', 'aiqengage' ),
+                'label' => esc_html__( 'Trend Indicator', 'aiqengage-child' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'up',
                 'options' => [
-                    'up' => esc_html__( 'Up (Positive)', 'aiqengage' ),
-                    'down' => esc_html__( 'Down (Negative)', 'aiqengage' ),
-                    'neutral' => esc_html__( 'Neutral', 'aiqengage' ),
-                    'none' => esc_html__( 'None', 'aiqengage' ),
+                    'up' => esc_html__( 'Up (Positive)', 'aiqengage-child' ),
+                    'down' => esc_html__( 'Down (Negative)', 'aiqengage-child' ),
+                    'neutral' => esc_html__( 'Neutral', 'aiqengage-child' ),
+                    'none' => esc_html__( 'None', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -213,10 +213,10 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'supporting_text',
             [
-                'label' => esc_html__( 'Description', 'aiqengage' ),
+                'label' => esc_html__( 'Description', 'aiqengage-child' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Average across all users', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter supporting text', 'aiqengage' ),
+                'default' => esc_html__( 'Average across all users', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter supporting text', 'aiqengage-child' ),
                 'label_block' => true,
                 'dynamic' => [
                     'active' => true,
@@ -242,7 +242,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->start_controls_section(
             'section_badge_style',
             [
-                'label' => esc_html__( 'Badge', 'aiqengage' ),
+                'label' => esc_html__( 'Badge', 'aiqengage-child' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -250,13 +250,13 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'badge_shape',
             [
-                'label' => esc_html__( 'Shape', 'aiqengage' ),
+                'label' => esc_html__( 'Shape', 'aiqengage-child' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'pill',
                 'options' => [
-                    'pill' => esc_html__( 'Pill', 'aiqengage' ),
-                    'circle' => esc_html__( 'Circle', 'aiqengage' ),
-                    'square' => esc_html__( 'Square', 'aiqengage' ),
+                    'pill' => esc_html__( 'Pill', 'aiqengage-child' ),
+                    'circle' => esc_html__( 'Circle', 'aiqengage-child' ),
+                    'square' => esc_html__( 'Square', 'aiqengage-child' ),
                 ],
                 'prefix_class' => 'aiq-metric-badge--',
             ]
@@ -265,7 +265,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'badge_background',
             [
-                'label' => esc_html__( 'Background Color', 'aiqengage' ),
+                'label' => esc_html__( 'Background Color', 'aiqengage-child' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#2A1958',
                 'selectors' => [
@@ -277,7 +277,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'badge_border_color',
             [
-                'label' => esc_html__( 'Border Color', 'aiqengage' ),
+                'label' => esc_html__( 'Border Color', 'aiqengage-child' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(156, 77, 255, 0.3)',
                 'selectors' => [
@@ -289,7 +289,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'badge_border_width',
             [
-                'label' => esc_html__( 'Border Width', 'aiqengage' ),
+                'label' => esc_html__( 'Border Width', 'aiqengage-child' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -310,7 +310,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_responsive_control(
             'badge_padding',
             [
-                'label' => esc_html__( 'Padding', 'aiqengage' ),
+                'label' => esc_html__( 'Padding', 'aiqengage-child' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'default' => [
@@ -330,7 +330,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_responsive_control(
             'badge_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'aiqengage' ),
+                'label' => esc_html__( 'Border Radius', 'aiqengage-child' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'default' => [
@@ -368,7 +368,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'value_heading',
             [
-                'label' => esc_html__( 'Value', 'aiqengage' ),
+                'label' => esc_html__( 'Value', 'aiqengage-child' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -377,7 +377,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'metric_value_color',
             [
-                'label' => esc_html__( 'Color', 'aiqengage' ),
+                'label' => esc_html__( 'Color', 'aiqengage-child' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#E0D6FF',
                 'selectors' => [
@@ -390,7 +390,7 @@ class Metric_Badge_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'value_typography',
-                'label' => esc_html__( 'Typography', 'aiqengage' ),
+                'label' => esc_html__( 'Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-metric-badge__value',
                 'scheme' => Typography::TYPOGRAPHY_1,
                 'fields_options' => [
@@ -410,7 +410,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'label_heading',
             [
-                'label' => esc_html__( 'Label', 'aiqengage' ),
+                'label' => esc_html__( 'Label', 'aiqengage-child' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -419,7 +419,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'metric_label_color',
             [
-                'label' => esc_html__( 'Color', 'aiqengage' ),
+                'label' => esc_html__( 'Color', 'aiqengage-child' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
                 'selectors' => [
@@ -432,7 +432,7 @@ class Metric_Badge_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'label_typography',
-                'label' => esc_html__( 'Typography', 'aiqengage' ),
+                'label' => esc_html__( 'Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-metric-badge__label',
                 'scheme' => Typography::TYPOGRAPHY_2,
                 'fields_options' => [
@@ -452,7 +452,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'description_heading',
             [
-                'label' => esc_html__( 'Description', 'aiqengage' ),
+                'label' => esc_html__( 'Description', 'aiqengage-child' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -461,7 +461,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'supporting_text_color',
             [
-                'label' => esc_html__( 'Color', 'aiqengage' ),
+                'label' => esc_html__( 'Color', 'aiqengage-child' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(224, 214, 255, 0.8)',
                 'selectors' => [
@@ -474,7 +474,7 @@ class Metric_Badge_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'supporting_typography',
-                'label' => esc_html__( 'Typography', 'aiqengage' ),
+                'label' => esc_html__( 'Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-metric-badge__supporting-text',
                 'scheme' => Typography::TYPOGRAPHY_3,
                 'fields_options' => [
@@ -501,7 +501,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->start_controls_section(
             'section_trend_style',
             [
-                'label' => esc_html__( 'Trend Indicator', 'aiqengage' ),
+                'label' => esc_html__( 'Trend Indicator', 'aiqengage-child' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'trend_indicator!' => 'none',
@@ -512,7 +512,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'trend_up_color',
             [
-                'label' => esc_html__( 'Up Trend Color', 'aiqengage' ),
+                'label' => esc_html__( 'Up Trend Color', 'aiqengage-child' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#4CAF50',
                 'selectors' => [
@@ -527,7 +527,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'trend_down_color',
             [
-                'label' => esc_html__( 'Down Trend Color', 'aiqengage' ),
+                'label' => esc_html__( 'Down Trend Color', 'aiqengage-child' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#F44336',
                 'selectors' => [
@@ -542,7 +542,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_control(
             'trend_neutral_color',
             [
-                'label' => esc_html__( 'Neutral Trend Color', 'aiqengage' ),
+                'label' => esc_html__( 'Neutral Trend Color', 'aiqengage-child' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#FFC107',
                 'selectors' => [
@@ -557,7 +557,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_responsive_control(
             'trend_size',
             [
-                'label' => esc_html__( 'Size', 'aiqengage' ),
+                'label' => esc_html__( 'Size', 'aiqengage-child' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -580,7 +580,7 @@ class Metric_Badge_Widget extends Widget_Base {
         $this->add_responsive_control(
             'trend_spacing',
             [
-                'label' => esc_html__( 'Spacing', 'aiqengage' ),
+                'label' => esc_html__( 'Spacing', 'aiqengage-child' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
