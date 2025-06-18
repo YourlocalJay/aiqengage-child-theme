@@ -2,7 +2,7 @@
 /**
  * AIQ Prompt Card Widget
  *
- * @package AIQEngage
+ * @package AIQEngage_Child
  */
 
 namespace AIQEngage\Widgets;
