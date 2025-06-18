@@ -1,6 +1,7 @@
 # AIQEngage Child Theme
 
 ![AIQEngage Theme Preview](assets/images/theme-preview.jpg)
+*Note: The preview image is currently a placeholder. Replace with actual theme screenshot (min. 880x660px) before release.*
 
 A production-ready Elementor child theme optimized for AI SaaS and automation businesses, featuring 23 specialized widgets and enterprise-grade templates.
 
@@ -83,7 +84,7 @@ aiqengage-child/
 ├── assets/                    # Compiled assets
 │   ├── css/                   # Stylesheets with design tokens
 │   ├── js/                    # JavaScript functionality
-│   └── images/                # Theme images
+│   └── images/                # Theme images (includes preview placeholder)
 ├── elementor-templates/       # Template library
 ├── inc/                       # Core functionality
 │   ├── css_loader.php         # Asset management
@@ -239,6 +240,17 @@ When contributing to the theme:
 3. Ensure accessibility compliance
 4. Test across all breakpoints
 5. Maintain widget naming conventions
+
+## 📸 Theme Preview Image
+
+**Current Status**: Placeholder file exists at `/assets/images/theme-preview.jpg`
+
+**Before Release**: Replace placeholder with actual screenshot meeting these requirements:
+- Minimum size: 880x660 pixels
+- Format: JPG or PNG preferred
+- Content: Homepage or key theme features showcase
+- Should highlight the dark purple theme, neural patterns, and key widgets
+- Include branded elements and conversion-optimized layout
 
 ---
 
