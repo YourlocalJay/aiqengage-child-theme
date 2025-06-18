@@ -404,13 +404,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
      * Get default prompt content
      */
     protected function get_default_prompt_content() {
-        return 'Create 5 authentic Reddit comments for r/[SUBREDDIT] that:
-- Address common [TOPIC] problems with personal experience
-- Include specific details that show deep knowledge
-- End with actionable advice (no links)
-- Sound like a helpful community member, not a marketer
-- Range from 75-150 words each
-- Use casual language with occasional typos for authenticity';
+        return 'Create 5 authentic Reddit comments for r/[SUBREDDIT] that:\n- Address common [TOPIC] problems with personal experience\n- Include specific details that show deep knowledge\n- End with actionable advice (no links)\n- Sound like a helpful community member, not a marketer\n- Range from 75-150 words each\n- Use casual language with occasional typos for authenticity';
     }
 
     /**
@@ -448,9 +442,9 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
     public function enqueue_styles() {
         wp_enqueue_style(
             'aiq-prompt-card',
-            plugins_url( 'assets/css/aiq-prompt-card.css', __FILE__ ),
+            get_stylesheet_directory_uri() . '/assets/css/aiq-prompt-card.css',
             [],
-            filemtime( plugin_dir_path( __FILE__ ) . 'assets/css/aiq-prompt-card.css' )
+            filemtime( get_stylesheet_directory() . '/assets/css/aiq-prompt-card.css' )
         );
     }
 
@@ -460,9 +454,9 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
     public function enqueue_scripts() {
         wp_enqueue_script(
             'aiq-prompt-card',
-            plugins_url( 'assets/js/aiq-prompt-card.js', __FILE__ ),
+            get_stylesheet_directory_uri() . '/assets/js/aiq-prompt-card.js',
             [ 'jquery', 'elementor-frontend' ],
-            filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/aiq-prompt-card.js' ),
+            filemtime( get_stylesheet_directory() . '/assets/js/aiq-prompt-card.js' ),
             true
         );
     }
@@ -473,9 +467,9 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
     public function enqueue_editor_scripts() {
         wp_enqueue_script(
             'aiq-prompt-card-editor',
-            plugins_url( 'assets/js/aiq-prompt-card-editor.js', __FILE__ ),
+            get_stylesheet_directory_uri() . '/assets/js/aiq-prompt-card-editor.js',
             [ 'jquery', 'elementor-editor' ],
-            filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/aiq-prompt-card-editor.js' ),
+            filemtime( get_stylesheet_directory() . '/assets/js/aiq-prompt-card-editor.js' ),
             true
         );
     }
