@@ -377,9 +377,9 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         if (!wp_script_is('aiq-progress-bar', 'registered')) {
             wp_register_script(
                 'aiq-progress-bar',
-                plugins_url('assets/js/progress-bar.js', __FILE__),
+                get_stylesheet_directory_uri() . '/assets/js/progress-bar.js',
                 ['jquery', 'elementor-frontend'],
-                filemtime(plugin_dir_path(__FILE__) . 'assets/js/progress-bar.js'),
+                filemtime(get_stylesheet_directory() . '/assets/js/progress-bar.js'),
                 true
             );
         }
@@ -387,9 +387,9 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         if (!wp_style_is('aiq-progress-bar', 'registered')) {
             wp_register_style(
                 'aiq-progress-bar',
-                plugins_url('assets/css/progress-bar.css', __FILE__),
+                get_stylesheet_directory_uri() . '/assets/css/progress-bar.css',
                 [],
-                filemtime(plugin_dir_path(__FILE__) . 'assets/css/progress-bar.css')
+                filemtime(get_stylesheet_directory() . '/assets/css/progress-bar.css')
             );
         }
         
