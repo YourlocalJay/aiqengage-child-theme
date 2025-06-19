@@ -4,7 +4,10 @@
 /**
  * Comparison Matrix Widget for AIQEngage.
  *
- * @package AIQEngage
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since 1.0.0
+ * @author Jason
  */
 
 // Exit if accessed directly.
@@ -40,7 +43,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Comparison Matrix', 'aiqengage' );
+        return esc_html__( 'Comparison Matrix', 'aiqengage-child' );
     }
 
     /**
@@ -77,6 +80,24 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
     }
 
     /**
+     * Get widget style dependencies.
+     *
+     * @return string[] CSS handles.
+     */
+    public function get_style_depends() {
+        return [ 'aiqengage-child-comparison-matrix' ];
+    }
+
+    /**
+     * Get widget script dependencies.
+     *
+     * @return string[] JS handles.
+     */
+    public function get_script_depends() {
+        return [ 'aiqengage-child-comparison-matrix' ];
+    }
+
+    /**
      * Register widget controls.
      *
      * @since 1.0.0
@@ -87,7 +108,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_columns',
             [
-                'label' => esc_html__( 'Columns (Tools/Plans)', 'aiqengage' ),
+                'label' => esc_html__( 'Columns (Tools/Plans)', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -97,9 +118,9 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_columns->add_control(
             'column_name',
             [
-                'label' => esc_html__( 'Name', 'aiqengage' ),
+                'label' => esc_html__( 'Name', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__( 'Tool Name', 'aiqengage' ),
+                'default' => esc_html__( 'Tool Name', 'aiqengage-child' ),
                 'label_block' => true,
             ]
         );
@@ -107,7 +128,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_columns->add_control(
             'column_logo',
             [
-                'label' => esc_html__( 'Logo', 'aiqengage' ),
+                'label' => esc_html__( 'Logo', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -118,7 +139,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_columns->add_control(
             'column_accent_color',
             [
-                'label' => esc_html__( 'Accent Color', 'aiqengage' ),
+                'label' => esc_html__( 'Accent Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
             ]
@@ -127,17 +148,17 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_columns->add_control(
             'column_badge',
             [
-                'label' => esc_html__( 'Badge Text', 'aiqengage' ),
+                'label' => esc_html__( 'Badge Text', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => '',
-                'placeholder' => esc_html__( 'e.g. Recommended', 'aiqengage' ),
+                'placeholder' => esc_html__( 'e.g. Recommended', 'aiqengage-child' ),
             ]
         );
 
         $repeater_columns->add_control(
             'column_badge_color',
             [
-                'label' => esc_html__( 'Badge Color', 'aiqengage' ),
+                'label' => esc_html__( 'Badge Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#FFD700',
                 'condition' => [
@@ -149,7 +170,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_columns->add_control(
             'column_description',
             [
-                'label' => esc_html__( 'Short Description', 'aiqengage' ),
+                'label' => esc_html__( 'Short Description', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'rows' => 3,
                 'default' => '',
@@ -159,18 +180,18 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_columns->add_control(
             'column_cta_text',
             [
-                'label' => esc_html__( 'CTA Text', 'aiqengage' ),
+                'label' => esc_html__( 'CTA Text', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__( 'Learn More', 'aiqengage' ),
+                'default' => esc_html__( 'Learn More', 'aiqengage-child' ),
             ]
         );
 
         $repeater_columns->add_control(
             'column_cta_url',
             [
-                'label' => esc_html__( 'CTA URL', 'aiqengage' ),
+                'label' => esc_html__( 'CTA URL', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://your-link.com', 'aiqengage' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'aiqengage-child' ),
                 'default' => [
                     'url' => '#',
                 ],
@@ -180,20 +201,20 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'columns',
             [
-                'label' => esc_html__( 'Columns', 'aiqengage' ),
+                'label' => esc_html__( 'Columns', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater_columns->get_controls(),
                 'default' => [
                     [
-                        'column_name' => esc_html__( 'Tool A', 'aiqengage' ),
+                        'column_name' => esc_html__( 'Tool A', 'aiqengage-child' ),
                         'column_accent_color' => '#9C4DFF',
                     ],
                     [
-                        'column_name' => esc_html__( 'Tool B', 'aiqengage' ),
+                        'column_name' => esc_html__( 'Tool B', 'aiqengage-child' ),
                         'column_accent_color' => '#5E72E4',
                     ],
                     [
-                        'column_name' => esc_html__( 'Tool C', 'aiqengage' ),
+                        'column_name' => esc_html__( 'Tool C', 'aiqengage-child' ),
                         'column_accent_color' => '#635BFF',
                     ],
                 ],
@@ -204,10 +225,10 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'sticky_header',
             [
-                'label' => esc_html__( 'Sticky Header', 'aiqengage' ),
+                'label' => esc_html__( 'Sticky Header', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -216,10 +237,10 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'sticky_first_column',
             [
-                'label' => esc_html__( 'Sticky First Column', 'aiqengage' ),
+                'label' => esc_html__( 'Sticky First Column', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -230,7 +251,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_rows',
             [
-                'label' => esc_html__( 'Rows (Features/Metrics)', 'aiqengage' ),
+                'label' => esc_html__( 'Rows (Features/Metrics)', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -240,9 +261,9 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_rows->add_control(
             'row_name',
             [
-                'label' => esc_html__( 'Feature Name', 'aiqengage' ),
+                'label' => esc_html__( 'Feature Name', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__( 'Feature', 'aiqengage' ),
+                'default' => esc_html__( 'Feature', 'aiqengage-child' ),
                 'label_block' => true,
             ]
         );
@@ -250,7 +271,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_rows->add_control(
             'row_description',
             [
-                'label' => esc_html__( 'Feature Description', 'aiqengage' ),
+                'label' => esc_html__( 'Feature Description', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'rows' => 3,
                 'default' => '',
@@ -260,15 +281,15 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_rows->add_control(
             'row_type',
             [
-                'label' => esc_html__( 'Value Type', 'aiqengage' ),
+                'label' => esc_html__( 'Value Type', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'yes_no',
                 'options' => [
-                    'yes_no' => esc_html__( 'Yes/No', 'aiqengage' ),
-                    'icon' => esc_html__( 'Icon', 'aiqengage' ),
-                    'text' => esc_html__( 'Text', 'aiqengage' ),
-                    'number' => esc_html__( 'Number', 'aiqengage' ),
-                    'rating' => esc_html__( 'Rating', 'aiqengage' ),
+                    'yes_no' => esc_html__( 'Yes/No', 'aiqengage-child' ),
+                    'icon' => esc_html__( 'Icon', 'aiqengage-child' ),
+                    'text' => esc_html__( 'Text', 'aiqengage-child' ),
+                    'number' => esc_html__( 'Number', 'aiqengage-child' ),
+                    'rating' => esc_html__( 'Rating', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -276,10 +297,10 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_rows->add_control(
             'row_is_category',
             [
-                'label' => esc_html__( 'Is Category Header', 'aiqengage' ),
+                'label' => esc_html__( 'Is Category Header', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -288,10 +309,10 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_rows->add_control(
             'row_is_highlight',
             [
-                'label' => esc_html__( 'Highlight Row', 'aiqengage' ),
+                'label' => esc_html__( 'Highlight Row', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -300,28 +321,28 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'rows',
             [
-                'label' => esc_html__( 'Features/Rows', 'aiqengage' ),
+                'label' => esc_html__( 'Features/Rows', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater_rows->get_controls(),
                 'default' => [
                     [
-                        'row_name' => esc_html__( 'Basic Features', 'aiqengage' ),
+                        'row_name' => esc_html__( 'Basic Features', 'aiqengage-child' ),
                         'row_is_category' => 'yes',
                     ],
                     [
-                        'row_name' => esc_html__( 'Feature 1', 'aiqengage' ),
+                        'row_name' => esc_html__( 'Feature 1', 'aiqengage-child' ),
                         'row_type' => 'yes_no',
                     ],
                     [
-                        'row_name' => esc_html__( 'Feature 2', 'aiqengage' ),
+                        'row_name' => esc_html__( 'Feature 2', 'aiqengage-child' ),
                         'row_type' => 'yes_no',
                     ],
                     [
-                        'row_name' => esc_html__( 'Advanced Features', 'aiqengage' ),
+                        'row_name' => esc_html__( 'Advanced Features', 'aiqengage-child' ),
                         'row_is_category' => 'yes',
                     ],
                     [
-                        'row_name' => esc_html__( 'Feature 3', 'aiqengage' ),
+                        'row_name' => esc_html__( 'Feature 3', 'aiqengage-child' ),
                         'row_type' => 'yes_no',
                     ],
                 ],
@@ -334,7 +355,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_cell_values',
             [
-                'label' => esc_html__( 'Cell Values', 'aiqengage' ),
+                'label' => esc_html__( 'Cell Values', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -344,7 +365,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_cells->add_control(
             'cell_row_index',
             [
-                'label' => esc_html__( 'Row Index', 'aiqengage' ),
+                'label' => esc_html__( 'Row Index', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 0,
                 'default' => 0,
@@ -354,7 +375,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_cells->add_control(
             'cell_column_index',
             [
-                'label' => esc_html__( 'Column Index', 'aiqengage' ),
+                'label' => esc_html__( 'Column Index', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 0,
                 'default' => 0,
@@ -364,10 +385,10 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_cells->add_control(
             'cell_yes_no',
             [
-                'label' => esc_html__( 'Has Feature', 'aiqengage' ),
+                'label' => esc_html__( 'Has Feature', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => [
@@ -379,7 +400,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_cells->add_control(
             'cell_icon',
             [
-                'label' => esc_html__( 'Icon', 'aiqengage' ),
+                'label' => esc_html__( 'Icon', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'fas fa-check',
@@ -394,9 +415,9 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_cells->add_control(
             'cell_text',
             [
-                'label' => esc_html__( 'Text', 'aiqengage' ),
+                'label' => esc_html__( 'Text', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__( 'Value', 'aiqengage' ),
+                'default' => esc_html__( 'Value', 'aiqengage-child' ),
                 'condition' => [
                     'cell_type' => 'text',
                 ],
@@ -406,7 +427,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_cells->add_control(
             'cell_number',
             [
-                'label' => esc_html__( 'Number', 'aiqengage' ),
+                'label' => esc_html__( 'Number', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 0,
                 'condition' => [
@@ -418,7 +439,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $repeater_cells->add_control(
             'cell_rating',
             [
-                'label' => esc_html__( 'Rating', 'aiqengage' ),
+                'label' => esc_html__( 'Rating', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -441,26 +462,26 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'enable_dynamic_cells',
             [
-                'label' => esc_html__( 'Enable Dynamic Cell Generation', 'aiqengage' ),
+                'label' => esc_html__( 'Enable Dynamic Cell Generation', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
-                'description' => esc_html__( 'Automatically generate cell controls based on rows and columns. Disable for manual cell configuration.', 'aiqengage' ),
+                'description' => esc_html__( 'Automatically generate cell controls based on rows and columns. Disable for manual cell configuration.', 'aiqengage-child' ),
             ]
         );
 
         $this->add_control(
             'cells',
             [
-                'label' => esc_html__( 'Cell Values (Manual)', 'aiqengage' ),
+                'label' => esc_html__( 'Cell Values (Manual)', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => $repeater_cells->get_controls(),
                 'condition' => [
                     'enable_dynamic_cells' => '',
                 ],
-                'title_field' => esc_html__( 'Cell [Row: {{{ cell_row_index }}} | Col: {{{ cell_column_index }}}]', 'aiqengage' ),
+                'title_field' => esc_html__( 'Cell [Row: {{{ cell_row_index }}} | Col: {{{ cell_column_index }}}]', 'aiqengage-child' ),
             ]
         );
 
@@ -469,7 +490,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_settings',
             [
-                'label' => esc_html__( 'Settings', 'aiqengage' ),
+                'label' => esc_html__( 'Settings', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -477,10 +498,10 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'highlight_differences',
             [
-                'label' => esc_html__( 'Highlight Differences', 'aiqengage' ),
+                'label' => esc_html__( 'Highlight Differences', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -489,10 +510,10 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_feature_tooltips',
             [
-                'label' => esc_html__( 'Show Feature Tooltips', 'aiqengage' ),
+                'label' => esc_html__( 'Show Feature Tooltips', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -501,10 +522,10 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'enable_sorting',
             [
-                'label' => esc_html__( 'Enable Interactive Sorting', 'aiqengage' ),
+                'label' => esc_html__( 'Enable Interactive Sorting', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'no',
             ]
@@ -513,10 +534,10 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_logo',
             [
-                'label' => esc_html__( 'Show Logo', 'aiqengage' ),
+                'label' => esc_html__( 'Show Logo', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -525,10 +546,10 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_cta',
             [
-                'label' => esc_html__( 'Show CTA Buttons', 'aiqengage' ),
+                'label' => esc_html__( 'Show CTA Buttons', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -1110,39 +1131,39 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         $columns = $settings['columns'];
         $rows = $settings['rows'];
         $cells = isset($settings['cells']) ? $settings['cells'] : [];
-        
+
         $this->add_render_attribute( 'wrapper', 'class', 'aiq-comparison-matrix-wrapper' );
-        
+
         if ( 'yes' === $settings['highlight_differences'] ) {
             $this->add_render_attribute( 'wrapper', 'data-highlight-differences', 'true' );
         }
-        
+
         if ( 'yes' === $settings['enable_sorting'] ) {
             $this->add_render_attribute( 'wrapper', 'data-enable-sorting', 'true' );
         }
-        
+
         if ( 'yes' === $settings['sticky_header'] ) {
             $this->add_render_attribute( 'matrix', 'class', 'aiq-comparison-matrix--sticky-header' );
         }
-        
+
         if ( 'yes' === $settings['sticky_first_column'] ) {
             $this->add_render_attribute( 'matrix', 'class', 'aiq-comparison-matrix--sticky-first-column' );
         }
-        
+
         $this->add_render_attribute( 'matrix', 'class', 'aiq-comparison-matrix' );
         $this->add_render_attribute( 'matrix', 'role', 'table' );
-        $this->add_render_attribute( 'matrix', 'aria-label', esc_html__( 'Comparison Matrix', 'aiqengage' ) );
-        
+        $this->add_render_attribute( 'matrix', 'aria-label', esc_html__( 'Comparison Matrix', 'aiqengage-child' ) );
+
         ?>
         <div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
             <div <?php $this->print_render_attribute_string( 'matrix' ); ?>>
-                
+
                 <!-- Header Row -->
                 <div class="aiq-comparison-matrix__row aiq-comparison-matrix__header" role="row">
                     <div class="aiq-comparison-matrix__cell aiq-comparison-matrix__feature-header" role="columnheader">
-                        <?php echo esc_html__( 'Features', 'aiqengage' ); ?>
+                        <?php echo esc_html__( 'Features', 'aiqengage-child' ); ?>
                     </div>
-                    
+
                     <?php foreach ( $columns as $column_index => $column ) : ?>
                         <div class="aiq-comparison-matrix__cell aiq-comparison-matrix__header" role="columnheader" style="--column-accent-color: <?php echo esc_attr( $column['column_accent_color'] ); ?>">
                             <?php if ( 'yes' === $settings['show_logo'] && ! empty( $column['column_logo']['url'] ) ) : ?>
@@ -1150,15 +1171,15 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                                     <img class="aiq-comparison-matrix__logo" src="<?php echo esc_url( $column['column_logo']['url'] ); ?>" alt="<?php echo esc_attr( $column['column_name'] ); ?> logo">
                                 </div>
                             <?php endif; ?>
-                            
+
                             <h3 class="aiq-comparison-matrix__header-title"><?php echo esc_html( $column['column_name'] ); ?></h3>
-                            
+
                             <?php if ( ! empty( $column['column_badge'] ) ) : ?>
                                 <div class="aiq-comparison-matrix__badge" style="background-color: <?php echo esc_attr( $column['column_badge_color'] ); ?>">
                                     <?php echo esc_html( $column['column_badge'] ); ?>
                                 </div>
                             <?php endif; ?>
-                            
+
                             <?php if ( ! empty( $column['column_description'] ) ) : ?>
                                 <div class="aiq-comparison-matrix__description">
                                     <?php echo esc_html( $column['column_description'] ); ?>
@@ -1167,25 +1188,25 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                         </div>
                     <?php endforeach; ?>
                 </div>
-                
+
                 <!-- Rows -->
                 <?php foreach ( $rows as $row_index => $row ) : ?>
-                    <?php 
+                    <?php
                     $row_classes = ['aiq-comparison-matrix__row'];
-                    
+
                     if ( 'yes' === $row['row_is_category'] ) {
                         $row_classes[] = 'aiq-comparison-matrix__row--category';
                     }
-                    
+
                     if ( 'yes' === $row['row_is_highlight'] ) {
                         $row_classes[] = 'aiq-comparison-matrix__row--highlight';
                     }
                     ?>
-                    
+
                     <div class="<?php echo esc_attr( implode( ' ', $row_classes ) ); ?>" role="row" data-row-type="<?php echo esc_attr( $row['row_type'] ); ?>">
                         <div class="aiq-comparison-matrix__cell aiq-comparison-matrix__feature" role="rowheader">
                             <?php echo esc_html( $row['row_name'] ); ?>
-                            
+
                             <?php if ( ! empty( $row['row_description'] ) && 'yes' === $settings['show_feature_tooltips'] ) : ?>
                                 <div class="aiq-comparison-matrix__tooltip">
                                     <span class="aiq-comparison-matrix__tooltip-icon">?</span>
@@ -1195,8 +1216,8 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                                 </div>
                             <?php endif; ?>
                         </div>
-                        
-                        <?php 
+
+                        <?php
                         // Skip cells for category rows
                         if ( 'yes' === $row['row_is_category'] ) {
                             for ( $i = 0; $i < count( $columns ); $i++ ) {
@@ -1205,7 +1226,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                             continue;
                         }
                         ?>
-                        
+
                         <?php foreach ( $columns as $column_index => $column ) : ?>
                             <?php
                             // Find cell value for this row and column
@@ -1213,10 +1234,10 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                             $cell_classes = ['aiq-comparison-matrix__cell'];
                             $cell_style = '';
                             $cell_attrs = '';
-                            
+
                             // Set cell accent color based on column
                             $cell_style = 'style="--column-accent-color: ' . esc_attr( $column['column_accent_color'] ) . ';"';
-                            
+
                             // For dynamic cell generation
                             if ( 'yes' === $settings['enable_dynamic_cells'] ) {
                                 // Generate mock cell data based on row type
@@ -1224,59 +1245,59 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                                     case 'yes_no':
                                         // Alternating pattern for demo
                                         $has_feature = ($row_index + $column_index) % 3 != 0;
-                                        $cell_value = $has_feature ? 
-                                            '<i class="fas fa-check" aria-hidden="true"></i><span class="elementor-screen-only">Yes</span>' : 
+                                        $cell_value = $has_feature ?
+                                            '<i class="fas fa-check" aria-hidden="true"></i><span class="elementor-screen-only">Yes</span>' :
                                             '<i class="fas fa-times" aria-hidden="true"></i><span class="elementor-screen-only">No</span>';
                                         $cell_classes[] = $has_feature ? 'aiq-comparison-matrix__cell--yes' : 'aiq-comparison-matrix__cell--no';
                                         break;
-                                        
+
                                     case 'icon':
                                         // Use a simple icon
                                         $icons = ['far fa-star', 'fas fa-star', 'fas fa-star-half-alt'];
                                         $icon = $icons[($row_index + $column_index) % 3];
                                         $cell_value = '<i class="' . $icon . '" aria-hidden="true"></i>';
                                         break;
-                                        
+
                                     case 'text':
                                         // Simple text based on position
                                         $texts = ['Basic', 'Advanced', 'Premium', 'Limited'];
                                         $cell_value = $texts[($row_index + $column_index) % 4];
                                         break;
-                                        
+
                                     case 'number':
                                         // Generate a number
                                         $cell_value = (($row_index + 1) * 10) + ($column_index * 5);
                                         break;
-                                        
+
                                     case 'rating':
                                         // Generate a star rating
                                         $rating = min(5, max(1, 2.5 + (($column_index - $row_index) * 0.5)));
                                         $full_stars = floor($rating);
                                         $half_star = $rating - $full_stars >= 0.5;
-                                        
+
                                         $cell_value = '<div class="aiq-comparison-matrix__rating" data-rating="' . $rating . '">';
-                                        
+
                                         // Full stars
                                         for ($i = 0; $i < $full_stars; $i++) {
                                             $cell_value .= '<i class="fas fa-star" aria-hidden="true"></i>';
                                         }
-                                        
+
                                         // Half star if needed
                                         if ($half_star) {
                                             $cell_value .= '<i class="fas fa-star-half-alt" aria-hidden="true"></i>';
                                         }
-                                        
+
                                         // Empty stars
                                         $empty_stars = 5 - $full_stars - ($half_star ? 1 : 0);
                                         for ($i = 0; $i < $empty_stars; $i++) {
                                             $cell_value .= '<i class="far fa-star" aria-hidden="true"></i>';
                                         }
-                                        
+
                                         $cell_value .= '<span class="elementor-screen-only">' . $rating . ' out of 5 stars</span>';
                                         $cell_value .= '</div>';
                                         break;
                                 }
-                                
+
                                 // Add highlight class for the first cell that's different in the row
                                 if ( 'yes' === $settings['highlight_differences'] ) {
                                     // This is simplified - in production you'd need a more robust mechanism
@@ -1295,21 +1316,21 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                                 }
                             }
                             ?>
-                            
+
                             <div class="<?php echo esc_attr( implode( ' ', $cell_classes ) ); ?>" role="cell" <?php echo $cell_style; ?> <?php echo $cell_attrs; ?>>
                                 <?php echo $cell_value; ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
                 <?php endforeach; ?>
-                
+
                 <!-- CTA Row -->
                 <?php if ( 'yes' === $settings['show_cta'] ) : ?>
                     <div class="aiq-comparison-matrix__row aiq-comparison-matrix__row--cta" role="row">
                         <div class="aiq-comparison-matrix__cell aiq-comparison-matrix__feature" role="rowheader">
-                            <?php echo esc_html__( 'Choose Your Plan', 'aiqengage' ); ?>
+                            <?php echo esc_html__( 'Choose Your Plan', 'aiqengage-child' ); ?>
                         </div>
-                        
+
                         <?php foreach ( $columns as $column_index => $column ) : ?>
                             <div class="aiq-comparison-matrix__cell" role="cell" style="--column-accent-color: <?php echo esc_attr( $column['column_accent_color'] ); ?>;">
                                 <?php if ( ! empty( $column['column_cta_text'] ) ) : ?>
@@ -1338,37 +1359,37 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
         ?>
         <#
         view.addRenderAttribute( 'wrapper', 'class', 'aiq-comparison-matrix-wrapper' );
-        
+
         if ( 'yes' === settings.highlight_differences ) {
             view.addRenderAttribute( 'wrapper', 'data-highlight-differences', 'true' );
         }
-        
+
         if ( 'yes' === settings.enable_sorting ) {
             view.addRenderAttribute( 'wrapper', 'data-enable-sorting', 'true' );
         }
-        
+
         view.addRenderAttribute( 'matrix', 'class', 'aiq-comparison-matrix' );
-        
+
         if ( 'yes' === settings.sticky_header ) {
             view.addRenderAttribute( 'matrix', 'class', 'aiq-comparison-matrix--sticky-header' );
         }
-        
+
         if ( 'yes' === settings.sticky_first_column ) {
             view.addRenderAttribute( 'matrix', 'class', 'aiq-comparison-matrix--sticky-first-column' );
         }
-        
+
         view.addRenderAttribute( 'matrix', 'role', 'table' );
         view.addRenderAttribute( 'matrix', 'aria-label', 'Comparison Matrix' );
         #>
         <div {{{ view.getRenderAttributeString( 'wrapper' ) }}}>
             <div {{{ view.getRenderAttributeString( 'matrix' ) }}}>
-                
+
                 <!-- Header Row -->
                 <div class="aiq-comparison-matrix__row aiq-comparison-matrix__header" role="row">
                     <div class="aiq-comparison-matrix__cell aiq-comparison-matrix__feature-header" role="columnheader">
                         Features
                     </div>
-                    
+
                     <# _.each( settings.columns, function( column, column_index ) { #>
                         <div class="aiq-comparison-matrix__cell aiq-comparison-matrix__header" role="columnheader" style="--column-accent-color: {{{ column.column_accent_color }}}">
                             <# if ( 'yes' === settings.show_logo && column.column_logo.url ) { #>
@@ -1376,15 +1397,15 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                                     <img class="aiq-comparison-matrix__logo" src="{{{ column.column_logo.url }}}" alt="{{{ column.column_name }}} logo">
                                 </div>
                             <# } #>
-                            
+
                             <h3 class="aiq-comparison-matrix__header-title">{{{ column.column_name }}}</h3>
-                            
+
                             <# if ( column.column_badge ) { #>
                                 <div class="aiq-comparison-matrix__badge" style="background-color: {{{ column.column_badge_color }}}">
                                     {{{ column.column_badge }}}
                                 </div>
                             <# } #>
-                            
+
                             <# if ( column.column_description ) { #>
                                 <div class="aiq-comparison-matrix__description">
                                     {{{ column.column_description }}}
@@ -1393,15 +1414,15 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                         </div>
                     <# } ); #>
                 </div>
-                
+
                 <!-- Rows -->
-                <# _.each( settings.rows, function( row, row_index ) { 
+                <# _.each( settings.rows, function( row, row_index ) {
                     var rowClasses = ['aiq-comparison-matrix__row'];
-                    
+
                     if ( 'yes' === row.row_is_category ) {
                         rowClasses.push('aiq-comparison-matrix__row--category');
                     }
-                    
+
                     if ( 'yes' === row.row_is_highlight ) {
                         rowClasses.push('aiq-comparison-matrix__row--highlight');
                     }
@@ -1409,7 +1430,7 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                     <div class="{{ rowClasses.join(' ') }}" role="row" data-row-type="{{{ row.row_type }}}">
                         <div class="aiq-comparison-matrix__cell aiq-comparison-matrix__feature" role="rowheader">
                             {{{ row.row_name }}}
-                            
+
                             <# if ( row.row_description && 'yes' === settings.show_feature_tooltips ) { #>
                                 <div class="aiq-comparison-matrix__tooltip">
                                     <span class="aiq-comparison-matrix__tooltip-icon">?</span>
@@ -1419,8 +1440,8 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                                 </div>
                             <# } #>
                         </div>
-                        
-                        <# 
+
+                        <#
                         // Skip cells for category rows
                         if ( 'yes' === row.row_is_category ) {
                             for ( var i = 0; i < settings.columns.length; i++ ) { #>
@@ -1428,12 +1449,12 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                             <# }
                             return;
                         }
-                        
-                        _.each( settings.columns, function( column, column_index ) { 
+
+                        _.each( settings.columns, function( column, column_index ) {
                             var cellClasses = ['aiq-comparison-matrix__cell'];
                             var cellValue = '';
                             var cellStyle = 'style="--column-accent-color: ' + column.column_accent_color + ';"';
-                            
+
                             // For dynamic cell generation
                             if ( 'yes' === settings.enable_dynamic_cells ) {
                                 // Generate mock cell data based on row type
@@ -1441,30 +1462,30 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                                     case 'yes_no':
                                         // Alternating pattern for demo
                                         var hasFeature = (row_index + column_index) % 3 != 0;
-                                        cellValue = hasFeature ? 
-                                            '<i class="fas fa-check" aria-hidden="true"></i><span class="elementor-screen-only">Yes</span>' : 
+                                        cellValue = hasFeature ?
+                                            '<i class="fas fa-check" aria-hidden="true"></i><span class="elementor-screen-only">Yes</span>' :
                                             '<i class="fas fa-times" aria-hidden="true"></i><span class="elementor-screen-only">No</span>';
                                         cellClasses.push(hasFeature ? 'aiq-comparison-matrix__cell--yes' : 'aiq-comparison-matrix__cell--no');
                                         break;
-                                        
+
                                     case 'icon':
                                         // Use a simple icon
                                         var icons = ['far fa-star', 'fas fa-star', 'fas fa-star-half-alt'];
                                         var icon = icons[(row_index + column_index) % 3];
                                         cellValue = '<i class="' + icon + '" aria-hidden="true"></i>';
                                         break;
-                                        
+
                                     case 'text':
                                         // Simple text based on position
                                         var texts = ['Basic', 'Advanced', 'Premium', 'Limited'];
                                         cellValue = texts[(row_index + column_index) % 4];
                                         break;
-                                        
+
                                     case 'number':
                                         // Generate a number
                                         cellValue = ((row_index + 1) * 10) + (column_index * 5);
                                         break;
-                                        
+
                                     case 'rating':
                                         // Generate a star rating
                                         var rating = Math.min(5, Math.max(1, 2.5 + ((column_index - row_index) * 0.5)));
@@ -1472,30 +1493,30 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                                         var rating = Math.min(5, Math.max(1, 2.5 + ((column_index - row_index) * 0.5)));
                                         var fullStars = Math.floor(rating);
                                         var halfStar = rating - fullStars >= 0.5;
-                                        
+
                                         cellValue = '<div class="aiq-comparison-matrix__rating" data-rating="' + rating + '">';
-                                        
+
                                         // Full stars
                                         for (var i = 0; i < fullStars; i++) {
                                             cellValue += '<i class="fas fa-star" aria-hidden="true"></i>';
                                         }
-                                        
+
                                         // Half star if needed
                                         if (halfStar) {
                                             cellValue += '<i class="fas fa-star-half-alt" aria-hidden="true"></i>';
                                         }
-                                        
+
                                         // Empty stars
                                         var emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
                                         for (var i = 0; i < emptyStars; i++) {
                                             cellValue += '<i class="far fa-star" aria-hidden="true"></i>';
                                         }
-                                        
+
                                         cellValue += '<span class="elementor-screen-only">' + rating + ' out of 5 stars</span>';
                                         cellValue += '</div>';
                                         break;
                                 }
-                                
+
                                 // Add highlight class for the first cell that's different in the row
                                 if ( 'yes' === settings.highlight_differences ) {
                                     // This is simplified - in production you'd need a more robust mechanism
@@ -1515,14 +1536,14 @@ class AIQ_Comparison_Matrix_Widget extends \Elementor\Widget_Base {
                         <# }); #>
                     </div>
                 <# }); #>
-                
+
                 <!-- CTA Row -->
                 <# if ( 'yes' === settings.show_cta ) { #>
                     <div class="aiq-comparison-matrix__row aiq-comparison-matrix__row--cta" role="row">
                         <div class="aiq-comparison-matrix__cell aiq-comparison-matrix__feature" role="rowheader">
                             Choose Your Plan
                         </div>
-                        
+
                         <# _.each( settings.columns, function( column, column_index ) { #>
                             <div class="aiq-comparison-matrix__cell" role="cell" style="--column-accent-color: {{{ column.column_accent_color }}};">
                                 <# if ( column.column_cta_text ) { #>

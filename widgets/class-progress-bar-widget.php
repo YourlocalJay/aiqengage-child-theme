@@ -2,7 +2,10 @@
 /**
  * Enhanced Progress Bar Widget for AIQEngage
  *
- * @package AIQEngage_Child
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
  */
 
 if (!defined('ABSPATH')) {
@@ -57,6 +60,24 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
      */
     public function get_categories() {
         return ['aiqengage'];
+    }
+
+    /**
+     * Get widget style dependencies.
+     *
+     * @return string[] CSS handles.
+     */
+    public function get_style_depends() {
+        return [ 'aiq-progress-bar' ];
+    }
+
+    /**
+     * Get widget script dependencies.
+     *
+     * @return string[] JS handles.
+     */
+    public function get_script_depends() {
+        return [ 'aiq-progress-bar' ];
     }
 
     /**
@@ -343,7 +364,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         $settings = $this->get_settings_for_display();
         $position_class = 'aiq-progress-bar--' . $settings['bar_position'];
         $percentage_class = 'aiq-progress-bar__percentage--' . ($settings['percentage_position'] ?? 'end');
-        
+
         $this->add_render_attribute('progress-bar', [
             'class' => ['aiq-progress-bar', $position_class],
             'role' => 'progressbar',
@@ -352,7 +373,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
             'aria-valuenow' => '0',
             'data-animation-speed' => esc_attr($settings['animation_speed']),
         ]);
-        
+
         if ('yes' === $settings['show_percentage']) {
             $this->add_render_attribute('progress-bar', 'class', 'aiq-progress-bar--has-percentage');
         }
@@ -366,7 +387,7 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
             <?php endif; ?>
         </div>
         <?php
-        
+
         $this->enqueue_assets();
     }
 
@@ -377,22 +398,22 @@ class AIQ_Progress_Bar_Widget extends \Elementor\Widget_Base {
         if (!wp_script_is('aiq-progress-bar', 'registered')) {
             wp_register_script(
                 'aiq-progress-bar',
-                get_stylesheet_directory_uri() . '/assets/js/progress-bar.js',
+                AIQENGAGE_CHILD_URL . '/assets/js/progress-bar.js',
                 ['jquery', 'elementor-frontend'],
                 filemtime(get_stylesheet_directory() . '/assets/js/progress-bar.js'),
                 true
             );
         }
-        
+
         if (!wp_style_is('aiq-progress-bar', 'registered')) {
             wp_register_style(
                 'aiq-progress-bar',
-                get_stylesheet_directory_uri() . '/assets/css/progress-bar.css',
+                AIQENGAGE_CHILD_URL . '/assets/css/progress-bar.css',
                 [],
                 filemtime(get_stylesheet_directory() . '/assets/css/progress-bar.css')
             );
         }
-        
+
         wp_enqueue_script('aiq-progress-bar');
         wp_enqueue_style('aiq-progress-bar');
     }

@@ -3,8 +3,11 @@
 <?php
 /**
  * CTA Banner Widget for AIQEngage
- * 
- * @package AIQEngage
+ *
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since 1.0.0
+ * @author Jason
  */
 
 // Exit if accessed directly
@@ -32,7 +35,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'CTA Banner', 'aiqengage' );
+        return esc_html__( 'CTA Banner', 'aiqengage-child' );
     }
 
     /**
@@ -43,7 +46,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
     public function get_icon() {
         return 'eicon-announcement';
     }
-    
+
     /**
      * Get widget keywords.
      *
@@ -63,6 +66,24 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
     }
 
     /**
+     * Get widget style dependencies.
+     *
+     * @return string[] CSS handles.
+     */
+    public function get_style_depends() {
+        return [ 'aiqengage-child-cta-banner' ];
+    }
+
+    /**
+     * Get widget script dependencies.
+     *
+     * @return string[] JS handles.
+     */
+    public function get_script_depends() {
+        return [];
+    }
+
+    /**
      * Register widget controls.
      */
     protected function register_controls() {
@@ -71,7 +92,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__( 'Content', 'aiqengage' ),
+                'label' => esc_html__( 'Content', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -79,10 +100,10 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'headline',
             [
-                'label'       => esc_html__( 'Headline', 'aiqengage' ),
+                'label'       => esc_html__( 'Headline', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Ready to unlock Claude\'s most trusted growth stacks?', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter your headline', 'aiqengage' ),
+                'default'     => esc_html__( 'Ready to unlock Claude\'s most trusted growth stacks?', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter your headline', 'aiqengage-child' ),
                 'label_block' => true,
             ]
         );
@@ -90,10 +111,10 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_subheadline',
             [
-                'label'        => esc_html__( 'Show Subheadline', 'aiqengage' ),
+                'label'        => esc_html__( 'Show Subheadline', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off'    => esc_html__( 'No', 'aiqengage' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => '',
             ]
@@ -102,24 +123,24 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'subheadline',
             [
-                'label'       => esc_html__( 'Subheadline', 'aiqengage' ),
+                'label'       => esc_html__( 'Subheadline', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Get instant access to our proven automation systems', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter your subheadline', 'aiqengage' ),
+                'default'     => esc_html__( 'Get instant access to our proven automation systems', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter your subheadline', 'aiqengage-child' ),
                 'label_block' => true,
                 'condition'   => [
                     'show_subheadline' => 'yes',
                 ],
             ]
         );
-        
+
         $this->end_controls_section();
 
         // Primary Button Section
         $this->start_controls_section(
             'section_primary_button',
             [
-                'label' => esc_html__( 'Primary Button', 'aiqengage' ),
+            'label' => esc_html__( 'Primary Button', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -127,19 +148,19 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'primary_button_text',
             [
-                'label'       => esc_html__( 'Button Text', 'aiqengage' ),
+                'label'       => esc_html__( 'Button Text', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( '🔓 View Vault', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter button text', 'aiqengage' ),
+                'default'     => esc_html__( '🔓 View Vault', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter button text', 'aiqengage-child' ),
             ]
         );
 
         $this->add_control(
             'primary_button_link',
             [
-                'label'       => esc_html__( 'Button Link', 'aiqengage' ),
+                'label'       => esc_html__( 'Button Link', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://your-link.com', 'aiqengage' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'aiqengage-child' ),
                 'default'     => [
                     'url'               => '#',
                     'is_external'       => false,
@@ -152,10 +173,10 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'primary_button_id',
             [
-                'label'       => esc_html__( 'Button ID (optional)', 'aiqengage' ),
+                'label'       => esc_html__( 'Button ID (optional)', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'button-id', 'aiqengage' ),
-                'description' => esc_html__( 'Add an ID for tracking or custom styling', 'aiqengage' ),
+                'placeholder' => esc_html__( 'button-id', 'aiqengage-child' ),
+                'description' => esc_html__( 'Add an ID for tracking or custom styling', 'aiqengage-child' ),
             ]
         );
 
@@ -165,7 +186,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_secondary_button',
             [
-                'label' => esc_html__( 'Secondary Button', 'aiqengage' ),
+            'label' => esc_html__( 'Secondary Button', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -173,10 +194,10 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_secondary_button',
             [
-                'label'        => esc_html__( 'Show Secondary Button', 'aiqengage' ),
+                'label'        => esc_html__( 'Show Secondary Button', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off'    => esc_html__( 'No', 'aiqengage' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -185,10 +206,10 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'secondary_button_text',
             [
-                'label'       => esc_html__( 'Button Text', 'aiqengage' ),
+                'label'       => esc_html__( 'Button Text', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( '💡 Get Recommendations', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter button text', 'aiqengage' ),
+                'default'     => esc_html__( '💡 Get Recommendations', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter button text', 'aiqengage-child' ),
                 'condition'   => [
                     'show_secondary_button' => 'yes',
                 ],
@@ -198,9 +219,9 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'secondary_button_link',
             [
-                'label'       => esc_html__( 'Button Link', 'aiqengage' ),
+                'label'       => esc_html__( 'Button Link', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://your-link.com', 'aiqengage' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'aiqengage-child' ),
                 'default'     => [
                     'url'               => '#',
                     'is_external'       => false,
@@ -216,10 +237,10 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'secondary_button_id',
             [
-                'label'       => esc_html__( 'Button ID (optional)', 'aiqengage' ),
+                'label'       => esc_html__( 'Button ID (optional)', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'button-id', 'aiqengage' ),
-                'description' => esc_html__( 'Add an ID for tracking or custom styling', 'aiqengage' ),
+                'placeholder' => esc_html__( 'button-id', 'aiqengage-child' ),
+                'description' => esc_html__( 'Add an ID for tracking or custom styling', 'aiqengage-child' ),
                 'condition'   => [
                     'show_secondary_button' => 'yes',
                 ],
@@ -232,7 +253,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_pro_badge',
             [
-                'label' => esc_html__( 'Pro Badge', 'aiqengage' ),
+            'label' => esc_html__( 'Pro Badge', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -240,10 +261,10 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_pro_badge',
             [
-                'label'        => esc_html__( 'Show Pro Badge', 'aiqengage' ),
+                'label'        => esc_html__( 'Show Pro Badge', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off'    => esc_html__( 'No', 'aiqengage' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => '',
             ]
@@ -252,10 +273,10 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'pro_badge_text',
             [
-                'label'       => esc_html__( 'Badge Text', 'aiqengage' ),
+                'label'       => esc_html__( 'Badge Text', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'PRO', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter badge text', 'aiqengage' ),
+                'default'     => esc_html__( 'PRO', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter badge text', 'aiqengage-child' ),
                 'condition'   => [
                     'show_pro_badge' => 'yes',
                 ],
@@ -265,10 +286,10 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'pro_badge_icon',
             [
-                'label'       => esc_html__( 'Badge Icon', 'aiqengage' ),
+                'label'       => esc_html__( 'Badge Icon', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( '🔒', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter emoji or icon', 'aiqengage' ),
+                'default'     => esc_html__( '🔒', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter emoji or icon', 'aiqengage-child' ),
                 'condition'   => [
                     'show_pro_badge' => 'yes',
                 ],
@@ -281,7 +302,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_layout',
             [
-                'label' => esc_html__( 'Layout & Behavior', 'aiqengage' ),
+            'label' => esc_html__( 'Layout & Behavior', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -289,12 +310,12 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'layout_type',
             [
-                'label'   => esc_html__( 'Layout Type', 'aiqengage' ),
+                'label'   => esc_html__( 'Layout Type', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'standard',
                 'options' => [
-                    'standard'   => esc_html__( 'Standard (Container Width)', 'aiqengage' ),
-                    'full-width' => esc_html__( 'Full Width', 'aiqengage' ),
+                    'standard'   => esc_html__( 'Standard (Container Width)', 'aiqengage-child' ),
+                    'full-width' => esc_html__( 'Full Width', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -302,10 +323,10 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'make_sticky',
             [
-                'label'        => esc_html__( 'Make Sticky', 'aiqengage' ),
+                'label'        => esc_html__( 'Make Sticky', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off'    => esc_html__( 'No', 'aiqengage' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => '',
             ]
@@ -314,12 +335,12 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'sticky_position',
             [
-                'label'     => esc_html__( 'Sticky Position', 'aiqengage' ),
+                'label'     => esc_html__( 'Sticky Position', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::SELECT,
                 'default'   => 'bottom',
                 'options'   => [
-                    'top'    => esc_html__( 'Top', 'aiqengage' ),
-                    'bottom' => esc_html__( 'Bottom', 'aiqengage' ),
+                    'top'    => esc_html__( 'Top', 'aiqengage-child' ),
+                    'bottom' => esc_html__( 'Bottom', 'aiqengage-child' ),
                 ],
                 'condition' => [
                     'make_sticky' => 'yes',
@@ -330,7 +351,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'scroll_trigger',
             [
-                'label'     => esc_html__( 'Show After Scroll (%)', 'aiqengage' ),
+                'label'     => esc_html__( 'Show After Scroll (%)', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::SLIDER,
                 'range'     => [
                     '%' => [
@@ -352,10 +373,10 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_close_button',
             [
-                'label'        => esc_html__( 'Show Close Button', 'aiqengage' ),
+                'label'        => esc_html__( 'Show Close Button', 'aiqengage-child' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off'    => esc_html__( 'No', 'aiqengage' ),
+                'label_on'     => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off'    => esc_html__( 'No', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default'      => '',
                 'condition'    => [
@@ -367,13 +388,13 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'close_cookie_expiry',
             [
-                'label'       => esc_html__( 'Close Button Cookie Expiry (days)', 'aiqengage' ),
+                'label'       => esc_html__( 'Close Button Cookie Expiry (days)', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::NUMBER,
                 'min'         => 1,
                 'max'         => 365,
                 'step'        => 1,
                 'default'     => 7,
-                'description' => esc_html__( 'Number of days before showing again after close', 'aiqengage' ),
+                'description' => esc_html__( 'Number of days before showing again after close', 'aiqengage-child' ),
                 'condition'   => [
                     'make_sticky'      => 'yes',
                     'show_close_button' => 'yes',
@@ -387,7 +408,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_general',
             [
-                'label' => esc_html__( 'General', 'aiqengage' ),
+            'label' => esc_html__( 'General', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -395,12 +416,12 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'background_type',
             [
-                'label'   => esc_html__( 'Background Type', 'aiqengage' ),
+                'label'   => esc_html__( 'Background Type', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'gradient',
                 'options' => [
-                    'gradient' => esc_html__( 'Gradient', 'aiqengage' ),
-                    'solid'    => esc_html__( 'Solid Color', 'aiqengage' ),
+                    'gradient' => esc_html__( 'Gradient', 'aiqengage-child' ),
+                    'solid'    => esc_html__( 'Solid Color', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -438,7 +459,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'background_color',
             [
-                'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#1A0938',
                 'selectors' => [
@@ -475,7 +496,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'padding',
             [
-                'label'      => esc_html__( 'Padding', 'aiqengage' ),
+                'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
@@ -495,7 +516,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'aiqengage' ),
+                'label'      => esc_html__( 'Border Radius', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
@@ -515,7 +536,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'z_index',
             [
-                'label'     => esc_html__( 'Z-Index', 'aiqengage' ),
+                'label'     => esc_html__( 'Z-Index', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::NUMBER,
                 'min'       => 0,
                 'max'       => 9999,
@@ -536,7 +557,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_typography',
             [
-                'label' => esc_html__( 'Typography', 'aiqengage' ),
+            'label' => esc_html__( 'Typography', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -544,7 +565,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'headline_color',
             [
-                'label'     => esc_html__( 'Headline Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Headline Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#E0D6FF',
                 'selectors' => [
@@ -571,7 +592,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'subheadline_color',
             [
-                'label'     => esc_html__( 'Subheadline Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Subheadline Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(224, 214, 255, 0.8)',
                 'selectors' => [
@@ -607,7 +628,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_primary_button',
             [
-                'label' => esc_html__( 'Primary Button', 'aiqengage' ),
+            'label' => esc_html__( 'Primary Button', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -620,7 +641,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_tab(
             'tab_primary_button_normal',
             [
-                'label' => esc_html__( 'Normal', 'aiqengage' ),
+                'label' => esc_html__( 'Normal', 'aiqengage-child' ),
             ]
         );
 
@@ -654,7 +675,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'primary_button_text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#FFFFFF',
                 'selectors' => [
@@ -674,7 +695,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'primary_button_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'aiqengage' ),
+                'label'      => esc_html__( 'Border Radius', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
@@ -705,7 +726,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_tab(
             'tab_primary_button_hover',
             [
-                'label' => esc_html__( 'Hover', 'aiqengage' ),
+                'label' => esc_html__( 'Hover', 'aiqengage-child' ),
             ]
         );
 
@@ -733,7 +754,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'primary_button_text_color_hover',
             [
-                'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#FFFFFF',
                 'selectors' => [
@@ -767,14 +788,14 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'primary_button_animation',
             [
-                'label'   => esc_html__( 'Hover Animation', 'aiqengage' ),
+                'label'   => esc_html__( 'Hover Animation', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'float',
                 'options' => [
-                    ''          => esc_html__( 'None', 'aiqengage' ),
-                    'float'     => esc_html__( 'Float Up', 'aiqengage' ),
-                    'pulse'     => esc_html__( 'Pulse', 'aiqengage' ),
-                    'transform' => esc_html__( 'Scale', 'aiqengage' ),
+                    ''          => esc_html__( 'None', 'aiqengage-child' ),
+                    'float'     => esc_html__( 'Float Up', 'aiqengage-child' ),
+                    'pulse'     => esc_html__( 'Pulse', 'aiqengage-child' ),
+                    'transform' => esc_html__( 'Scale', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -802,7 +823,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'primary_button_padding',
             [
-                'label'      => esc_html__( 'Padding', 'aiqengage' ),
+                'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
@@ -825,7 +846,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_secondary_button',
             [
-                'label'     => esc_html__( 'Secondary Button', 'aiqengage' ),
+            'label'     => esc_html__( 'Secondary Button', 'aiqengage-child' ),
                 'tab'       => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_secondary_button' => 'yes',
@@ -841,14 +862,14 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_tab(
             'tab_secondary_button_normal',
             [
-                'label' => esc_html__( 'Normal', 'aiqengage' ),
+                'label' => esc_html__( 'Normal', 'aiqengage-child' ),
             ]
         );
 
         $this->add_control(
             'secondary_button_background_color',
             [
-                'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(156, 77, 255, 0.2)',
                 'selectors' => [
@@ -860,7 +881,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'secondary_button_text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#E0D6FF',
                 'selectors' => [
@@ -897,7 +918,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'secondary_button_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'aiqengage' ),
+                'label'      => esc_html__( 'Border Radius', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
@@ -920,14 +941,14 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_tab(
             'tab_secondary_button_hover',
             [
-                'label' => esc_html__( 'Hover', 'aiqengage' ),
+                'label' => esc_html__( 'Hover', 'aiqengage-child' ),
             ]
         );
 
         $this->add_control(
             'secondary_button_background_color_hover',
             [
-                'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(156, 77, 255, 0.3)',
                 'selectors' => [
@@ -939,7 +960,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'secondary_button_text_color_hover',
             [
-                'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#E0D6FF',
                 'selectors' => [
@@ -951,7 +972,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'secondary_button_border_color_hover',
             [
-                'label'     => esc_html__( 'Border Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Border Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#B673FF',
                 'selectors' => [
@@ -966,14 +987,14 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'secondary_button_animation',
             [
-                'label'   => esc_html__( 'Hover Animation', 'aiqengage' ),
+                'label'   => esc_html__( 'Hover Animation', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'float',
                 'options' => [
-                    ''          => esc_html__( 'None', 'aiqengage' ),
-                    'float'     => esc_html__( 'Float Up', 'aiqengage' ),
-                    'pulse'     => esc_html__( 'Pulse', 'aiqengage' ),
-                    'transform' => esc_html__( 'Scale', 'aiqengage' ),
+                    ''          => esc_html__( 'None', 'aiqengage-child' ),
+                    'float'     => esc_html__( 'Float Up', 'aiqengage-child' ),
+                    'pulse'     => esc_html__( 'Pulse', 'aiqengage-child' ),
+                    'transform' => esc_html__( 'Scale', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -1001,7 +1022,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'secondary_button_padding',
             [
-                'label'      => esc_html__( 'Padding', 'aiqengage' ),
+                'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
@@ -1024,7 +1045,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_pro_badge',
             [
-                'label'     => esc_html__( 'Pro Badge', 'aiqengage' ),
+            'label'     => esc_html__( 'Pro Badge', 'aiqengage-child' ),
                 'tab'       => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_pro_badge' => 'yes',
@@ -1035,7 +1056,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'pro_badge_background_color',
             [
-                'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#FFD700',
                 'selectors' => [
@@ -1047,7 +1068,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'pro_badge_text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#1A0938',
                 'selectors' => [
@@ -1074,7 +1095,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'pro_badge_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'aiqengage' ),
+                'label'      => esc_html__( 'Border Radius', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
@@ -1094,7 +1115,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'pro_badge_padding',
             [
-                'label'      => esc_html__( 'Padding', 'aiqengage' ),
+                'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
@@ -1114,7 +1135,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'pro_badge_margin',
             [
-                'label'      => esc_html__( 'Margin', 'aiqengage' ),
+                'label'      => esc_html__( 'Margin', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
@@ -1137,7 +1158,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style_layout',
             [
-                'label' => esc_html__( 'Layout', 'aiqengage' ),
+            'label' => esc_html__( 'Layout', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1145,19 +1166,19 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'content_alignment',
             [
-                'label'     => esc_html__( 'Content Alignment', 'aiqengage' ),
+                'label'     => esc_html__( 'Content Alignment', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::CHOOSE,
                 'options'   => [
                     'flex-start'    => [
-                        'title' => esc_html__( 'Left', 'aiqengage' ),
+                        'title' => esc_html__( 'Left', 'aiqengage-child' ),
                         'icon'  => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'aiqengage' ),
+                        'title' => esc_html__( 'Center', 'aiqengage-child' ),
                         'icon'  => 'eicon-text-align-center',
                     ],
                     'flex-end' => [
-                        'title' => esc_html__( 'Right', 'aiqengage' ),
+                        'title' => esc_html__( 'Right', 'aiqengage-child' ),
                         'icon'  => 'eicon-text-align-right',
                     ],
                 ],
@@ -1172,19 +1193,19 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'content_text_alignment',
             [
-                'label'     => esc_html__( 'Text Alignment', 'aiqengage' ),
+                'label'     => esc_html__( 'Text Alignment', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::CHOOSE,
                 'options'   => [
                     'left'    => [
-                        'title' => esc_html__( 'Left', 'aiqengage' ),
+                        'title' => esc_html__( 'Left', 'aiqengage-child' ),
                         'icon'  => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'aiqengage' ),
+                        'title' => esc_html__( 'Center', 'aiqengage-child' ),
                         'icon'  => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'aiqengage' ),
+                        'title' => esc_html__( 'Right', 'aiqengage-child' ),
                         'icon'  => 'eicon-text-align-right',
                     ],
                 ],
@@ -1199,12 +1220,12 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'layout_direction',
             [
-                'label'     => esc_html__( 'Layout Direction', 'aiqengage' ),
+                'label'     => esc_html__( 'Layout Direction', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::SELECT,
                 'default'   => 'column',
                 'options'   => [
-                    'column'         => esc_html__( 'Vertical', 'aiqengage' ),
-                    'row'            => esc_html__( 'Horizontal', 'aiqengage' ),
+                    'column'         => esc_html__( 'Vertical', 'aiqengage-child' ),
+                    'row'            => esc_html__( 'Horizontal', 'aiqengage-child' ),
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .aiq-cta-banner' => 'flex-direction: {{VALUE}};',
@@ -1215,23 +1236,23 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'horizontal_layout_alignment',
             [
-                'label'     => esc_html__( 'Horizontal Layout Alignment', 'aiqengage' ),
+                'label'     => esc_html__( 'Horizontal Layout Alignment', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::CHOOSE,
                 'options'   => [
                     'flex-start'    => [
-                        'title' => esc_html__( 'Start', 'aiqengage' ),
+                        'title' => esc_html__( 'Start', 'aiqengage-child' ),
                         'icon'  => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'aiqengage' ),
+                        'title' => esc_html__( 'Center', 'aiqengage-child' ),
                         'icon'  => 'eicon-h-align-center',
                     ],
                     'flex-end' => [
-                        'title' => esc_html__( 'End', 'aiqengage' ),
+                        'title' => esc_html__( 'End', 'aiqengage-child' ),
                         'icon'  => 'eicon-h-align-right',
                     ],
                     'space-between' => [
-                        'title' => esc_html__( 'Space Between', 'aiqengage' ),
+                        'title' => esc_html__( 'Space Between', 'aiqengage-child' ),
                         'icon'  => 'eicon-h-align-stretch',
                     ],
                 ],
@@ -1248,19 +1269,19 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'vertical_layout_alignment',
             [
-                'label'     => esc_html__( 'Vertical Layout Alignment', 'aiqengage' ),
+                'label'     => esc_html__( 'Vertical Layout Alignment', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::CHOOSE,
                 'options'   => [
                     'flex-start'    => [
-                        'title' => esc_html__( 'Start', 'aiqengage' ),
+                        'title' => esc_html__( 'Start', 'aiqengage-child' ),
                         'icon'  => 'eicon-v-align-top',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'aiqengage' ),
+                        'title' => esc_html__( 'Center', 'aiqengage-child' ),
                         'icon'  => 'eicon-v-align-middle',
                     ],
                     'flex-end' => [
-                        'title' => esc_html__( 'End', 'aiqengage' ),
+                        'title' => esc_html__( 'End', 'aiqengage-child' ),
                         'icon'  => 'eicon-v-align-bottom',
                     ],
                 ],
@@ -1277,7 +1298,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'content_spacing',
             [
-                'label'     => esc_html__( 'Content Spacing', 'aiqengage' ),
+                'label'     => esc_html__( 'Content Spacing', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
@@ -1303,7 +1324,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'horizontal_content_width',
             [
-                'label'     => esc_html__( 'Content Width (%)', 'aiqengage' ),
+                'label'     => esc_html__( 'Content Width (%)', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::SLIDER,
                 'range'     => [
                     '%' => [
@@ -1329,7 +1350,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'button_spacing',
             [
-                'label'     => esc_html__( 'Button Spacing', 'aiqengage' ),
+                'label'     => esc_html__( 'Button Spacing', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
@@ -1352,12 +1373,12 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_layout',
             [
-                'label'     => esc_html__( 'Button Layout', 'aiqengage' ),
+                'label'     => esc_html__( 'Button Layout', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::SELECT,
                 'default'   => 'horizontal',
                 'options'   => [
-                    'horizontal' => esc_html__( 'Horizontal', 'aiqengage' ),
-                    'vertical'   => esc_html__( 'Vertical', 'aiqengage' ),
+                    'horizontal' => esc_html__( 'Horizontal', 'aiqengage-child' ),
+                    'vertical'   => esc_html__( 'Vertical', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -1374,12 +1395,12 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         // Classes
         $banner_classes = ['aiq-cta-banner'];
         $buttons_classes = ['aiq-cta-banner__buttons'];
-        
+
         if ($settings['make_sticky'] === 'yes') {
             $banner_classes[] = 'aiq-cta-banner--sticky';
             $banner_classes[] = 'aiq-cta-banner--sticky-' . $settings['sticky_position'];
         }
-        
+
         if ($settings['layout_type'] === 'full-width') {
             $banner_classes[] = 'aiq-cta-banner--full-width';
         }
@@ -1391,21 +1412,21 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         // Get button animations
         $primary_btn_animation = !empty($settings['primary_button_animation']) ? 'aiq-cta-banner__button--animate-' . $settings['primary_button_animation'] : '';
         $secondary_btn_animation = !empty($settings['secondary_button_animation']) ? 'aiq-cta-banner__button--animate-' . $settings['secondary_button_animation'] : '';
-        
+
         // Generate unique ID for the banner
         $banner_id = 'aiq-cta-banner-' . $this->get_id();
-        
+
         // Prepare data attributes for sticky functionality
         $data_attributes = '';
         if ($settings['make_sticky'] === 'yes') {
             $data_attributes .= ' data-sticky-position="' . esc_attr($settings['sticky_position']) . '"';
             $data_attributes .= ' data-scroll-trigger="' . esc_attr($settings['scroll_trigger']['size']) . '"';
-            
+
             if ($settings['show_close_button'] === 'yes') {
                 $data_attributes .= ' data-cookie-expiry="' . esc_attr($settings['close_cookie_expiry']) . '"';
             }
         }
-        
+
         // Start output
         ?>
         <div id="<?php echo esc_attr($banner_id); ?>" class="<?php echo esc_attr(implode(' ', $banner_classes)); ?>"<?php echo $data_attributes; ?>>
@@ -1413,36 +1434,36 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
                 <?php if (!empty($settings['headline'])) : ?>
                     <h3 class="aiq-cta-banner__headline"><?php echo esc_html($settings['headline']); ?></h3>
                 <?php endif; ?>
-                
+
                 <?php if ($settings['show_subheadline'] === 'yes' && !empty($settings['subheadline'])) : ?>
                     <div class="aiq-cta-banner__subheadline"><?php echo esc_html($settings['subheadline']); ?></div>
                 <?php endif; ?>
             </div>
-            
+
             <div class="<?php echo esc_attr(implode(' ', $buttons_classes)); ?>">
-                <?php 
+                <?php
                 // Primary button
                 if (!empty($settings['primary_button_text'])) :
                     $this->render_button(
-                        $settings['primary_button_text'], 
-                        $settings['primary_button_link'], 
-                        'primary', 
+                        $settings['primary_button_text'],
+                        $settings['primary_button_link'],
+                        'primary',
                         $settings['primary_button_id'],
                         $primary_btn_animation
                     );
                 endif;
-                
+
                 // Secondary button
                 if ($settings['show_secondary_button'] === 'yes' && !empty($settings['secondary_button_text'])) :
                     $this->render_button(
-                        $settings['secondary_button_text'], 
-                        $settings['secondary_button_link'], 
+                        $settings['secondary_button_text'],
+                        $settings['secondary_button_link'],
                         'secondary',
                         $settings['secondary_button_id'],
                         $secondary_btn_animation
                     );
                 endif;
-                
+
                 // Pro badge
                 if ($settings['show_pro_badge'] === 'yes' && !empty($settings['pro_badge_text'])) : ?>
                     <span class="aiq-cta-banner__pro-badge">
@@ -1453,9 +1474,9 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
                     </span>
                 <?php endif; ?>
             </div>
-            
+
             <?php if ($settings['make_sticky'] === 'yes' && $settings['show_close_button'] === 'yes') : ?>
-                <button class="aiq-cta-banner__close" aria-label="<?php echo esc_attr__('Close banner', 'aiqengage'); ?>">
+                <button class="aiq-cta-banner__close" aria-label="<?php echo esc_attr__( 'Close banner', 'aiqengage-child' ); ?>">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13 1L1 13M1 1L13 13" stroke="#E0D6FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -1464,7 +1485,7 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
         </div>
         <?php
     }
-    
+
     /**
      * Render button HTML
      */
@@ -1473,24 +1494,24 @@ class AIQ_CTA_Banner_Widget extends \Elementor\Widget_Base {
             'aiq-cta-banner__button',
             'aiq-cta-banner__button--' . $style
         ];
-        
+
         if (!empty($animation_class)) {
             $button_classes[] = $animation_class;
         }
-        
+
         $button_attributes = '';
         if (!empty($button_id)) {
             $button_attributes .= ' id="' . esc_attr($button_id) . '"';
         }
-        
+
         if (empty($link_settings['url'])) {
             $link_settings['url'] = '#';
         }
-        
+
         $target = $link_settings['is_external'] ? ' target="_blank"' : '';
         $nofollow = $link_settings['nofollow'] ? ' rel="nofollow"' : '';
         $custom_attributes = !empty($link_settings['custom_attributes']) ? ' ' . $link_settings['custom_attributes'] : '';
-        
+
         echo '<a href="' . esc_url($link_settings['url']) . '"' . $target . $nofollow . $custom_attributes . ' class="' . esc_attr(implode(' ', $button_classes)) . '"' . $button_attributes . '>' . esc_html($text) . '</a>';
     }
 }

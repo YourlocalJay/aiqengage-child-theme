@@ -4,13 +4,13 @@
 /**
  * Value Timeline Widget
  *
- * @package AIQEngage
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
+ * @package aiqengage-child
  */
 
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Value Timeline Widget for Elementor
@@ -32,7 +32,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Value Timeline', 'aiqengage' );
+        return esc_html__( 'Value Timeline', 'aiqengage-child' );
     }
 
     /**
@@ -54,6 +54,24 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
     }
 
     /**
+     * Get widget style dependencies.
+     *
+     * @return string[] CSS handles.
+     */
+    public function get_style_depends() {
+        return [ 'aiq-value-timeline' ];
+    }
+
+    /**
+     * Get widget script dependencies.
+     *
+     * @return string[] JS handles.
+     */
+    public function get_script_depends() {
+        return [ 'aiq-value-timeline' ];
+    }
+
+    /**
      * Get widget keywords.
      *
      * @return array Widget keywords.
@@ -71,7 +89,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_timeline_content',
             [
-                'label' => esc_html__( 'Timeline Content', 'aiqengage' ),
+                'label' => esc_html__( 'Timeline Content', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -79,10 +97,10 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'timeline_title',
             [
-                'label'       => esc_html__( 'Timeline Title', 'aiqengage' ),
+                'label'       => esc_html__( 'Timeline Title', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Our Journey', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter your timeline title', 'aiqengage' ),
+                'default'     => esc_html__( 'Our Journey', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter your timeline title', 'aiqengage-child' ),
                 'label_block' => true,
             ]
         );
@@ -90,10 +108,10 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'timeline_description',
             [
-                'label'       => esc_html__( 'Timeline Description', 'aiqengage' ),
+                'label'       => esc_html__( 'Timeline Description', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXTAREA,
-                'default'     => esc_html__( 'Follow our value journey from beginning to now', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter timeline description', 'aiqengage' ),
+                'default'     => esc_html__( 'Follow our value journey from beginning to now', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter timeline description', 'aiqengage-child' ),
                 'rows'        => 5,
             ]
         );
@@ -101,13 +119,13 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'timeline_type',
             [
-                'label'   => esc_html__( 'Timeline Type', 'aiqengage' ),
+                'label'   => esc_html__( 'Timeline Type', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'journey',
                 'options' => [
-                    'journey'   => esc_html__( 'Journey/History', 'aiqengage' ),
-                    'roadmap'   => esc_html__( 'Roadmap/Future', 'aiqengage' ),
-                    'case_study' => esc_html__( 'Case Study Progression', 'aiqengage' ),
+                    'journey'   => esc_html__( 'Journey/History', 'aiqengage-child' ),
+                    'roadmap'   => esc_html__( 'Roadmap/Future', 'aiqengage-child' ),
+                    'case_study' => esc_html__( 'Case Study Progression', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -115,12 +133,12 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'timeline_orientation',
             [
-                'label'   => esc_html__( 'Orientation', 'aiqengage' ),
+                'label'   => esc_html__( 'Orientation', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'vertical',
                 'options' => [
-                    'vertical'   => esc_html__( 'Vertical', 'aiqengage' ),
-                    'horizontal' => esc_html__( 'Horizontal', 'aiqengage' ),
+                    'vertical'   => esc_html__( 'Vertical', 'aiqengage-child' ),
+                    'horizontal' => esc_html__( 'Horizontal', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -130,9 +148,9 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $milestone_repeater->add_control(
             'milestone_title',
             [
-                'label'       => esc_html__( 'Title', 'aiqengage' ),
+                'label'       => esc_html__( 'Title', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'Milestone Title', 'aiqengage' ),
+                'default'     => esc_html__( 'Milestone Title', 'aiqengage-child' ),
                 'label_block' => true,
             ]
         );
@@ -140,10 +158,10 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $milestone_repeater->add_control(
             'milestone_description',
             [
-                'label'       => esc_html__( 'Description', 'aiqengage' ),
+                'label'       => esc_html__( 'Description', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXTAREA,
-                'default'     => esc_html__( 'Milestone description goes here. Explain the value or achievement.', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Enter milestone description', 'aiqengage' ),
+                'default'     => esc_html__( 'Milestone description goes here. Explain the value or achievement.', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Enter milestone description', 'aiqengage-child' ),
                 'rows'        => 3,
             ]
         );
@@ -151,25 +169,25 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $milestone_repeater->add_control(
             'milestone_date',
             [
-                'label'       => esc_html__( 'Date or Number', 'aiqengage' ),
+                'label'       => esc_html__( 'Date or Number', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__( 'June 2025', 'aiqengage' ),
-                'placeholder' => esc_html__( 'Date, year, or number', 'aiqengage' ),
+                'default'     => esc_html__( 'June 2025', 'aiqengage-child' ),
+                'placeholder' => esc_html__( 'Date, year, or number', 'aiqengage-child' ),
             ]
         );
 
         $milestone_repeater->add_control(
             'icon_type',
             [
-                'label'   => esc_html__( 'Icon Type', 'aiqengage' ),
+                'label'   => esc_html__( 'Icon Type', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'icon' => [
-                        'title' => esc_html__( 'Icon', 'aiqengage' ),
+                        'title' => esc_html__( 'Icon', 'aiqengage-child' ),
                         'icon'  => 'eicon-star',
                     ],
                     'image' => [
-                        'title' => esc_html__( 'Image', 'aiqengage' ),
+                        'title' => esc_html__( 'Image', 'aiqengage-child' ),
                         'icon'  => 'eicon-image',
                     ],
                 ],
@@ -181,7 +199,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $milestone_repeater->add_control(
             'milestone_icon',
             [
-                'label'     => esc_html__( 'Icon', 'aiqengage' ),
+                'label'     => esc_html__( 'Icon', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::ICONS,
                 'default'   => [
                     'value'   => 'fas fa-star',
@@ -196,7 +214,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $milestone_repeater->add_control(
             'milestone_image',
             [
-                'label'     => esc_html__( 'Image', 'aiqengage' ),
+                'label'     => esc_html__( 'Image', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::MEDIA,
                 'default'   => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -210,13 +228,13 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $milestone_repeater->add_control(
             'milestone_status',
             [
-                'label'   => esc_html__( 'Status', 'aiqengage' ),
+                'label'   => esc_html__( 'Status', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'completed',
                 'options' => [
-                    'completed' => esc_html__( 'Completed', 'aiqengage' ),
-                    'active'    => esc_html__( 'Active/Current', 'aiqengage' ),
-                    'upcoming'  => esc_html__( 'Upcoming', 'aiqengage' ),
+                    'completed' => esc_html__( 'Completed', 'aiqengage-child' ),
+                    'active'    => esc_html__( 'Active/Current', 'aiqengage-child' ),
+                    'upcoming'  => esc_html__( 'Upcoming', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -224,42 +242,42 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $milestone_repeater->add_control(
             'milestone_badge',
             [
-                'label'       => esc_html__( 'Badge Text', 'aiqengage' ),
+                'label'       => esc_html__( 'Badge Text', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'Now, Pro, etc.', 'aiqengage' ),
+                'placeholder' => esc_html__( 'Now, Pro, etc.', 'aiqengage-child' ),
             ]
         );
 
         $this->add_control(
             'milestones',
             [
-                'label'       => esc_html__( 'Milestones', 'aiqengage' ),
+                'label'       => esc_html__( 'Milestones', 'aiqengage-child' ),
                 'type'        => \Elementor\Controls_Manager::REPEATER,
                 'fields'      => $milestone_repeater->get_controls(),
                 'default'     => [
                     [
-                        'milestone_title'       => esc_html__( 'First Milestone', 'aiqengage' ),
-                        'milestone_description' => esc_html__( 'Our journey began with a simple idea and a commitment to quality.', 'aiqengage' ),
-                        'milestone_date'        => esc_html__( 'January 2025', 'aiqengage' ),
+                        'milestone_title'       => esc_html__( 'First Milestone', 'aiqengage-child' ),
+                        'milestone_description' => esc_html__( 'Our journey began with a simple idea and a commitment to quality.', 'aiqengage-child' ),
+                        'milestone_date'        => esc_html__( 'January 2025', 'aiqengage-child' ),
                         'milestone_status'      => 'completed',
                     ],
                     [
-                        'milestone_title'       => esc_html__( 'Second Milestone', 'aiqengage' ),
-                        'milestone_description' => esc_html__( 'We expanded our capabilities and reached new audiences.', 'aiqengage' ),
-                        'milestone_date'        => esc_html__( 'March 2025', 'aiqengage' ),
+                        'milestone_title'       => esc_html__( 'Second Milestone', 'aiqengage-child' ),
+                        'milestone_description' => esc_html__( 'We expanded our capabilities and reached new audiences.', 'aiqengage-child' ),
+                        'milestone_date'        => esc_html__( 'March 2025', 'aiqengage-child' ),
                         'milestone_status'      => 'completed',
                     ],
                     [
-                        'milestone_title'       => esc_html__( 'Current Stage', 'aiqengage' ),
-                        'milestone_description' => esc_html__( 'We are now focused on innovation and scaling our impact.', 'aiqengage' ),
-                        'milestone_date'        => esc_html__( 'June 2025', 'aiqengage' ),
+                        'milestone_title'       => esc_html__( 'Current Stage', 'aiqengage-child' ),
+                        'milestone_description' => esc_html__( 'We are now focused on innovation and scaling our impact.', 'aiqengage-child' ),
+                        'milestone_date'        => esc_html__( 'June 2025', 'aiqengage-child' ),
                         'milestone_status'      => 'active',
                         'milestone_badge'       => 'Now',
                     ],
                     [
-                        'milestone_title'       => esc_html__( 'Future Goal', 'aiqengage' ),
-                        'milestone_description' => esc_html__( 'Our roadmap includes exciting new features and partnerships.', 'aiqengage' ),
-                        'milestone_date'        => esc_html__( 'December 2025', 'aiqengage' ),
+                        'milestone_title'       => esc_html__( 'Future Goal', 'aiqengage-child' ),
+                        'milestone_description' => esc_html__( 'Our roadmap includes exciting new features and partnerships.', 'aiqengage-child' ),
+                        'milestone_date'        => esc_html__( 'December 2025', 'aiqengage-child' ),
                         'milestone_status'      => 'upcoming',
                     ],
                 ],
@@ -273,7 +291,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_additional_options',
             [
-                'label' => esc_html__( 'Additional Options', 'aiqengage' ),
+                'label' => esc_html__( 'Additional Options', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -281,26 +299,26 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_connectors',
             [
-                'label'     => esc_html__( 'Show Connectors', 'aiqengage' ),
+                'label'     => esc_html__( 'Show Connectors', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::SWITCHER,
                 'default'   => 'yes',
-                'label_on'  => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on'  => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
             ]
         );
 
         $this->add_control(
             'animation_effect',
             [
-                'label'   => esc_html__( 'Animation Effect', 'aiqengage' ),
+                'label'   => esc_html__( 'Animation Effect', 'aiqengage-child' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'fade',
                 'options' => [
-                    'none'      => esc_html__( 'None', 'aiqengage' ),
-                    'fade'      => esc_html__( 'Fade In', 'aiqengage' ),
-                    'slide'     => esc_html__( 'Slide In', 'aiqengage' ),
-                    'grow'      => esc_html__( 'Grow', 'aiqengage' ),
-                    'highlight' => esc_html__( 'Highlight', 'aiqengage' ),
+                    'none'      => esc_html__( 'None', 'aiqengage-child' ),
+                    'fade'      => esc_html__( 'Fade In', 'aiqengage-child' ),
+                    'slide'     => esc_html__( 'Slide In', 'aiqengage-child' ),
+                    'grow'      => esc_html__( 'Grow', 'aiqengage-child' ),
+                    'highlight' => esc_html__( 'Highlight', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -308,11 +326,11 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_progress',
             [
-                'label'     => esc_html__( 'Show Progress Line', 'aiqengage' ),
+                'label'     => esc_html__( 'Show Progress Line', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::SWITCHER,
                 'default'   => 'yes',
-                'label_on'  => esc_html__( 'Yes', 'aiqengage' ),
-                'label_off' => esc_html__( 'No', 'aiqengage' ),
+                'label_on'  => esc_html__( 'Yes', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'No', 'aiqengage-child' ),
             ]
         );
 
@@ -322,7 +340,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_timeline_style',
             [
-                'label' => esc_html__( 'Timeline Container', 'aiqengage' ),
+                'label' => esc_html__( 'Timeline Container', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -330,7 +348,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'timeline_width',
             [
-                'label'      => esc_html__( 'Width', 'aiqengage' ),
+                'label'      => esc_html__( 'Width', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range'      => [
@@ -356,7 +374,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'timeline_padding',
             [
-                'label'      => esc_html__( 'Padding', 'aiqengage' ),
+                'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'default'    => [
@@ -376,7 +394,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Background::get_type(),
             [
                 'name'     => 'timeline_background',
-                'label'    => esc_html__( 'Background', 'aiqengage' ),
+                'label'    => esc_html__( 'Background', 'aiqengage-child' ),
                 'types'    => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .aiq-value-timeline',
             ]
@@ -386,7 +404,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Border::get_type(),
             [
                 'name'     => 'timeline_border',
-                'label'    => esc_html__( 'Border', 'aiqengage' ),
+                'label'    => esc_html__( 'Border', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-value-timeline',
             ]
         );
@@ -394,7 +412,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'timeline_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'aiqengage' ),
+                'label'      => esc_html__( 'Border Radius', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'default'    => [
@@ -414,7 +432,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'timeline_box_shadow',
-                'label'    => esc_html__( 'Box Shadow', 'aiqengage' ),
+                'label'    => esc_html__( 'Box Shadow', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-value-timeline',
             ]
         );
@@ -425,7 +443,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_header_style',
             [
-                'label' => esc_html__( 'Title & Description', 'aiqengage' ),
+                'label' => esc_html__( 'Title & Description', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -433,7 +451,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'title_color',
             [
-                'label'     => esc_html__( 'Title Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Title Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#E0D6FF',
                 'selectors' => [
@@ -446,7 +464,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'title_typography',
-                'label'    => esc_html__( 'Title Typography', 'aiqengage' ),
+                'label'    => esc_html__( 'Title Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-value-timeline__title',
             ]
         );
@@ -454,7 +472,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'title_margin',
             [
-                'label'      => esc_html__( 'Title Margin', 'aiqengage' ),
+                'label'      => esc_html__( 'Title Margin', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
@@ -466,7 +484,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'description_color',
             [
-                'label'     => esc_html__( 'Description Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Description Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(224, 214, 255, 0.8)',
                 'selectors' => [
@@ -480,7 +498,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'description_typography',
-                'label'    => esc_html__( 'Description Typography', 'aiqengage' ),
+                'label'    => esc_html__( 'Description Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-value-timeline__description',
             ]
         );
@@ -488,7 +506,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'description_margin',
             [
-                'label'      => esc_html__( 'Description Margin', 'aiqengage' ),
+                'label'      => esc_html__( 'Description Margin', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
@@ -503,7 +521,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_milestone_style',
             [
-                'label' => esc_html__( 'Milestone Items', 'aiqengage' ),
+                'label' => esc_html__( 'Milestone Items', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -511,7 +529,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'milestone_spacing',
             [
-                'label'      => esc_html__( 'Spacing Between Items', 'aiqengage' ),
+                'label'      => esc_html__( 'Spacing Between Items', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range'      => [
@@ -534,7 +552,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'milestone_padding',
             [
-                'label'      => esc_html__( 'Padding', 'aiqengage' ),
+                'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
@@ -553,7 +571,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'milestone_title_color',
             [
-                'label'     => esc_html__( 'Title Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Title Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#9C4DFF',
                 'selectors' => [
@@ -567,7 +585,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'milestone_title_typography',
-                'label'    => esc_html__( 'Title Typography', 'aiqengage' ),
+                'label'    => esc_html__( 'Title Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-value-timeline__item-title',
             ]
         );
@@ -575,7 +593,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'milestone_description_color',
             [
-                'label'     => esc_html__( 'Description Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Description Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#E0D6FF',
                 'selectors' => [
@@ -589,7 +607,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'milestone_description_typography',
-                'label'    => esc_html__( 'Description Typography', 'aiqengage' ),
+                'label'    => esc_html__( 'Description Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-value-timeline__item-description',
             ]
         );
@@ -597,7 +615,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'milestone_date_color',
             [
-                'label'     => esc_html__( 'Date Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Date Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(224, 214, 255, 0.6)',
                 'selectors' => [
@@ -611,7 +629,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'milestone_date_typography',
-                'label'    => esc_html__( 'Date Typography', 'aiqengage' ),
+                'label'    => esc_html__( 'Date Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-value-timeline__item-date',
             ]
         );
@@ -619,7 +637,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'milestone_bg_color',
             [
-                'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#2A1958',
                 'selectors' => [
@@ -633,7 +651,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Border::get_type(),
             [
                 'name'     => 'milestone_border',
-                'label'    => esc_html__( 'Border', 'aiqengage' ),
+                'label'    => esc_html__( 'Border', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-value-timeline__item-content',
                 'default'  => [
                     'border-style' => 'solid',
@@ -646,7 +664,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'milestone_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'aiqengage' ),
+                'label'      => esc_html__( 'Border Radius', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'default'    => [
@@ -666,7 +684,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'milestone_box_shadow',
-                'label'    => esc_html__( 'Box Shadow', 'aiqengage' ),
+                'label'    => esc_html__( 'Box Shadow', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-value-timeline__item-content',
             ]
         );
@@ -677,7 +695,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_connector_style',
             [
-                'label' => esc_html__( 'Connector & Markers', 'aiqengage' ),
+                'label' => esc_html__( 'Connector & Markers', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -685,7 +703,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'connector_color',
             [
-                'label'     => esc_html__( 'Connector Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Connector Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(156, 77, 255, 0.3)',
                 'selectors' => [
@@ -700,7 +718,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'progress_color',
             [
-                'label'     => esc_html__( 'Progress Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Progress Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#9C4DFF',
                 'selectors' => [
@@ -715,7 +733,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'connector_width',
             [
-                'label'      => esc_html__( 'Connector Width', 'aiqengage' ),
+                'label'      => esc_html__( 'Connector Width', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range'      => [
@@ -741,7 +759,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'marker_heading',
             [
-                'label'     => esc_html__( 'Markers', 'aiqengage' ),
+                'label'     => esc_html__( 'Markers', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -750,7 +768,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'marker_size',
             [
-                'label'      => esc_html__( 'Marker Size', 'aiqengage' ),
+                'label'      => esc_html__( 'Marker Size', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range'      => [
@@ -772,7 +790,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'marker_background',
             [
-                'label'     => esc_html__( 'Marker Background', 'aiqengage' ),
+                'label'     => esc_html__( 'Marker Background', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#2A1958',
                 'selectors' => [
@@ -784,7 +802,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'marker_border_color',
             [
-                'label'     => esc_html__( 'Marker Border Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Marker Border Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => 'rgba(156, 77, 255, 0.3)',
                 'selectors' => [
@@ -796,7 +814,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'marker_border_width',
             [
-                'label'      => esc_html__( 'Marker Border Width', 'aiqengage' ),
+                'label'      => esc_html__( 'Marker Border Width', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range'      => [
@@ -818,7 +836,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'marker_border_radius',
             [
-                'label'      => esc_html__( 'Marker Border Radius', 'aiqengage' ),
+                'label'      => esc_html__( 'Marker Border Radius', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'range'      => [
@@ -844,7 +862,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'icon_color',
             [
-                'label'     => esc_html__( 'Icon Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Icon Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#E0D6FF',
                 'selectors' => [
@@ -857,7 +875,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'icon_size',
             [
-                'label'      => esc_html__( 'Icon Size', 'aiqengage' ),
+                'label'      => esc_html__( 'Icon Size', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range'      => [
@@ -881,7 +899,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'status_heading',
             [
-                'label'     => esc_html__( 'Status States', 'aiqengage' ),
+                'label'     => esc_html__( 'Status States', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -891,7 +909,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'completed_marker_color',
             [
-                'label'     => esc_html__( 'Completed Marker Border', 'aiqengage' ),
+                'label'     => esc_html__( 'Completed Marker Border', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#9C4DFF',
                 'selectors' => [
@@ -904,7 +922,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'active_marker_color',
             [
-                'label'     => esc_html__( 'Active Marker Background', 'aiqengage' ),
+                'label'     => esc_html__( 'Active Marker Background', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#9C4DFF',
                 'selectors' => [
@@ -916,7 +934,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'active_icon_color',
             [
-                'label'     => esc_html__( 'Active Icon Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Active Icon Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#FFFFFF',
                 'selectors' => [
@@ -930,7 +948,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'upcoming_marker_opacity',
             [
-                'label'      => esc_html__( 'Upcoming Item Opacity', 'aiqengage' ),
+                'label'      => esc_html__( 'Upcoming Item Opacity', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ '%' ],
                 'range'      => [
@@ -955,7 +973,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_badge_style',
             [
-                'label' => esc_html__( 'Badge', 'aiqengage' ),
+                'label' => esc_html__( 'Badge', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -963,7 +981,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'badge_background',
             [
-                'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#FFD700',
                 'selectors' => [
@@ -975,7 +993,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'badge_text_color',
             [
-                'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+                'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#1A0938',
                 'selectors' => [
@@ -988,7 +1006,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'badge_typography',
-                'label'    => esc_html__( 'Typography', 'aiqengage' ),
+                'label'    => esc_html__( 'Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-value-timeline__badge',
             ]
         );
@@ -996,7 +1014,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_responsive_control(
             'badge_padding',
             [
-                'label'      => esc_html__( 'Padding', 'aiqengage' ),
+                'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em' ],
                 'default'    => [
@@ -1015,7 +1033,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'badge_border_radius',
             [
-                'label'      => esc_html__( 'Border Radius', 'aiqengage' ),
+                'label'      => esc_html__( 'Border Radius', 'aiqengage-child' ),
                 'type'       => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'default'    => [
@@ -1073,11 +1091,11 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
                 if ( $settings['show_connectors'] === 'yes' && $settings['milestones'] ) {
                     echo '<div class="aiq-value-timeline__connector-wrapper">';
                     echo '<div class="aiq-value-timeline__connector"></div>';
-                    
+
                     if ( $settings['show_progress'] === 'yes' ) {
                         echo '<div class="aiq-value-timeline__progress"></div>';
                     }
-                    
+
                     echo '</div>';
                 }
                 ?>
@@ -1171,7 +1189,7 @@ class AIQEngage_Value_Timeline_Widget extends \Elementor\Widget_Base {
                     </div>
                 <# } #>
 
-                <# _.each( settings.milestones, function( item, index ) { 
+                <# _.each( settings.milestones, function( item, index ) {
                     var milestoneKey = view.getRepeaterSettingKey( 'milestone', 'milestones', index );
                     view.addRenderAttribute( milestoneKey, 'class', [
                         'aiq-value-timeline__item',

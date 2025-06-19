@@ -1,4 +1,12 @@
 <?php
+/**
+ * Pricing Table Widget for Elementor
+ *
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
+ */
 namespace AIQEngage\Widgets;
 
 use Elementor\Widget_Base;
@@ -13,25 +21,43 @@ use Elementor\Core\Schemes\Typography;
 if (!defined('ABSPATH')) exit;
 
 class Pricing_Table_Widget extends Widget_Base {
-    
-    public function get_name() { 
-        return 'aiq-pricing-table'; 
+
+    public function get_name() {
+        return 'aiq-pricing-table';
     }
-    
-    public function get_title() { 
-        return __('AIQ Advanced Pricing', 'aiqengage-child'); 
+
+    public function get_title() {
+        return esc_html__('AIQ Advanced Pricing', 'aiqengage-child');
     }
-    
-    public function get_icon() { 
-        return 'eicon-price-table'; 
+
+    public function get_icon() {
+        return 'eicon-price-table';
     }
-    
-    public function get_categories() { 
-        return ['aiqengage', 'marketing']; 
+
+    public function get_categories() {
+        return ['aiqengage'];
     }
-    
-    public function get_keywords() { 
-        return ['pricing', 'plans', 'comparison', 'subscription', 'offer']; 
+
+    /**
+     * Get widget style dependencies.
+     *
+     * @return string[] CSS handles.
+     */
+    public function get_style_depends() {
+        return ['aiq-pricing-table'];
+    }
+
+    /**
+     * Get widget script dependencies.
+     *
+     * @return string[] JS handles.
+     */
+    public function get_script_depends() {
+        return ['aiq-pricing-table'];
+    }
+
+    public function get_keywords() {
+        return ['pricing', 'plans', 'comparison', 'subscription', 'offer'];
     }
 
     protected function register_controls() {
@@ -583,9 +609,9 @@ class Pricing_Table_Widget extends Widget_Base {
         $toggle_right = isset($toggle_labels[1]) ? $toggle_labels[1] : __('Annual', 'aiqengage-child');
         $columns = $settings['columns'];
         ?>
-        
+
         <div class="aiq-pricing-table aiq-pricing-columns-<?php echo esc_attr($columns); ?>">
-            
+
             <?php if ($settings['enable_toggle']) : ?>
             <div class="aiq-pricing-toggle aiq-toggle-style-<?php echo esc_attr($settings['toggle_style']); ?>">
                 <?php if ($settings['toggle_style'] === 'segmented') : ?>
@@ -610,20 +636,20 @@ class Pricing_Table_Widget extends Widget_Base {
                 <?php endif; ?>
             </div>
             <?php endif; ?>
-            
+
             <div class="aiq-pricing-plans">
-                <?php foreach ($settings['plans'] as $index => $plan) : 
+                <?php foreach ($settings['plans'] as $index => $plan) :
                     $featured_class = $plan['is_featured'] ? ' featured' : '';
                     $item_class = 'elementor-repeater-item-' . $plan['_id'] . $featured_class;
                     $features = explode("\n", $plan['features']);
-                    
+
                     // Badges
-                    $featured_badge = $plan['is_featured'] && !empty($plan['featured_badge']) ? 
+                    $featured_badge = $plan['is_featured'] && !empty($plan['featured_badge']) ?
                         '<div class="aiq-featured-badge">' . esc_html($plan['featured_badge']) . '</div>' : '';
-                    
-                    $savings_badge = !empty($plan['savings_badge']) ? 
+
+                    $savings_badge = !empty($plan['savings_badge']) ?
                         '<div class="aiq-savings-badge">' . esc_html($plan['savings_badge']) . '</div>' : '';
-                    
+
                     // CTA Link
                     $target = $plan['cta_link']['is_external'] ? ' target="_blank"' : '';
                     $nofollow = $plan['cta_link']['nofollow'] ? ' rel="nofollow"' : '';
@@ -631,11 +657,11 @@ class Pricing_Table_Widget extends Widget_Base {
                 ?>
                 <div class="aiq-pricing-plan <?php echo esc_attr($item_class); ?>">
                     <?php echo $featured_badge; ?>
-                    
+
                     <div class="aiq-pricing-header">
                         <h3 class="aiq-pricing-title"><?php echo esc_html($plan['plan_name']); ?></h3>
                     </div>
-                    
+
                     <div class="aiq-pricing-price-container">
                         <div class="aiq-pricing-price monthly-price">
                             <span class="aiq-price-amount"><?php echo esc_html($plan['price_monthly']); ?></span>
@@ -643,7 +669,7 @@ class Pricing_Table_Widget extends Widget_Base {
                             <span class="aiq-billing-note"><?php echo esc_html($plan['billing_note']); ?></span>
                             <?php endif; ?>
                         </div>
-                        
+
                         <?php if ($settings['enable_toggle']) : ?>
                         <div class="aiq-pricing-price yearly-price" style="display: none;">
                             <span class="aiq-price-amount"><?php echo esc_html($plan['price_yearly']); ?></span>
@@ -654,7 +680,7 @@ class Pricing_Table_Widget extends Widget_Base {
                         </div>
                         <?php endif; ?>
                     </div>
-                    
+
                     <?php if (!empty($features)) : ?>
                     <ul class="aiq-pricing-features">
                         <?php foreach ($features as $feature) : ?>
@@ -662,7 +688,7 @@ class Pricing_Table_Widget extends Widget_Base {
                         <?php endforeach; ?>
                     </ul>
                     <?php endif; ?>
-                    
+
                     <a href="<?php echo esc_url($url); ?>" class="aiq-pricing-cta"<?php echo $target . $nofollow; ?>>
                         <?php echo esc_html($plan['cta_text']); ?>
                     </a>
@@ -673,11 +699,4 @@ class Pricing_Table_Widget extends Widget_Base {
         <?php
     }
 
-    public function get_style_depends() {
-        return ['aiq-pricing-table'];
-    }
-
-    public function get_script_depends() {
-        return ['aiq-pricing-table'];
-    }
 }

@@ -4,7 +4,10 @@
 /**
  * Feature Section Widget.
  *
- * @package AIQEngage
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,7 +34,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return esc_html__( 'AIQ Feature Section', 'aiqengage' );
+		return esc_html__( 'AIQ Feature Section', 'aiqengage-child' );
 	}
 
 	/**
@@ -42,7 +45,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 	public function get_icon() {
 		return 'eicon-bullet-list';
 	}
-	
+
 	/**
 	 * Get widget keywords.
 	 *
@@ -62,54 +65,54 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 	}
 
 	/**
-	 * Get widget scripts.
+	 * Get widget scripts dependencies.
 	 *
-	 * @return array Widget scripts.
+	 * @return string[] JS handles.
 	 */
 	public function get_script_depends() {
-		return [ 'aiq-feature-section' ];
+		return [ 'aiqengage-child-feature-section' ];
 	}
 
 	/**
-	 * Get widget styles.
+	 * Get widget style dependencies.
 	 *
-	 * @return array Widget styles.
+	 * @return string[] CSS handles.
 	 */
 	public function get_style_depends() {
-		return [ 'aiq-feature-section' ];
+		return [ 'aiqengage-child-feature-section' ];
 	}
 
 	/**
 	 * Register widget controls.
 	 */
 	protected function register_controls() {
-		
+
 		// Content Section: Headline
 		$this->start_controls_section(
 			'section_content_headline',
 			[
-				'label' => esc_html__( 'Headline', 'aiqengage' ),
+				'label' => esc_html__( 'Headline', 'aiqengage-child' ),
 			]
 		);
 
 		$this->add_control(
 			'headline',
 			[
-				'label' => esc_html__( 'Headline', 'aiqengage' ),
+				'label' => esc_html__( 'Headline', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Features & Benefits', 'aiqengage' ),
-				'placeholder' => esc_html__( 'Enter your headline', 'aiqengage' ),
+				'default' => esc_html__( 'Features & Benefits', 'aiqengage-child' ),
+				'placeholder' => esc_html__( 'Enter your headline', 'aiqengage-child' ),
 				'label_block' => true,
 			]
 		);
-		
+
 		$this->add_control(
 			'subheadline',
 			[
-				'label' => esc_html__( 'Subheadline', 'aiqengage' ),
+				'label' => esc_html__( 'Subheadline', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Discover what makes our solution stand out', 'aiqengage' ),
-				'placeholder' => esc_html__( 'Enter your subheadline', 'aiqengage' ),
+				'default' => esc_html__( 'Discover what makes our solution stand out', 'aiqengage-child' ),
+				'placeholder' => esc_html__( 'Enter your subheadline', 'aiqengage-child' ),
 				'rows' => 3,
 			]
 		);
@@ -117,19 +120,19 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'headline_alignment',
 			[
-				'label' => esc_html__( 'Alignment', 'aiqengage' ),
+				'label' => esc_html__( 'Alignment', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'aiqengage' ),
+						'title' => esc_html__( 'Left', 'aiqengage-child' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'aiqengage' ),
+						'title' => esc_html__( 'Center', 'aiqengage-child' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'aiqengage' ),
+						'title' => esc_html__( 'Right', 'aiqengage-child' ),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -147,47 +150,47 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_content_features',
 			[
-				'label' => esc_html__( 'Features', 'aiqengage' ),
+				'label' => esc_html__( 'Features', 'aiqengage-child' ),
 			]
 		);
-		
+
 		$this->add_control(
 			'layout_type',
 			[
-				'label' => esc_html__( 'Layout', 'aiqengage' ),
+				'label' => esc_html__( 'Layout', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'grid',
 				'options' => [
-					'grid' => esc_html__( 'Grid', 'aiqengage' ),
-					'two-column' => esc_html__( 'Two Column', 'aiqengage' ),
+					'grid' => esc_html__( 'Grid', 'aiqengage-child' ),
+					'two-column' => esc_html__( 'Two Column', 'aiqengage-child' ),
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'display_style',
 			[
-				'label' => esc_html__( 'Display Style', 'aiqengage' ),
+				'label' => esc_html__( 'Display Style', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'card',
 				'options' => [
-					'card' => esc_html__( 'Card', 'aiqengage' ),
-					'icon-list' => esc_html__( 'Icon List', 'aiqengage' ),
+					'card' => esc_html__( 'Card', 'aiqengage-child' ),
+					'icon-list' => esc_html__( 'Icon List', 'aiqengage-child' ),
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'columns',
 			[
-				'label' => esc_html__( 'Columns', 'aiqengage' ),
+				'label' => esc_html__( 'Columns', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => '3',
 				'options' => [
-					'1' => esc_html__( '1', 'aiqengage' ),
-					'2' => esc_html__( '2', 'aiqengage' ),
-					'3' => esc_html__( '3', 'aiqengage' ),
-					'4' => esc_html__( '4', 'aiqengage' ),
+					'1' => esc_html__( '1', 'aiqengage-child' ),
+					'2' => esc_html__( '2', 'aiqengage-child' ),
+					'3' => esc_html__( '3', 'aiqengage-child' ),
+					'4' => esc_html__( '4', 'aiqengage-child' ),
 				],
 				'condition' => [
 					'layout_type' => 'grid',
@@ -200,35 +203,35 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'feature_title',
 			[
-				'label' => esc_html__( 'Title', 'aiqengage' ),
+				'label' => esc_html__( 'Title', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Feature Title', 'aiqengage' ),
+				'default' => esc_html__( 'Feature Title', 'aiqengage-child' ),
 				'label_block' => true,
 			]
 		);
-		
+
 		$repeater->add_control(
 			'feature_description',
 			[
-				'label' => esc_html__( 'Description', 'aiqengage' ),
+				'label' => esc_html__( 'Description', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Feature description goes here. Keep it concise and value-focused.', 'aiqengage' ),
+				'default' => esc_html__( 'Feature description goes here. Keep it concise and value-focused.', 'aiqengage-child' ),
 				'rows' => 4,
 			]
 		);
-		
+
 		$repeater->add_control(
 			'media_type',
 			[
-				'label' => esc_html__( 'Media Type', 'aiqengage' ),
+				'label' => esc_html__( 'Media Type', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'icon' => [
-						'title' => esc_html__( 'Icon', 'aiqengage' ),
+						'title' => esc_html__( 'Icon', 'aiqengage-child' ),
 						'icon' => 'eicon-favorite',
 					],
 					'image' => [
-						'title' => esc_html__( 'Image', 'aiqengage' ),
+						'title' => esc_html__( 'Image', 'aiqengage-child' ),
 						'icon' => 'eicon-image',
 					],
 				],
@@ -236,11 +239,11 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				'toggle' => true,
 			]
 		);
-		
+
 		$repeater->add_control(
 			'feature_icon',
 			[
-				'label' => esc_html__( 'Icon', 'aiqengage' ),
+				'label' => esc_html__( 'Icon', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::ICONS,
 				'default' => [
 					'value' => 'fas fa-check',
@@ -251,11 +254,11 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$repeater->add_control(
 			'feature_image',
 			[
-				'label' => esc_html__( 'Image', 'aiqengage' ),
+				'label' => esc_html__( 'Image', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
 				'default' => [
 					'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -265,36 +268,36 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$repeater->add_control(
 			'feature_accent_color',
 			[
-				'label' => esc_html__( 'Accent Color', 'aiqengage' ),
+				'label' => esc_html__( 'Accent Color', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#9C4DFF',
 			]
 		);
-		
+
 		$this->add_control(
 			'features',
 			[
-				'label' => esc_html__( 'Features', 'aiqengage' ),
+				'label' => esc_html__( 'Features', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'feature_title' => esc_html__( 'High-Converting Funnels', 'aiqengage' ),
-						'feature_description' => esc_html__( 'Pre-built flows optimized for Claude-based conversions with proven results.', 'aiqengage' ),
+						'feature_title' => esc_html__( 'High-Converting Funnels', 'aiqengage-child' ),
+						'feature_description' => esc_html__( 'Pre-built flows optimized for Claude-based conversions with proven results.', 'aiqengage-child' ),
 						'feature_accent_color' => '#9C4DFF',
 					],
 					[
-						'feature_title' => esc_html__( 'Tool Discounts', 'aiqengage' ),
-						'feature_description' => esc_html__( 'Exclusive 40-60% partner deals on the tools you need for automation.', 'aiqengage' ),
+						'feature_title' => esc_html__( 'Tool Discounts', 'aiqengage-child' ),
+						'feature_description' => esc_html__( 'Exclusive 40-60% partner deals on the tools you need for automation.', 'aiqengage-child' ),
 						'feature_accent_color' => '#635BFF',
 					],
 					[
-						'feature_title' => esc_html__( 'Automation Systems', 'aiqengage' ),
-						'feature_description' => esc_html__( 'Done-for-you traffic & conversion stacks that generate real revenue.', 'aiqengage' ),
+						'feature_title' => esc_html__( 'Automation Systems', 'aiqengage-child' ),
+						'feature_description' => esc_html__( 'Done-for-you traffic & conversion stacks that generate real revenue.', 'aiqengage-child' ),
 						'feature_accent_color' => '#8E6BFF',
 					],
 				],
@@ -303,44 +306,44 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->end_controls_section();
-		
+
 		// Content Section: CTA
 		$this->start_controls_section(
 			'section_content_cta',
 			[
-				'label' => esc_html__( 'Call to Action', 'aiqengage' ),
+				'label' => esc_html__( 'Call to Action', 'aiqengage-child' ),
 			]
 		);
-		
+
 		$this->add_control(
 			'show_cta',
 			[
-				'label' => esc_html__( 'Show CTA Button', 'aiqengage' ),
+				'label' => esc_html__( 'Show CTA Button', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'aiqengage' ),
-				'label_off' => esc_html__( 'No', 'aiqengage' ),
+				'label_on' => esc_html__( 'Yes', 'aiqengage-child' ),
+				'label_off' => esc_html__( 'No', 'aiqengage-child' ),
 				'default' => 'yes',
 			]
 		);
-		
+
 		$this->add_control(
 			'cta_text',
 			[
-				'label' => esc_html__( 'Button Text', 'aiqengage' ),
+				'label' => esc_html__( 'Button Text', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Get Started', 'aiqengage' ),
+				'default' => esc_html__( 'Get Started', 'aiqengage-child' ),
 				'condition' => [
 					'show_cta' => 'yes',
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'cta_link',
 			[
-				'label' => esc_html__( 'Button Link', 'aiqengage' ),
+				'label' => esc_html__( 'Button Link', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://your-link.com', 'aiqengage' ),
+				'placeholder' => esc_html__( 'https://your-link.com', 'aiqengage-child' ),
 				'default' => [
 					'url' => '#',
 					'is_external' => false,
@@ -351,39 +354,39 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'cta_style',
 			[
-				'label' => esc_html__( 'Button Style', 'aiqengage' ),
+				'label' => esc_html__( 'Button Style', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'primary',
 				'options' => [
-					'primary' => esc_html__( 'Primary', 'aiqengage' ),
-					'secondary' => esc_html__( 'Secondary', 'aiqengage' ),
+					'primary' => esc_html__( 'Primary', 'aiqengage-child' ),
+					'secondary' => esc_html__( 'Secondary', 'aiqengage-child' ),
 				],
 				'condition' => [
 					'show_cta' => 'yes',
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'cta_alignment',
 			[
-				'label' => esc_html__( 'Button Alignment', 'aiqengage' ),
+				'label' => esc_html__( 'Button Alignment', 'aiqengage-child' ),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'aiqengage' ),
+						'title' => esc_html__( 'Left', 'aiqengage-child' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'aiqengage' ),
+						'title' => esc_html__( 'Center', 'aiqengage-child' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'aiqengage' ),
+						'title' => esc_html__( 'Right', 'aiqengage-child' ),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -399,7 +402,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->end_controls_section();
-		
+
 		// Style Section: General
 		$this->start_controls_section(
 			'section_style_general',
@@ -408,7 +411,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
-		
+
 		$this->add_control(
 			'section_background_color',
 			[
@@ -420,7 +423,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'show_background_pattern',
 			[
@@ -431,7 +434,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				'default' => 'yes',
 			]
 		);
-		
+
 		$this->add_control(
 			'pattern_opacity',
 			[
@@ -457,7 +460,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'section_padding',
 			[
@@ -477,7 +480,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'section_margin',
 			[
@@ -497,7 +500,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'section_border_radius',
 			[
@@ -517,7 +520,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
@@ -527,7 +530,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->end_controls_section();
-		
+
 		// Style Section: Headline
 		$this->start_controls_section(
 			'section_style_headline',
@@ -536,7 +539,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'headline_spacing',
 			[
@@ -569,7 +572,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'headline_color',
 			[
@@ -581,7 +584,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -592,7 +595,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'subheadline_color',
 			[
@@ -605,7 +608,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				'separator' => 'before',
 			]
 		);
-		
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -616,7 +619,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'subheadline_spacing',
 			[
@@ -651,7 +654,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->end_controls_section();
-		
+
 		// Style Section: Features
 		$this->start_controls_section(
 			'section_style_features',
@@ -660,7 +663,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'features_gap',
 			[
@@ -696,7 +699,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		// Card Style
 		$this->add_control(
 			'card_style_heading',
@@ -709,7 +712,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'card_background_color',
 			[
@@ -724,7 +727,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Border::get_type(),
 			[
@@ -735,7 +738,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'card_border_radius',
 			[
@@ -758,7 +761,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
@@ -769,7 +772,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'card_padding',
 			[
@@ -792,7 +795,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		// Icon/Image Style
 		$this->add_control(
 			'icon_style_heading',
@@ -802,7 +805,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				'separator' => 'before',
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'icon_size',
 			[
@@ -836,7 +839,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'image_width',
 			[
@@ -864,7 +867,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'icon_spacing',
 			[
@@ -898,7 +901,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		// Content Style
 		$this->add_control(
 			'content_style_heading',
@@ -908,7 +911,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				'separator' => 'before',
 			]
 		);
-		
+
 		$this->add_control(
 			'feature_title_color',
 			[
@@ -920,7 +923,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -931,7 +934,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'feature_title_spacing',
 			[
@@ -964,7 +967,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'feature_description_color',
 			[
@@ -977,7 +980,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				'separator' => 'before',
 			]
 		);
-		
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -990,7 +993,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->end_controls_section();
-		
+
 		// Style Section: CTA
 		$this->start_controls_section(
 			'section_style_cta',
@@ -1002,7 +1005,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'cta_spacing',
 			[
@@ -1035,7 +1038,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -1046,7 +1049,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			'cta_padding',
 			[
@@ -1066,7 +1069,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'cta_border_radius',
 			[
@@ -1086,16 +1089,16 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->start_controls_tabs( 'cta_style_tabs' );
-		
+
 		$this->start_controls_tab(
 			'cta_style_normal',
 			[
 				'label' => esc_html__( 'Normal', 'aiqengage' ),
 			]
 		);
-		
+
 		$this->add_control(
 			'primary_cta_background',
 			[
@@ -1107,7 +1110,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'primary_cta_color',
 			[
@@ -1119,7 +1122,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'secondary_cta_background',
 			[
@@ -1131,7 +1134,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'secondary_cta_color',
 			[
@@ -1143,7 +1146,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Border::get_type(),
 			[
@@ -1151,16 +1154,16 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				'selector' => '{{WRAPPER}} .aiq-feature-section__cta-button--secondary',
 			]
 		);
-		
+
 		$this->end_controls_tab();
-		
+
 		$this->start_controls_tab(
 			'cta_style_hover',
 			[
 				'label' => esc_html__( 'Hover', 'aiqengage' ),
 			]
 		);
-		
+
 		$this->add_control(
 			'primary_cta_background_hover',
 			[
@@ -1172,7 +1175,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'primary_cta_color_hover',
 			[
@@ -1184,7 +1187,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'secondary_cta_background_hover',
 			[
@@ -1196,7 +1199,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_control(
 			'secondary_cta_color_hover',
 			[
@@ -1208,7 +1211,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Border::get_type(),
 			[
@@ -1216,7 +1219,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				'selector' => '{{WRAPPER}} .aiq-feature-section__cta-button--secondary:hover',
 			]
 		);
-		
+
 		$this->add_control(
 			'cta_transition',
 			[
@@ -1244,11 +1247,11 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 				],
 			]
 		);
-		
+
 		$this->end_controls_tab();
-		
+
 		$this->end_controls_tabs();
-		
+
 		$this->end_controls_section();
 	}
 
@@ -1257,10 +1260,10 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		
+
 		$this->add_render_attribute( 'wrapper', 'class', 'aiq-feature-section' );
-		$this->add_render_attribute( 'wrapper', 'aria-label', esc_html__( 'Feature Section', 'aiqengage' ) );
-		
+		$this->add_render_attribute( 'wrapper', 'aria-label', esc_attr__( 'Feature Section', 'aiqengage-child' ) );
+
 		if ( 'grid' === $settings['layout_type'] ) {
 			$this->add_render_attribute( 'features_container', 'class', [
 				'aiq-feature-section__grid',
@@ -1269,7 +1272,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		} else {
 			$this->add_render_attribute( 'features_container', 'class', 'aiq-feature-section__two-column' );
 		}
-		
+
 		if ( 'card' === $settings['display_style'] ) {
 			$this->add_render_attribute( 'features_container', 'class', 'aiq-feature-section__card-style' );
 			$feature_class = 'aiq-feature-section__feature--card';
@@ -1277,74 +1280,74 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 			$this->add_render_attribute( 'features_container', 'class', 'aiq-feature-section__icon-list' );
 			$feature_class = 'aiq-feature-section__feature--icon-list';
 		}
-		
+
 		if ( 'yes' === $settings['show_cta'] ) {
 			$this->add_render_attribute( 'cta_button', 'class', [
 				'aiq-feature-section__cta-button',
 				'aiq-feature-section__cta-button--' . $settings['cta_style']
 			] );
-			
+
 			$this->add_link_attributes( 'cta_button', $settings['cta_link'] );
 		}
 		?>
-		
+
 		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
 			<?php if ( 'yes' === $settings['show_background_pattern'] ) : ?>
 			<div class="aiq-feature-section__pattern"></div>
 			<?php endif; ?>
-			
+
 			<div class="aiq-feature-section__container">
-				
+
 				<?php if ( $settings['headline'] || $settings['subheadline'] ) : ?>
 				<div class="aiq-feature-section__header">
 					<?php if ( $settings['headline'] ) : ?>
 						<h2 class="aiq-feature-section__headline"><?php echo esc_html( $settings['headline'] ); ?></h2>
 					<?php endif; ?>
-					
+
 					<?php if ( $settings['subheadline'] ) : ?>
 						<div class="aiq-feature-section__subheadline"><?php echo esc_html( $settings['subheadline'] ); ?></div>
 					<?php endif; ?>
 				</div>
 				<?php endif; ?>
-				
+
 				<?php if ( $settings['features'] ) : ?>
 				<div <?php $this->print_render_attribute_string( 'features_container' ); ?>>
-					
+
 					<?php if ( 'two-column' === $settings['layout_type'] ) : ?>
 					<div class="aiq-feature-section__column">
 					<?php endif; ?>
-					
+
 					<?php
 					$column_count = 0;
 					$column_middle = ceil( count( $settings['features'] ) / 2 );
-					
+
 					foreach ( $settings['features'] as $index => $feature ) :
 						$column_count++;
-						
+
 						if ( 'two-column' === $settings['layout_type'] && $column_count > $column_middle ) :
 							echo '</div><div class="aiq-feature-section__column">';
 							$column_count = 1;
 						endif;
-						
+
 						$feature_key = $this->get_repeater_setting_key( 'feature', 'features', $index );
 						$this->add_render_attribute( $feature_key, 'class', [
 							'aiq-feature-section__feature',
 							$feature_class
 						] );
-						
+
 						$title_key = $this->get_repeater_setting_key( 'feature_title', 'features', $index );
 						$this->add_render_attribute( $title_key, 'class', 'aiq-feature-section__feature-title' );
-						
+
 						$description_key = $this->get_repeater_setting_key( 'feature_description', 'features', $index );
 						$this->add_render_attribute( $description_key, 'class', 'aiq-feature-section__feature-description' );
-						
+
 						$media_key = $this->get_repeater_setting_key( 'media', 'features', $index );
 						$this->add_render_attribute( $media_key, 'class', 'aiq-feature-section__media' );
-						
+
 						// Add accent color
 						if ( ! empty( $feature['feature_accent_color'] ) ) {
 							$this->add_render_attribute( $title_key, 'style', 'color: ' . $feature['feature_accent_color'] . ';' );
-							
+
 							if ( 'icon' === $feature['media_type'] ) {
 								$icon_key = $this->get_repeater_setting_key( 'icon', 'features', $index );
 								$this->add_render_attribute( $icon_key, 'style', 'color: ' . $feature['feature_accent_color'] . ';' );
@@ -1352,7 +1355,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 						}
 					?>
 						<div <?php $this->print_render_attribute_string( $feature_key ); ?>>
-							
+
 							<?php if ( 'icon' === $feature['media_type'] && ! empty( $feature['feature_icon']['value'] ) ) : ?>
 							<div <?php $this->print_render_attribute_string( $media_key ); ?>>
 								<div class="aiq-feature-section__icon" <?php $this->print_render_attribute_string( $icon_key ); ?>>
@@ -1366,26 +1369,26 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 								</div>
 							</div>
 							<?php endif; ?>
-							
+
 							<div class="aiq-feature-section__content">
 								<?php if ( ! empty( $feature['feature_title'] ) ) : ?>
 									<h3 <?php $this->print_render_attribute_string( $title_key ); ?>><?php echo esc_html( $feature['feature_title'] ); ?></h3>
 								<?php endif; ?>
-								
+
 								<?php if ( ! empty( $feature['feature_description'] ) ) : ?>
 									<div <?php $this->print_render_attribute_string( $description_key ); ?>><?php echo esc_html( $feature['feature_description'] ); ?></div>
 								<?php endif; ?>
 							</div>
 						</div>
 					<?php endforeach; ?>
-					
+
 					<?php if ( 'two-column' === $settings['layout_type'] ) : ?>
 					</div>
 					<?php endif; ?>
-					
+
 				</div>
 				<?php endif; ?>
-				
+
 				<?php if ( 'yes' === $settings['show_cta'] && ! empty( $settings['cta_text'] ) ) : ?>
 				<div class="aiq-feature-section__cta">
 					<a <?php $this->print_render_attribute_string( 'cta_button' ); ?>>
@@ -1393,7 +1396,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 					</a>
 				</div>
 				<?php endif; ?>
-				
+
 			</div>
 		</div>
 		<?php
@@ -1407,7 +1410,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		<#
 		view.addRenderAttribute( 'wrapper', 'class', 'aiq-feature-section' );
 		view.addRenderAttribute( 'wrapper', 'aria-label', 'Feature Section' );
-		
+
 		if ( 'grid' === settings.layout_type ) {
 			view.addRenderAttribute( 'features_container', 'class', [
 				'aiq-feature-section__grid',
@@ -1416,7 +1419,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		} else {
 			view.addRenderAttribute( 'features_container', 'class', 'aiq-feature-section__two-column' );
 		}
-		
+
 		if ( 'card' === settings.display_style ) {
 			view.addRenderAttribute( 'features_container', 'class', 'aiq-feature-section__card-style' );
 			var feature_class = 'aiq-feature-section__feature--card';
@@ -1424,82 +1427,82 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 			view.addRenderAttribute( 'features_container', 'class', 'aiq-feature-section__icon-list' );
 			var feature_class = 'aiq-feature-section__feature--icon-list';
 		}
-		
+
 		if ( 'yes' === settings.show_cta ) {
 			view.addRenderAttribute( 'cta_button', 'class', [
 				'aiq-feature-section__cta-button',
 				'aiq-feature-section__cta-button--' + settings.cta_style
 			] );
-			
+
 			view.addRenderAttribute( 'cta_button', 'href', settings.cta_link.url );
-			
+
 			if ( settings.cta_link.is_external ) {
 				view.addRenderAttribute( 'cta_button', 'target', '_blank' );
 			}
-			
+
 			if ( settings.cta_link.nofollow ) {
 				view.addRenderAttribute( 'cta_button', 'rel', 'nofollow' );
 			}
 		}
 		#>
-		
+
 		<div {{{ view.getRenderAttributeString( 'wrapper' ) }}}>
 			<# if ( 'yes' === settings.show_background_pattern ) { #>
 			<div class="aiq-feature-section__pattern"></div>
 			<# } #>
-			
+
 			<div class="aiq-feature-section__container">
-				
+
 				<# if ( settings.headline || settings.subheadline ) { #>
 				<div class="aiq-feature-section__header">
 					<# if ( settings.headline ) { #>
 						<h2 class="aiq-feature-section__headline">{{{ settings.headline }}}</h2>
 					<# } #>
-					
+
 					<# if ( settings.subheadline ) { #>
 						<div class="aiq-feature-section__subheadline">{{{ settings.subheadline }}}</div>
 					<# } #>
 				</div>
 				<# } #>
-				
+
 				<# if ( settings.features && settings.features.length ) { #>
 				<div {{{ view.getRenderAttributeString( 'features_container' ) }}}>
-					
+
 					<# if ( 'two-column' === settings.layout_type ) { #>
 					<div class="aiq-feature-section__column">
 					<# } #>
-					
+
 					<#
 					var column_count = 0;
 					var column_middle = Math.ceil( settings.features.length / 2 );
-					
+
 					_.each( settings.features, function( feature, index ) {
 						column_count++;
-						
+
 						if ( 'two-column' === settings.layout_type && column_count > column_middle ) {
 							#></div><div class="aiq-feature-section__column"><#
 							column_count = 1;
 						}
-						
+
 						var feature_key = view.getRepeaterSettingKey( 'feature', 'features', index );
 						view.addRenderAttribute( feature_key, 'class', [
 							'aiq-feature-section__feature',
 							feature_class
 						] );
-						
+
 						var title_key = view.getRepeaterSettingKey( 'feature_title', 'features', index );
 						view.addRenderAttribute( title_key, 'class', 'aiq-feature-section__feature-title' );
-						
+
 						var description_key = view.getRepeaterSettingKey( 'feature_description', 'features', index );
 						view.addRenderAttribute( description_key, 'class', 'aiq-feature-section__feature-description' );
-						
+
 						var media_key = view.getRepeaterSettingKey( 'media', 'features', index );
 						view.addRenderAttribute( media_key, 'class', 'aiq-feature-section__media' );
-						
+
 						// Add accent color
 						if ( feature.feature_accent_color ) {
 							view.addRenderAttribute( title_key, 'style', 'color: ' + feature.feature_accent_color + ';' );
-							
+
 							if ( 'icon' === feature.media_type ) {
 								var icon_key = view.getRepeaterSettingKey( 'icon', 'features', index );
 								view.addRenderAttribute( icon_key, 'style', 'color: ' + feature.feature_accent_color + ';' );
@@ -1507,7 +1510,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 						}
 					#>
 						<div {{{ view.getRenderAttributeString( feature_key ) }}}>
-							
+
 							<# if ( 'icon' === feature.media_type && feature.feature_icon.value ) { #>
 							<div {{{ view.getRenderAttributeString( media_key ) }}}>
 								<div class="aiq-feature-section__icon" {{{ view.getRenderAttributeString( icon_key ) }}}>
@@ -1522,26 +1525,26 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 								</div>
 							</div>
 							<# } #>
-							
+
 							<div class="aiq-feature-section__content">
 								<# if ( feature.feature_title ) { #>
 									<h3 {{{ view.getRenderAttributeString( title_key ) }}}>{{{ feature.feature_title }}}</h3>
 								<# } #>
-								
+
 								<# if ( feature.feature_description ) { #>
 									<div {{{ view.getRenderAttributeString( description_key ) }}}>{{{ feature.feature_description }}}</div>
 								<# } #>
 							</div>
 						</div>
 					<# } ); #>
-					
+
 					<# if ( 'two-column' === settings.layout_type ) { #>
 					</div>
 					<# } #>
-					
+
 				</div>
 				<# } #>
-				
+
 				<# if ( 'yes' === settings
         /**
 	 * Render widget output in the editor.
@@ -1551,7 +1554,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		<#
 		view.addRenderAttribute( 'wrapper', 'class', 'aiq-feature-section' );
 		view.addRenderAttribute( 'wrapper', 'aria-label', 'Feature Section' );
-		
+
 		if ( 'grid' === settings.layout_type ) {
 			view.addRenderAttribute( 'features_container', 'class', [
 				'aiq-feature-section__grid',
@@ -1560,7 +1563,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 		} else {
 			view.addRenderAttribute( 'features_container', 'class', 'aiq-feature-section__two-column' );
 		}
-		
+
 		if ( 'card' === settings.display_style ) {
 			view.addRenderAttribute( 'features_container', 'class', 'aiq-feature-section__card-style' );
 			var feature_class = 'aiq-feature-section__feature--card';
@@ -1568,82 +1571,82 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 			view.addRenderAttribute( 'features_container', 'class', 'aiq-feature-section__icon-list' );
 			var feature_class = 'aiq-feature-section__feature--icon-list';
 		}
-		
+
 		if ( 'yes' === settings.show_cta ) {
 			view.addRenderAttribute( 'cta_button', 'class', [
 				'aiq-feature-section__cta-button',
 				'aiq-feature-section__cta-button--' + settings.cta_style
 			] );
-			
+
 			view.addRenderAttribute( 'cta_button', 'href', settings.cta_link.url );
-			
+
 			if ( settings.cta_link.is_external ) {
 				view.addRenderAttribute( 'cta_button', 'target', '_blank' );
 			}
-			
+
 			if ( settings.cta_link.nofollow ) {
 				view.addRenderAttribute( 'cta_button', 'rel', 'nofollow' );
 			}
 		}
 		#>
-		
+
 		<div {{{ view.getRenderAttributeString( 'wrapper' ) }}}>
 			<# if ( 'yes' === settings.show_background_pattern ) { #>
 			<div class="aiq-feature-section__pattern"></div>
 			<# } #>
-			
+
 			<div class="aiq-feature-section__container">
-				
+
 				<# if ( settings.headline || settings.subheadline ) { #>
 				<div class="aiq-feature-section__header">
 					<# if ( settings.headline ) { #>
 						<h2 class="aiq-feature-section__headline">{{{ settings.headline }}}</h2>
 					<# } #>
-					
+
 					<# if ( settings.subheadline ) { #>
 						<div class="aiq-feature-section__subheadline">{{{ settings.subheadline }}}</div>
 					<# } #>
 				</div>
 				<# } #>
-				
+
 				<# if ( settings.features && settings.features.length ) { #>
 				<div {{{ view.getRenderAttributeString( 'features_container' ) }}}>
-					
+
 					<# if ( 'two-column' === settings.layout_type ) { #>
 					<div class="aiq-feature-section__column">
 					<# } #>
-					
+
 					<#
 					var column_count = 0;
 					var column_middle = Math.ceil( settings.features.length / 2 );
-					
+
 					_.each( settings.features, function( feature, index ) {
 						column_count++;
-						
+
 						if ( 'two-column' === settings.layout_type && column_count > column_middle ) {
 							#></div><div class="aiq-feature-section__column"><#
 							column_count = 1;
 						}
-						
+
 						var feature_key = view.getRepeaterSettingKey( 'feature', 'features', index );
 						view.addRenderAttribute( feature_key, 'class', [
 							'aiq-feature-section__feature',
 							feature_class
 						] );
-						
+
 						var title_key = view.getRepeaterSettingKey( 'feature_title', 'features', index );
 						view.addRenderAttribute( title_key, 'class', 'aiq-feature-section__feature-title' );
-						
+
 						var description_key = view.getRepeaterSettingKey( 'feature_description', 'features', index );
 						view.addRenderAttribute( description_key, 'class', 'aiq-feature-section__feature-description' );
-						
+
 						var media_key = view.getRepeaterSettingKey( 'media', 'features', index );
 						view.addRenderAttribute( media_key, 'class', 'aiq-feature-section__media' );
-						
+
 						// Add accent color
 						if ( feature.feature_accent_color ) {
 							view.addRenderAttribute( title_key, 'style', 'color: ' + feature.feature_accent_color + ';' );
-							
+
 							if ( 'icon' === feature.media_type ) {
 								var icon_key = view.getRepeaterSettingKey( 'icon', 'features', index );
 								view.addRenderAttribute( icon_key, 'style', 'color: ' + feature.feature_accent_color + ';' );
@@ -1651,7 +1654,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 						}
 					#>
 						<div {{{ view.getRenderAttributeString( feature_key ) }}}>
-							
+
 							<# if ( 'icon' === feature.media_type && feature.feature_icon.value ) { #>
 							<div {{{ view.getRenderAttributeString( media_key ) }}}>
 								<div class="aiq-feature-section__icon" {{{ view.getRenderAttributeString( icon_key ) }}}>
@@ -1666,26 +1669,26 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 								</div>
 							</div>
 							<# } #>
-							
+
 							<div class="aiq-feature-section__content">
 								<# if ( feature.feature_title ) { #>
 									<h3 {{{ view.getRenderAttributeString( title_key ) }}}>{{{ feature.feature_title }}}</h3>
 								<# } #>
-								
+
 								<# if ( feature.feature_description ) { #>
 									<div {{{ view.getRenderAttributeString( description_key ) }}}>{{{ feature.feature_description }}}</div>
 								<# } #>
 							</div>
 						</div>
 					<# } ); #>
-					
+
 					<# if ( 'two-column' === settings.layout_type ) { #>
 					</div>
 					<# } #>
-					
+
 				</div>
 				<# } #>
-				
+
 				<# if ( 'yes' === settings.show_cta && settings.cta_text ) { #>
 				<div class="aiq-feature-section__cta">
 					<a {{{ view.getRenderAttributeString( 'cta_button' ) }}}>
@@ -1693,7 +1696,7 @@ class AIQ_Feature_Section_Widget extends \Elementor\Widget_Base {
 					</a>
 				</div>
 				<# } #>
-				
+
 			</div>
 		</div>
 		<?php

@@ -35,7 +35,7 @@
 		$this->start_controls_tab(
 			'answer_correct_tab',
 			[
-				'label' => esc_html__( 'Correct', 'aiqengage' ),
+				'label' => esc_html__( 'Correct', 'aiqengage-child' ),
 			]
 		);
 
@@ -55,7 +55,7 @@
 		$this->add_control(
 			'answer_correct_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__answer-option.is-correct .aiq-quiz__answer-text' => 'color: {{VALUE}};',
@@ -90,7 +90,7 @@
 		$this->start_controls_tab(
 			'answer_incorrect_tab',
 			[
-				'label' => esc_html__( 'Incorrect', 'aiqengage' ),
+				'label' => esc_html__( 'Incorrect', 'aiqengage-child' ),
 			]
 		);
 
@@ -110,7 +110,7 @@
 		$this->add_control(
 			'answer_incorrect_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__answer-option.is-incorrect .aiq-quiz__answer-text' => 'color: {{VALUE}};',
@@ -147,7 +147,7 @@
 		$this->add_responsive_control(
 			'answer_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'aiqengage' ),
+				'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -168,7 +168,7 @@
 		$this->add_responsive_control(
 			'answer_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'aiqengage' ),
+				'label'      => esc_html__( 'Margin', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -188,7 +188,7 @@
 		$this->add_control(
 			'answer_transition',
 			[
-				'label'     => esc_html__( 'Transition Duration', 'aiqengage' ),
+				'label'     => esc_html__( 'Transition Duration', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -212,7 +212,7 @@
 		$this->start_controls_section(
 			'section_progress_style',
 			[
-				'label'     => esc_html__( 'Progress Bar', 'aiqengage' ),
+				'label'     => esc_html__( 'Progress Bar', 'aiqengage-child' ),
 				'tab'       => \Elementor\Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_progress_bar' => 'yes',
@@ -223,7 +223,7 @@
 		$this->add_control(
 			'progress_bar_height',
 			[
-				'label'      => esc_html__( 'Height', 'aiqengage' ),
+				'label'      => esc_html__( 'Height', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range'      => [
@@ -246,7 +246,7 @@
 		$this->add_control(
 			'progress_bar_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'aiqengage' ),
+				'label'      => esc_html__( 'Border Radius', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
@@ -267,7 +267,7 @@
 		$this->add_control(
 			'progress_bar_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__progress-bar' => 'background-color: {{VALUE}};',
@@ -293,7 +293,7 @@
 		$this->add_control(
 			'progress_transition_duration',
 			[
-				'label'     => esc_html__( 'Transition Duration', 'aiqengage' ),
+				'label'     => esc_html__( 'Transition Duration', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -314,7 +314,7 @@
 		$this->add_responsive_control(
 			'progress_bar_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'aiqengage' ),
+				'label'      => esc_html__( 'Margin', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -337,7 +337,7 @@
 		$this->start_controls_section(
 			'section_feedback_style',
 			[
-				'label' => esc_html__( 'Answer Feedback', 'aiqengage' ),
+				'label' => esc_html__( 'Answer Feedback', 'aiqengage-child' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_explanation' => 'yes',
@@ -348,7 +348,7 @@
 		$this->add_control(
 			'feedback_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__feedback' => 'background-color: {{VALUE}};',
@@ -360,7 +360,7 @@
 		$this->add_control(
 			'feedback_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Border Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__feedback' => 'border-color: {{VALUE}};',
@@ -372,7 +372,7 @@
 		$this->add_control(
 			'feedback_border_width',
 			[
-				'label'     => esc_html__( 'Border Width', 'aiqengage' ),
+				'label'     => esc_html__( 'Border Width', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::SLIDER,
 				'range'     => [
 					'px' => [
@@ -393,7 +393,7 @@
 		$this->add_control(
 			'feedback_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'aiqengage' ),
+				'label'      => esc_html__( 'Border Radius', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
@@ -413,7 +413,7 @@
 		$this->add_responsive_control(
 			'feedback_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'aiqengage' ),
+				'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -433,7 +433,7 @@
 		$this->add_responsive_control(
 			'feedback_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'aiqengage' ),
+				'label'      => esc_html__( 'Margin', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -453,7 +453,7 @@
 		$this->add_control(
 			'feedback_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Text Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__feedback' => 'color: {{VALUE}};',
@@ -484,7 +484,7 @@
 		$this->start_controls_section(
 			'section_results_style',
 			[
-				'label' => esc_html__( 'Results', 'aiqengage' ),
+				'label' => esc_html__( 'Results', 'aiqengage-child' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -492,7 +492,7 @@
 		$this->add_control(
 			'results_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__results' => 'background-color: {{VALUE}};',
@@ -518,7 +518,7 @@
 		$this->add_responsive_control(
 			'results_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'aiqengage' ),
+				'label'      => esc_html__( 'Border Radius', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
@@ -555,7 +555,7 @@
 		$this->add_responsive_control(
 			'results_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'aiqengage' ),
+				'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -575,7 +575,7 @@
 		$this->add_responsive_control(
 			'results_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'aiqengage' ),
+				'label'      => esc_html__( 'Margin', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -595,7 +595,7 @@
 		$this->add_control(
 			'result_title_heading',
 			[
-				'label'     => esc_html__( 'Result Title', 'aiqengage' ),
+				'label'     => esc_html__( 'Result Title', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -604,7 +604,7 @@
 		$this->add_control(
 			'result_title_color',
 			[
-				'label'     => esc_html__( 'Title Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Title Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__result-title' => 'color: {{VALUE}};',
@@ -632,7 +632,7 @@
 		$this->add_responsive_control(
 			'result_title_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'aiqengage' ),
+				'label'      => esc_html__( 'Margin', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -652,7 +652,7 @@
 		$this->add_control(
 			'result_description_heading',
 			[
-				'label'     => esc_html__( 'Result Description', 'aiqengage' ),
+				'label'     => esc_html__( 'Result Description', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -661,7 +661,7 @@
 		$this->add_control(
 			'result_description_color',
 			[
-				'label'     => esc_html__( 'Description Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Description Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__result-description' => 'color: {{VALUE}};',
@@ -689,7 +689,7 @@
 		$this->add_responsive_control(
 			'result_description_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'aiqengage' ),
+				'label'      => esc_html__( 'Margin', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -709,7 +709,7 @@
 		$this->add_control(
 			'result_score_heading',
 			[
-				'label'     => esc_html__( 'Score Display', 'aiqengage' ),
+				'label'     => esc_html__( 'Score Display', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -718,7 +718,7 @@
 		$this->add_control(
 			'result_score_color',
 			[
-				'label'     => esc_html__( 'Score Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Score Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__score' => 'color: {{VALUE}};',
@@ -746,7 +746,7 @@
 		$this->add_responsive_control(
 			'result_score_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'aiqengage' ),
+				'label'      => esc_html__( 'Margin', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -769,7 +769,7 @@
 		$this->start_controls_section(
 			'section_form_style',
 			[
-				'label'     => esc_html__( 'Lead Capture Form', 'aiqengage' ),
+				'label'     => esc_html__( 'Lead Capture Form', 'aiqengage-child' ),
 				'tab'       => \Elementor\Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'enable_lead_capture' => 'yes',
@@ -780,7 +780,7 @@
 		$this->add_control(
 			'form_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Background Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__form' => 'background-color: {{VALUE}};',
@@ -806,7 +806,7 @@
 		$this->add_responsive_control(
 			'form_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'aiqengage' ),
+				'label'      => esc_html__( 'Border Radius', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
@@ -843,7 +843,7 @@
 		$this->add_responsive_control(
 			'form_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'aiqengage' ),
+				'label'      => esc_html__( 'Padding', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -863,7 +863,7 @@
 		$this->add_responsive_control(
 			'form_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'aiqengage' ),
+				'label'      => esc_html__( 'Margin', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -883,7 +883,7 @@
 		$this->add_control(
 			'form_title_color',
 			[
-				'label'     => esc_html__( 'Title Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Title Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__form-title' => 'color: {{VALUE}};',
@@ -912,7 +912,7 @@
 		$this->add_control(
 			'form_description_color',
 			[
-				'label'     => esc_html__( 'Description Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Description Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__form-description' => 'color: {{VALUE}};',
@@ -941,7 +941,7 @@
 		$this->add_control(
 			'form_label_color',
 			[
-				'label'     => esc_html__( 'Label Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Label Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__form-label' => 'color: {{VALUE}};',
@@ -972,14 +972,14 @@
 		$this->start_controls_tab(
 			'form_input_normal_tab',
 			[
-				'label' => esc_html__( 'Normal', 'aiqengage' ),
+				'label' => esc_html__( 'Normal', 'aiqengage-child' ),
 			]
 		);
 
 		$this->add_control(
 			'form_input_background',
 			[
-				'label'     => esc_html__( 'Input Background', 'aiqengage' ),
+				'label'     => esc_html__( 'Input Background', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__form-input' => 'background-color: {{VALUE}};',
@@ -991,7 +991,7 @@
 		$this->add_control(
 			'form_input_text_color',
 			[
-				'label'     => esc_html__( 'Input Text Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Input Text Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__form-input' => 'color: {{VALUE}};',
@@ -1019,14 +1019,14 @@
 		$this->start_controls_tab(
 			'form_input_focus_tab',
 			[
-				'label' => esc_html__( 'Focus', 'aiqengage' ),
+				'label' => esc_html__( 'Focus', 'aiqengage-child' ),
 			]
 		);
 
 		$this->add_control(
 			'form_input_focus_background',
 			[
-				'label'     => esc_html__( 'Input Background', 'aiqengage' ),
+				'label'     => esc_html__( 'Input Background', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__form-input:focus' => 'background-color: {{VALUE}};',
@@ -1038,7 +1038,7 @@
 		$this->add_control(
 			'form_input_focus_text_color',
 			[
-				'label'     => esc_html__( 'Input Text Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Input Text Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__form-input:focus' => 'color: {{VALUE}};',
@@ -1085,7 +1085,7 @@
 		$this->add_control(
 			'form_input_height',
 			[
-				'label'      => esc_html__( 'Input Height', 'aiqengage' ),
+				'label'      => esc_html__( 'Input Height', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range'      => [
@@ -1109,7 +1109,7 @@
 		$this->add_responsive_control(
 			'form_input_padding',
 			[
-				'label'      => esc_html__( 'Input Padding', 'aiqengage' ),
+				'label'      => esc_html__( 'Input Padding', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -1129,7 +1129,7 @@
 		$this->add_responsive_control(
 			'form_input_margin',
 			[
-				'label'      => esc_html__( 'Input Margin', 'aiqengage' ),
+				'label'      => esc_html__( 'Input Margin', 'aiqengage-child' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -1165,7 +1165,7 @@
 		$this->add_control(
 			'form_privacy_color',
 			[
-				'label'     => esc_html__( 'Privacy Text Color', 'aiqengage' ),
+				'label'     => esc_html__( 'Privacy Text Color', 'aiqengage-child' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aiq-quiz__form-privacy' => 'color: {{VALUE}};',
@@ -1207,7 +1207,7 @@
 
 		// Set data for JS
 		$questions = $settings['questions'];
-		
+
 		if ( 'yes' === $settings['randomize_questions'] ) {
 			shuffle( $questions );
 		}
@@ -1244,7 +1244,7 @@
 			'submit_button_text'  => $settings['submit_button_text'],
 			'results_title'       => $settings['results_title'],
 		];
-		
+
 		// Add script data
 		wp_localize_script( 'aiq-quiz-script', 'aiqQuizData_' . $this->get_id(), $quiz_data );
 		?>
@@ -1270,29 +1270,29 @@
 				<?php endif; ?>
 
 				<div class="aiq-quiz__questions">
-					<?php foreach ( $settings['questions'] as $index => $question ) : 
+					<?php foreach ( $settings['questions'] as $index => $question ) :
 						$question_id = 'question-' . $index;
 						$is_first_question = $index === 0;
 					?>
 					<div class="aiq-quiz__question" id="<?php echo esc_attr( $question_id ); ?>" data-question-index="<?php echo esc_attr( $index ); ?>" <?php echo $is_first_question ? '' : 'style="display: none;"'; ?>>
 						<?php if ( 'yes' === $settings['show_question_numbers'] ) : ?>
-						<div class="aiq-quiz__question-number"><?php echo esc_html__( 'Question', 'aiqengage' ); ?> <?php echo $index + 1; ?></div>
+						<div class="aiq-quiz__question-number"><?php echo esc_html__( 'Question', 'aiqengage-child' ); ?> <?php echo $index + 1; ?></div>
 						<?php endif; ?>
-						
+
 						<div class="aiq-quiz__question-text"><?php echo esc_html( $question['question'] ); ?></div>
-						
+
 						<div class="aiq-quiz__answer-options" data-question-type="<?php echo esc_attr( $question['question_type'] ); ?>">
-							<?php 
-							if ( 'open' === $question['question_type'] ) : 
+							<?php
+							if ( 'open' === $question['question_type'] ) :
 							?>
-								<textarea class="aiq-quiz__form-input aiq-quiz__open-answer" rows="4" placeholder="<?php echo esc_attr__( 'Type your answer here...', 'aiqengage' ); ?>" aria-label="<?php echo esc_attr__( 'Answer', 'aiqengage' ); ?>"></textarea>
-							<?php 
+								<textarea class="aiq-quiz__form-input aiq-quiz__open-answer" rows="4" placeholder="<?php echo esc_attr__( 'Type your answer here...', 'aiqengage-child' ); ?>" aria-label="<?php echo esc_attr__( 'Answer', 'aiqengage-child' ); ?>"></textarea>
+							<?php
 							else :
 								$options = explode( "\n", $question['options'] );
 								if ( 'yes' === $settings['randomize_answers'] ) {
 									shuffle( $options );
 								}
-								
+
 								foreach ( $options as $option_index => $option ) :
 									$option = trim( $option );
 									$input_id = 'answer-' . $index . '-' . $option_index;
@@ -1300,31 +1300,31 @@
 									$input_name = 'single' === $question['question_type'] ? 'question-' . $index : 'question-' . $index . '[]';
 							?>
 								<div class="aiq-quiz__answer-option">
-									<input 
-										type="<?php echo esc_attr( $input_type ); ?>" 
-										id="<?php echo esc_attr( $input_id ); ?>" 
-										name="<?php echo esc_attr( $input_name ); ?>" 
+									<input
+										type="<?php echo esc_attr( $input_type ); ?>"
+										id="<?php echo esc_attr( $input_id ); ?>"
+										name="<?php echo esc_attr( $input_name ); ?>"
 										value="<?php echo esc_attr( $option ); ?>"
-										class="aiq-quiz__answer-input" 
+										class="aiq-quiz__answer-input"
 									/>
 									<label for="<?php echo esc_attr( $input_id ); ?>" class="aiq-quiz__answer-label">
 										<span class="aiq-quiz__answer-indicator"></span>
 										<span class="aiq-quiz__answer-text"><?php echo esc_html( $option ); ?></span>
 									</label>
 								</div>
-							<?php 
-								endforeach; 
-							endif; 
+							<?php
+								endforeach;
+							endif;
 							?>
 						</div>
-						
+
 						<div class="aiq-quiz__feedback" style="display: none;"></div>
-						
+
 						<div class="aiq-quiz__navigation">
 							<?php if ( $index > 0 ) : ?>
 							<button class="aiq-quiz__button aiq-quiz__button--secondary aiq-quiz__prev-button"><?php echo esc_html( $settings['prev_button_text'] ); ?></button>
 							<?php endif; ?>
-							
+
 							<?php if ( $index < count( $settings['questions'] ) - 1 ) : ?>
 							<button class="aiq-quiz__button aiq-quiz__button--primary aiq-quiz__next-button"><?php echo esc_html( $settings['next_button_text'] ); ?></button>
 							<?php else : ?>
@@ -1341,7 +1341,7 @@
 			<div class="aiq-quiz__form" style="display: none;">
 				<h3 class="aiq-quiz__form-title"><?php echo esc_html( $settings['lead_capture_title'] ); ?></h3>
 				<p class="aiq-quiz__form-description"><?php echo esc_html( $settings['lead_capture_description'] ); ?></p>
-				
+
 				<form class="aiq-quiz__lead-form">
 					<?php if ( 'yes' === $settings['require_name'] ) : ?>
 					<div class="aiq-quiz__form-group">
@@ -1349,14 +1349,14 @@
 						<input type="text" id="<?php echo esc_attr( $quiz_id ); ?>-name" name="name" class="aiq-quiz__form-input" required>
 					</div>
 					<?php endif; ?>
-					
+
 					<div class="aiq-quiz__form-group">
 						<label for="<?php echo esc_attr( $quiz_id ); ?>-email" class="aiq-quiz__form-label"><?php echo esc_html( $settings['email_label'] ); ?></label>
 						<input type="email" id="<?php echo esc_attr( $quiz_id ); ?>-email" name="email" class="aiq-quiz__form-input" required>
 					</div>
-					
+
 					<p class="aiq-quiz__form-privacy"><?php echo esc_html( $settings['privacy_notice'] ); ?></p>
-					
+
 					<button type="submit" class="aiq-quiz__button aiq-quiz__button--primary aiq-quiz__submit-button"><?php echo esc_html( $settings['submit_button_text'] ); ?></button>
 				</form>
 			</div>
@@ -1365,18 +1365,18 @@
 			<!-- Results Screen -->
 			<div class="aiq-quiz__results" style="display: none;">
 				<h2 class="aiq-quiz__results-title"><?php echo esc_html( $settings['results_title'] ); ?></h2>
-				
+
 				<div class="aiq-quiz__score-container">
 					<div class="aiq-quiz__score"></div>
 					<div class="aiq-quiz__score-text"></div>
 				</div>
-				
+
 				<div class="aiq-quiz__result-content">
 					<h3 class="aiq-quiz__result-title"></h3>
 					<p class="aiq-quiz__result-description"></p>
 					<a href="#" class="aiq-quiz__button aiq-quiz__button--primary aiq-quiz__result-cta"></a>
 				</div>
-				
+
 				<?php if ( 'yes' === $settings['allow_retake'] ) : ?>
 				<button class="aiq-quiz__button aiq-quiz__button--secondary aiq-quiz__restart-button"><?php echo esc_html( $settings['restart_button_text'] ); ?></button>
 				<?php endif; ?>
@@ -1384,24 +1384,24 @@
 		</div>
 		<?php
 	}
-	
+
 	/**
 	 * Register scripts and styles.
 	 */
 	public static function register_scripts() {
-		wp_register_style( 
-			'aiq-quiz-style', 
-			get_stylesheet_directory_uri() . '/assets/css/widgets/quiz.css', 
-			[], 
-			'1.0.0' 
+		wp_register_style(
+			'aiq-quiz-style',
+			AIQENGAGE_CHILD_URL . '/assets/css/widgets/quiz.css',
+			[],
+			AIQENGAGE_CHILD_VERSION
 		);
-		
-		wp_register_script( 
-			'aiq-quiz-script', 
-			get_stylesheet_directory_uri() . '/assets/js/quiz.js', 
-			['jquery'], 
-			'1.0.0', 
-			true 
+
+		wp_register_script(
+			'aiq-quiz-script',
+			AIQENGAGE_CHILD_URL . '/assets/js/quiz.js',
+			['jquery'],
+			AIQENGAGE_CHILD_VERSION,
+			true
 		);
 	}
 }

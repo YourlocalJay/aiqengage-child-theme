@@ -2,7 +2,10 @@
 /**
  * Blueprint Flow Widget
  *
- * @package AIQEngage
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since 1.0.0
+ * @author Jason
  */
 
 namespace AIQEngage\Widgets;
@@ -67,6 +70,24 @@ class Blueprint_Flow_Widget extends Widget_Base {
      */
     public function get_categories() {
         return ['aiqengage'];
+    }
+
+    /**
+     * Get widget style dependencies.
+     *
+     * @return array
+     */
+    public function get_style_depends() {
+        return [ 'aiqengage-child-blueprint-flow' ];
+    }
+
+    /**
+     * Get widget script dependencies.
+     *
+     * @return array
+     */
+    public function get_script_depends() {
+        return [];
     }
 
     /**
@@ -1212,7 +1233,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $id_int = substr($this->get_id_int(), 0, 4);
-        
+
         $flow_classes = [
             'aiq-blueprint-flow',
             'aiq-blueprint-flow--' . $settings['flow_type'],
@@ -1221,11 +1242,11 @@ class Blueprint_Flow_Widget extends Widget_Base {
 
         $this->add_render_attribute('wrapper', 'class', $flow_classes);
         $this->add_render_attribute('wrapper', 'role', 'flowchart');
-        $this->add_render_attribute('wrapper', 'aria-label', $settings['flow_title']);
-        
+        $this->add_render_attribute('wrapper', 'aria-label', esc_attr( $settings['flow_title'] ));
+
         // Initialize node count for labeling
         $node_count = 0;
-        
+
         ?>
         <div <?php $this->print_render_attribute_string('wrapper'); ?>>
             <?php if (!empty($settings['flow_title']) || !empty($settings['flow_description'])) : ?>
@@ -1233,20 +1254,20 @@ class Blueprint_Flow_Widget extends Widget_Base {
                     <?php if (!empty($settings['flow_title'])) : ?>
                         <h2 class="aiq-blueprint-flow__title"><?php echo esc_html($settings['flow_title']); ?></h2>
                     <?php endif; ?>
-                    
+
                     <?php if (!empty($settings['flow_description'])) : ?>
                         <div class="aiq-blueprint-flow__description"><?php echo esc_html($settings['flow_description']); ?></div>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
-            
+
             <div class="aiq-blueprint-flow__nodes" role="list">
-                <?php foreach ($settings['nodes'] as $index => $node) : 
+                <?php foreach ($settings['nodes'] as $index => $node) :
                     $node_count++;
                     $node_key = $this->get_repeater_setting_key('node', 'nodes', $index);
                     $node_title_key = $this->get_repeater_setting_key('node_title', 'nodes', $index);
                     $node_desc_key = $this->get_repeater_setting_key('node_description', 'nodes', $index);
-                    
+
                     $this->add_render_attribute($node_key, [
                         'class' => 'aiq-blueprint-flow__node',
                         'role' => 'listitem',
@@ -1255,30 +1276,30 @@ class Blueprint_Flow_Widget extends Widget_Base {
                         'style' => '--node-accent:' . $node['node_accent_color'] . ';',
                         'tabindex' => '0',
                     ]);
-                    
+
                     $this->add_render_attribute($node_title_key, [
                         'class' => 'aiq-blueprint-flow__node-title',
                         'id' => 'node-title-' . $id_int . $index,
                     ]);
-                    
+
                     $this->add_render_attribute($node_desc_key, [
                         'class' => 'aiq-blueprint-flow__node-description',
                         'id' => 'node-desc-' . $id_int . $index,
                     ]);
-                    
+
                     $callout_classes = [
                         'aiq-blueprint-flow__node-callout',
                     ];
-                    
+
                     if ($node['node_callout'] !== 'none') {
                         $callout_classes[] = 'aiq-blueprint-flow__node-callout--' . $node['node_callout'];
                     }
                     ?>
-                    
+
                     <div <?php $this->print_render_attribute_string($node_key); ?>>
                         <?php if ($node['node_callout'] !== 'none') : ?>
                             <div class="<?php echo esc_attr(implode(' ', $callout_classes)); ?>">
-                                <?php 
+                                <?php
                                 switch ($node['node_callout']) {
                                     case 'pro-tip':
                                         echo esc_html__('Pro Tip', 'aiqengage-child');
@@ -1296,7 +1317,7 @@ class Blueprint_Flow_Widget extends Widget_Base {
                                 ?>
                             </div>
                         <?php endif; ?>
-                        
+
                         <?php if ($node['node_icon_type'] === 'icon' && !empty($node['node_icon']['value'])) : ?>
                             <div class="aiq-blueprint-flow__node-icon">
                                 <?php \Elementor\Icons_Manager::render_icon($node['node_icon'], ['aria-hidden' => 'true']); ?>
@@ -1306,17 +1327,17 @@ class Blueprint_Flow_Widget extends Widget_Base {
                                 <img src="<?php echo esc_url($node['node_image']['url']); ?>" alt="" aria-hidden="true">
                             </div>
                         <?php endif; ?>
-                        
+
                         <h3 <?php $this->print_render_attribute_string($node_title_key); ?>><?php echo esc_html($node['node_title']); ?></h3>
-                        
+
                         <div <?php $this->print_render_attribute_string($node_desc_key); ?>><?php echo esc_html($node['node_description']); ?></div>
-                        
+
                         <?php if (!empty($node['node_metric'])) : ?>
                             <div class="aiq-blueprint-flow__node-metric"><?php echo esc_html($node['node_metric']); ?></div>
                         <?php endif; ?>
                     </div>
-                    
-                    <?php if ($settings['show_connectors'] === 'yes' && $index < count($settings['nodes']) - 1) : 
+
+                    <?php if ($settings['show_connectors'] === 'yes' && $index < count($settings['nodes']) - 1) :
                         $connector_classes = [
                             'aiq-blueprint-flow__connector',
                             'aiq-blueprint-flow__connector--' . $settings['connector_style'],
@@ -1324,27 +1345,27 @@ class Blueprint_Flow_Widget extends Widget_Base {
                         ?>
                         <div class="<?php echo esc_attr(implode(' ', $connector_classes)); ?>" aria-hidden="true"></div>
                     <?php endif; ?>
-                    
+
                 <?php endforeach; ?>
             </div>
-            
+
             <?php if ($settings['show_roi_calculator'] === 'yes') : ?>
                 <div class="aiq-blueprint-flow__roi-calculator">
                     <?php if (!empty($settings['roi_title'])) : ?>
                         <h3 class="aiq-blueprint-flow__roi-title"><?php echo esc_html($settings['roi_title']); ?></h3>
                     <?php endif; ?>
-                    
+
                     <?php if (!empty($settings['roi_description'])) : ?>
                         <div class="aiq-blueprint-flow__roi-description"><?php echo esc_html($settings['roi_description']); ?></div>
                     <?php endif; ?>
-                    
+
                     <form class="aiq-blueprint-flow__roi-form" data-formula="<?php echo esc_attr($settings['roi_formula']); ?>">
-                        <?php foreach ($settings['roi_fields'] as $field_index => $field) : 
+                        <?php foreach ($settings['roi_fields'] as $field_index => $field) :
                             $field_id = 'roi-field-' . $id_int . '-' . $field_index;
                             ?>
                             <div class="aiq-blueprint-flow__roi-field">
                                 <label for="<?php echo esc_attr($field_id); ?>" class="aiq-blueprint-flow__roi-label"><?php echo esc_html($field['field_label']); ?></label>
-                                
+
                                 <?php if ($field['field_type'] === 'number') : ?>
                                     <input type="number" id="<?php echo esc_attr($field_id); ?>" class="aiq-blueprint-flow__roi-input" data-field-index="<?php echo esc_attr($field_index); ?>" value="<?php echo esc_attr($field['field_default']); ?>">
                                 <?php elseif ($field['field_type'] === 'slider' || $field['field_type'] === 'percentage') : ?>
@@ -1355,15 +1376,15 @@ class Blueprint_Flow_Widget extends Widget_Base {
                                 <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
-                        
+
                         <div class="aiq-blueprint-flow__roi-result">
                             <span class="aiq-blueprint-flow__roi-result-label"><?php esc_html_e('Estimated ROI:', 'aiqengage-child'); ?></span>
                             <span class="aiq-blueprint-flow__roi-value">$0</span>
                         </div>
-                        
+
                         <?php if ($settings['roi_formula'] === 'custom') : ?>
                             <script type="text/template" class="aiq-blueprint-flow__roi-custom-formula">
-                                <?php echo $settings['roi_custom_formula']; ?>
+                                <?php echo esc_textarea( $settings['roi_custom_formula'] ); ?>
                             </script>
                         <?php endif; ?>
                     </form>

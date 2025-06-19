@@ -2,8 +2,11 @@
 /**
  * Metric Badge Widget for Elementor
  *
- * @package AIQEngage_Child
+ * @package aiqengage-child
  * @since 1.0.0
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
  */
 
 namespace AIQEngage\Widgets;
@@ -32,19 +35,19 @@ class Metric_Badge_Widget extends Widget_Base {
      */
     public function __construct( $data = [], $args = null ) {
         parent::__construct( $data, $args );
-        
+
         // Register widget scripts and styles
         wp_register_script(
             'aiq-metric-badge',
-            AIQENGAGE_CHILD_URL . 'assets/js/widgets/metric-badge.js',
+            AIQENGAGE_CHILD_URL . '/assets/js/widgets/metric-badge.js',
             ['jquery', 'elementor-frontend'],
             AIQENGAGE_CHILD_VERSION,
             true
         );
-        
+
         wp_register_style(
             'aiq-metric-badge',
-            AIQENGAGE_CHILD_URL . 'assets/css/widgets/metric-badge.css',
+            AIQENGAGE_CHILD_URL . '/assets/css/widgets/metric-badge.css',
             [],
             AIQENGAGE_CHILD_VERSION
         );
@@ -612,7 +615,7 @@ class Metric_Badge_Widget extends Widget_Base {
         // Prepare trend icon
         $trend_icon = '';
         $trend_class = '';
-        
+
         switch ($settings['trend_indicator']) {
             case 'up':
                 $trend_icon = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
@@ -631,16 +634,16 @@ class Metric_Badge_Widget extends Widget_Base {
         // Counter data attributes
         $counter_data = '';
         $aria_live = 'off';
-        
+
         if ('yes' === $settings['enable_counter']) {
             // Clean value for counter (numbers only)
             $clean_value = preg_replace('/[^0-9.]/', '', $settings['metric_value']);
             $has_percent = strpos($settings['metric_value'], '%') !== false;
             $suffix = $has_percent ? '%' : '';
-            
+
             // Check if value contains only numbers and can be animated
             $is_numeric = is_numeric($clean_value);
-            
+
             if ($is_numeric) {
                 $counter_data = sprintf(
                     ' data-counter="true" data-value="%s" data-suffix="%s" data-duration="%d"',
@@ -654,7 +657,7 @@ class Metric_Badge_Widget extends Widget_Base {
 
         // Value ID for ARIA
         $value_id = 'metric-value-' . $this->get_id();
-        
+
         // Allow filtering of the badge classes
         $badge_classes = apply_filters('aiq_metric_badge_classes', ['aiq-metric-badge']);
         ?>
@@ -665,7 +668,7 @@ class Metric_Badge_Widget extends Widget_Base {
                     <?php if (!empty($settings['metric_label'])) : ?>
                         <div class="aiq-metric-badge__label"><?php echo esc_html($settings['metric_label']); ?></div>
                     <?php endif; ?>
-                    
+
                     <?php if ('none' !== $settings['trend_indicator']) : ?>
                         <div class="aiq-metric-badge__trend <?php echo esc_attr($trend_class); ?>" aria-hidden="true">
                             <?php echo $trend_icon; ?>
@@ -673,11 +676,11 @@ class Metric_Badge_Widget extends Widget_Base {
                     <?php endif; ?>
                 </div>
                 <?php endif; ?>
-                
+
                 <div id="<?php echo esc_attr($value_id); ?>" class="aiq-metric-badge__value" aria-live="<?php echo esc_attr($aria_live); ?>">
                     <?php echo esc_html($settings['metric_value']); ?>
                 </div>
-                
+
                 <?php if (!empty($settings['supporting_text'])) : ?>
                     <div class="aiq-metric-badge__supporting-text"><?php echo esc_html($settings['supporting_text']); ?></div>
                 <?php endif; ?>
@@ -695,7 +698,7 @@ class Metric_Badge_Widget extends Widget_Base {
         // Prepare trend icon
         var trendIcon = '';
         var trendClass = '';
-        
+
         switch(settings.trend_indicator) {
             case 'up':
                 trendIcon = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
@@ -710,11 +713,11 @@ class Metric_Badge_Widget extends Widget_Base {
                 trendClass = 'aiq-metric-badge__trend--neutral';
                 break;
         }
-        
+
         // Value ID for ARIA
         var valueId = 'metric-value-' + view.getID();
         #>
-        
+
         <div class="aiq-metric-badge aiq-metric-badge--{{ settings.badge_shape }}">
             <div class="aiq-metric-badge__inner">
                 <# if(settings.metric_label || 'none' !== settings.trend_indicator) { #>
@@ -722,7 +725,7 @@ class Metric_Badge_Widget extends Widget_Base {
                     <# if(settings.metric_label) { #>
                         <div class="aiq-metric-badge__label">{{{ settings.metric_label }}}</div>
                     <# } #>
-                    
+
                     <# if('none' !== settings.trend_indicator) { #>
                         <div class="aiq-metric-badge__trend {{ trendClass }}" aria-hidden="true">
                             {{{ trendIcon }}}
@@ -730,11 +733,11 @@ class Metric_Badge_Widget extends Widget_Base {
                     <# } #>
                 </div>
                 <# } #>
-                
+
                 <div id="{{ valueId }}" class="aiq-metric-badge__value">
                     {{{ settings.metric_value }}}
                 </div>
-                
+
                 <# if(settings.supporting_text) { #>
                     <div class="aiq-metric-badge__supporting-text">{{{ settings.supporting_text }}}</div>
                 <# } #>

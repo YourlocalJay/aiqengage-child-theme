@@ -24,7 +24,7 @@ class ROI_Calculator_Widget extends Widget_Base {
     }
 
     public function get_categories() {
-        return ['aiqengage', 'finance-tools'];
+        return ['aiqengage'];
     }
 
     public function get_keywords() {
@@ -283,7 +283,7 @@ class ROI_Calculator_Widget extends Widget_Base {
                         <div class="aiq-roi-calculator__desc"><?php echo esc_html($settings['description']); ?></div>
                     <?php endif; ?>
                 </header>
-                
+
                 <form class="aiq-roi-calculator__form" autocomplete="off" novalidate>
                     <div class="aiq-roi-calculator__input-grid">
                         <?php $this->render_input_field('traffic', __('Daily Traffic', 'aiqengage-child'), 'number', [
@@ -291,39 +291,39 @@ class ROI_Calculator_Widget extends Widget_Base {
                             'step' => 1,
                             'value' => $settings['default_traffic']
                         ]); ?>
-                        
+
                         <?php $this->render_input_field('conversion', __('Conversion Rate (%)', 'aiqengage-child'), 'number', [
                             'min' => 0,
                             'max' => 100,
                             'step' => 0.1,
                             'value' => $settings['default_conversion_rate']
                         ]); ?>
-                        
+
                         <?php $this->render_input_field('commission', __('Commission Rate (%)', 'aiqengage-child'), 'number', [
                             'min' => 0,
                             'max' => 100,
                             'step' => 0.1,
                             'value' => $settings['default_commission_rate']
                         ]); ?>
-                        
+
                         <?php $this->render_input_field('price', __('Product Price (' . esc_html($settings['currency_symbol']) . ')', 'aiqengage-child'), 'number', [
                             'min' => 0,
                             'step' => 0.01,
                             'value' => $settings['default_product_price']
                         ]); ?>
-                        
+
                         <?php $this->render_input_field('setup_cost', __('Setup Cost (' . esc_html($settings['currency_symbol']) . ')', 'aiqengage-child'), 'number', [
                             'min' => 0,
                             'step' => 0.01,
                             'value' => $settings['default_setup_cost']
                         ]); ?>
-                        
+
                         <?php $this->render_input_field('monthly_cost', __('Monthly Cost (' . esc_html($settings['currency_symbol']) . ')', 'aiqengage-child'), 'number', [
                             'min' => 0,
                             'step' => 0.01,
                             'value' => $settings['default_monthly_cost']
                         ]); ?>
-                        
+
                         <?php if ('yes' === $settings['show_advanced_fields']) : ?>
                             <?php $this->render_input_field('growth_rate', __('Monthly Growth Rate (%)', 'aiqengage-child'), 'number', [
                                 'min' => -50,
@@ -331,7 +331,7 @@ class ROI_Calculator_Widget extends Widget_Base {
                                 'step' => 0.1,
                                 'value' => 5
                             ]); ?>
-                            
+
                             <?php $this->render_input_field('churn_rate', __('Monthly Churn Rate (%)', 'aiqengage-child'), 'number', [
                                 'min' => 0,
                                 'max' => 100,
@@ -340,7 +340,7 @@ class ROI_Calculator_Widget extends Widget_Base {
                             ]); ?>
                         <?php endif; ?>
                     </div>
-                    
+
                     <div class="aiq-roi-calculator__actions">
                         <button type="submit" class="aiq-roi-calculator__button">
                             <?php esc_html_e('Calculate ROI', 'aiqengage-child'); ?>
@@ -355,7 +355,7 @@ class ROI_Calculator_Widget extends Widget_Base {
                         <?php endif; ?>
                     </div>
                 </form>
-                
+
                 <output class="aiq-roi-calculator__results" aria-live="polite">
                     <div class="aiq-roi-result-card">
                         <h4><?php esc_html_e('Projected Results', 'aiqengage-child'); ?></h4>
@@ -386,7 +386,7 @@ class ROI_Calculator_Widget extends Widget_Base {
                             </div>
                         </div>
                     </div>
-                    
+
                     <?php if ('yes' === $settings['enable_projections']) : ?>
                         <div class="aiq-roi-projections">
                             <h4><?php echo sprintf(__('%d-Month Projections', 'aiqengage-child'), $settings['projection_months']); ?></h4>
@@ -404,8 +404,8 @@ class ROI_Calculator_Widget extends Widget_Base {
         <div class="aiq-roi-input-group">
             <label>
                 <span class="aiq-roi-input-label"><?php echo esc_html($label); ?></span>
-                <input 
-                    type="<?php echo esc_attr($type); ?>" 
+                <input
+                    type="<?php echo esc_attr($type); ?>"
                     name="<?php echo esc_attr($name); ?>"
                     <?php foreach ($attrs as $attr => $value) : ?>
                         <?php echo esc_attr($attr); ?>="<?php echo esc_attr($value); ?>"
@@ -421,7 +421,7 @@ class ROI_Calculator_Widget extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return ['aiq-widget-roi-calculator'];
+        return ['aiq-roi-calculator'];
     }
 
     public function get_script_depends() {

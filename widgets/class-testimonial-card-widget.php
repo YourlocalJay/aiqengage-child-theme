@@ -4,14 +4,13 @@
 /**
  * Testimonial Card Widget
  *
- * @package AIQEngage
- * @subpackage Widgets
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
+ * @package aiqengage-child
  */
 
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Testimonial Card Widget
@@ -61,6 +60,24 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
      */
     public function get_categories() {
         return [ 'aiqengage' ];
+    }
+
+    /**
+     * Get widget style dependencies.
+     *
+     * @return string[] CSS handles.
+     */
+    public function get_style_depends() {
+        return [ 'aiq-testimonial-card' ];
+    }
+
+    /**
+     * Get widget script dependencies.
+     *
+     * @return string[] JS handles.
+     */
+    public function get_script_depends() {
+        return [];
     }
 
     /**
@@ -340,11 +357,11 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         if ( 'yes' === $settings['enable_metric'] && ! empty( $settings['metric_value'] ) ) {
             $metric_html = '<div class="aiq-testimonial-card__metric">';
             $metric_html .= '<span class="aiq-testimonial-card__metric-value">' . esc_html( $settings['metric_value'] ) . '</span>';
-            
+
             if ( ! empty( $settings['metric_label'] ) ) {
                 $metric_html .= '<span class="aiq-testimonial-card__metric-label">' . esc_html( $settings['metric_label'] ) . '</span>';
             }
-            
+
             $metric_html .= '</div>';
         }
 
@@ -353,34 +370,34 @@ class AIQ_Testimonial_Card_Widget extends \Elementor\Widget_Base {
         if ( 'yes' === $settings['is_pro'] ) {
             $pro_badge = '<div class="aiq-testimonial-card__pro-badge" aria-label="' . esc_attr__( 'Premium content', 'aiqengage-child' ) . '">🔒</div>';
         }
-        
+
         ?>
         <div class="<?php echo esc_attr( implode( ' ', $card_classes ) ); ?>">
             <?php echo $pro_badge; ?>
-            
+
             <div class="aiq-testimonial-card__quote-icon" aria-hidden="true">"</div>
-            
+
             <div class="aiq-testimonial-card__content">
                 <blockquote class="aiq-testimonial-card__text">
                     <?php echo esc_html( $settings['testimonial_text'] ); ?>
                 </blockquote>
-                
+
                 <?php echo $stars_html; ?>
-                
+
                 <div class="aiq-testimonial-card__author">
                     <?php if ( $image_html ) : ?>
                         <div class="aiq-testimonial-card__author-image-wrapper">
                             <?php echo $image_html; ?>
                         </div>
                     <?php endif; ?>
-                    
+
                     <div class="aiq-testimonial-card__author-info">
                         <div class="aiq-testimonial-card__author-name"><?php echo esc_html( $settings['author_name'] ); ?></div>
                         <?php if ( ! empty( $settings['author_title'] ) ) : ?>
                             <div class="aiq-testimonial-card__author-title"><?php echo esc_html( $settings['author_title'] ); ?></div>
                         <?php endif; ?>
                     </div>
-                    
+
                     <?php echo $metric_html; ?>
                 </div>
             </div>

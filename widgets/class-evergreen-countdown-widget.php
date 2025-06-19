@@ -2,7 +2,10 @@
 /**
  * Evergreen Countdown Widget
  *
- * @package AIQEngage
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
  */
 
 namespace AIQEngage\Widgets;
@@ -31,7 +34,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__( 'Evergreen Countdown', 'aiqengage' );
+        return esc_html__( 'Evergreen Countdown', 'aiqengage-child' );
     }
 
     /**
@@ -53,6 +56,24 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
     }
 
     /**
+     * Get widget style dependencies.
+     *
+     * @return string[] CSS handles.
+     */
+    public function get_style_depends() {
+        return [ 'aiq-evergreen-countdown' ];
+    }
+
+    /**
+     * Get widget script dependencies.
+     *
+     * @return string[] JS handles.
+     */
+    public function get_script_depends() {
+        return [ 'aiq-evergreen-countdown' ];
+    }
+
+    /**
      * Get widget keywords.
      *
      * @return array Widget keywords.
@@ -69,7 +90,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__( 'Countdown Settings', 'aiqengage' ),
+                'label' => esc_html__( 'Countdown Settings', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -77,12 +98,12 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'countdown_type',
             [
-                'label' => esc_html__( 'Countdown Type', 'aiqengage' ),
+                'label' => esc_html__( 'Countdown Type', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'evergreen',
                 'options' => [
-                    'evergreen' => esc_html__( 'Evergreen (Per Visitor)', 'aiqengage' ),
-                    'fixed' => esc_html__( 'Fixed Date', 'aiqengage' ),
+                    'evergreen' => esc_html__( 'Evergreen (Per Visitor)', 'aiqengage-child' ),
+                    'fixed' => esc_html__( 'Fixed Date', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -90,7 +111,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'duration_hours',
             [
-                'label' => esc_html__( 'Duration (Hours)', 'aiqengage' ),
+                'label' => esc_html__( 'Duration (Hours)', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 24,
                 'min' => 1,
@@ -104,7 +125,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'end_date',
             [
-                'label' => esc_html__( 'End Date', 'aiqengage' ),
+                'label' => esc_html__( 'End Date', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::DATE_TIME,
                 'default' => date( 'Y-m-d H:i', strtotime( '+1 day' ) ),
                 'condition' => [
@@ -116,13 +137,13 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'display_style',
             [
-                'label' => esc_html__( 'Display Style', 'aiqengage' ),
+                'label' => esc_html__( 'Display Style', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'inline',
                 'options' => [
-                    'inline' => esc_html__( 'Inline', 'aiqengage' ),
-                    'modal' => esc_html__( 'Modal Popup', 'aiqengage' ),
-                    'sticky' => esc_html__( 'Sticky Bar', 'aiqengage' ),
+                    'inline' => esc_html__( 'Inline', 'aiqengage-child' ),
+                    'modal' => esc_html__( 'Modal Popup', 'aiqengage-child' ),
+                    'sticky' => esc_html__( 'Sticky Bar', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -130,14 +151,14 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'modal_trigger',
             [
-                'label' => esc_html__( 'Modal Trigger', 'aiqengage' ),
+                'label' => esc_html__( 'Modal Trigger', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'delay',
                 'options' => [
-                    'immediate' => esc_html__( 'Immediate', 'aiqengage' ),
-                    'delay' => esc_html__( 'After Delay', 'aiqengage' ),
-                    'scroll' => esc_html__( 'On Scroll', 'aiqengage' ),
-                    'exit' => esc_html__( 'Exit Intent', 'aiqengage' ),
+                    'immediate' => esc_html__( 'Immediate', 'aiqengage-child' ),
+                    'delay' => esc_html__( 'After Delay', 'aiqengage-child' ),
+                    'scroll' => esc_html__( 'On Scroll', 'aiqengage-child' ),
+                    'exit' => esc_html__( 'Exit Intent', 'aiqengage-child' ),
                 ],
                 'condition' => [
                     'display_style' => 'modal',
@@ -148,7 +169,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'modal_delay',
             [
-                'label' => esc_html__( 'Delay (seconds)', 'aiqengage' ),
+                'label' => esc_html__( 'Delay (seconds)', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 5,
                 'min' => 1,
@@ -163,7 +184,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'scroll_percentage',
             [
-                'label' => esc_html__( 'Scroll Percentage', 'aiqengage' ),
+                'label' => esc_html__( 'Scroll Percentage', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'range' => [
                     '%' => [
@@ -186,12 +207,12 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'sticky_position',
             [
-                'label' => esc_html__( 'Sticky Position', 'aiqengage' ),
+                'label' => esc_html__( 'Sticky Position', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'top',
                 'options' => [
-                    'top' => esc_html__( 'Top', 'aiqengage' ),
-                    'bottom' => esc_html__( 'Bottom', 'aiqengage' ),
+                    'top' => esc_html__( 'Top', 'aiqengage-child' ),
+                    'bottom' => esc_html__( 'Bottom', 'aiqengage-child' ),
                 ],
                 'condition' => [
                     'display_style' => 'sticky',
@@ -205,7 +226,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_display',
             [
-                'label' => esc_html__( 'Display Options', 'aiqengage' ),
+                'label' => esc_html__( 'Display Options', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -213,9 +234,9 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'headline',
             [
-                'label' => esc_html__( 'Headline', 'aiqengage' ),
+                'label' => esc_html__( 'Headline', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__( 'Limited Time Offer!', 'aiqengage' ),
+                'default' => esc_html__( 'Limited Time Offer!', 'aiqengage-child' ),
                 'label_block' => true,
             ]
         );
@@ -223,9 +244,9 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'message',
             [
-                'label' => esc_html__( 'Message', 'aiqengage' ),
+                'label' => esc_html__( 'Message', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => esc_html__( 'Don\'t miss out on this exclusive deal. Time is running out!', 'aiqengage' ),
+                'default' => esc_html__( 'Don\'t miss out on this exclusive deal. Time is running out!', 'aiqengage-child' ),
                 'rows' => 3,
             ]
         );
@@ -233,10 +254,10 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_days',
             [
-                'label' => esc_html__( 'Show Days', 'aiqengage' ),
+                'label' => esc_html__( 'Show Days', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'aiqengage' ),
-                'label_off' => esc_html__( 'Hide', 'aiqengage' ),
+                'label_on' => esc_html__( 'Show', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'Hide', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -245,10 +266,10 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_hours',
             [
-                'label' => esc_html__( 'Show Hours', 'aiqengage' ),
+                'label' => esc_html__( 'Show Hours', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'aiqengage' ),
-                'label_off' => esc_html__( 'Hide', 'aiqengage' ),
+                'label_on' => esc_html__( 'Show', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'Hide', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -257,10 +278,10 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_minutes',
             [
-                'label' => esc_html__( 'Show Minutes', 'aiqengage' ),
+                'label' => esc_html__( 'Show Minutes', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'aiqengage' ),
-                'label_off' => esc_html__( 'Hide', 'aiqengage' ),
+                'label_on' => esc_html__( 'Show', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'Hide', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -269,10 +290,10 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_seconds',
             [
-                'label' => esc_html__( 'Show Seconds', 'aiqengage' ),
+                'label' => esc_html__( 'Show Seconds', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'aiqengage' ),
-                'label_off' => esc_html__( 'Hide', 'aiqengage' ),
+                'label_on' => esc_html__( 'Show', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'Hide', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -281,10 +302,10 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_close_button',
             [
-                'label' => esc_html__( 'Show Close Button', 'aiqengage' ),
+                'label' => esc_html__( 'Show Close Button', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'aiqengage' ),
-                'label_off' => esc_html__( 'Hide', 'aiqengage' ),
+                'label_on' => esc_html__( 'Show', 'aiqengage-child' ),
+                'label_off' => esc_html__( 'Hide', 'aiqengage-child' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => [
@@ -296,14 +317,14 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'after_expiry',
             [
-                'label' => esc_html__( 'After Expiry', 'aiqengage' ),
+                'label' => esc_html__( 'After Expiry', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'hide',
                 'options' => [
-                    'hide' => esc_html__( 'Hide Widget', 'aiqengage' ),
-                    'message' => esc_html__( 'Show Message', 'aiqengage' ),
-                    'redirect' => esc_html__( 'Redirect', 'aiqengage' ),
-                    'opacity' => esc_html__( 'Reduce Opacity', 'aiqengage' ),
+                    'hide' => esc_html__( 'Hide Widget', 'aiqengage-child' ),
+                    'message' => esc_html__( 'Show Message', 'aiqengage-child' ),
+                    'redirect' => esc_html__( 'Redirect', 'aiqengage-child' ),
+                    'opacity' => esc_html__( 'Reduce Opacity', 'aiqengage-child' ),
                 ],
             ]
         );
@@ -311,9 +332,9 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'expiry_message',
             [
-                'label' => esc_html__( 'Expiry Message', 'aiqengage' ),
+                'label' => esc_html__( 'Expiry Message', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => esc_html__( 'This offer has expired. Check back later for new deals!', 'aiqengage' ),
+                'default' => esc_html__( 'This offer has expired. Check back later for new deals!', 'aiqengage-child' ),
                 'condition' => [
                     'after_expiry' => 'message',
                 ],
@@ -323,7 +344,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'redirect_url',
             [
-                'label' => esc_html__( 'Redirect URL', 'aiqengage' ),
+                'label' => esc_html__( 'Redirect URL', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::URL,
                 'placeholder' => 'https://example.com',
                 'condition' => [
@@ -338,7 +359,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style',
             [
-                'label' => esc_html__( 'Style', 'aiqengage' ),
+                'label' => esc_html__( 'Style', 'aiqengage-child' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -346,7 +367,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'background_color',
             [
-                'label' => esc_html__( 'Background Color', 'aiqengage' ),
+                'label' => esc_html__( 'Background Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#2A1958',
                 'selectors' => [
@@ -358,7 +379,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'text_color',
             [
-                'label' => esc_html__( 'Text Color', 'aiqengage' ),
+                'label' => esc_html__( 'Text Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#E0D6FF',
                 'selectors' => [
@@ -371,7 +392,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'headline_typography',
-                'label' => esc_html__( 'Headline Typography', 'aiqengage' ),
+                'label' => esc_html__( 'Headline Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-evergreen-countdown__headline',
             ]
         );
@@ -379,7 +400,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'headline_color',
             [
-                'label' => esc_html__( 'Headline Color', 'aiqengage' ),
+                'label' => esc_html__( 'Headline Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#E0D6FF',
                 'selectors' => [
@@ -391,7 +412,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'timer_background',
             [
-                'label' => esc_html__( 'Timer Background', 'aiqengage' ),
+                'label' => esc_html__( 'Timer Background', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#9C4DFF',
                 'selectors' => [
@@ -403,7 +424,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'timer_text_color',
             [
-                'label' => esc_html__( 'Timer Text Color', 'aiqengage' ),
+                'label' => esc_html__( 'Timer Text Color', 'aiqengage-child' ),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#FFFFFF',
                 'selectors' => [
@@ -416,7 +437,7 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'timer_typography',
-                'label' => esc_html__( 'Timer Typography', 'aiqengage' ),
+                'label' => esc_html__( 'Timer Typography', 'aiqengage-child' ),
                 'selector' => '{{WRAPPER}} .aiq-countdown-number',
             ]
         );
@@ -429,110 +450,110 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
      */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        
+
         $widget_id = 'aiq-countdown-' . $this->get_id();
         $cookie_id = 'aiq_countdown_' . $this->get_id();
-        
+
         $countdown_classes = ['aiq-evergreen-countdown'];
-        
+
         if ( 'modal' === $settings['display_style'] ) {
             $countdown_classes[] = 'aiq-evergreen-countdown--modal';
         } elseif ( 'sticky' === $settings['display_style'] ) {
             $countdown_classes[] = 'aiq-evergreen-countdown--sticky';
             $countdown_classes[] = 'aiq-evergreen-countdown--sticky-' . $settings['sticky_position'];
         }
-        
+
         $data_attributes = [
             'data-countdown-type="' . esc_attr( $settings['countdown_type'] ) . '"',
             'data-cookie-id="' . esc_attr( $cookie_id ) . '"',
             'data-after-expiry="' . esc_attr( $settings['after_expiry'] ) . '"',
         ];
-        
+
         if ( 'evergreen' === $settings['countdown_type'] ) {
             $data_attributes[] = 'data-duration="' . esc_attr( $settings['duration_hours'] * 3600 ) . '"';
         } else {
             $end_timestamp = strtotime( $settings['end_date'] );
             $data_attributes[] = 'data-end-date="' . esc_attr( $end_timestamp ) . '"';
         }
-        
+
         if ( 'modal' === $settings['display_style'] ) {
             $data_attributes[] = 'data-modal-trigger="' . esc_attr( $settings['modal_trigger'] ) . '"';
-            
+
             if ( 'delay' === $settings['modal_trigger'] ) {
                 $data_attributes[] = 'data-modal-delay="' . esc_attr( $settings['modal_delay'] ) . '"';
             } elseif ( 'scroll' === $settings['modal_trigger'] ) {
                 $data_attributes[] = 'data-scroll-percentage="' . esc_attr( $settings['scroll_percentage']['size'] ) . '"';
             }
         }
-        
+
         if ( 'redirect' === $settings['after_expiry'] && ! empty( $settings['redirect_url']['url'] ) ) {
             $data_attributes[] = 'data-redirect-url="' . esc_attr( $settings['redirect_url']['url'] ) . '"';
         }
-        
+
         ?>
         <div id="<?php echo esc_attr( $widget_id ); ?>" class="<?php echo esc_attr( implode( ' ', $countdown_classes ) ); ?>" <?php echo implode( ' ', $data_attributes ); ?>>
             <?php if ( 'modal' === $settings['display_style'] ) : ?>
                 <div class="aiq-evergreen-countdown__overlay"></div>
                 <div class="aiq-evergreen-countdown__modal">
             <?php endif; ?>
-            
+
             <div class="aiq-evergreen-countdown__content">
                 <?php if ( 'yes' === $settings['show_close_button'] && 'inline' !== $settings['display_style'] ) : ?>
-                    <button class="aiq-evergreen-countdown__close" aria-label="<?php esc_attr_e( 'Close', 'aiqengage' ); ?>">
+                    <button class="aiq-evergreen-countdown__close" aria-label="<?php esc_attr_e( 'Close', 'aiqengage-child' ); ?>">
                         &times;
                     </button>
                 <?php endif; ?>
-                
+
                 <?php if ( ! empty( $settings['headline'] ) ) : ?>
                     <h3 class="aiq-evergreen-countdown__headline"><?php echo esc_html( $settings['headline'] ); ?></h3>
                 <?php endif; ?>
-                
+
                 <?php if ( ! empty( $settings['message'] ) ) : ?>
                     <div class="aiq-evergreen-countdown__message">
                         <?php echo wp_kses_post( wpautop( $settings['message'] ) ); ?>
                     </div>
                 <?php endif; ?>
-                
+
                 <div class="aiq-evergreen-countdown__timer">
                     <?php if ( 'yes' === $settings['show_days'] ) : ?>
                         <div class="aiq-countdown-unit">
                             <span class="aiq-countdown-number" data-countdown-days>00</span>
-                            <span class="aiq-countdown-label"><?php esc_html_e( 'Days', 'aiqengage' ); ?></span>
+                            <span class="aiq-countdown-label"><?php esc_html_e( 'Days', 'aiqengage-child' ); ?></span>
                         </div>
                     <?php endif; ?>
-                    
+
                     <?php if ( 'yes' === $settings['show_hours'] ) : ?>
                         <div class="aiq-countdown-unit">
                             <span class="aiq-countdown-number" data-countdown-hours>00</span>
-                            <span class="aiq-countdown-label"><?php esc_html_e( 'Hours', 'aiqengage' ); ?></span>
+                            <span class="aiq-countdown-label"><?php esc_html_e( 'Hours', 'aiqengage-child' ); ?></span>
                         </div>
                     <?php endif; ?>
-                    
+
                     <?php if ( 'yes' === $settings['show_minutes'] ) : ?>
                         <div class="aiq-countdown-unit">
                             <span class="aiq-countdown-number" data-countdown-minutes>00</span>
-                            <span class="aiq-countdown-label"><?php esc_html_e( 'Minutes', 'aiqengage' ); ?></span>
+                            <span class="aiq-countdown-label"><?php esc_html_e( 'Minutes', 'aiqengage-child' ); ?></span>
                         </div>
                     <?php endif; ?>
-                    
+
                     <?php if ( 'yes' === $settings['show_seconds'] ) : ?>
                         <div class="aiq-countdown-unit">
                             <span class="aiq-countdown-number" data-countdown-seconds>00</span>
-                            <span class="aiq-countdown-label"><?php esc_html_e( 'Seconds', 'aiqengage' ); ?></span>
+                            <span class="aiq-countdown-label"><?php esc_html_e( 'Seconds', 'aiqengage-child' ); ?></span>
                         </div>
                     <?php endif; ?>
                 </div>
-                
+
                 <!-- Screen reader announcement -->
                 <div class="sr-only" aria-live="polite" aria-atomic="true"></div>
             </div>
-            
+
             <?php if ( 'message' === $settings['after_expiry'] && ! empty( $settings['expiry_message'] ) ) : ?>
                 <div class="aiq-evergreen-expired" style="display: none;">
                     <?php echo wp_kses_post( wpautop( $settings['expiry_message'] ) ); ?>
                 </div>
             <?php endif; ?>
-            
+
             <?php if ( 'modal' === $settings['display_style'] ) : ?>
                 </div>
             <?php endif; ?>
@@ -540,17 +561,4 @@ class Evergreen_Countdown_Widget extends \Elementor\Widget_Base {
         <?php
     }
 
-    /**
-     * Get script dependencies.
-     */
-    public function get_script_depends() {
-        return [ 'aiq-evergreen-countdown' ];
-    }
-
-    /**
-     * Get style dependencies.
-     */
-    public function get_style_depends() {
-        return [ 'aiq-evergreen-countdown' ];
-    }
 }

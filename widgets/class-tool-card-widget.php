@@ -2,13 +2,13 @@
 /**
  * Tool Card Widget for AIQEngage
  *
- * @package AIQEngage
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
  */
 
-// Exit if accessed directly.
-if (!defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 /**
  * Tool Card Widget
@@ -30,7 +30,7 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return esc_html__('Tool Card', 'aiqengage');
+        return esc_html__('Tool Card', 'aiqengage-child');
     }
 
     /**
@@ -58,6 +58,24 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
      */
     public function get_categories() {
         return ['aiqengage'];
+    }
+
+    /**
+     * Get widget style dependencies.
+     *
+     * @return string[] CSS handles.
+     */
+    public function get_style_depends() {
+        return [ 'aiq-tool-card' ];
+    }
+
+    /**
+     * Get widget script dependencies.
+     *
+     * @return string[] JS handles.
+     */
+    public function get_script_depends() {
+        return [ 'aiq-tool-card' ];
     }
 
     /**
@@ -92,7 +110,7 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__('Tool Content', 'aiqengage'),
+                'label' => esc_html__('Tool Content', 'aiqengage-child'),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -100,10 +118,10 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'tool_name',
             [
-                'label'       => esc_html__('Tool Name', 'aiqengage'),
+                'label'       => esc_html__('Tool Name', 'aiqengage-child'),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__('Tool Name', 'aiqengage'),
-                'placeholder' => esc_html__('Enter tool name', 'aiqengage'),
+                'default'     => esc_html__('Tool Name', 'aiqengage-child'),
+                'placeholder' => esc_html__('Enter tool name', 'aiqengage-child'),
                 'label_block' => true,
                 'dynamic'     => [
                     'active' => true,
@@ -114,10 +132,10 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'tool_description',
             [
-                'label'       => esc_html__('Description', 'aiqengage'),
+                'label'       => esc_html__('Description', 'aiqengage-child'),
                 'type'        => \Elementor\Controls_Manager::TEXTAREA,
-                'default'     => esc_html__('Short description of this tool and how it helps with Claude automation.', 'aiqengage'),
-                'placeholder' => esc_html__('Enter tool description', 'aiqengage'),
+                'default'     => esc_html__('Short description of this tool and how it helps with Claude automation.', 'aiqengage-child'),
+                'placeholder' => esc_html__('Enter tool description', 'aiqengage-child'),
                 'rows'        => 3,
                 'dynamic'     => [
                     'active' => true,
@@ -128,17 +146,17 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'tool_category',
             [
-                'label'   => esc_html__('Tool Category', 'aiqengage'),
+                'label'   => esc_html__('Tool Category', 'aiqengage-child'),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'writer',
                 'options' => [
-                    'writer'       => esc_html__('AI Writer', 'aiqengage'),
-                    'automation'   => esc_html__('Automation', 'aiqengage'),
-                    'research'     => esc_html__('Research', 'aiqengage'),
-                    'design'       => esc_html__('Design', 'aiqengage'),
-                    'analytics'    => esc_html__('Analytics', 'aiqengage'),
-                    'productivity' => esc_html__('Productivity', 'aiqengage'),
-                    'other'        => esc_html__('Other', 'aiqengage'),
+                    'writer'       => esc_html__('AI Writer', 'aiqengage-child'),
+                    'automation'   => esc_html__('Automation', 'aiqengage-child'),
+                    'research'     => esc_html__('Research', 'aiqengage-child'),
+                    'design'       => esc_html__('Design', 'aiqengage-child'),
+                    'analytics'    => esc_html__('Analytics', 'aiqengage-child'),
+                    'productivity' => esc_html__('Productivity', 'aiqengage-child'),
+                    'other'        => esc_html__('Other', 'aiqengage-child'),
                 ],
             ]
         );
@@ -146,7 +164,7 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'tool_logo',
             [
-                'label'   => esc_html__('Tool Logo', 'aiqengage'),
+                'label'   => esc_html__('Tool Logo', 'aiqengage-child'),
                 'type'    => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -160,10 +178,10 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_discount',
             [
-                'label'        => esc_html__('Show Discount Badge', 'aiqengage'),
+                'label'        => esc_html__('Show Discount Badge', 'aiqengage-child'),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__('Yes', 'aiqengage'),
-                'label_off'    => esc_html__('No', 'aiqengage'),
+                'label_on'     => esc_html__('Yes', 'aiqengage-child'),
+                'label_off'    => esc_html__('No', 'aiqengage-child'),
                 'return_value' => 'yes',
                 'default'      => 'no',
             ]
@@ -172,10 +190,10 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'discount_text',
             [
-                'label'       => esc_html__('Discount Text', 'aiqengage'),
+                'label'       => esc_html__('Discount Text', 'aiqengage-child'),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__('40% OFF', 'aiqengage'),
-                'placeholder' => esc_html__('E.g. 40% OFF', 'aiqengage'),
+                'default'     => esc_html__('40% OFF', 'aiqengage-child'),
+                'placeholder' => esc_html__('E.g. 40% OFF', 'aiqengage-child'),
                 'condition'   => [
                     'show_discount' => 'yes',
                 ],
@@ -188,10 +206,10 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_rating',
             [
-                'label'        => esc_html__('Show Rating', 'aiqengage'),
+                'label'        => esc_html__('Show Rating', 'aiqengage-child'),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__('Yes', 'aiqengage'),
-                'label_off'    => esc_html__('No', 'aiqengage'),
+                'label_on'     => esc_html__('Yes', 'aiqengage-child'),
+                'label_off'    => esc_html__('No', 'aiqengage-child'),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -200,7 +218,7 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'rating',
             [
-                'label'     => esc_html__('Rating', 'aiqengage'),
+                'label'     => esc_html__('Rating', 'aiqengage-child'),
                 'type'      => \Elementor\Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
@@ -221,10 +239,10 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'show_verified',
             [
-                'label'        => esc_html__('Show Verified Badge', 'aiqengage'),
+                'label'        => esc_html__('Show Verified Badge', 'aiqengage-child'),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__('Yes', 'aiqengage'),
-                'label_off'    => esc_html__('No', 'aiqengage'),
+                'label_on'     => esc_html__('Yes', 'aiqengage-child'),
+                'label_off'    => esc_html__('No', 'aiqengage-child'),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -233,10 +251,10 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'original_price',
             [
-                'label'       => esc_html__('Original Price', 'aiqengage'),
+                'label'       => esc_html__('Original Price', 'aiqengage-child'),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__('$99/mo', 'aiqengage'),
-                'placeholder' => esc_html__('E.g. $99/mo', 'aiqengage'),
+                'default'     => esc_html__('$99/mo', 'aiqengage-child'),
+                'placeholder' => esc_html__('E.g. $99/mo', 'aiqengage-child'),
                 'condition'   => [
                     'show_discount' => 'yes',
                 ],
@@ -249,10 +267,10 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'discount_price',
             [
-                'label'       => esc_html__('Discount Price', 'aiqengage'),
+                'label'       => esc_html__('Discount Price', 'aiqengage-child'),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__('$59/mo', 'aiqengage'),
-                'placeholder' => esc_html__('E.g. $59/mo', 'aiqengage'),
+                'default'     => esc_html__('$59/mo', 'aiqengage-child'),
+                'placeholder' => esc_html__('E.g. $59/mo', 'aiqengage-child'),
                 'dynamic'     => [
                     'active' => true,
                 ],
@@ -262,10 +280,10 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_text',
             [
-                'label'       => esc_html__('Button Text', 'aiqengage'),
+                'label'       => esc_html__('Button Text', 'aiqengage-child'),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__('Get Deal', 'aiqengage'),
-                'placeholder' => esc_html__('Enter button text', 'aiqengage'),
+                'default'     => esc_html__('Get Deal', 'aiqengage-child'),
+                'placeholder' => esc_html__('Enter button text', 'aiqengage-child'),
                 'dynamic'     => [
                     'active' => true,
                 ],
@@ -275,9 +293,9 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'button_link',
             [
-                'label'       => esc_html__('Button Link', 'aiqengage'),
+                'label'       => esc_html__('Button Link', 'aiqengage-child'),
                 'type'        => \Elementor\Controls_Manager::URL,
-                'placeholder' => esc_html__('https://your-affiliate-link.com', 'aiqengage'),
+                'placeholder' => esc_html__('https://your-affiliate-link.com', 'aiqengage-child'),
                 'default'     => [
                     'url'               => '#',
                     'is_external'       => true,
@@ -293,11 +311,11 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'tracking_id',
             [
-                'label'       => esc_html__('Tracking ID', 'aiqengage'),
+                'label'       => esc_html__('Tracking ID', 'aiqengage-child'),
                 'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__('TOOLKIT_V3_CLAUDE', 'aiqengage'),
-                'placeholder' => esc_html__('Enter tracking ID', 'aiqengage'),
-                'description' => esc_html__('For analytics tracking', 'aiqengage'),
+                'default'     => esc_html__('TOOLKIT_V3_CLAUDE', 'aiqengage-child'),
+                'placeholder' => esc_html__('Enter tracking ID', 'aiqengage-child'),
+                'description' => esc_html__('For analytics tracking', 'aiqengage-child'),
                 'dynamic'     => [
                     'active' => true,
                 ],
@@ -1202,13 +1220,13 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
      */
     private function render_stars($rating) {
         $output = '<div class="aiq-tool-card__rating">';
-        
+
         // Full stars
         $full_stars = floor($rating);
         for ($i = 0; $i < $full_stars; $i++) {
             $output .= '<span class="aiq-tool-card__star aiq-tool-card__star--full">★</span>';
         }
-        
+
         // Half star
         if ($rating - $full_stars >= 0.5) {
             $output .= '<span class="aiq-tool-card__star aiq-tool-card__star--half">★</span>';
@@ -1216,18 +1234,18 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         } else {
             $partial_stars = 0;
         }
-        
+
         // Empty stars
         $empty_stars = 5 - $full_stars - $partial_stars;
         for ($i = 0; $i < $empty_stars; $i++) {
             $output .= '<span class="aiq-tool-card__star aiq-tool-card__star--empty">★</span>';
         }
-        
+
         // Display numeric rating
         $output .= '<span class="aiq-tool-card__rating-text">' . number_format($rating, 1) . '</span>';
-        
+
         $output .= '</div>';
-        
+
         return $output;
     }
 
@@ -1237,11 +1255,11 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
      * @return string HTML output for verified badge.
      */
     private function render_verified_badge() {
-        return '<span class="aiq-tool-card__verified" aria-label="' . esc_attr__('Verified Tool', 'aiqengage') . '">
+        return '<span class="aiq-tool-card__verified" aria-label="' . esc_attr__('Verified Tool', 'aiqengage-child') . '">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span>' . esc_html__('Verified', 'aiqengage') . '</span>
+            <span>' . esc_html__('Verified', 'aiqengage-child') . '</span>
         </span>';
     }
 
@@ -1261,10 +1279,10 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
      */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        
+
         // Get category color
         $category_color = $this->get_category_badge_color($settings['tool_category']);
-        
+
         // Define CSS classes
         $card_classes = ['aiq-tool-card'];
         if ('list' === $settings['card_style']) {
@@ -1272,9 +1290,9 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         } else {
             $card_classes[] = 'aiq-tool-card--grid';
         }
-        
+
         $card_classes = implode(' ', $card_classes);
-        
+
         // Add tracking ID to button link if set
         $url = $settings['button_link']['url'];
         if (!empty($settings['tracking_id']) && strpos($url, '?') !== false) {
@@ -1282,23 +1300,23 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         } elseif (!empty($settings['tracking_id'])) {
             $url .= '?tid=' . urlencode($settings['tracking_id']);
         }
-        
+
         // Link attributes
         $link_attributes = 'href="' . esc_url($url) . '"';
-        
+
         if ($settings['button_link']['is_external']) {
             $link_attributes .= ' target="_blank"';
         }
-        
+
         if ($settings['button_link']['nofollow']) {
             $link_attributes .= ' rel="nofollow"';
         }
-        
+
         if (!empty($settings['button_link']['custom_attributes'])) {
             $link_attributes .= ' ' . $settings['button_link']['custom_attributes'];
         }
-        
-        $link_attributes .= ' aria-label="' . esc_attr(sprintf(__('Get %s deal', 'aiqengage'), $settings['tool_name'])) . '"';
+
+        $link_attributes .= ' aria-label="' . esc_attr(sprintf(__('Get %s deal', 'aiqengage-child'), $settings['tool_name'])) . '"';
 
         // Image alt text
         $image_alt = '';
@@ -1306,58 +1324,58 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
             $image_alt = get_post_meta($settings['tool_logo']['id'], '_wp_attachment_image_alt', true);
         }
         if (empty($image_alt)) {
-            $image_alt = $settings['tool_name'] . ' ' . __('logo', 'aiqengage');
+            $image_alt = $settings['tool_name'] . ' ' . __('logo', 'aiqengage-child');
         }
-        
+
         // Start output
         ?>
         <div class="<?php echo esc_attr($card_classes); ?>" data-category="<?php echo esc_attr($settings['tool_category']); ?>">
-            
+
             <?php if ('yes' === $settings['show_discount'] && !empty($settings['discount_text'])) : ?>
             <div class="aiq-tool-card__badge">
                 <?php echo esc_html($settings['discount_text']); ?>
             </div>
             <?php endif; ?>
-            
+
             <div class="aiq-tool-card__logo-wrapper">
-                <?php 
+                <?php
                 // Use Elementor's image rendering for better performance
                 \Elementor\Group_Control_Image_Size::print_attachment_image_html($settings, 'tool_logo', 'tool_logo');
                 ?>
             </div>
-            
+
             <div class="aiq-tool-card__content">
                 <div class="aiq-tool-card__header">
                     <h3 class="aiq-tool-card__title"><?php echo esc_html($settings['tool_name']); ?></h3>
-                    
+
                     <div class="aiq-tool-card__meta">
                         <span class="aiq-tool-card__category" style="--category-color: <?php echo esc_attr($category_color); ?>">
                             <?php echo esc_html($settings['tool_category']); ?>
                         </span>
-                        
+
                         <?php if ('yes' === $settings['show_verified']) : ?>
                             <?php echo wp_kses_post($this->render_verified_badge()); ?>
                         <?php endif; ?>
                     </div>
                 </div>
-                
+
                 <?php if ('yes' === $settings['show_rating']) : ?>
                     <?php echo wp_kses_post($this->render_stars($settings['rating']['size'])); ?>
                 <?php endif; ?>
-                
+
                 <div class="aiq-tool-card__description">
                     <?php echo esc_html($settings['tool_description']); ?>
                 </div>
-                
+
                 <div class="aiq-tool-card__footer">
                     <div class="aiq-tool-card__price">
                         <?php if ('yes' === $settings['show_discount'] && !empty($settings['original_price'])) : ?>
                             <span class="aiq-tool-card__price-original"><?php echo esc_html($settings['original_price']); ?></span>
                         <?php endif; ?>
-                        
+
                         <span class="aiq-tool-card__price-current"><?php echo esc_html($settings['discount_price']); ?></span>
                     </div>
-                    
+
                     <a class="aiq-tool-card__button" <?php echo $link_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Already escaped above ?> data-tracking-id="<?php echo esc_attr($settings['tracking_id']); ?>">
                         <?php echo esc_html($settings['button_text']); ?>
                     </a>
@@ -1386,38 +1404,38 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
             };
             return colors[category] || colors['other'];
         }
-        
+
         // Render stars
         function renderStars(rating) {
             let output = '<div class="aiq-tool-card__rating">';
-            
+
             // Full stars
             const fullStars = Math.floor(rating);
             for (let i = 0; i < fullStars; i++) {
                 output += '<span class="aiq-tool-card__star aiq-tool-card__star--full">★</span>';
             }
-            
+
             // Half star
             let partialStars = 0;
             if (rating - fullStars >= 0.5) {
                 output += '<span class="aiq-tool-card__star aiq-tool-card__star--half">★</span>';
                 partialStars = 1;
             }
-            
+
             // Empty stars
             const emptyStars = 5 - fullStars - partialStars;
             for (let i = 0; i < emptyStars; i++) {
                 output += '<span class="aiq-tool-card__star aiq-tool-card__star--empty">★</span>';
             }
-            
+
             // Display numeric rating
             output += '<span class="aiq-tool-card__rating-text">' + rating.toFixed(1) + '</span>';
-            
+
             output += '</div>';
-            
+
             return output;
         }
-        
+
         // Render verified badge
         function renderVerifiedBadge() {
             return '<span class="aiq-tool-card__verified" aria-label="Verified Tool">' +
@@ -1427,7 +1445,7 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
                 '<span>Verified</span>' +
             '</span>';
         }
-        
+
         // Define CSS classes
         let cardClasses = ['aiq-tool-card'];
         if (settings.card_style === 'list') {
@@ -1435,10 +1453,10 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
         } else {
             cardClasses.push('aiq-tool-card--grid');
         }
-        
+
         // Get category color
         const categoryColor = getCategoryColor(settings.tool_category);
-        
+
         // URL with tracking
         let url = settings.button_link.url;
         if (settings.tracking_id) {
@@ -1448,25 +1466,25 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
                 url += '?tid=' + encodeURIComponent(settings.tracking_id);
             }
         }
-        
+
         // Link attributes
         let target = settings.button_link.is_external ? ' target="_blank"' : '';
         let nofollow = settings.button_link.nofollow ? ' rel="nofollow"' : '';
         let custom = settings.button_link.custom_attributes ? ' ' + settings.button_link.custom_attributes : '';
         let ariaLabel = ' aria-label="Get ' + settings.tool_name + ' deal"';
-        
+
         // Image alt text
         let imageAlt = settings.tool_name + ' logo';
         #>
-        
+
         <div class="{{ cardClasses.join(' ') }}" data-category="{{ settings.tool_category }}">
-            
+
             <# if (settings.show_discount === 'yes' && settings.discount_text) { #>
             <div class="aiq-tool-card__badge">
                 {{ settings.discount_text }}
             </div>
             <# } #>
-            
+
             <div class="aiq-tool-card__logo-wrapper">
                 <#
                 var image = {
@@ -1480,39 +1498,39 @@ class AIQ_Tool_Card_Widget extends \Elementor\Widget_Base {
                 #>
                 <img src="{{ image_url }}" alt="{{ imageAlt }}" class="aiq-tool-card__logo">
             </div>
-            
+
             <div class="aiq-tool-card__content">
                 <div class="aiq-tool-card__header">
                     <h3 class="aiq-tool-card__title">{{{ settings.tool_name }}}</h3>
-                    
+
                     <div class="aiq-tool-card__meta">
                         <span class="aiq-tool-card__category" style="--category-color: {{ categoryColor }}">
                             {{ settings.tool_category }}
                         </span>
-                        
+
                         <# if (settings.show_verified === 'yes') { #>
                             {{{ renderVerifiedBadge() }}}
                         <# } #>
                     </div>
                 </div>
-                
+
                 <# if (settings.show_rating === 'yes') { #>
                     {{{ renderStars(settings.rating.size) }}}
                 <# } #>
-                
+
                 <div class="aiq-tool-card__description">
                     {{{ settings.tool_description }}}
                 </div>
-                
+
                 <div class="aiq-tool-card__footer">
                     <div class="aiq-tool-card__price">
                         <# if (settings.show_discount === 'yes' && settings.original_price) { #>
                             <span class="aiq-tool-card__price-original">{{{ settings.original_price }}}</span>
                         <# } #>
-                        
+
                         <span class="aiq-tool-card__price-current">{{{ settings.discount_price }}}</span>
                     </div>
-                    
+
                     <a class="aiq-tool-card__button" href="{{ url }}"{{ target }}{{ nofollow }}{{ custom }}{{ ariaLabel }} data-tracking-id="{{ settings.tracking_id }}">
                         {{{ settings.button_text }}}
                     </a>

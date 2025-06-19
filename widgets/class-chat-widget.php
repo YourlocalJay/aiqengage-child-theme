@@ -4,7 +4,10 @@
 /**
  * AIQEngage Chat Widget
  *
- * @package AIQEngage
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since 1.0.0
+ * @author Jason
  */
 
 // If this file is called directly, abort.
@@ -60,6 +63,24 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
      */
     public function get_categories() {
         return [ 'aiqengage' ];
+    }
+
+    /**
+     * Get widget style dependencies.
+     *
+     * @return string[] CSS handles.
+     */
+    public function get_style_depends() {
+        return [ 'aiqengage-child-chat' ];
+    }
+
+    /**
+     * Get widget script dependencies.
+     *
+     * @return string[] JS handles.
+     */
+    public function get_script_depends() {
+        return [ 'aiqengage-child-chat' ];
     }
 
     /**
@@ -1195,8 +1216,8 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
                         <span></span>
                         <span></span>
                     </div>
-                    <textarea 
-                        class="aiq-chat__input" 
+                    <textarea
+                        class="aiq-chat__input"
                         placeholder="<?php echo esc_attr( $settings['input_placeholder'] ); ?>"
                         aria-label="<?php echo esc_attr__( 'Type your message', 'aiqengage-child' ); ?>"
                         rows="1"
@@ -1213,10 +1234,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
                                 <?php echo esc_html( $settings['privacy_notice_text'] ); ?>
                             </p>
                         <?php endif; ?>
-                        
+
                         <?php if ( $settings['show_human_help'] === 'yes' ) : ?>
                             <p class="aiq-chat__human-help">
-                                <?php echo esc_html( $settings['human_help_text'] ); ?> 
+                                <?php echo esc_html( $settings['human_help_text'] ); ?>
                                 <a href="mailto:<?php echo esc_attr( $settings['human_help_email'] ); ?>">
                                     <?php echo esc_html( $settings['human_help_email'] ); ?>
                                 </a>
@@ -1234,11 +1255,11 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
      */
     protected function content_template() {
         ?>
-        <# 
+        <#
         var chatId = 'aiq-chat-' + view.getID();
         var layoutClass = 'standard' === settings.layout_type ? 'aiq-chat--standard' : 'aiq-chat--floating';
         var aiAvatarUrl = settings.ai_avatar.url ? settings.ai_avatar.url : elementorCommon.config.urls.assets + 'images/placeholder.png';
-        
+
         // Get quick replies
         var quickReplies = [];
         if ( settings.show_quick_replies === 'yes' && settings.sample_messages.length > 0 ) {
@@ -1248,7 +1269,7 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
                 }
             });
         }
-        
+
         // Create settings object for JavaScript
         var jsSettings = {
             id: chatId,
@@ -1296,8 +1317,8 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
                         <span></span>
                         <span></span>
                     </div>
-                    <textarea 
-                        class="aiq-chat__input" 
+                    <textarea
+                        class="aiq-chat__input"
                         placeholder="{{ settings.input_placeholder }}"
                         aria-label="Type your message"
                         rows="1"
@@ -1314,10 +1335,10 @@ class AIQ_Chat_Widget extends \Elementor\Widget_Base {
                                 {{ settings.privacy_notice_text }}
                             </p>
                         <# } #>
-                        
+
                         <# if ( settings.show_human_help === 'yes' ) { #>
                             <p class="aiq-chat__human-help">
-                                {{ settings.human_help_text }} 
+                                {{ settings.human_help_text }}
                                 <a href="mailto:{{ settings.human_help_email }}">
                                     {{ settings.human_help_email }}
                                 </a>
