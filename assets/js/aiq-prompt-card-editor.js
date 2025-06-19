@@ -6,19 +6,21 @@
  * @since   1.0.0
  */
 
-(function($) {
-  'use strict';
+(function ($) {
+	'use strict';
 
-  /**
-   * Initializes the AIQ Prompt Card editor functionality.
-   */
-  function initPromptCardEditor() {
-    // TODO: Add code to handle prompt card editing, live preview, dynamic field updates, etc.
-  }
+	/**
+	 * Initializes the AIQ Prompt Card editor functionality.
+	 */
+	function initPromptCardEditor() {
+		// TODO: Add code to handle prompt card editing, live preview, dynamic field updates, etc.
+	}
 
-  // Run on document ready
-  $(document).ready(function() {
-    initPromptCardEditor();
-  });
+	// Run on document ready
+	$( document ).ready(
+		function () {
+			initPromptCardEditor();
+		}
+	);
 
-})(jQuery);
+})( jQuery );

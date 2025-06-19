@@ -12,37 +12,37 @@
 /* Standard screen reader only class */
 .sr-only,
 .screen-reader-text {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
 }
 
 /* Screen reader only that becomes visible when focused */
 .sr-only-focusable:focus,
 .screen-reader-text:focus {
-  position: static !important;
-  width: auto !important;
-  height: auto !important;
-  padding: inherit !important;
-  margin: inherit !important;
-  overflow: visible !important;
-  clip: auto !important;
-  white-space: normal !important;
-  border: inherit !important;
-  background: var(--color-accent) !important;
-  color: #FFFFFF !important;
-  text-decoration: none !important;
-  border-radius: 4px !important;
-  padding: 8px 12px !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  z-index: 100000 !important;
+	position: static !important;
+	width: auto !important;
+	height: auto !important;
+	padding: inherit !important;
+	margin: inherit !important;
+	overflow: visible !important;
+	clip: auto !important;
+	white-space: normal !important;
+	border: inherit !important;
+	background: var(--color-accent) !important;
+	color: #FFFFFF !important;
+	text-decoration: none !important;
+	border-radius: 4px !important;
+	padding: 8px 12px !important;
+	font-size: 14px !important;
+	font-weight: 600 !important;
+	z-index: 100000 !important;
 }
 
 /*=================================
@@ -50,21 +50,21 @@
  *=================================*/
 
 .skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: var(--color-accent);
-  color: #FFFFFF;
-  padding: 8px 16px;
-  text-decoration: none;
-  border-radius: 0 0 4px 4px;
-  font-weight: 600;
-  z-index: 100000;
-  transition: top 0.3s ease;
+	position: absolute;
+	top: -40px;
+	left: 6px;
+	background: var(--color-accent);
+	color: #FFFFFF;
+	padding: 8px 16px;
+	text-decoration: none;
+	border-radius: 0 0 4px 4px;
+	font-weight: 600;
+	z-index: 100000;
+	transition: top 0.3s ease;
 }
 
 .skip-link:focus {
-  top: 0;
+	top: 0;
 }
 
 /*=================================
@@ -73,19 +73,19 @@
 
 /* High contrast focus for better visibility */
 .aiq-focus-enhanced:focus {
-  outline: 3px solid var(--color-accent) !important;
-  outline-offset: 2px !important;
-  box-shadow:
-    0 0 0 6px rgba(255, 255, 0, 0.3),
-    var(--box-shadow-lg) !important;
+	outline: 3px solid var(--color-accent) !important;
+	outline-offset: 2px !important;
+	box-shadow:
+	0 0 0 6px rgba(255, 255, 0, 0.3),
+	var(--box-shadow-lg) !important;
 }
 
 /* Focus indicator for cards and interactive elements */
 .aiq-card:focus,
 .aiq-interactive:focus {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 2px;
-  box-shadow: var(--box-shadow-lg);
+	outline: 3px solid var(--color-accent);
+	outline-offset: 2px;
+	box-shadow: var(--box-shadow-lg);
 }
 
 /*=================================
@@ -93,20 +93,20 @@
  *=================================*/
 
 [aria-live] {
-  /* Ensure live regions are announced properly */
-  position: relative;
+	/* Ensure live regions are announced properly */
+	position: relative;
 }
 
 .aiq-announcer {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
 }
 
 /*=================================
@@ -115,136 +115,136 @@
 
 /* Chat Widget */
 .aiq-chat[role="dialog"] {
-  /* Ensure dialog role is properly styled */
-  isolation: isolate;
+	/* Ensure dialog role is properly styled */
+	isolation: isolate;
 }
 
 .aiq-chat__messages[role="log"] {
-  /* Ensure chat messages are properly announced */
-  overflow-y: auto;
-  scroll-behavior: smooth;
+	/* Ensure chat messages are properly announced */
+	overflow-y: auto;
+	scroll-behavior: smooth;
 }
 
 /* FAQ Accordion */
 .aiq-faq-accordion__question[role="button"] {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  padding: 1rem;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	text-align: left;
+	background: none;
+	border: none;
+	padding: 1rem;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
 }
 
 .aiq-faq-accordion__question[role="button"]:focus {
-  outline: var(--aiq-focus-ring);
-  outline-offset: 2px;
-  box-shadow: var(--aiq-focus-shadow);
+	outline: var(--aiq-focus-ring);
+	outline-offset: 2px;
+	box-shadow: var(--aiq-focus-shadow);
 }
 
 .aiq-faq-accordion__answer[role="region"] {
-  /* Ensure answer regions are properly handled */
-  padding: 0 1rem 1rem;
+	/* Ensure answer regions are properly handled */
+	padding: 0 1rem 1rem;
 }
 
 /* Modal and Dialog Enhancements */
 [role="dialog"],
 [role="alertdialog"] {
-  /* Ensure modals are properly contained */
-  isolation: isolate;
+	/* Ensure modals are properly contained */
+	isolation: isolate;
 }
 
 [aria-modal="true"] {
-  /* Additional styling for modal dialogs */
-  position: fixed;
-  z-index: 1000;
+	/* Additional styling for modal dialogs */
+	position: fixed;
+	z-index: 1000;
 }
 
 /* Form Enhancements */
 .aiq-form-group {
-  margin-bottom: 1rem;
+	margin-bottom: 1rem;
 }
 
 .aiq-form-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
+	display: block;
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+	color: var(--color-text-primary);
 }
 
 .aiq-form-input:focus,
 .aiq-form-textarea:focus,
 .aiq-form-select:focus {
-  outline: var(--aiq-focus-ring);
-  outline-offset: 1px;
-  box-shadow: var(--aiq-focus-shadow);
-  border-color: var(--color-accent);
+	outline: var(--aiq-focus-ring);
+	outline-offset: 1px;
+	box-shadow: var(--aiq-focus-shadow);
+	border-color: var(--color-accent);
 }
 
 .aiq-form-error {
-  color: var(--color-error);
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
-  display: block;
+	color: var(--color-error);
+	font-size: 0.875rem;
+	margin-top: 0.25rem;
+	display: block;
 }
 
 .aiq-form-help {
-  color: rgba(224, 214, 255, 0.8);
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
-  display: block;
+	color: rgba(224, 214, 255, 0.8);
+	font-size: 0.875rem;
+	margin-top: 0.25rem;
+	display: block;
 }
 
 /* Button Groups */
 .aiq-button-group {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
 }
 
 .aiq-button-group [role="button"],
 .aiq-button-group button {
-  min-height: 44px;
-  min-width: 44px;
+	min-height: 44px;
+	min-width: 44px;
 }
 
 /* Tab Navigation */
 [role="tablist"] {
-  display: flex;
-  border-bottom: 1px solid rgba(156, 77, 255, 0.3);
+	display: flex;
+	border-bottom: 1px solid rgba(156, 77, 255, 0.3);
 }
 
 [role="tab"] {
-  padding: 0.75rem 1rem;
-  cursor: pointer;
-  border: none;
-  background: none;
-  color: rgba(224, 214, 255, 0.8);
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s ease;
+	padding: 0.75rem 1rem;
+	cursor: pointer;
+	border: none;
+	background: none;
+	color: rgba(224, 214, 255, 0.8);
+	border-bottom: 2px solid transparent;
+	transition: all 0.2s ease;
 }
 
 [role="tab"]:focus {
-  outline: var(--aiq-focus-ring);
-  outline-offset: -2px;
+	outline: var(--aiq-focus-ring);
+	outline-offset: -2px;
 }
 
 [role="tab"][aria-selected="true"] {
-  color: var(--color-text-primary);
-  border-bottom-color: var(--color-accent);
+	color: var(--color-text-primary);
+	border-bottom-color: var(--color-accent);
 }
 
 [role="tabpanel"] {
-  padding: 1rem 0;
+	padding: 1rem 0;
 }
 
 [role="tabpanel"]:focus {
-  outline: none;
+	outline: none;
 }
 
 /*=================================
@@ -252,39 +252,39 @@
  *=================================*/
 
 .aiq-loading {
-  position: relative;
-  pointer-events: none;
-  opacity: 0.6;
+	position: relative;
+	pointer-events: none;
+	opacity: 0.6;
 }
 
 .aiq-loading::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 -10px;
-  border: 2px solid var(--color-accent);
-  border-radius: 50%;
-  border-top-color: transparent;
-  animation: aiq-spin 1s linear infinite;
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 20px;
+	height: 20px;
+	margin: -10px 0 0 -10px;
+	border: 2px solid var(--color-accent);
+	border-radius: 50%;
+	border-top-color: transparent;
+	animation: aiq-spin 1s linear infinite;
 }
 
 @keyframes aiq-spin {
-  to {
-    transform: rotate(360deg);
-  }
+	to {
+	transform: rotate(360deg);
+	}
 }
 
 /* Loading announcements */
 .aiq-loading[aria-busy="true"]::before {
-  content: attr(aria-label);
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+	content: attr(aria-label);
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 }
 
 /*=================================
@@ -292,24 +292,24 @@
  *=================================*/
 
 .aiq-error-state {
-  border: 2px solid var(--color-error);
-  background: rgba(244, 67, 54, 0.1);
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 1rem 0;
+	border: 2px solid var(--color-error);
+	background: rgba(244, 67, 54, 0.1);
+	padding: 1rem;
+	border-radius: 8px;
+	margin: 1rem 0;
 }
 
 .aiq-error-state[role="alert"] {
-  /* Alert styling */
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+	/* Alert styling */
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
 }
 
 .aiq-error-state[role="alert"]::before {
-  content: '⚠️';
-  font-size: 1.2em;
-  flex-shrink: 0;
+	content: '⚠️';
+	font-size: 1.2em;
+	flex-shrink: 0;
 }
 
 /*=================================
@@ -317,24 +317,24 @@
  *=================================*/
 
 .aiq-success-state {
-  border: 2px solid var(--color-success);
-  background: rgba(76, 175, 80, 0.1);
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 1rem 0;
+	border: 2px solid var(--color-success);
+	background: rgba(76, 175, 80, 0.1);
+	padding: 1rem;
+	border-radius: 8px;
+	margin: 1rem 0;
 }
 
 .aiq-success-state[role="status"] {
-  /* Status styling */
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+	/* Status styling */
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
 }
 
 .aiq-success-state[role="status"]::before {
-  content: '✅';
-  font-size: 1.2em;
-  flex-shrink: 0;
+	content: '✅';
+	font-size: 1.2em;
+	flex-shrink: 0;
 }
 
 /*=================================
@@ -342,22 +342,22 @@
  *=================================*/
 
 @media (max-width: 768px) {
-  /* Ensure touch targets are adequate on mobile */
-  button,
-  [role="button"],
-  a,
-  input,
-  select,
-  textarea {
-    min-height: 48px;
-    min-width: 48px;
-  }
+	/* Ensure touch targets are adequate on mobile */
+	button,
+	[role="button"],
+	a,
+	input,
+	select,
+	textarea {
+	min-height: 48px;
+	min-width: 48px;
+	}
 
-  /* Larger focus indicators on mobile */
-  *:focus {
-    outline-width: 4px;
-    outline-offset: 3px;
-  }
+	/* Larger focus indicators on mobile */
+	*:focus {
+	outline-width: 4px;
+	outline-offset: 3px;
+	}
 }
 
 /*=================================
@@ -365,25 +365,25 @@
  *=================================*/
 
 @media print {
-  /* Ensure focus styles don't interfere with printing */
-  *:focus {
-    outline: none !important;
-    box-shadow: none !important;
-  }
+	/* Ensure focus styles don't interfere with printing */
+	*:focus {
+	outline: none !important;
+	box-shadow: none !important;
+	}
 
-  /* Make sure hidden content stays hidden */
-  .sr-only,
-  .screen-reader-text,
-  [aria-hidden="true"] {
-    display: none !important;
-  }
+	/* Make sure hidden content stays hidden */
+	.sr-only,
+	.screen-reader-text,
+	[aria-hidden="true"] {
+	display: none !important;
+	}
 
-  /* Ensure links are visible in print */
-  a[href]:after {
-    content: " (" attr(href) ")";
-    font-size: 0.8em;
-    color: #666;
-  }
+	/* Ensure links are visible in print */
+	a[href]:after {
+	content: " (" attr(href) ")";
+	font-size: 0.8em;
+	color: #666;
+	}
 }
 
 /*=================================
@@ -392,20 +392,20 @@
 
 /* Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+	*,
+	*::before,
+	*::after {
+	animation-duration: 0.01ms !important;
+	animation-iteration-count: 1 !important;
+	transition-duration: 0.01ms !important;
+	scroll-behavior: auto !important;
+	}
 
-  /* Remove loading spinner animation */
-  .aiq-loading::after {
-    animation: none;
-    display: none;
-  }
+	/* Remove loading spinner animation */
+	.aiq-loading::after {
+	animation: none;
+	display: none;
+	}
 }
 
 /*=================================
@@ -413,20 +413,20 @@
  *=================================*/
 
 @media (prefers-contrast: high) {
-  :root {
-    --aiq-primary-text: #FFFFFF;
-    --aiq-accent: #FFFF00;
-    --aiq-focus-color: #FF0000;
-    --aiq-primary-bg: #000000;
-    --aiq-secondary-bg: #333333;
-  }
+	:root {
+	--aiq-primary-text: #FFFFFF;
+	--aiq-accent: #FFFF00;
+	--aiq-focus-color: #FF0000;
+	--aiq-primary-bg: #000000;
+	--aiq-secondary-bg: #333333;
+	}
 
-  /* Ensure borders are visible in high contrast */
-  .aiq-card,
-  .aiq-button,
-  .aiq-form-input,
-  .aiq-form-textarea,
-  .aiq-form-select {
-    border: 2px solid currentColor;
-  }
+	/* Ensure borders are visible in high contrast */
+	.aiq-card,
+	.aiq-button,
+	.aiq-form-input,
+	.aiq-form-textarea,
+	.aiq-form-select {
+	border: 2px solid currentColor;
+	}
 }

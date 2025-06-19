@@ -7,355 +7,355 @@
 
 /* Base container with enhanced stacking context */
 .aiq-exit-intent {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;
-  overscroll-behavior: contain; /* Prevent page scroll when modal is open */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	overflow-y: auto;
+	overscroll-behavior: contain; /* Prevent page scroll when modal is open */
 }
 
 .aiq-exit-intent.active {
-  display: flex;
+	display: flex;
 }
 
 /* Overlay with smooth transition */
 .aiq-exit-intent__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--aiq-overlay-bg);
-  z-index: 1;
-  opacity: 0;
-  transition: opacity var(--aiq-transition-duration) ease;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--aiq-overlay-bg);
+	z-index: 1;
+	opacity: 0;
+	transition: opacity var(--aiq-transition-duration) ease;
 }
 
 .aiq-exit-intent.active .aiq-exit-intent__overlay {
-  opacity: 1;
+	opacity: 1;
 }
 
 /* Modal container with enhanced focus management */
 .aiq-exit-intent__modal {
-  position: relative;
-  z-index: 2;
-  max-width: min(600px, 90vw);
-  width: 100%;
-  background-color: var(--aiq-modal-bg);
-  border-radius: var(--aiq-border-radius);
-  padding: clamp(20px, 5vw, 30px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(156, 77, 255, 0.3);
-  margin: max(5vw, 15px);
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity var(--aiq-transition-duration) ease,
-    transform var(--aiq-transition-duration) ease;
+	position: relative;
+	z-index: 2;
+	max-width: min(600px, 90vw);
+	width: 100%;
+	background-color: var(--aiq-modal-bg);
+	border-radius: var(--aiq-border-radius);
+	padding: clamp(20px, 5vw, 30px);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(156, 77, 255, 0.3);
+	margin: max(5vw, 15px);
+	opacity: 0;
+	transform: translateY(20px);
+	transition:
+	opacity var(--aiq-transition-duration) ease,
+	transform var(--aiq-transition-duration) ease;
 }
 
 .aiq-exit-intent.active .aiq-exit-intent__modal {
-  opacity: 1;
-  transform: translateY(0);
+	opacity: 1;
+	transform: translateY(0);
 }
 
 /* Modal content with scrollable area when needed */
 .aiq-exit-intent__modal[style*="height"] {
-  display: flex;
-  flex-direction: column;
-  max-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	max-height: 90vh;
 }
 
 .aiq-exit-intent__content-wrapper {
-  width: 100%;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--aiq-primary-color) transparent;
+	width: 100%;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scrollbar-color: var(--aiq-primary-color) transparent;
 }
 
 .aiq-exit-intent__content-wrapper::-webkit-scrollbar {
-  width: 6px;
+	width: 6px;
 }
 
 .aiq-exit-intent__content-wrapper::-webkit-scrollbar-thumb {
-  background-color: var(--aiq-primary-color);
-  border-radius: 3px;
+	background-color: var(--aiq-primary-color);
+	border-radius: 3px;
 }
 
 /* Typography with fluid sizing */
 .aiq-exit-intent__heading {
-  color: var(--aiq-text-light);
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0 0 0.5em;
+	color: var(--aiq-text-light);
+	font-size: clamp(1.8rem, 5vw, 2.5rem);
+	font-weight: 700;
+	line-height: 1.2;
+	margin: 0 0 0.5em;
 }
 
 .aiq-exit-intent__subheading {
-  color: var(--aiq-primary-color);
-  font-size: clamp(1.25rem, 4vw, 1.5rem);
-  font-weight: 600;
-  line-height: 1.3;
-  margin: 0 0 1em;
+	color: var(--aiq-primary-color);
+	font-size: clamp(1.25rem, 4vw, 1.5rem);
+	font-weight: 600;
+	line-height: 1.3;
+	margin: 0 0 1em;
 }
 
 .aiq-exit-intent__content {
-  color: var(--aiq-text-light);
-  font-size: clamp(0.9rem, 3vw, 1rem);
-  line-height: 1.6;
+	color: var(--aiq-text-light);
+	font-size: clamp(0.9rem, 3vw, 1rem);
+	line-height: 1.6;
 }
 
 /* Enhanced focus styles for accessibility */
 .aiq-exit-intent:focus-visible,
 .aiq-exit-intent__modal:focus-visible {
-  outline: 3px solid var(--aiq-primary-color);
-  outline-offset: 2px;
+	outline: 3px solid var(--aiq-primary-color);
+	outline-offset: 2px;
 }
 
 /* Close button with improved interaction */
 .aiq-exit-intent__close {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: clamp(25px, 8vw, 30px);
-  height: clamp(25px, 8vw, 30px);
-  background-color: rgba(156, 77, 255, 0.2);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition:
-    background-color var(--aiq-transition-duration) ease,
-    transform 0.1s ease;
-  z-index: 3;
-  padding: 0;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: clamp(25px, 8vw, 30px);
+	height: clamp(25px, 8vw, 30px);
+	background-color: rgba(156, 77, 255, 0.2);
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	transition:
+	background-color var(--aiq-transition-duration) ease,
+	transform 0.1s ease;
+	z-index: 3;
+	padding: 0;
 }
 
 .aiq-exit-intent-close-outside .aiq-exit-intent__close {
-  top: max(-15px, -5vw);
-  right: max(-15px, -5vw);
+	top: max(-15px, -5vw);
+	right: max(-15px, -5vw);
 }
 
 .aiq-exit-intent-close-inside .aiq-exit-intent__close {
-  top: max(15px, 5vw);
-  right: max(15px, 5vw);
+	top: max(15px, 5vw);
+	right: max(15px, 5vw);
 }
 
 .aiq-exit-intent__close svg {
-  width: clamp(15px, 6vw, 20px);
-  height: clamp(15px, 6vw, 20px);
-  fill: var(--aiq-text-light);
-  transition: fill var(--aiq-transition-duration) ease;
+	width: clamp(15px, 6vw, 20px);
+	height: clamp(15px, 6vw, 20px);
+	fill: var(--aiq-text-light);
+	transition: fill var(--aiq-transition-duration) ease;
 }
 
 .aiq-exit-intent__close:hover {
-  background-color: var(--aiq-primary-color);
-  transform: scale(1.1);
+	background-color: var(--aiq-primary-color);
+	transform: scale(1.1);
 }
 
 .aiq-exit-intent__close:active {
-  transform: scale(0.95);
+	transform: scale(0.95);
 }
 
 .aiq-exit-intent__close:hover svg {
-  fill: #FFFFFF;
+	fill: #FFFFFF;
 }
 
 .aiq-exit-intent__close:focus-visible {
-  outline: 3px solid var(--aiq-primary-color);
-  outline-offset: 2px;
+	outline: 3px solid var(--aiq-primary-color);
+	outline-offset: 2px;
 }
 
 /* Animation variants with will-change for performance */
 [class*="aiq-exit-intent__animation-"] {
-  will-change: opacity, transform;
+	will-change: opacity, transform;
 }
 
 .aiq-exit-intent__animation-fade-in {
-  animation: aiqFadeIn var(--aiq-transition-duration) ease forwards;
+	animation: aiqFadeIn var(--aiq-transition-duration) ease forwards;
 }
 
 .aiq-exit-intent__animation-fade-in-up {
-  animation: aiqFadeInUp calc(var(--aiq-transition-duration) * 1.33) ease forwards;
+	animation: aiqFadeInUp calc(var(--aiq-transition-duration) * 1.33) ease forwards;
 }
 
 .aiq-exit-intent__animation-fade-in-down {
-  animation: aiqFadeInDown calc(var(--aiq-transition-duration) * 1.33) ease forwards;
+	animation: aiqFadeInDown calc(var(--aiq-transition-duration) * 1.33) ease forwards;
 }
 
 .aiq-exit-intent__animation-zoom-in {
-  animation: aiqZoomIn var(--aiq-transition-duration) ease forwards;
+	animation: aiqZoomIn var(--aiq-transition-duration) ease forwards;
 }
 
 .aiq-exit-intent__animation-slide-in-right {
-  animation: aiqSlideInRight calc(var(--aiq-transition-duration) * 1.33) ease forwards;
+	animation: aiqSlideInRight calc(var(--aiq-transition-duration) * 1.33) ease forwards;
 }
 
 .aiq-exit-intent__animation-slide-in-left {
-  animation: aiqSlideInLeft calc(var(--aiq-transition-duration) * 1.33) ease forwards;
+	animation: aiqSlideInLeft calc(var(--aiq-transition-duration) * 1.33) ease forwards;
 }
 
 /* Close animations */
 .aiq-exit-intent.closing .aiq-exit-intent__animation-fade-in,
 .aiq-exit-intent.closing .aiq-exit-intent__animation-fade-in-up,
 .aiq-exit-intent.closing .aiq-exit-intent__animation-fade-in-down {
-  animation: aiqFadeOut var(--aiq-transition-duration) ease forwards;
+	animation: aiqFadeOut var(--aiq-transition-duration) ease forwards;
 }
 
 .aiq-exit-intent.closing .aiq-exit-intent__animation-zoom-in {
-  animation: aiqZoomOut var(--aiq-transition-duration) ease forwards;
+	animation: aiqZoomOut var(--aiq-transition-duration) ease forwards;
 }
 
 .aiq-exit-intent.closing .aiq-exit-intent__animation-slide-in-right {
-  animation: aiqSlideOutRight var(--aiq-transition-duration) ease forwards;
+	animation: aiqSlideOutRight var(--aiq-transition-duration) ease forwards;
 }
 
 .aiq-exit-intent.closing .aiq-exit-intent__animation-slide-in-left {
-  animation: aiqSlideOutLeft var(--aiq-transition-duration) ease forwards;
+	animation: aiqSlideOutLeft var(--aiq-transition-duration) ease forwards;
 }
 
 /* Keyframes with consistent timing */
 @keyframes aiqFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+	from { opacity: 0; }
+	to { opacity: 1; }
 }
 
 @keyframes aiqFadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+	from { opacity: 1; }
+	to { opacity: 0; }
 }
 
 @keyframes aiqFadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	from {
+	opacity: 0;
+	transform: translateY(20px);
+	}
+	to {
+	opacity: 1;
+	transform: translateY(0);
+	}
 }
 
 @keyframes aiqFadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	from {
+	opacity: 0;
+	transform: translateY(-20px);
+	}
+	to {
+	opacity: 1;
+	transform: translateY(0);
+	}
 }
 
 @keyframes aiqZoomIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+	from {
+	opacity: 0;
+	transform: scale(0.95);
+	}
+	to {
+	opacity: 1;
+	transform: scale(1);
+	}
 }
 
 @keyframes aiqZoomOut {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.95);
-  }
+	from {
+	opacity: 1;
+	transform: scale(1);
+	}
+	to {
+	opacity: 0;
+	transform: scale(0.95);
+	}
 }
 
 @keyframes aiqSlideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+	from {
+	opacity: 0;
+	transform: translateX(30px);
+	}
+	to {
+	opacity: 1;
+	transform: translateX(0);
+	}
 }
 
 @keyframes aiqSlideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+	from {
+	opacity: 0;
+	transform: translateX(-30px);
+	}
+	to {
+	opacity: 1;
+	transform: translateX(0);
+	}
 }
 
 @keyframes aiqSlideOutRight {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(30px);
-  }
+	from {
+	opacity: 1;
+	transform: translateX(0);
+	}
+	to {
+	opacity: 0;
+	transform: translateX(30px);
+	}
 }
 
 @keyframes aiqSlideOutLeft {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
+	from {
+	opacity: 1;
+	transform: translateX(0);
+	}
+	to {
+	opacity: 0;
+	transform: translateX(-30px);
+	}
 }
 
 /* Responsive adjustments */
 @media (max-width: 480px) {
-  .aiq-exit-intent__modal {
-    padding: 15px;
-  }
+	.aiq-exit-intent__modal {
+	padding: 15px;
+	}
 
-  .aiq-exit-intent-close-outside .aiq-exit-intent__close {
-    top: 10px;
-    right: 10px;
-  }
+	.aiq-exit-intent-close-outside .aiq-exit-intent__close {
+	top: 10px;
+	right: 10px;
+	}
 }
 
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  .aiq-exit-intent__overlay,
-  .aiq-exit-intent__modal,
-  .aiq-exit-intent__close {
-    transition: none !important;
-  }
+	.aiq-exit-intent__overlay,
+	.aiq-exit-intent__modal,
+	.aiq-exit-intent__close {
+	transition: none !important;
+	}
 
-  [class*="aiq-exit-intent__animation-"] {
-    animation: aiqFadeIn 0.01s ease forwards !important;
-  }
+	[class*="aiq-exit-intent__animation-"] {
+	animation: aiqFadeIn 0.01s ease forwards !important;
+	}
 
-  .aiq-exit-intent.closing [class*="aiq-exit-intent__animation-"] {
-    animation: aiqFadeOut 0.01s ease forwards !important;
-  }
+	.aiq-exit-intent.closing [class*="aiq-exit-intent__animation-"] {
+	animation: aiqFadeOut 0.01s ease forwards !important;
+	}
 }
 
 /* Fix for Elementor templates in modal */
 .aiq-exit-intent .elementor-section-wrap:not(:empty) + .elementor-add-section {
-  display: none;
+	display: none;
 }
 
 /* Print styles - hide modal when printing */
 @media print {
-  .aiq-exit-intent {
-    display: none !important;
-  }
+	.aiq-exit-intent {
+	display: none !important;
+	}
 }

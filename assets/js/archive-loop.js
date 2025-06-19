@@ -7,21 +7,25 @@
  */
 
 
-(function($) {
-    'use strict';
+(function ($) {
+	'use strict';
 
-    // Archive Loop Widget JavaScript functionality
-    $(document).ready(function() {
-        $('.aiq-archive-loop').each(function() {
-            const $widget = $(this);
+	// Archive Loop Widget JavaScript functionality
+	$( document ).ready(
+		function () {
+			$( '.aiq-archive-loop' ).each(
+				function () {
+					const $widget = $( this );
 
-            // Initialize archive loop functionality
-            initArchiveLoop($widget);
-        });
-    });
+					// Initialize archive loop functionality
+					initArchiveLoop( $widget );
+				}
+			);
+		}
+	);
 
-    function initArchiveLoop($widget) {
-        // TODO: Implement Archive Loop widget functionality
-    }
+	function initArchiveLoop($widget) {
+		// TODO: Implement Archive Loop widget functionality
+	}
 
-})(jQuery);
+})( jQuery );

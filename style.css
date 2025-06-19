@@ -39,118 +39,118 @@ Requires PHP: 7.4
 /* =Base Styles (fallbacks if imports fail)
 -------------------------------------------------------------- */
 body.aiqengage-child {
-  font-family: var(--aiq-font-primary, 'Inter', sans-serif);
-  line-height: var(--aiq-line-height-body, 1.6);
-  color: var(--aiq-primary-text, #E0D6FF);
-  background-color: var(--aiq-primary-bg, #1A0938);
+	font-family: var(--aiq-font-primary, 'Inter', sans-serif);
+	line-height: var(--aiq-line-height-body, 1.6);
+	color: var(--aiq-primary-text, #E0D6FF);
+	background-color: var(--aiq-primary-bg, #1A0938);
 }
 
 /* Basic typography - use design tokens from main.css */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--aiq-font-bold, 700);
-  line-height: var(--aiq-line-height-heading, 1.2);
-  margin-bottom: 1rem;
-  color: var(--aiq-primary-text, #E0D6FF);
-  font-family: var(--aiq-font-primary, 'Inter', sans-serif);
+	font-weight: var(--aiq-font-bold, 700);
+	line-height: var(--aiq-line-height-heading, 1.2);
+	margin-bottom: 1rem;
+	color: var(--aiq-primary-text, #E0D6FF);
+	font-family: var(--aiq-font-primary, 'Inter', sans-serif);
 }
 
 h1 {
-  font-size: var(--aiq-h1-size, 4.5rem);
-  font-weight: var(--aiq-font-extrabold, 800);
+	font-size: var(--aiq-h1-size, 4.5rem);
+	font-weight: var(--aiq-font-extrabold, 800);
 }
 
 h2 {
-  font-size: var(--aiq-h2-size, 2.5rem);
-  font-weight: var(--aiq-font-bold, 700);
+	font-size: var(--aiq-h2-size, 2.5rem);
+	font-weight: var(--aiq-font-bold, 700);
 }
 
 h3 {
-  font-size: var(--aiq-h3-size, 1.5rem);
-  font-weight: var(--aiq-font-semibold, 600);
+	font-size: var(--aiq-h3-size, 1.5rem);
+	font-weight: var(--aiq-font-semibold, 600);
 }
 
 a {
-  color: var(--aiq-accent, #9C4DFF);
-  text-decoration: none;
-  transition: color var(--aiq-transition-fast, 0.2s);
+	color: var(--aiq-accent, #9C4DFF);
+	text-decoration: none;
+	transition: color var(--aiq-transition-fast, 0.2s);
 }
 
 a:hover {
-  color: var(--aiq-gradient-end, #8E6BFF);
+	color: var(--aiq-gradient-end, #8E6BFF);
 }
 
 /* =Responsive Breakpoints
 -------------------------------------------------------------- */
 @media (max-width: 767px) {
-  /* Increase touch targets */
-  .cta-button, .nav-link, .prompt-copy {
-    min-height: var(--aiq-button-height, 48px);
-    padding: var(--aiq-button-padding, 0.9rem 1.6rem);
-  }
-  
-  /* Improve readability on small screens */
-  body {
-    font-size: var(--aiq-body-size, 1rem); /* Ensure no text is smaller than 16px */
-  }
-  
-  /* Adjust card layouts for mobile */
-  .feature-card {
-    padding: var(--aiq-card-padding, 1.5rem);
-    margin-bottom: 1rem;
-    border-radius: var(--aiq-card-radius, 15px);
-  }
-  
-  /* Use mobile typography tokens */
-  h1 {
-    font-size: var(--aiq-h1-size-mobile, 2.5rem);
-  }
-  
-  h2 {
-    font-size: var(--aiq-h2-size-mobile, 1.8rem);
-  }
-  
-  h3 {
-    font-size: var(--aiq-h3-size-mobile, 1.25rem);
-  }
+	/* Increase touch targets */
+	.cta-button, .nav-link, .prompt-copy {
+	min-height: var(--aiq-button-height, 48px);
+	padding: var(--aiq-button-padding, 0.9rem 1.6rem);
+	}
+
+	/* Improve readability on small screens */
+	body {
+	font-size: var(--aiq-body-size, 1rem); /* Ensure no text is smaller than 16px */
+	}
+
+	/* Adjust card layouts for mobile */
+	.feature-card {
+	padding: var(--aiq-card-padding, 1.5rem);
+	margin-bottom: 1rem;
+	border-radius: var(--aiq-card-radius, 15px);
+	}
+
+	/* Use mobile typography tokens */
+	h1 {
+	font-size: var(--aiq-h1-size-mobile, 2.5rem);
+	}
+
+	h2 {
+	font-size: var(--aiq-h2-size-mobile, 1.8rem);
+	}
+
+	h3 {
+	font-size: var(--aiq-h3-size-mobile, 1.25rem);
+	}
 }
 
 /* =WordPress Core Alignment
 -------------------------------------------------------------- */
 .alignwide {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .alignfull {
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /* =Accessibility Improvements
 -------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.001ms !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
+	* {
+	animation-duration: 0.001ms !important;
+	transition-duration: 0.001ms !important;
+	scroll-behavior: auto !important;
+	}
 }
 
 .focus-visible:focus {
-  outline: 3px solid var(--aiq-accent, #9C4DFF) !important;
-  outline-offset: 2px !important;
+	outline: 3px solid var(--aiq-accent, #9C4DFF) !important;
+	outline-offset: 2px !important;
 }
 
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
 }

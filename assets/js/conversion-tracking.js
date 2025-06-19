@@ -6,19 +6,21 @@
  * @since   1.0.0
  */
 
-(function($) {
-  'use strict';
+(function ($) {
+	'use strict';
 
-  /**
-   * Initialize conversion tracking logic.
-   */
-  function initConversionTracking() {
-    // TODO: Add code to send conversion events (e.g., Google Analytics, Facebook Pixel)
-  }
+	/**
+	 * Initialize conversion tracking logic.
+	 */
+	function initConversionTracking() {
+		// TODO: Add code to send conversion events (e.g., Google Analytics, Facebook Pixel)
+	}
 
-  // Run on document ready
-  $(document).ready(function() {
-    initConversionTracking();
-  });
+	// Run on document ready
+	$( document ).ready(
+		function () {
+			initConversionTracking();
+		}
+	);
 
-})(jQuery);
+})( jQuery );
