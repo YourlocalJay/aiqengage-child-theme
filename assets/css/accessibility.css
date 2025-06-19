@@ -1,6 +1,8 @@
-/**
- * AIQEngage Screen Reader & Accessibility Utilities
- * Provides additional utility classes and enhancements for screen readers
+/****
+ * Screen Reader & Accessibility Utilities
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
  */
 
 /*=================================
@@ -33,7 +35,7 @@
   clip: auto !important;
   white-space: normal !important;
   border: inherit !important;
-  background: var(--aiq-accent) !important;
+  background: var(--color-accent) !important;
   color: #FFFFFF !important;
   text-decoration: none !important;
   border-radius: 4px !important;
@@ -51,7 +53,7 @@
   position: absolute;
   top: -40px;
   left: 6px;
-  background: var(--aiq-accent);
+  background: var(--color-accent);
   color: #FFFFFF;
   padding: 8px 16px;
   text-decoration: none;
@@ -71,19 +73,19 @@
 
 /* High contrast focus for better visibility */
 .aiq-focus-enhanced:focus {
-  outline: 3px solid var(--aiq-focus-color) !important;
+  outline: 3px solid var(--color-accent) !important;
   outline-offset: 2px !important;
-  box-shadow: 
+  box-shadow:
     0 0 0 6px rgba(255, 255, 0, 0.3),
-    var(--aiq-focus-shadow) !important;
+    var(--box-shadow-lg) !important;
 }
 
 /* Focus indicator for cards and interactive elements */
 .aiq-card:focus,
 .aiq-interactive:focus {
-  outline: 3px solid var(--aiq-focus-color);
+  outline: 3px solid var(--color-accent);
   outline-offset: 2px;
-  box-shadow: var(--aiq-focus-shadow);
+  box-shadow: var(--box-shadow-lg);
 }
 
 /*=================================
@@ -172,7 +174,7 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: var(--aiq-primary-text);
+  color: var(--color-text-primary);
 }
 
 .aiq-form-input:focus,
@@ -181,11 +183,11 @@
   outline: var(--aiq-focus-ring);
   outline-offset: 1px;
   box-shadow: var(--aiq-focus-shadow);
-  border-color: var(--aiq-focus-color);
+  border-color: var(--color-accent);
 }
 
 .aiq-form-error {
-  color: var(--aiq-error);
+  color: var(--color-error);
   font-size: 0.875rem;
   margin-top: 0.25rem;
   display: block;
@@ -233,8 +235,8 @@
 }
 
 [role="tab"][aria-selected="true"] {
-  color: var(--aiq-primary-text);
-  border-bottom-color: var(--aiq-accent);
+  color: var(--color-text-primary);
+  border-bottom-color: var(--color-accent);
 }
 
 [role="tabpanel"] {
@@ -263,7 +265,7 @@
   width: 20px;
   height: 20px;
   margin: -10px 0 0 -10px;
-  border: 2px solid var(--aiq-accent);
+  border: 2px solid var(--color-accent);
   border-radius: 50%;
   border-top-color: transparent;
   animation: aiq-spin 1s linear infinite;
@@ -290,7 +292,7 @@
  *=================================*/
 
 .aiq-error-state {
-  border: 2px solid var(--aiq-error);
+  border: 2px solid var(--color-error);
   background: rgba(244, 67, 54, 0.1);
   padding: 1rem;
   border-radius: 8px;
@@ -315,7 +317,7 @@
  *=================================*/
 
 .aiq-success-state {
-  border: 2px solid var(--aiq-success);
+  border: 2px solid var(--color-success);
   background: rgba(76, 175, 80, 0.1);
   padding: 1rem;
   border-radius: 8px;
@@ -350,7 +352,7 @@
     min-height: 48px;
     min-width: 48px;
   }
-  
+
   /* Larger focus indicators on mobile */
   *:focus {
     outline-width: 4px;
@@ -368,14 +370,14 @@
     outline: none !important;
     box-shadow: none !important;
   }
-  
+
   /* Make sure hidden content stays hidden */
   .sr-only,
   .screen-reader-text,
   [aria-hidden="true"] {
     display: none !important;
   }
-  
+
   /* Ensure links are visible in print */
   a[href]:after {
     content: " (" attr(href) ")";
@@ -398,7 +400,7 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
+
   /* Remove loading spinner animation */
   .aiq-loading::after {
     animation: none;
@@ -418,7 +420,7 @@
     --aiq-primary-bg: #000000;
     --aiq-secondary-bg: #333333;
   }
-  
+
   /* Ensure borders are visible in high contrast */
   .aiq-card,
   .aiq-button,

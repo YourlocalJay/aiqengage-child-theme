@@ -8,34 +8,39 @@
  *=================================*/
 :root {
   /* Primary Colors */
-  --aiq-primary-bg: #1A0938;
-  --aiq-secondary-bg: #2A1958;
-  --aiq-primary-text: #E0D6FF;
-  --aiq-accent: #9C4DFF;
+  --color-bg-primary: #1A0938;
+  --color-bg-secondary: #2A1958;
+  --color-text-primary: #E0D6FF;
+  --color-accent: #9C4DFF;
 
   /* Gradient Colors */
   --aiq-gradient-start: #635BFF;
   --aiq-gradient-mid: #7F5AF0;
   --aiq-gradient-end: #8E6BFF;
-  
+
   /* CTA Colors */
   --aiq-cta-gradient-start: #9C4DFF;
   --aiq-cta-gradient-end: #5E72E4;
   --aiq-cta-hover-shadow: rgba(94, 114, 228, 0.4);
 
+  /* Gradient Tokens */
+  --gradient-accent: linear-gradient(90deg, var(--aiq-cta-gradient-start), var(--aiq-cta-gradient-end));
+  --gradient-accent-light: linear-gradient(to bottom, rgba(156, 77, 255, 0.1), rgba(156, 77, 255, 0.5));
+  --gradient-gold: linear-gradient(90deg, #FFD700, #FFA500);
+
   /* Badge Colors */
   --aiq-badge-bg: rgba(126, 87, 194, 0.2);
   --aiq-badge-border: #9C4DFF;
-  
+
   /* Pro Tier Colors */
-  --aiq-pro-badge: #FFD700;
-  --aiq-pro-text: #1A0938;
-  
+  --color-gold: #FFD700;
+  --color-text-inverse: #1A0938;
+
   /* Semantic Colors */
-  --aiq-success: #4CAF50;
-  --aiq-warning: #FFC107;
-  --aiq-error: #F44336;
-  --aiq-info: #2196F3;
+  --color-success: #4CAF50;
+  --color-warning: #FFC107;
+  --color-error: #F44336;
+  --color-info: #2196F3;
 
   /* Accessibility Colors */
   --aiq-focus-color: #FFFF00;
@@ -49,29 +54,32 @@
 :root {
   /* Font Family */
   --aiq-font-primary: 'Inter', sans-serif;
-  
+
   /* Font Sizes */
   --aiq-h1-size: 4.5rem;
   --aiq-h2-size: 2.5rem;
   --aiq-h3-size: 1.5rem;
   --aiq-body-size: 1rem;
   --aiq-small-size: 0.875rem;
-  
+
   /* Font Weights */
   --aiq-font-regular: 400;
   --aiq-font-medium: 500;
   --aiq-font-semibold: 600;
   --aiq-font-bold: 700;
   --aiq-font-extrabold: 800;
-  
+
   /* Line Heights */
   --aiq-line-height-heading: 1.2;
   --aiq-line-height-body: 1.6;
-  
+
   /* Mobile Typography */
   --aiq-h1-size-mobile: 2.5rem;
   --aiq-h2-size-mobile: 1.8rem;
   --aiq-h3-size-mobile: 1.25rem;
+
+  /* Icon Sizes */
+  --font-size-xl: 4rem;
 }
 
 /*=================================
@@ -83,16 +91,34 @@
   --aiq-card-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   --aiq-card-border: 1px solid rgba(156, 77, 255, 0.3);
   --aiq-card-padding: 1.5rem;
-  
+
   /* Button Design */
   --aiq-button-height: 48px;
   --aiq-button-padding: 0.9rem 1.6rem;
   --aiq-button-radius: 8px;
-  
+
   /* Animation Timing */
   --aiq-transition-fast: 0.2s;
   --aiq-transition-medium: 0.3s;
   --aiq-transition-slow: 0.5s;
+
+  /* Aliases */
+  --border-radius: var(--aiq-card-radius);
+  --box-shadow-lg: var(--aiq-card-shadow);
+  --color-border: var(--aiq-card-border);
+  --spacing-md: var(--aiq-card-padding);
+  --transition-base: var(--aiq-transition-medium);
+
+  /* Additional Shadow Sizes */
+  --box-shadow-sm: 0 2px 8px rgba(156, 77, 255, 0.4);
+  --box-shadow-md: 0 4px 10px rgba(156, 77, 255, 0.3);
+  --box-shadow-xl: 0 8px 20px rgba(0, 0, 0, 0.4);
+
+  /* Spacing Tokens */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
 }
 
 /*=================================
@@ -182,15 +208,15 @@ select:focus {
  * Base Resets
  *=================================*/
 body {
-  background-color: var(--aiq-primary-bg);
-  color: var(--aiq-primary-text);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
   font-family: var(--aiq-font-primary);
   line-height: var(--aiq-line-height-body);
   font-weight: var(--aiq-font-regular);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--aiq-primary-text);
+  color: var(--color-text-primary);
   font-family: var(--aiq-font-primary);
   line-height: var(--aiq-line-height-heading);
   margin-bottom: 1rem;
@@ -212,7 +238,7 @@ h3 {
 }
 
 a {
-  color: var(--aiq-accent);
+  color: var(--color-accent);
   text-decoration: none;
   transition: color var(--aiq-transition-fast);
 }
@@ -239,11 +265,11 @@ textarea,
   h1 {
     font-size: var(--aiq-h1-size-mobile);
   }
-  
+
   h2 {
     font-size: var(--aiq-h2-size-mobile);
   }
-  
+
   h3 {
     font-size: var(--aiq-h3-size-mobile);
   }

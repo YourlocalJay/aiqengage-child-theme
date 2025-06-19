@@ -1,14 +1,9 @@
-/* assets/css/widgets/faq-accordion.css */
-
-:root {
-  --aiq-faq-primary-color: #9C4DFF;
-  --aiq-faq-text-color: #E0D6FF;
-  --aiq-faq-bg-color: #2A1958;
-  --aiq-faq-border-color: rgba(156, 77, 255, 0.3);
-  --aiq-faq-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  --aiq-faq-active-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  --aiq-faq-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
+/**
+ * FAQ Accordion Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
+ */
 
 .aiq-faq-accordion {
   margin: 2rem 0;
@@ -220,7 +215,7 @@
   font-weight: 400;
   font-size: clamp(0.95rem, 1.5vw, 1rem);
   line-height: 1.6;
-  transition: 
+  transition:
     padding 0.3s ease,
     max-height 0.3s ease,
     opacity 0.2s ease;
@@ -282,7 +277,7 @@
     border: 1px solid #ddd !important;
     box-shadow: none !important;
   }
-  
+
   .aiq-faq-accordion__answer {
     display: block !important;
     max-height: none !important;

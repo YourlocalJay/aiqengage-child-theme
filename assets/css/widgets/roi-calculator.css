@@ -1,37 +1,26 @@
-:root {
-  --aiq-roi-primary: #7c3aed;
-  --aiq-roi-primary-hover: #6d28d9;
-  --aiq-roi-secondary: #4f46e5;
-  --aiq-roi-bg: #1e1b4b;
-  --aiq-roi-bg-light: #2e2a6e;
-  --aiq-roi-text: #e9e7ff;
-  --aiq-roi-text-muted: #a5b4fc;
-  --aiq-roi-border: #4f46e5;
-  --aiq-roi-success: #10b981;
-  --aiq-roi-warning: #f59e0b;
-  --aiq-roi-error: #ef4444;
-}
+/**
+ * ROI Calculator Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
+ */
 
 /* Base Styles */
 .aiq-roi-calculator {
-  --aiq-roi-radius: 12px;
-  --aiq-roi-spacing: 1.5rem;
-  --aiq-roi-input-height: 3rem;
-  
-  background: var(--aiq-roi-bg);
-  color: var(--aiq-roi-text);
-  border-radius: var(--aiq-roi-radius);
-  padding: var(--aiq-roi-spacing);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   max-width: 640px;
   margin: 0 auto;
-  border: 1px solid var(--aiq-roi-border);
+  border: 1px solid var(--color-border);
 }
 
 /* Header Styles */
 .aiq-roi-calculator__header {
-  margin-bottom: var(--aiq-roi-spacing);
+  margin-bottom: var(--spacing-md);
   text-align: center;
 }
 
@@ -40,7 +29,7 @@
   font-weight: 700;
   color: white;
   margin: 0 0 0.5rem;
-  background: linear-gradient(90deg, var(--aiq-roi-primary), var(--aiq-roi-secondary));
+  background: var(--gradient-accent);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -64,14 +53,14 @@
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--aiq-roi-text-muted);
+  color: var(--color-text-muted);
 }
 
 .aiq-roi-input {
   width: 100%;
-  height: var(--aiq-roi-input-height);
+  height: var(--spacing-xl);
   padding: 0 1rem;
-  background: var(--aiq-roi-bg-light);
+  background: var(--color-bg-secondary-alpha);
   border: 1px solid rgba(99, 102, 241, 0.3);
   border-radius: 8px;
   color: white;
@@ -82,11 +71,11 @@
 /* Results Styles */
 .aiq-roi-calculator__results {
   margin-top: 2rem;
-  background: rgba(30, 27, 75, 0.7);
+  background: var(--color-bg-secondary-alpha);
   backdrop-filter: blur(10px);
   padding: 1.5rem;
-  border-radius: var(--aiq-roi-radius);
-  border: 1px solid var(--aiq-roi-border);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
 }
 
 .aiq-roi-result-card h4 {
@@ -114,7 +103,7 @@
   .aiq-roi-calculator {
     padding: 1.25rem;
   }
-  
+
   .aiq-roi-calculator__input-grid {
     grid-template-columns: 1fr;
   }

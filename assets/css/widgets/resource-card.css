@@ -1,45 +1,28 @@
 /**
- * Enhanced Resource Card Widget Styles
- * Version: 2.0
- * Features:
- * - Modern gradient effects
- * - Smooth hover animations
- * - Responsive design
- * - Accessibility improvements
- * - Video loading states
+ * Resource Card Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
  */
-
-:root {
-  --aiq-resource-bg: #2A1958;
-  --aiq-resource-text: #E0D6FF;
-  --aiq-resource-text-secondary: rgba(224, 214, 255, 0.8);
-  --aiq-resource-accent: #9C4DFF;
-  --aiq-resource-accent-secondary: #5E72E4;
-  --aiq-resource-border: rgba(156, 77, 255, 0.3);
-  --aiq-resource-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  --aiq-resource-pro-badge: #FFD700;
-  --aiq-resource-radius: 15px;
-}
 
 /* Base Card Styles */
 .aiq-resource-card {
-  --card-padding: 1.5rem;
-  
   display: flex;
   flex-direction: column;
-  background-color: var(--aiq-resource-bg);
-  border-radius: var(--aiq-resource-radius);
-  border: 1px solid var(--aiq-resource-border);
+  background-color: var(--color-bg-primary);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
   overflow: hidden;
-  box-shadow: var(--aiq-resource-shadow);
+  box-shadow: var(--box-shadow-lg);
   position: relative;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: var(--transition-base);
   height: 100%;
 }
 
 .aiq-resource-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--box-shadow-xl);
+  transition: var(--transition-base);
 }
 
 /* Media Section */
@@ -58,20 +41,21 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: var(--transition-base);
 }
 
 .aiq-resource-card:hover .aiq-resource-card__thumbnail img {
   transform: scale(1.08);
+  transition: var(--transition-base);
 }
 
 /* Type Badge */
 .aiq-resource-card__badge {
   position: absolute;
-  left: var(--card-padding);
-  bottom: var(--card-padding);
-  background-color: var(--aiq-resource-accent);
-  color: white;
+  left: var(--spacing-md);
+  bottom: var(--spacing-md);
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
   padding: 0.5rem 1rem;
   border-radius: 5px;
   font-size: 0.85rem;
@@ -90,16 +74,16 @@
 /* Pro Badge */
 .aiq-resource-card__pro-badge {
   position: absolute;
-  top: var(--card-padding);
-  right: var(--card-padding);
-  background-color: var(--aiq-resource-pro-badge);
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background-color: var(--color-gold);
   color: #1A0938;
   font-weight: 700;
   font-size: 0.75rem;
   padding: 0.35rem 0.75rem;
   border-radius: 2rem;
   z-index: 2;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--box-shadow-sm);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -132,14 +116,14 @@
   transform: translate(-50%, -50%);
   width: 4rem;
   height: 4rem;
-  background-color: rgba(156, 77, 255, 0.9);
+  background-color: var(--color-accent);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--color-text-inverse);
   font-size: 1.5rem;
-  transition: all 0.3s ease;
+  transition: var(--transition-base);
   z-index: 2;
 }
 
@@ -150,20 +134,21 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border: 2px solid white;
+  border: 2px solid var(--color-text-inverse);
   border-radius: 50%;
   animation: pulse 2s infinite;
   opacity: 0.7;
 }
 
 .aiq-resource-card__video:hover .aiq-resource-card__play-button {
-  background-color: var(--aiq-resource-accent);
+  background-color: var(--color-accent);
   transform: translate(-50%, -50%) scale(1.1);
+  transition: var(--transition-base);
 }
 
 /* Content Section */
 .aiq-resource-card__content {
-  padding: var(--card-padding);
+  padding: var(--spacing-md);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -173,12 +158,12 @@
   margin: 0 0 0.75rem;
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--aiq-resource-text);
+  color: var(--color-text-primary);
   line-height: 1.3;
 }
 
 .aiq-resource-card__description {
-  color: var(--aiq-resource-text-secondary);
+  color: var(--color-text-secondary);
   margin-bottom: 1.25rem;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -190,7 +175,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.25rem;
-  color: rgba(224, 214, 255, 0.6);
+  color: var(--color-text-muted);
   font-size: 0.85rem;
   gap: 1rem;
 }
@@ -217,12 +202,12 @@
   align-items: center;
   justify-content: center;
   padding: 0.875rem 1.5rem;
-  background: linear-gradient(90deg, var(--aiq-resource-accent), var(--aiq-resource-accent-secondary));
-  color: white;
+  background: var(--gradient-accent);
+  color: var(--color-text-inverse);
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: var(--transition-base);
   width: 100%;
   border: none;
   cursor: pointer;
@@ -231,7 +216,7 @@
 
 .aiq-resource-card__cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(94, 114, 228, 0.4);
+  box-shadow: var(--box-shadow-lg);
 }
 
 .aiq-resource-card__cta:active {
@@ -261,18 +246,18 @@
 }
 
 .aiq-resource-card__cta--locked {
-  background: linear-gradient(90deg, var(--aiq-resource-pro-badge), #FFA500);
+  background: var(--gradient-gold);
   color: #1A0938;
   position: relative;
   z-index: 2;
 }
 
 .aiq-resource-card__cta--locked:hover {
-  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+  box-shadow: var(--box-shadow-lg);
 }
 
 .aiq-resource-card__locked-message {
-  color: var(--aiq-resource-text-secondary);
+  color: var(--color-text-secondary);
   font-size: 0.85rem;
   margin-top: 0.75rem;
   text-align: center;
@@ -305,7 +290,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--aiq-resource-text);
+  color: var(--color-text-primary);
   font-size: 0.9rem;
   z-index: 4;
   animation: pulse 1.5s infinite;
@@ -316,11 +301,11 @@
   .aiq-resource-card {
     --card-padding: 1.25rem;
   }
-  
+
   .aiq-resource-card__title {
     font-size: 1.1rem;
   }
-  
+
   .aiq-resource-card__play-button {
     width: 3.5rem;
     height: 3.5rem;
@@ -333,26 +318,26 @@
     --card-padding: 1rem;
     --aiq-resource-radius: 12px;
   }
-  
+
   .aiq-resource-card__title {
     font-size: 1rem;
   }
-  
+
   .aiq-resource-card__description {
     font-size: 0.875rem;
   }
-  
+
   .aiq-resource-card__badge {
     font-size: 0.75rem;
     padding: 0.35rem 0.75rem;
   }
-  
+
   .aiq-resource-card__play-button {
     width: 3rem;
     height: 3rem;
     font-size: 1rem;
   }
-  
+
   .aiq-resource-card__cta {
     padding: 0.75rem 1.25rem;
     font-size: 0.875rem;
@@ -366,7 +351,7 @@
     border: 1px solid #ddd;
     break-inside: avoid;
   }
-  
+
   .aiq-resource-card__cta {
     display: none;
   }

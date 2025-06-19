@@ -1,4 +1,9 @@
-/* assets/css/widgets/comparison-matrix.css */
+/**
+ * Comparison Matrix Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
+ */
 
 /* Main Container */
 .aiq-comparison-matrix-wrapper {
@@ -13,13 +18,13 @@
     border-collapse: separate;
     border-spacing: 0;
     font-family: 'Inter', sans-serif;
-    background: #2A1958;
-    border-radius: 15px;
+    background: var(--color-bg-primary);
+    border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box-shadow-lg);
     position: relative;
     display: table;
-    border: 1px solid rgba(156, 77, 255, 0.3);
+    border: 1px solid var(--color-border);
 }
 
 /* Row Styles */
@@ -50,8 +55,8 @@
     text-align: center;
     vertical-align: middle;
     border-bottom: 1px solid rgba(156, 77, 255, 0.2);
-    color: #E0D6FF;
-    transition: background-color 0.3s ease;
+    color: var(--color-text-primary);
+    transition: var(--transition-base);
 }
 
 .aiq-comparison-matrix__cell:not(:first-child) {
@@ -79,8 +84,8 @@
 
 /* Header Row */
 .aiq-comparison-matrix__header {
-    background-color: #1A0938;
-    color: #E0D6FF;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
     padding: 1.5rem 1rem;
     position: relative;
 }
@@ -119,7 +124,7 @@
     font-size: 0.75rem;
     font-weight: 600;
     color: #1A0938;
-    background-color: #FFD700;
+    background-color: var(--color-gold);
     margin-top: 8px;
 }
 
@@ -136,7 +141,7 @@
     display: inline-block;
     padding: 0.9rem 1.6rem;
     border-radius: 8px;
-    background: linear-gradient(90deg, #9C4DFF 0%, #5E72E4 100%);
+    background: var(--gradient-accent);
     color: #FFFFFF;
     font-weight: 600;
     text-decoration: none;
@@ -150,7 +155,7 @@
 .aiq-comparison-matrix__cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(94, 114, 228, 0.4);
-    background: linear-gradient(90deg, #8946e5 0%, #5067cb 100%);
+    background: var(--gradient-accent-hover);
     color: #FFFFFF;
 }
 
@@ -160,11 +165,11 @@
 
 /* Yes/No Icons */
 .aiq-comparison-matrix__cell--yes {
-    color: #4CAF50;
+    color: var(--color-success);
 }
 
 .aiq-comparison-matrix__cell--no {
-    color: rgba(224, 214, 255, 0.4);
+    color: var(--color-text-muted);
 }
 
 /* Highlight Differences */
@@ -204,7 +209,7 @@
 .aiq-comparison-matrix__tooltip-content {
     visibility: hidden;
     width: 200px;
-    background-color: #1A0938;
+    background-color: var(--color-bg-secondary);
     color: #E0D6FF;
     text-align: left;
     border-radius: 8px;
@@ -216,8 +221,8 @@
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.3s;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(156, 77, 255, 0.3);
+    box-shadow: var(--box-shadow-lg);
+    border: 1px solid var(--color-border);
     font-weight: normal;
     font-size: 0.85rem;
     line-height: 1.4;
@@ -263,15 +268,15 @@
     .aiq-comparison-matrix__cell {
         padding: 0.8rem;
     }
-    
+
     .aiq-comparison-matrix__feature {
         min-width: 150px;
     }
-    
+
     .aiq-comparison-matrix__header-title {
         font-size: 1.1rem;
     }
-    
+
     .aiq-comparison-matrix__logo {
         width: 54px;
         height: 54px;
@@ -282,35 +287,35 @@
     .aiq-comparison-matrix-wrapper {
         overflow-x: auto;
     }
-    
+
     .aiq-comparison-matrix {
         min-width: 650px;
     }
-    
+
     .aiq-comparison-matrix__cell {
         padding: 0.7rem;
         font-size: 0.9rem;
     }
-    
+
     .aiq-comparison-matrix__feature {
         min-width: 120px;
     }
-    
+
     .aiq-comparison-matrix__header-title {
         font-size: 1rem;
     }
-    
+
     .aiq-comparison-matrix__logo {
         width: 48px;
         height: 48px;
     }
-    
+
     .aiq-comparison-matrix__cta {
         padding: 0.7rem 1.2rem;
         min-width: 120px;
         font-size: 0.9rem;
     }
-    
+
     .aiq-comparison-matrix__description {
         font-size: 0.8rem;
     }
@@ -337,7 +342,7 @@
 /* Accessibility focus states */
 .aiq-comparison-matrix__cell:focus-within,
 .aiq-comparison-matrix__cta:focus {
-    outline: 2px solid #9C4DFF;
+    outline: 2px solid var(--color-accent);
     outline-offset: -2px;
 }
 
@@ -346,16 +351,16 @@
     .aiq-comparison-matrix-wrapper {
         overflow: visible;
     }
-    
+
     .aiq-comparison-matrix {
         box-shadow: none;
         border: 1px solid #ccc;
     }
-    
+
     .aiq-comparison-matrix__cell {
         border-color: #ccc;
     }
-    
+
     .aiq-comparison-matrix__header,
     .aiq-comparison-matrix__feature {
         position: static !important;

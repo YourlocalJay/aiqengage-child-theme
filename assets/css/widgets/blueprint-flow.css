@@ -1,20 +1,12 @@
 /**
- * Blueprint Flow Widget CSS
- * 
- * @package AIQEngage
+ * Blueprint Flow Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
  */
 
 /* Main Blueprint Flow Container */
 .aiq-blueprint-flow {
-    --flow-accent-color: #9C4DFF;
-    --flow-background-color: #2A1958;
-    --flow-text-color: #E0D6FF;
-    --connector-color: #7F5AF0;
-    --connector-width: 2px;
-    --connector-dash-length: 6px;
-    --connector-gap-length: 4px;
-    --arrow-size: 12px;
-    
     position: relative;
     background-color: var(--flow-background-color);
     color: var(--flow-text-color);
@@ -81,7 +73,7 @@
 .aiq-blueprint-flow__node {
     --node-accent: var(--flow-accent-color);
     --node-background-color: #1A0938;
-    
+
     position: relative;
     background-color: var(--node-background-color);
     border-radius: 10px;
@@ -93,7 +85,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.aiq-blueprint-flow__node:hover, 
+.aiq-blueprint-flow__node:hover,
 .aiq-blueprint-flow__node:focus {
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
@@ -513,15 +505,15 @@
     .aiq-blueprint-flow {
         padding: 25px;
     }
-    
+
     .aiq-blueprint-flow__title {
         font-size: 1.8rem;
     }
-    
+
     .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes {
         flex-wrap: wrap;
     }
-    
+
     .aiq-blueprint-flow__roi-form {
         grid-template-columns: 1fr;
     }
@@ -531,24 +523,24 @@
     .aiq-blueprint-flow {
         padding: 20px;
     }
-    
+
     .aiq-blueprint-flow__title {
         font-size: 1.5rem;
     }
-    
+
     .aiq-blueprint-flow__node-title {
         font-size: 1.1rem;
     }
-    
+
     .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes {
         flex-direction: column;
     }
-    
+
     .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector {
         width: auto;
         height: 30px;
     }
-    
+
     .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector::before {
         width: 2px;
         height: 100%;
@@ -556,7 +548,7 @@
         left: 50%;
         transform: translateX(-50%);
     }
-    
+
     .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--arrow::after {
         top: auto;
         bottom: 0;
@@ -568,7 +560,7 @@
         border-bottom: none;
         transform: translateX(-50%);
     }
-    
+
     .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--dashed::before {
         background-image: linear-gradient(
             to bottom,
@@ -580,7 +572,7 @@
         background-size: 100% calc(var(--connector-dash-length) + var(--connector-gap-length) + var(--connector-dash-length));
         background-repeat: repeat-y;
     }
-    
+
     .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--dotted::before {
         background-image: radial-gradient(
             circle,

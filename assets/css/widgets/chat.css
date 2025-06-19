@@ -1,3 +1,10 @@
+/**
+ * Chat Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
+ */
+
 /* assets/css/widgets/chat.css */
 
 /* Main container */
@@ -32,7 +39,7 @@
     overflow: hidden;
 }
 
-.aiq-chat__bubble:hover, 
+.aiq-chat__bubble:hover,
 .aiq-chat__bubble:focus {
     transform: scale(1.05);
 }
@@ -417,27 +424,27 @@
     .aiq-chat__container {
         height: 400px;
     }
-    
+
     .aiq-chat--floating .aiq-chat__container {
         right: 15px;
         left: 15px;
         bottom: 80px;
         width: auto;
     }
-    
+
     .aiq-chat--floating .aiq-chat__bubble {
         right: 15px;
         bottom: 15px;
     }
-    
+
     .aiq-chat__message-bubble {
         max-width: 80%;
     }
-    
+
     .aiq-chat__input-container {
         padding: 10px;
     }
-    
+
     .aiq-chat__send-btn {
         padding: 0 10px;
         font-size: 0.9rem;
@@ -461,7 +468,7 @@
         transition: none;
         transform: none;
     }
-    
+
     .aiq-chat__typing-indicator span {
         animation: none;
     }

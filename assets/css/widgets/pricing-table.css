@@ -1,54 +1,15 @@
 /**
- * AIQEngage Pricing Table Widget - Enhanced Styles
- * Version: 2.0
- * Features:
- * - Dark/Light mode support via CSS variables
- * - Three toggle styles (switch/segmented/dropdown)
- * - Animated hover effects
- * - Perfectly aligned feature lists
- * - Responsive at all breakpoints
- * - Performance optimized
+ * Pricing Table Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
  */
 
-:root {
-  /* Color System */
-  --aiq-bg-primary: #1A0938;
-  --aiq-bg-secondary: #2A1958;
-  --aiq-bg-tertiary: #3A2968;
-  --aiq-text-primary: #E0D6FF;
-  --aiq-text-secondary: rgba(224, 214, 255, 0.85);
-  --aiq-text-tertiary: rgba(224, 214, 255, 0.6);
-  --aiq-accent-primary: #9C4DFF;
-  --aiq-accent-secondary: #8E6BFF;
-  --aiq-border-primary: rgba(156, 77, 255, 0.28);
-  --aiq-border-secondary: rgba(126, 87, 194, 0.4);
-  --aiq-success: #10B981;
-  --aiq-warning: #F59E0B;
-  --aiq-error: #EF4444;
-
-  /* Shadows */
-  --aiq-shadow-sm: 0 2px 20px rgba(99, 91, 255, 0.15);
-  --aiq-shadow-md: 0 4px 30px rgba(99, 91, 255, 0.2);
-  --aiq-shadow-lg: 0 6px 40px rgba(99, 91, 255, 0.3);
-
-  /* Spacing */
-  --aiq-spacing-xs: 0.5rem;
-  --aiq-spacing-sm: 1rem;
-  --aiq-spacing-md: 1.5rem;
-  --aiq-spacing-lg: 2rem;
-  --aiq-spacing-xl: 3rem;
-
-  /* Typography */
-  --aiq-font-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --aiq-font-mono: 'Roboto Mono', monospace;
-}
-
-/* Base Container */
 .aiq-pricing-table {
   --columns: 3;
   --plan-gap: var(--aiq-spacing-lg);
   --plan-radius: 16px;
-  
+
   display: grid;
   grid-template-columns: repeat(var(--columns), minmax(280px, 1fr));
   gap: var(--plan-gap);
@@ -188,7 +149,7 @@
 /* Plan Card Styles */
 .aiq-pricing-plan {
   --plan-accent: var(--aiq-accent-primary);
-  
+
   position: relative;
   display: flex;
   flex-direction: column;
@@ -340,7 +301,7 @@
   .aiq-pricing-table {
     --plan-gap: var(--aiq-spacing-md);
   }
-  
+
   .aiq-pricing-plan {
     padding: var(--aiq-spacing-lg) var(--aiq-spacing-md);
   }
@@ -357,7 +318,7 @@
     grid-template-columns: minmax(280px, 1fr);
     max-width: 500px;
   }
-  
+
   .aiq-pricing-plan.featured {
     order: -1;
   }
@@ -367,15 +328,15 @@
   .aiq-pricing-table {
     padding: var(--aiq-spacing-lg) var(--aiq-spacing-sm);
   }
-  
+
   .aiq-pricing-title {
     font-size: 1.3rem;
   }
-  
+
   .aiq-pricing-price {
     font-size: 2rem;
   }
-  
+
   .aiq-pricing-features li {
     font-size: 0.95rem;
   }

@@ -1,77 +1,41 @@
-/* assets/css/widgets/tool-card.css */
-
 /**
- * AIQ Tool Card Component
- * Version: 1.1.0
- * 
- * Features:
- * - Fully responsive design
- * - Accessibility optimized
- * - Performance optimized animations
- * - CSS variables for easy theming
- * - BEM naming convention
- * - Reduced motion support
- * - List and card view modes
+ * Tool Card Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
  */
 
-:root {
-  /* Design Tokens */
-  --aiq-card-bg: #2A1958;
-  --aiq-card-text: #E0D6FF;
-  --aiq-card-text-muted: rgba(224, 214, 255, 0.8);
-  --aiq-card-text-dimmed: rgba(224, 214, 255, 0.6);
-  --aiq-accent: #9C4DFF;
-  --aiq-border: rgba(156, 77, 255, 0.3);
-  --aiq-gradient: linear-gradient(90deg, #9C4DFF 0%, #5E72E4 100%);
-  --aiq-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  --aiq-highlight: rgba(156, 77, 255, 0.1);
-  --aiq-verified: #FFD700;
-  --aiq-transition: 0.3s ease;
-  --aiq-border-radius: 15px;
-  --aiq-logo-size: 64px;
-  --aiq-logo-bg: rgba(156, 77, 255, 0.2);
-  --aiq-badge-bg: var(--aiq-accent);
-  --aiq-button-padding: 0.9rem 1.6rem;
-  
-  /* Category Colors */
-  --aiq-category-writer: #9C4DFF;
-  --aiq-category-automation: #635BFF;
-  --aiq-category-research: #7F5AF0;
-  --aiq-category-design: #8E6BFF;
-  --aiq-category-analytics: #5E72E4;
-  --aiq-category-productivity: #A0AEC0;
-}
-
-/* Base Card Styles */
 .aiq-tool-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: var(--aiq-card-bg);
-  border-radius: var(--aiq-border-radius);
-  border: 1px solid var(--aiq-border);
-  box-shadow: var(--aiq-shadow);
-  padding: 1.5rem;
-  color: var(--aiq-card-text);
+  background-color: var(--color-bg-primary);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--box-shadow-lg);
+  padding: var(--spacing-md);
+  color: var(--color-text-primary);
   height: 100%;
   overflow: hidden;
   will-change: transform, box-shadow;
+  transition: var(--transition-base);
 }
 
 /* Hover Effects */
 .aiq-tool-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--box-shadow-xl);
+  transition: var(--transition-base);
 }
 
 .aiq-tool-card::before {
   content: '';
   position: absolute;
   inset: -2px;
-  background: linear-gradient(45deg, #635BFF, #8E6BFF);
+  background: var(--gradient-accent);
   border-radius: var(--aiq-border-radius);
   opacity: 0;
-  transition: opacity var(--aiq-transition);
+  transition: var(--transition-base);
   z-index: -1;
 }
 
@@ -84,14 +48,14 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background-color: var(--aiq-badge-bg);
-  color: white;
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   z-index: 1;
-  box-shadow: 0 2px 8px rgba(156, 77, 255, 0.4);
+  box-shadow: var(--box-shadow-sm);
 }
 
 .aiq-tool-card__logo-wrapper {
@@ -235,9 +199,9 @@
   font-weight: 600;
   font-size: 0.9375rem;
   color: white;
-  background: var(--aiq-gradient);
+  background: var(--gradient-accent);
   text-decoration: none;
-  transition: transform var(--aiq-transition), box-shadow var(--aiq-transition);
+  transition: var(--transition-base);
   cursor: pointer;
   border: none;
   white-space: nowrap;
@@ -246,7 +210,7 @@
 
 .aiq-tool-card__button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(94, 114, 228, 0.4);
+  box-shadow: var(--box-shadow-md);
 }
 
 .aiq-tool-card__button:active {
@@ -325,50 +289,50 @@
   .aiq-tool-card--list {
     flex-direction: column;
   }
-  
+
   .aiq-tool-card--list .aiq-tool-card__logo-wrapper {
     margin-right: 0;
     margin-bottom: 1rem;
   }
-  
+
   .aiq-tool-card--list .aiq-tool-card__content {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .aiq-tool-card--list .aiq-tool-card__description {
     display: block;
   }
-  
+
   .aiq-tool-card--list .aiq-tool-card__header {
     margin-bottom: 0.75rem;
     margin-right: 0;
     min-width: 100%;
   }
-  
+
   .aiq-tool-card--list .aiq-tool-card__footer {
     width: 100%;
     margin-top: 1rem;
     justify-content: space-between;
   }
-  
+
   .aiq-tool-card__footer {
     flex-direction: column;
     gap: 1rem;
     align-items: stretch;
   }
-  
+
   .aiq-tool-card__price {
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
   }
-  
+
   .aiq-tool-card__price-original {
     margin-bottom: 0;
   }
-  
+
   .aiq-tool-card__button {
     width: 100%;
   }
@@ -381,11 +345,11 @@
   .aiq-tool-card__button {
     transition: none !important;
   }
-  
+
   .aiq-tool-card:hover {
     transform: none;
   }
-  
+
   .aiq-tool-card__button:hover {
     transform: none;
   }
@@ -398,7 +362,7 @@
     border: 1px solid #ddd;
     break-inside: avoid;
   }
-  
+
   .aiq-tool-card__button {
     display: none;
   }

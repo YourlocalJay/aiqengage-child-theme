@@ -1,45 +1,15 @@
 /**
- * AIQEngage Evergreen Countdown - Enhanced Styles
- * Version: 2.1
- * Features:
- * - Multiple display modes (inline, sticky, modal)
- * - Responsive design for all screen sizes
- * - Smooth animations and transitions
- * - Accessibility improvements
- * - Urgent state styling
- * - Customizable color scheme
+ * Evergreen Countdown Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
  */
-
-:root {
-  /* Color System */
-  --aiq-countdown-bg: #2A1958;
-  --aiq-countdown-text: #E0D6FF;
-  --aiq-countdown-text-secondary: rgba(224, 214, 255, 0.85);
-  --aiq-countdown-accent: #9C4DFF;
-  --aiq-countdown-accent-secondary: #5E72E4;
-  --aiq-countdown-border: rgba(156, 77, 255, 0.3);
-  --aiq-countdown-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  --aiq-countdown-overlay: rgba(0, 0, 0, 0.8);
-  --aiq-countdown-urgent: #FF4757;
-
-  /* Spacing */
-  --aiq-countdown-spacing: 1.5rem;
-  --aiq-countdown-spacing-sm: 1rem;
-  --aiq-countdown-spacing-xs: 0.5rem;
-
-  /* Typography */
-  --aiq-countdown-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --aiq-countdown-title-size: 1.5rem;
-  --aiq-countdown-message-size: 1rem;
-  --aiq-countdown-digit-size: 1.75rem;
-  --aiq-countdown-label-size: 0.75rem;
-}
 
 /* Base Styles */
 .aiq-evergreen-countdown {
   --countdown-radius: 15px;
   --countdown-padding: var(--aiq-countdown-spacing);
-  
+
   display: flex;
   position: relative;
   background: var(--aiq-countdown-bg);
@@ -307,23 +277,23 @@
     align-items: center;
     padding: var(--aiq-countdown-spacing);
   }
-  
+
   .aiq-evergreen-countdown__content {
     flex: 1;
     margin-bottom: 0;
     margin-right: var(--aiq-countdown-spacing);
   }
-  
+
   .aiq-evergreen-countdown__actions {
     flex-shrink: 0;
     flex-direction: column;
     min-width: 180px;
   }
-  
+
   .aiq-evergreen-countdown__button {
     width: 100%;
   }
-  
+
   .aiq-evergreen-countdown--sticky {
     max-width: 800px;
     left: 50%;
@@ -340,16 +310,16 @@
     --aiq-countdown-digit-size: 1.5rem;
     --countdown-padding: var(--aiq-countdown-spacing-sm);
   }
-  
+
   .aiq-evergreen-countdown__timer-item {
     min-width: 60px;
     padding: 0.5rem 0.75rem;
   }
-  
+
   .aiq-evergreen-countdown__button {
     width: 100%;
   }
-  
+
   .aiq-evergreen-countdown__close {
     top: 8px;
     right: 8px;

@@ -1,20 +1,10 @@
-/* assets/css/widgets/progress-bar.css */
-
 /**
- * AIQEngage Progress Bar Widget
- * Version: 1.1
- * Features: Responsive, Accessible, Customizable
+ * Progress Bar Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
  */
 
-:root {
-  --aiq-progress-color: #9C4DFF;
-  --aiq-progress-bg: rgba(156, 77, 255, 0.2);
-  --aiq-progress-text: #FFFFFF;
-  --aiq-progress-height: 4px;
-  --aiq-progress-transition: 0.3s ease;
-}
-
-/* Base Progress Bar Styles */
 .aiq-progress-bar {
   --aiq-progress-width: 0%;
   width: 100%;
@@ -25,7 +15,7 @@
 .aiq-progress-bar__container {
   width: 100%;
   height: var(--aiq-progress-height);
-  background-color: var(--aiq-progress-bg);
+  background-color: var(--color-bg-secondary-alpha);
   overflow: hidden;
   border-radius: calc(var(--aiq-progress-height) / 2);
 }
@@ -33,8 +23,8 @@
 .aiq-progress-bar__indicator {
   width: var(--aiq-progress-width);
   height: 100%;
-  background-color: var(--aiq-progress-color);
-  transition: width var(--aiq-progress-transition);
+  background-color: var(--color-accent);
+  transition: width var(--transition-base);
   border-radius: inherit;
 }
 
@@ -48,11 +38,11 @@
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1;
-  color: var(--aiq-progress-text);
-  background-color: var(--aiq-progress-color);
+  color: var(--color-text-primary);
+  background-color: var(--color-accent);
   border-radius: 12px;
   position: absolute;
-  transition: all var(--aiq-progress-transition);
+  transition: var(--transition-base);
   z-index: 1;
 }
 
@@ -123,7 +113,7 @@
 
 /* Accessibility Features */
 .aiq-progress-bar:focus-visible {
-  outline: 2px solid var(--aiq-progress-color);
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
@@ -142,16 +132,13 @@
 
 /* Responsive Adjustments */
 @media (max-width: 767px) {
-  :root {
-    --aiq-progress-height: 3px;
-  }
-  
+
   .aiq-progress-bar__percentage {
     min-width: 30px;
     padding: 1px 6px;
     font-size: 0.6875rem;
   }
-  
+
   .aiq-progress-bar--inline .aiq-progress-bar__percentage--start,
   .aiq-progress-bar--inline .aiq-progress-bar__percentage--end {
     top: -14px;
@@ -164,7 +151,7 @@
     forced-color-adjust: none;
     background-color: Highlight !important;
   }
-  
+
   .aiq-progress-bar__percentage {
     border: 1px solid ButtonText;
     background-color: ButtonFace !important;

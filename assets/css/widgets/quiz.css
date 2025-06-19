@@ -1,5 +1,9 @@
-/* assets/css/widgets/quiz.css */
-
+/**
+ * Quiz Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
+ */
 /**
  * AIQEngage Quiz Widget
  *
@@ -442,11 +446,11 @@
 }
 
 @keyframes slideUp {
-  from { 
+  from {
     opacity: 0;
     transform: translateY(20px);
   }
-  to { 
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -514,42 +518,42 @@
   .aiq-quiz {
     padding: 20px;
   }
-  
+
   .aiq-quiz__title {
     font-size: 1.8rem;
   }
-  
+
   .aiq-quiz__question-text {
     font-size: 1.25rem;
   }
-  
+
   .aiq-quiz__button {
     padding: 0.8rem 1.2rem;
   }
-  
+
   .aiq-quiz__navigation {
     flex-direction: column-reverse;
     gap: 10px;
   }
-  
+
   .aiq-quiz__button--primary,
   .aiq-quiz__button--secondary {
     width: 100%;
     margin: 0;
   }
-  
+
   .aiq-quiz__form {
     padding: 20px;
   }
-  
+
   .aiq-quiz__results {
     padding: 20px;
   }
-  
+
   .aiq-quiz__score {
     font-size: 2rem;
   }
-  
+
   .aiq-quiz__result-title {
     font-size: 1.5rem;
   }
@@ -559,40 +563,40 @@
   .aiq-quiz {
     padding: 15px;
   }
-  
+
   .aiq-quiz__title {
     font-size: 1.5rem;
   }
-  
+
   .aiq-quiz__description {
     font-size: 0.9rem;
   }
-  
+
   .aiq-quiz__question-text {
     font-size: 1.1rem;
   }
-  
+
   .aiq-quiz__answer-text {
     font-size: 0.9rem;
   }
-  
+
   .aiq-quiz__button {
     font-size: 0.9rem;
     padding: 0.7rem 1rem;
   }
-  
+
   .aiq-quiz__form-title {
     font-size: 1.2rem;
   }
-  
+
   .aiq-quiz__results-title {
     font-size: 1.5rem;
   }
-  
+
   .aiq-quiz__score {
     font-size: 1.8rem;
   }
-  
+
   .aiq-quiz__result-title {
     font-size: 1.2rem;
   }

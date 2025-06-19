@@ -1,15 +1,9 @@
-:root {
-  --aiq-card-bg: #2A1958;
-  --aiq-card-border: rgba(156, 77, 255, 0.3);
-  --aiq-text-primary: #E0D6FF;
-  --aiq-text-secondary: rgba(224, 214, 255, 0.8);
-  --aiq-accent: #9C4DFF;
-  --aiq-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  --aiq-badge-bg: rgba(126, 87, 194, 0.2);
-  --aiq-gold: #FFD700;
-  --aiq-success: #4CAF50;
-  --aiq-transition: all 0.3s ease;
-}
+/**
+ * AIQ Prompt Card Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
+ */
 
 /* Base Card Styles */
 .aiq-prompt-card {
@@ -274,23 +268,23 @@
   .aiq-prompt-card {
     padding: 1rem;
   }
-  
+
   .aiq-prompt-card__header {
     flex-direction: column;
     gap: 0.75rem;
   }
-  
+
   .aiq-prompt-card__actions {
     width: 100%;
     justify-content: flex-end;
   }
-  
+
   .aiq-prompt-card--pro::after {
     font-size: 1.5rem;
     top: 0.75rem;
     right: 0.75rem;
   }
-  
+
   .aiq-prompt-card__pro-badge {
     right: 1rem;
   }
@@ -305,13 +299,13 @@
     color: #333;
     background: white;
   }
-  
+
   .aiq-prompt-card__content {
     max-height: none !important;
     opacity: 1 !important;
     display: block !important;
   }
-  
+
   .aiq-prompt-card__actions {
     display: none;
   }

@@ -1,41 +1,17 @@
-/* Styles for metric badge widget *//* assets/css/widgets/metric-badge.css */
-
 /**
  * Metric Badge Widget Styles
- * 
- * @package AIQEngage
- * @version 1.0.0
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
  */
 
-:root {
-    --aiq-metric-badge-bg: #2A1958;
-    --aiq-metric-badge-border: rgba(156, 77, 255, 0.3);
-    --aiq-metric-badge-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    --aiq-metric-value-color: #E0D6FF;
-    --aiq-metric-label-color: #9C4DFF;
-    --aiq-metric-supporting-color: rgba(224, 214, 255, 0.8);
-    --aiq-trend-up-color: #4CAF50;
-    --aiq-trend-down-color: #F44336;
-    --aiq-trend-neutral-color: #FFC107;
-}
-
 .aiq-metric-badge {
-    --badge-bg: var(--aiq-metric-badge-bg);
-    --badge-border: var(--aiq-metric-badge-border);
-    --badge-shadow: var(--aiq-metric-badge-shadow);
-    --value-color: var(--aiq-metric-value-color);
-    --label-color: var(--aiq-metric-label-color);
-    --supporting-color: var(--aiq-metric-supporting-color);
-    --trend-up-color: var(--aiq-trend-up-color);
-    --trend-down-color: var(--aiq-trend-down-color);
-    --trend-neutral-color: var(--aiq-trend-neutral-color);
-    
     display: inline-flex;
     flex-direction: column;
-    background-color: var(--badge-bg);
-    border: 1px solid var(--badge-border);
-    box-shadow: var(--badge-shadow);
-    transition: all 0.3s ease;
+    background-color: var(--aiq-metric-badge-bg);
+    border: 1px solid var(--aiq-metric-badge-border);
+    box-shadow: var(--aiq-metric-badge-shadow);
+    transition: var(--transition-base);
     text-align: center;
     overflow: hidden;
 }
@@ -63,7 +39,8 @@
 /* Hover Effects */
 .aiq-metric-badge:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--box-shadow-xl);
+    transition: var(--transition-base);
 }
 
 /* Inner Content */
@@ -102,7 +79,7 @@
     font-size: 2rem;
     line-height: 1.2;
     margin: 5px 0;
-    transition: opacity 0.3s;
+    transition: var(--transition-base);
 }
 
 /* Supporting Text */
@@ -188,11 +165,11 @@
     .aiq-metric-badge {
         padding: 15px 20px;
     }
-    
+
     .aiq-metric-badge__value {
         font-size: 1.5rem;
     }
-    
+
     .aiq-metric-badge--circle {
         width: 120px;
         height: 120px;
@@ -201,7 +178,7 @@
 
 /* Accessibility Styles */
 .aiq-metric-badge:focus-within {
-    outline: 3px solid var(--label-color);
+    outline: 3px solid var(--color-accent);
     outline-offset: 2px;
 }
 
@@ -222,21 +199,21 @@
         border: 2px solid CanvasText;
         forced-color-adjust: none;
     }
-    
+
     .aiq-metric-badge__value,
     .aiq-metric-badge__label,
     .aiq-metric-badge__supporting-text {
         color: CanvasText;
     }
-    
+
     .aiq-metric-badge__trend--up {
         color: LinkText;
     }
-    
+
     .aiq-metric-badge__trend--down {
         color: Mark;
     }
-    
+
     .aiq-metric-badge__trend--neutral {
         color: GrayText;
     }

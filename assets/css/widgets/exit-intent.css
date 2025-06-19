@@ -1,21 +1,9 @@
 /**
- * AIQEngage Exit Intent Modal
- * Version: 2.0
- * Features:
- * - Enhanced animations and transitions
- * - Improved accessibility
- * - Better responsive behavior
- * - Performance optimizations
+ * Exit Intent Modal Widget Styles
+ *
+ * @package aiqengage-child
+ * @since   1.0.0
  */
-
-:root {
-  --aiq-modal-bg: #2A1958;
-  --aiq-overlay-bg: rgba(0, 0, 0, 0.8);
-  --aiq-primary-color: #9C4DFF;
-  --aiq-text-light: #E0D6FF;
-  --aiq-border-radius: 15px;
-  --aiq-transition-duration: 0.3s;
-}
 
 /* Base container with enhanced stacking context */
 .aiq-exit-intent {
@@ -67,7 +55,7 @@
   margin: max(5vw, 15px);
   opacity: 0;
   transform: translateY(20px);
-  transition: 
+  transition:
     opacity var(--aiq-transition-duration) ease,
     transform var(--aiq-transition-duration) ease;
 }
@@ -142,7 +130,7 @@
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  transition: 
+  transition:
     background-color var(--aiq-transition-duration) ease,
     transform 0.1s ease;
   z-index: 3;
@@ -244,88 +232,88 @@
 }
 
 @keyframes aiqFadeInUp {
-  from { 
+  from {
     opacity: 0;
     transform: translateY(20px);
   }
-  to { 
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
 @keyframes aiqFadeInDown {
-  from { 
+  from {
     opacity: 0;
     transform: translateY(-20px);
   }
-  to { 
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
 @keyframes aiqZoomIn {
-  from { 
+  from {
     opacity: 0;
     transform: scale(0.95);
   }
-  to { 
+  to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
 @keyframes aiqZoomOut {
-  from { 
+  from {
     opacity: 1;
     transform: scale(1);
   }
-  to { 
+  to {
     opacity: 0;
     transform: scale(0.95);
   }
 }
 
 @keyframes aiqSlideInRight {
-  from { 
+  from {
     opacity: 0;
     transform: translateX(30px);
   }
-  to { 
+  to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
 @keyframes aiqSlideInLeft {
-  from { 
+  from {
     opacity: 0;
     transform: translateX(-30px);
   }
-  to { 
+  to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
 @keyframes aiqSlideOutRight {
-  from { 
+  from {
     opacity: 1;
     transform: translateX(0);
   }
-  to { 
+  to {
     opacity: 0;
     transform: translateX(30px);
   }
 }
 
 @keyframes aiqSlideOutLeft {
-  from { 
+  from {
     opacity: 1;
     transform: translateX(0);
   }
-  to { 
+  to {
     opacity: 0;
     transform: translateX(-30px);
   }
@@ -336,7 +324,7 @@
   .aiq-exit-intent__modal {
     padding: 15px;
   }
-  
+
   .aiq-exit-intent-close-outside .aiq-exit-intent__close {
     top: 10px;
     right: 10px;
@@ -350,11 +338,11 @@
   .aiq-exit-intent__close {
     transition: none !important;
   }
-  
+
   [class*="aiq-exit-intent__animation-"] {
     animation: aiqFadeIn 0.01s ease forwards !important;
   }
-  
+
   .aiq-exit-intent.closing [class*="aiq-exit-intent__animation-"] {
     animation: aiqFadeOut 0.01s ease forwards !important;
   }
