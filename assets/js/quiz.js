@@ -610,8 +610,13 @@
       let $announcer = $('#aiq-quiz-announcer');
 
       if ($announcer.length === 0) {
-        $announcer = $('<div id="aiq-quiz-announcer" class="screen-reader-text" aria-live="polite"></div>');
-        $('body').append($announcer);
+        $announcer = $('<div id="aiq-quiz-announcer" class="screen-reader-text" aria-live="polite" role="region"></div>');
+        const $container = $(this.element).closest('.aiq-quiz-wrapper');
+        if ($container.length) {
+          $container.append($announcer);
+        } else {
+          $('body').append($announcer);
+        }
       }
 
       // Update the announcement
@@ -632,6 +637,8 @@
 
       if (quizData) {
         new AIQQuiz(this, quizData);
+      } else {
+        console.warn('AIQ Quiz: No quiz data found for quiz ID:', quizId);
       }
     });
   });

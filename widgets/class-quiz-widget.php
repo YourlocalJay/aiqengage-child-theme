@@ -1,4 +1,45 @@
-// Continuing widgets/class-quiz-widget.php
+<?php
+namespace AIQEngage;
+
+use Elementor\Widget_Base;
+use Elementor\Controls_Manager;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+class AIQ_Quiz_Widget extends Widget_Base {
+
+	public function get_name() {
+		return 'aiq-quiz';
+	}
+
+	public function get_title() {
+		return esc_html__( 'Quiz', 'aiqengage-child' );
+	}
+
+	public function get_icon() {
+		return 'eicon-quiz';
+	}
+
+	public function get_categories() {
+		return [ 'aiqengage' ];
+	}
+
+	public function get_keywords() {
+		return [ 'quiz', 'test', 'interactive', 'form', 'aiqengage' ];
+	}
+
+	public function get_style_depends() {
+		return [ 'aiq-quiz-style' ];
+	}
+
+	public function get_script_depends() {
+		return [ 'aiq-quiz-script' ];
+	}
+
+	protected function register_controls() {
+		// Existing controls follow...
 
 		$this->add_group_control(
 			\Elementor\Group_Control_Border::get_type(),
