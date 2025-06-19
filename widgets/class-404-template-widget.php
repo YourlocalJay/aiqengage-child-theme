@@ -1,9 +1,11 @@
 <?php
 /**
  * 404 Template Widget for Elementor
- * 
- * @package AIQEngage
+ *
+ * @package aiqengage-child
+ * @version 1.0.0
  * @since 1.0.0
+ * @author Jason
  */
 
 defined('ABSPATH') || exit;
@@ -44,6 +46,24 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
      */
     public function get_categories() {
         return ['aiqengage'];
+    }
+
+    /**
+     * Get widget style dependencies.
+     *
+     * @return array
+     */
+    public function get_style_depends() {
+        return ['aiqengage-child-404-template'];
+    }
+
+    /**
+     * Get widget script dependencies.
+     *
+     * @return array
+     */
+    public function get_script_depends() {
+        return [];
     }
 
     /**
@@ -928,7 +948,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
                     <?php if ('yes' === $settings['show_search']) : ?>
                         <div class="aiq-404-template__search">
                             <form role="search" method="get" class="aiq-404-template__search-form" action="<?php echo esc_url(home_url('/')); ?>">
-                                <input type="search" class="aiq-404-template__search-input" placeholder="<?php echo esc_attr($settings['search_placeholder']); ?>" value="<?php echo get_search_query(); ?>" name="s" aria-label="<?php esc_attr_e('Search', 'aiqengage-child'); ?>">
+                                <input type="search" class="aiq-404-template__search-input" placeholder="<?php echo esc_attr($settings['search_placeholder']); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" aria-label="<?php esc_attr_e('Search', 'aiqengage-child'); ?>">
                                 <button type="submit" class="aiq-404-template__search-button" aria-label="<?php esc_attr_e('Search', 'aiqengage-child'); ?>">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -948,7 +968,7 @@ class AIQ_404_Template_Widget extends \Elementor\Widget_Base {
 
                 <div class="aiq-404-template__mascot <?php echo esc_attr($mascot_animation_class); ?>">
                     <?php if ('static' === $settings['mascot_type'] && !empty($settings['mascot_image']['url'])) : ?>
-                        <img src="<?php echo esc_url($settings['mascot_image']['url']); ?>" alt="<?php esc_attr_e('AI Assistant', 'aiqengage-child'); ?>" class="aiq-404-template__mascot-image">
+                        <img src="<?php echo esc_url($settings['mascot_image']['url']); ?>" alt="<?php echo esc_attr__('AI Assistant', 'aiqengage-child'); ?>" class="aiq-404-template__mascot-image">
                     <?php elseif ('lottie' === $settings['mascot_type'] && !empty($settings['lottie_url']['url'])) : ?>
                         <div class="aiq-404-template__lottie" data-lottie-url="<?php echo esc_url($settings['lottie_url']['url']); ?>" data-animation-duration="<?php echo esc_attr($settings['mascot_animation_duration']['size']); ?>"></div>
                     <?php elseif ('svg' === $settings['mascot_type'] && !empty($settings['svg_code'])) : ?>

@@ -2,7 +2,11 @@
 /**
  * AIQ Prompt Card Widget
  *
- * @package AIQEngage_Child
+ *
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since 1.0.0
+ * @author Jason
  */
 
 namespace AIQEngage\Widgets;
@@ -307,7 +311,7 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
      */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        
+
         $card_classes = ['aiq-prompt-card'];
         if ( 'yes' === $settings['expandable'] ) {
             $card_classes[] = 'aiq-prompt-card--expandable';
@@ -326,13 +330,13 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
                     <?php endif; ?>
                 </div>
             </div>
-            
+
             <?php if ( ! empty( $settings['prompt_description'] ) ) : ?>
                 <div class="aiq-prompt-card__description">
                     <?php echo wp_kses_post( wpautop( $settings['prompt_description'] ) ); ?>
                 </div>
             <?php endif; ?>
-            
+
             <div class="aiq-prompt-card__content <?php echo 'yes' === $settings['expandable'] ? 'aiq-prompt-card__content--expandable' : ''; ?>">
                 <pre class="aiq-prompt-card__prompt"><code><?php echo esc_html( $settings['prompt_content'] ); ?></code></pre>
                 <button class="aiq-prompt-card__copy-btn" data-copy-text="<?php echo esc_attr( $settings['prompt_content'] ); ?>">
@@ -340,21 +344,21 @@ class AIQ_Prompt_Card_Widget extends \Elementor\Widget_Base {
                     <span class="copied-text" style="display: none;"><?php esc_html_e( 'Copied!', 'aiqengage-child' ); ?></span>
                 </button>
             </div>
-            
+
             <?php if ( 'yes' === $settings['show_variables'] && ! empty( $settings['prompt_variables'] ) ) : ?>
                 <div class="aiq-prompt-card__variables">
                     <h4 class="aiq-prompt-card__variables-title"><?php esc_html_e( 'Variables', 'aiqengage-child' ); ?></h4>
                     <ul class="aiq-prompt-card__variables-list">
                         <?php foreach ( $settings['prompt_variables'] as $variable ) : ?>
                             <li class="aiq-prompt-card__variable">
-                                <strong>[<?php echo esc_html( $variable['variable_name'] ); ?>]</strong> - 
+                                <strong>[<?php echo esc_html( $variable['variable_name'] ); ?>]</strong> -
                                 <?php echo esc_html( $variable['variable_description'] ); ?>
                             </li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
             <?php endif; ?>
-            
+
             <?php if ( 'yes' === $settings['expandable'] ) : ?>
                 <div class="aiq-prompt-card__toggle">
                     <button class="aiq-prompt-card__expand-btn">

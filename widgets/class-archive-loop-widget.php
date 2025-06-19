@@ -2,7 +2,10 @@
 /**
  * Archive Loop Widget
  *
- * @package AIQEngage
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since 1.0.0
+ * @author Jason
  */
 
 namespace AIQEngage\Widgets;
@@ -50,6 +53,24 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
      */
     public function get_categories() {
         return [ 'aiqengage' ];
+    }
+
+    /**
+     * Get widget style dependencies.
+     *
+     * @return array
+     */
+    public function get_style_depends() {
+        return [ 'aiq-archive-loop' ];
+    }
+
+    /**
+     * Get widget script dependencies.
+     *
+     * @return array
+     */
+    public function get_script_depends() {
+        return [];
     }
 
     /**
@@ -419,11 +440,11 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
     private function get_post_types() {
         $post_types = get_post_types( [ 'public' => true ], 'objects' );
         $options = [];
-        
+
         foreach ( $post_types as $post_type ) {
             $options[ $post_type->name ] = $post_type->label;
         }
-        
+
         return $options;
     }
 
@@ -432,21 +453,21 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
      */
     protected function render() {
         $settings = $this->get_settings_for_display();
-        
+
         $query_args = [
             'post_type' => $settings['post_type'],
             'posts_per_page' => $settings['posts_per_page'],
             'post_status' => 'publish',
             'paged' => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
         ];
-        
+
         $query = new \WP_Query( $query_args );
-        
+
         if ( ! $query->have_posts() ) {
             echo '<p>' . esc_html__( 'No posts found.', 'aiqengage-child' ) . '</p>';
             return;
         }
-        
+
         $layout_class = 'archive-loop--' . $settings['layout_type'];
         if ( 'grid' === $settings['layout_type'] || 'masonry' === $settings['layout_type'] ) {
             $layout_class .= ' archive-loop--columns-' . $settings['columns'];
@@ -458,33 +479,33 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
                     <article class="archive-loop-item">
                         <?php if ( 'yes' === $settings['show_image'] && has_post_thumbnail() ) : ?>
                             <div class="archive-loop-item__image">
-                                <a href="<?php the_permalink(); ?>">
+                                <a href="<?php echo esc_url( get_permalink() ); ?>">
                                     <?php the_post_thumbnail( $settings['image_size'] ); ?>
                                 </a>
                             </div>
                         <?php endif; ?>
-                        
+
                         <div class="archive-loop-item__content">
                             <?php if ( 'yes' === $settings['show_title'] ) : ?>
                                 <<?php echo esc_attr( $settings['title_tag'] ); ?> class="archive-loop-item__title">
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                    <a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html( get_the_title() ); ?></a>
                                 </<?php echo esc_attr( $settings['title_tag'] ); ?>>
                             <?php endif; ?>
-                            
+
                             <?php if ( 'yes' === $settings['show_meta'] && ! empty( $settings['meta_fields'] ) ) : ?>
                                 <div class="archive-loop-item__meta">
                                     <?php $this->render_meta_fields( $settings['meta_fields'] ); ?>
                                 </div>
                             <?php endif; ?>
-                            
+
                             <?php if ( 'yes' === $settings['show_excerpt'] ) : ?>
                                 <div class="archive-loop-item__excerpt">
-                                    <?php echo wp_trim_words( get_the_excerpt(), $settings['excerpt_length'], '...' ); ?>
+                                    <?php echo wp_kses_post( wp_trim_words( get_the_excerpt(), $settings['excerpt_length'], '...' ) ); ?>
                                 </div>
                             <?php endif; ?>
-                            
+
                             <?php if ( 'yes' === $settings['show_read_more'] ) : ?>
-                                <a href="<?php the_permalink(); ?>" class="archive-loop-item__read-more">
+                                <a href="<?php echo esc_url( get_permalink() ); ?>" class="archive-loop-item__read-more">
                                     <?php echo esc_html( $settings['read_more_text'] ); ?>
                                 </a>
                             <?php endif; ?>
@@ -492,7 +513,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
                     </article>
                 <?php endwhile; ?>
             </div>
-            
+
             <?php if ( 'yes' === $settings['show_pagination'] ) : ?>
                 <div class="archive-loop-pagination">
                     <?php
@@ -508,7 +529,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
             <?php endif; ?>
         </div>
         <?php
-        
+
         wp_reset_postdata();
     }
 
@@ -519,25 +540,25 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
      */
     private function render_meta_fields( $fields ) {
         $meta_items = [];
-        
+
         foreach ( $fields as $field ) {
             switch ( $field ) {
                 case 'date':
-                    $meta_items[] = '<span class="meta-date">' . get_the_date() . '</span>';
+                    $meta_items[] = '<span class="meta-date">' . esc_html( get_the_date() ) . '</span>';
                     break;
                 case 'author':
-                    $meta_items[] = '<span class="meta-author">' . esc_html__( 'By', 'aiqengage-child' ) . ' ' . get_the_author() . '</span>';
+                    $meta_items[] = '<span class="meta-author">' . esc_html__( 'By', 'aiqengage-child' ) . ' ' . esc_html( get_the_author() ) . '</span>';
                     break;
                 case 'category':
                     $categories = get_the_category_list( ', ' );
                     if ( $categories ) {
-                        $meta_items[] = '<span class="meta-category">' . $categories . '</span>';
+                        $meta_items[] = '<span class="meta-category">' . wp_kses_post( $categories ) . '</span>';
                     }
                     break;
                 case 'tags':
                     $tags = get_the_tag_list( '', ', ' );
                     if ( $tags ) {
-                        $meta_items[] = '<span class="meta-tags">' . $tags . '</span>';
+                        $meta_items[] = '<span class="meta-tags">' . wp_kses_post( $tags ) . '</span>';
                     }
                     break;
                 case 'comments':
@@ -548,14 +569,7 @@ class Archive_Loop_Widget extends \Elementor\Widget_Base {
                     break;
             }
         }
-        
-        echo implode( ' • ', $meta_items );
-    }
 
-    /**
-     * Get style dependencies.
-     */
-    public function get_style_depends() {
-        return [ 'aiq-archive-loop' ];
+        echo implode( ' • ', $meta_items );
     }
 }
