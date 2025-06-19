@@ -1,6 +1,6 @@
 {
   "version": "0.4",
-  "title": "AIQEngage - How it Works Section",
+  "title": "AIQEngage - How it Works Section (Production Ready)",
   "type": "section",
   "content": [
     {
@@ -40,7 +40,17 @@
           "left": "15",
           "isLinked": false
         },
-        "css_classes": "aiq-how-it-works"
+        "css_classes": "aiq-how-it-works",
+        "custom_css": [
+          {
+            "selector": ".aiq-how-it-works",
+            "properties": "position: relative;"
+          },
+          {
+            "selector": ".aiq-how-it-works::before",
+            "properties": "content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gradient-accent-light);"
+          }
+        ]
       },
       "elements": [
         {
@@ -103,7 +113,17 @@
                   "bottom": "30",
                   "isLinked": false
                 },
-                "css_classes": "aiq-section-heading"
+                "css_classes": "aiq-section-heading",
+                "custom_css": [
+                  {
+                    "selector": ".aiq-section-heading",
+                    "properties": "position: relative; display: inline-block;"
+                  },
+                  {
+                    "selector": ".aiq-section-heading::after",
+                    "properties": "content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: var(--gradient-accent); border-radius: 3px;"
+                  }
+                ]
               }
             },
             {
@@ -155,7 +175,13 @@
                   "bottom": "30",
                   "isLinked": false
                 },
-                "css_classes": "aiq-section-subtitle"
+                "css_classes": "aiq-section-subtitle",
+                "custom_css": [
+                  {
+                    "selector": ".aiq-section-subtitle",
+                    "properties": "max-width: 700px; margin-left: auto; margin-right: auto;"
+                  }
+                ]
               }
             },
             {
@@ -182,7 +208,13 @@
                   "unit": "px",
                   "size": 20,
                   "sizes": []
-                }
+                },
+                "custom_css": [
+                  {
+                    "selector": "@media (max-width: 767px)",
+                    "properties": "flex-direction: column;"
+                  }
+                ]
               },
               "elements": [
                 {
@@ -245,7 +277,25 @@
                       "left": "15",
                       "isLinked": false
                     },
-                    "css_classes": "aiq-step-card"
+                    "css_classes": "aiq-step-card",
+                    "custom_css": [
+                      {
+                        "selector": ".aiq-step-card",
+                        "properties": "transition: all 0.3s ease; position: relative; overflow: hidden;"
+                      },
+                      {
+                        "selector": ".aiq-step-card::before",
+                        "properties": "content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #9C4DFF 0%, #5E72E4 100%);"
+                      },
+                      {
+                        "selector": ".aiq-step-card:hover",
+                        "properties": "transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.2);"
+                      },
+                      {
+                        "selector": "@media (max-width: 767px)",
+                        "properties": "margin-bottom: 20px;"
+                      }
+                    ]
                   },
                   "elements": [
                     {
@@ -282,7 +332,17 @@
                           "left": "0",
                           "isLinked": false
                         },
-                        "css_classes": "aiq-step-icon"
+                        "css_classes": "aiq-step-icon",
+                        "custom_css": [
+                          {
+                            "selector": ".aiq-step-icon i",
+                            "properties": "transition: all 0.3s ease;"
+                          },
+                          {
+                            "selector": ".aiq-step-card:hover .aiq-step-icon i",
+                            "properties": "transform: scale(1.1); color: #5E72E4;"
+                          }
+                        ]
                       }
                     },
                     {
@@ -311,7 +371,17 @@
                           "left": "0",
                           "isLinked": false
                         },
-                        "css_classes": "aiq-step-number"
+                        "css_classes": "aiq-step-number",
+                        "custom_css": [
+                          {
+                            "selector": ".aiq-step-number",
+                            "properties": "transition: all 0.3s ease;"
+                          },
+                          {
+                            "selector": ".aiq-step-card:hover .aiq-step-number",
+                            "properties": "color: #5E72E4;"
+                          }
+                        ]
                       }
                     },
                     {
@@ -355,7 +425,17 @@
                           "left": "0",
                           "isLinked": false
                         },
-                        "css_classes": "aiq-step-title"
+                        "css_classes": "aiq-step-title",
+                        "custom_css": [
+                          {
+                            "selector": ".aiq-step-title",
+                            "properties": "transition: all 0.3s ease;"
+                          },
+                          {
+                            "selector": ".aiq-step-card:hover .aiq-step-title",
+                            "properties": "color: #FFFFFF;"
+                          }
+                        ]
                       }
                     },
                     {
@@ -389,7 +469,17 @@
                         },
                         "text_color": "rgba(224, 214, 255, 0.8)",
                         "align": "center",
-                        "css_classes": "aiq-step-description"
+                        "css_classes": "aiq-step-description",
+                        "custom_css": [
+                          {
+                            "selector": ".aiq-step-description",
+                            "properties": "transition: all 0.3s ease;"
+                          },
+                          {
+                            "selector": ".aiq-step-card:hover .aiq-step-description",
+                            "properties": "color: rgba(255, 255, 255, 0.9);"
+                          }
+                        ]
                       }
                     }
                   ]
@@ -454,7 +544,25 @@
                       "left": "15",
                       "isLinked": false
                     },
-                    "css_classes": "aiq-step-card"
+                    "css_classes": "aiq-step-card",
+                    "custom_css": [
+                      {
+                        "selector": ".aiq-step-card",
+                        "properties": "transition: all 0.3s ease; position: relative; overflow: hidden;"
+                      },
+                      {
+                        "selector": ".aiq-step-card::before",
+                        "properties": "content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #9C4DFF 0%, #5E72E4 100%);"
+                      },
+                      {
+                        "selector": ".aiq-step-card:hover",
+                        "properties": "transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.2);"
+                      },
+                      {
+                        "selector": "@media (max-width: 767px)",
+                        "properties": "margin-bottom: 20px;"
+                      }
+                    ]
                   },
                   "elements": [
                     {
@@ -491,7 +599,17 @@
                           "left": "0",
                           "isLinked": false
                         },
-                        "css_classes": "aiq-step-icon"
+                        "css_classes": "aiq-step-icon",
+                        "custom_css": [
+                          {
+                            "selector": ".aiq-step-icon i",
+                            "properties": "transition: all 0.3s ease;"
+                          },
+                          {
+                            "selector": ".aiq-step-card:hover .aiq-step-icon i",
+                            "properties": "transform: scale(1.1); color: #5E72E4;"
+                          }
+                        ]
                       }
                     },
                     {
@@ -520,7 +638,17 @@
                           "left": "0",
                           "isLinked": false
                         },
-                        "css_classes": "aiq-step-number"
+                        "css_classes": "aiq-step-number",
+                        "custom_css": [
+                          {
+                            "selector": ".aiq-step-number",
+                            "properties": "transition: all 0.3s ease;"
+                          },
+                          {
+                            "selector": ".aiq-step-card:hover .aiq-step-number",
+                            "properties": "color: #5E72E4;"
+                          }
+                        ]
                       }
                     },
                     {
@@ -564,7 +692,17 @@
                           "left": "0",
                           "isLinked": false
                         },
-                        "css_classes": "aiq-step-title"
+                        "css_classes": "aiq-step-title",
+                        "custom_css": [
+                          {
+                            "selector": ".aiq-step-title",
+                            "properties": "transition: all 0.3s ease;"
+                          },
+                          {
+                            "selector": ".aiq-step-card:hover .aiq-step-title",
+                            "properties": "color: #FFFFFF;"
+                          }
+                        ]
                       }
                     },
                     {
@@ -598,7 +736,17 @@
                         },
                         "text_color": "rgba(224, 214, 255, 0.8)",
                         "align": "center",
-                        "css_classes": "aiq-step-description"
+                        "css_classes": "aiq-step-description",
+                        "custom_css": [
+                          {
+                            "selector": ".aiq-step-description",
+                            "properties": "transition: all 0.3s ease;"
+                          },
+                          {
+                            "selector": ".aiq-step-card:hover .aiq-step-description",
+                            "properties": "color: rgba(255, 255, 255, 0.9);"
+                          }
+                        ]
                       }
                     }
                   ]
@@ -663,7 +811,25 @@
                       "left": "15",
                       "isLinked": false
                     },
-                    "css_classes": "aiq-step-card"
+                    "css_classes": "aiq-step-card",
+                    "custom_css": [
+                      {
+                        "selector": ".aiq-step-card",
+                        "properties": "transition: all 0.3s ease; position: relative; overflow: hidden;"
+                      },
+                      {
+                        "selector": ".aiq-step-card::before",
+                        "properties": "content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #9C4DFF 0%, #5E72E4 100%);"
+                      },
+                      {
+                        "selector": ".aiq-step-card:hover",
+                        "properties": "transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.2);"
+                      },
+                      {
+                        "selector": "@media (max-width: 767px)",
+                        "properties": "margin-bottom: 20px;"
+                      }
+                    ]
                   },
                   "elements": [
                     {
@@ -700,7 +866,17 @@
                           "left": "0",
                           "isLinked": false
                         },
-                        "css_classes": "aiq-step-icon"
+                        "css_classes": "aiq-step-icon",
+                        "custom_css": [
+                          {
+                            "selector": ".aiq-step-icon i",
+                            "properties": "transition: all 0.3s ease;"
+                          },
+                          {
+                            "selector": ".aiq-step-card:hover .aiq-step-icon i",
+                            "properties": "transform: scale(1.1); color: #5E72E4;"
+                          }
+                        ]
                       }
                     },
                     {
@@ -729,7 +905,17 @@
                           "left": "0",
                           "isLinked": false
                         },
-                        "css_classes": "aiq-step-number"
+                        "css_classes": "aiq-step-number",
+                        "custom_css": [
+                          {
+                            "selector": ".aiq-step-number",
+                            "properties": "transition: all 0.3s ease;"
+                          },
+                          {
+                            "selector": ".aiq-step-card:hover .aiq-step-number",
+                            "properties": "color: #5E72E4;"
+                          }
+                        ]
                       }
                     },
                     {
@@ -773,7 +959,17 @@
                           "left": "0",
                           "isLinked": false
                         },
-                        "css_classes": "aiq-step-title"
+                        "css_classes": "aiq-step-title",
+                        "custom_css": [
+                          {
+                            "selector": ".aiq-step-title",
+                            "properties": "transition: all 0.3s ease;"
+                          },
+                          {
+                            "selector": ".aiq-step-card:hover .aiq-step-title",
+                            "properties": "color: #FFFFFF;"
+                          }
+                        ]
                       }
                     },
                     {
@@ -807,7 +1003,17 @@
                         },
                         "text_color": "rgba(224, 214, 255, 0.8)",
                         "align": "center",
-                        "css_classes": "aiq-step-description"
+                        "css_classes": "aiq-step-description",
+                        "custom_css": [
+                          {
+                            "selector": ".aiq-step-description",
+                            "properties": "transition: all 0.3s ease;"
+                          },
+                          {
+                            "selector": ".aiq-step-card:hover .aiq-step-description",
+                            "properties": "color: rgba(255, 255, 255, 0.9);"
+                          }
+                        ]
                       }
                     }
                   ]
@@ -874,7 +1080,25 @@
                   "top": "25",
                   "isLinked": false
                 },
-                "css_classes": "aiq-cta-button"
+                "css_classes": "aiq-cta-button",
+                "custom_css": [
+                  {
+                    "selector": ".aiq-cta-button",
+                    "properties": "position: relative; overflow: hidden; transition: all 0.3s ease; min-width: 220px;"
+                  },
+                  {
+                    "selector": ".aiq-cta-button::before",
+                    "properties": "content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: all 0.6s ease;"
+                  },
+                  {
+                    "selector": ".aiq-cta-button:hover::before",
+                    "properties": "left: 100%;"
+                  },
+                  {
+                    "selector": "@media (max-width: 767px)",
+                    "properties": "width: 100%;"
+                  }
+                ]
               }
             }
           ]

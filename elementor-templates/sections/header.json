@@ -1,6 +1,6 @@
 {
   "version": "0.4",
-  "title": "AIQEngage Header",
+  "title": "AIQEngage Header - Production Ready",
   "type": "section",
   "content": [
     {
@@ -42,7 +42,17 @@
           "color": "rgba(0, 0, 0, 0.3)"
         },
         "_element_css_classes": "aiq-header",
-        "_css_classes": "aiq-header--sticky"
+        "_css_classes": "aiq-header--sticky",
+        "custom_css": [
+          {
+            "selector": ".aiq-header",
+            "properties": "font-family: 'Inter', sans-serif; transition: all 0.3s ease;"
+          },
+          {
+            "selector": ".aiq-header.elementor-sticky--effects",
+            "properties": "box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);"
+          }
+        ]
       },
       "elements": [
         {
@@ -78,7 +88,13 @@
             "flex_justify_content": "space-between",
             "flex_align_items": "center",
             "flex_wrap": "nowrap",
-            "_element_css_classes": "aiq-header__container"
+            "_element_css_classes": "aiq-header__container",
+            "custom_css": [
+              {
+                "selector": "@media (max-width: 1024px)",
+                "properties": "padding-left: 15px; padding-right: 15px;"
+              }
+            ]
           },
           "elements": [
             {
@@ -88,7 +104,8 @@
               "settings": {
                 "_element_id": "aiq-header-logo",
                 "image": {
-                  "url": "/wp-content/uploads/aiq-logo.svg"
+                  "url": "/wp-content/uploads/aiq-logo.svg",
+                  "alt": "AIQEngage Logo"
                 },
                 "image_size": "custom",
                 "image_custom_dimension": {
@@ -106,7 +123,17 @@
                   "nofollow": false
                 },
                 "_element_css_classes": "aiq-header__logo",
-                "hover_animation": "grow"
+                "hover_animation": "grow",
+                "custom_css": [
+                  {
+                    "selector": ".aiq-header__logo img",
+                    "properties": "max-width: 100%; height: auto; transition: transform 0.3s ease;"
+                  },
+                  {
+                    "selector": "@media (max-width: 767px)",
+                    "properties": "width: 150px;"
+                  }
+                ]
               }
             },
             {
@@ -153,7 +180,29 @@
                 "full_width": "stretch",
                 "text_align": "center",
                 "_element_css_classes": "aiq-header__nav",
-                "aria_label": "Primary navigation"
+                "aria_label": "Primary navigation",
+                "custom_css": [
+                  {
+                    "selector": ".aiq-header__nav ul",
+                    "properties": "margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap;"
+                  },
+                  {
+                    "selector": ".aiq-header__nav li",
+                    "properties": "position: relative;"
+                  },
+                  {
+                    "selector": ".aiq-header__nav a",
+                    "properties": "text-decoration: none; transition: color 0.3s ease; padding: 10px 15px; display: block;"
+                  },
+                  {
+                    "selector": ".aiq-header__nav a:hover, .aiq-header__nav a:focus",
+                    "properties": "color: #9C4DFF;"
+                  },
+                  {
+                    "selector": "@media (max-width: 1024px)",
+                    "properties": "display: none;"
+                  }
+                ]
               }
             },
             {
@@ -168,7 +217,13 @@
                   "unit": "px",
                   "size": 15
                 },
-                "_element_css_classes": "aiq-header__actions"
+                "_element_css_classes": "aiq-header__actions",
+                "custom_css": [
+                  {
+                    "selector": "@media (max-width: 767px)",
+                    "properties": "gap: 10px;"
+                  }
+                ]
               },
               "elements": [
                 {
@@ -226,7 +281,20 @@
                       "color": "rgba(255, 215, 0, 0.4)"
                     },
                     "_element_css_classes": "aiq-header__cta aiq-btn--pro",
-                    "custom_css": ".aiq-header__cta { transition: all 0.3s ease; min-height: 44px; } .aiq-header__cta:hover { transform: translateY(-2px); }"
+                    "custom_css": [
+                      {
+                        "selector": ".aiq-header__cta",
+                        "properties": "transition: all 0.3s ease; min-height: 44px;"
+                      },
+                      {
+                        "selector": ".aiq-header__cta:hover",
+                        "properties": "transform: translateY(-2px);"
+                      },
+                      {
+                        "selector": "@media (max-width: 767px)",
+                        "properties": "padding: 8px 16px; font-size: 13px;"
+                      }
+                    ]
                   }
                 },
                 {
@@ -272,7 +340,20 @@
                     "_element_css_classes": "aiq-mobile-menu-toggle",
                     "hide_desktop": "hidden-desktop",
                     "hide_tablet": "hidden-tablet",
-                    "custom_css": ".aiq-mobile-menu-toggle { min-width: 44px; min-height: 44px; display: none; } @media (max-width: 767px) { .aiq-mobile-menu-toggle { display: inline-block; } .aiq-header__nav { display: none; } }",
+                    "custom_css": [
+                      {
+                        "selector": ".aiq-mobile-menu-toggle",
+                        "properties": "min-width: 44px; min-height: 44px; display: none; cursor: pointer;"
+                      },
+                      {
+                        "selector": "@media (max-width: 1024px)",
+                        "properties": "display: inline-flex; align-items: center; justify-content: center;"
+                      },
+                      {
+                        "selector": ".aiq-mobile-menu-toggle:hover",
+                        "properties": "background-color: rgba(156, 77, 255, 0.1);"
+                      }
+                    ],
                     "aria_label": "Toggle mobile menu",
                     "aria_expanded": "false",
                     "aria_controls": "aiq-mobile-menu"
@@ -305,13 +386,30 @@
         "border_color": "rgba(156, 77, 255, 0.3)",
         "position": "fixed",
         "z_index": 999,
-        "custom_css": ".aiq-mobile-menu { top: 80px; left: 0; right: 0; transform: translateX(100%); transition: transform 0.3s ease; display: none; } .aiq-mobile-menu--open { transform: translateX(0); } @media (max-width: 767px) { .aiq-mobile-menu { display: block; } }",
         "_element_css_classes": "aiq-mobile-menu",
         "hide_desktop": "hidden-desktop",
         "hide_tablet": "hidden-tablet",
         "aria_hidden": "true",
         "role": "navigation",
-        "aria_labelledby": "aiq-mobile-menu-toggle"
+        "aria_labelledby": "aiq-mobile-menu-toggle",
+        "custom_css": [
+          {
+            "selector": ".aiq-mobile-menu",
+            "properties": "top: 80px; left: 0; right: 0; transform: translateX(100%); transition: transform 0.3s ease; display: none; height: calc(100vh - 80px); overflow-y: auto;"
+          },
+          {
+            "selector": ".aiq-mobile-menu--open",
+            "properties": "transform: translateX(0);"
+          },
+          {
+            "selector": "@media (max-width: 1024px)",
+            "properties": "display: block;"
+          },
+          {
+            "selector": "@media (prefers-reduced-motion: reduce)",
+            "properties": "transition: none;"
+          }
+        ]
       },
       "elements": [
         {
@@ -371,7 +469,16 @@
                 },
                 "border_color_menu_item": "rgba(156, 77, 255, 0.2)",
                 "_element_css_classes": "aiq-mobile-nav__menu",
-                "custom_css": ".aiq-mobile-nav__menu a { min-height: 44px; display: flex; align-items: center; width: 100%; }"
+                "custom_css": [
+                  {
+                    "selector": ".aiq-mobile-nav__menu a",
+                    "properties": "min-height: 44px; display: flex; align-items: center; width: 100%; padding: 12px 0; transition: color 0.3s ease;"
+                  },
+                  {
+                    "selector": ".aiq-mobile-nav__menu a:hover",
+                    "properties": "color: #9C4DFF;"
+                  }
+                ]
               }
             },
             {
@@ -421,7 +528,16 @@
                 "hover_color": "#1A0938",
                 "button_background_hover_color": "#FFE55C",
                 "_element_css_classes": "aiq-mobile-cta aiq-btn--pro",
-                "custom_css": ".aiq-mobile-cta { min-height: 48px; }"
+                "custom_css": [
+                  {
+                    "selector": ".aiq-mobile-cta",
+                    "properties": "min-height: 48px; transition: all 0.3s ease;"
+                  },
+                  {
+                    "selector": ".aiq-mobile-cta:hover",
+                    "properties": "transform: translateY(-2px);"
+                  }
+                ]
               }
             }
           ]
@@ -431,7 +547,7 @@
   ],
   "page_settings": [],
   "version": "3.18.0",
-  "title": "AIQEngage Header",
+  "title": "AIQEngage Header - Production Ready",
   "type": "section",
   "author": "AIQEngage",
   "thumbnail": "",
@@ -441,9 +557,9 @@
   "modification_date": "2025-01-13",
   "is_pro": false,
   "custom_css": {
-    "global": "/* AIQEngage Header Styles */ .aiq-header { font-family: 'Inter', sans-serif; } .aiq-header--sticky { transition: all 0.3s ease; } .aiq-header--sticky.elementor-sticky--effects { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); } .aiq-header__container { align-items: center; justify-content: space-between; } .aiq-header__logo img { max-width: 100%; height: auto; } .aiq-header__nav ul { margin: 0; padding: 0; list-style: none; } .aiq-header__nav li { position: relative; } .aiq-header__nav a { text-decoration: none; transition: color 0.3s ease; } .aiq-header__nav a:hover, .aiq-header__nav a:focus { color: #9C4DFF; } .aiq-header__actions { align-items: center; gap: 15px; } .aiq-btn--pro { transition: all 0.3s ease; } .aiq-btn--pro:hover { transform: translateY(-2px); } .aiq-mobile-menu-toggle { cursor: pointer; border: none; background: transparent; } @media (max-width: 767px) { .aiq-header__nav { display: none; } .aiq-mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; } .aiq-mobile-menu { position: fixed; top: 80px; left: 0; right: 0; background: #2A1958; transform: translateX(100%); transition: transform 0.3s ease; z-index: 999; } .aiq-mobile-menu--open { transform: translateX(0); } .aiq-mobile-nav__menu a { display: flex; align-items: center; min-height: 44px; padding: 15px 0; border-bottom: 1px solid rgba(156, 77, 255, 0.2); } } /* Focus styles for accessibility */ .aiq-header a:focus, .aiq-header button:focus { outline: 3px solid #9C4DFF; outline-offset: 2px; } /* High contrast mode support */ @media (prefers-contrast: high) { .aiq-header { background: #000000; border-color: #FFFFFF; } .aiq-header__nav a { color: #FFFFFF; } .aiq-header__nav a:hover, .aiq-header__nav a:focus { color: #FFFF00; } } /* Reduced motion support */ @media (prefers-reduced-motion: reduce) { .aiq-header--sticky, .aiq-btn--pro, .aiq-mobile-menu { transition: none; } .aiq-btn--pro:hover { transform: none; } }"
+    "global": "/* AIQEngage Header Styles */\n:root {\n  --aiq-header-height: 80px;\n  --aiq-mobile-menu-height: calc(100vh - var(--aiq-header-height));\n}\n\n/* Base Styles */\n.aiq-header {\n  font-family: 'Inter', sans-serif;\n  transition: all 0.3s ease;\n}\n\n/* Sticky Header Effects */\n.aiq-header--sticky.elementor-sticky--effects {\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);\n}\n\n/* Header Container */\n.aiq-header__container {\n  align-items: center;\n  justify-content: space-between;\n}\n\n/* Logo Styles */\n.aiq-header__logo img {\n  max-width: 100%;\n  height: auto;\n  transition: transform 0.3s ease;\n}\n\n/* Navigation Styles */\n.aiq-header__nav ul {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  display: flex;\n  flex-wrap: wrap;\n}\n\n.aiq-header__nav li {\n  position: relative;\n}\n\n.aiq-header__nav a {\n  text-decoration: none;\n  transition: color 0.3s ease;\n  padding: 10px 15px;\n  display: block;\n}\n\n.aiq-header__nav a:hover,\n.aiq-header__nav a:focus {\n  color: #9C4DFF;\n}\n\n/* Header Actions */\n.aiq-header__actions {\n  align-items: center;\n  gap: 15px;\n}\n\n/* CTA Button Styles */\n.aiq-btn--pro {\n  transition: all 0.3s ease;\n}\n\n.aiq-btn--pro:hover {\n  transform: translateY(-2px);\n}\n\n/* Mobile Menu Toggle */\n.aiq-mobile-menu-toggle {\n  cursor: pointer;\n  border: none;\n  background: transparent;\n  min-width: 44px;\n  min-height: 44px;\n  display: none;\n}\n\n/* Mobile Menu Styles */\n.aiq-mobile-menu {\n  position: fixed;\n  top: var(--aiq-header-height);\n  left: 0;\n  right: 0;\n  background: #2A1958;\n  transform: translateX(100%);\n  transition: transform 0.3s ease;\n  z-index: 999;\n  height: var(--aiq-mobile-menu-height);\n  overflow-y: auto;\n}\n\n.aiq-mobile-menu--open {\n  transform: translateX(0);\n}\n\n/* Mobile Navigation Links */\n.aiq-mobile-nav__menu a {\n  display: flex;\n  align-items: center;\n  min-height: 44px;\n  padding: 12px 0;\n  border-bottom: 1px solid rgba(156, 77, 255, 0.2);\n  transition: color 0.3s ease;\n}\n\n.aiq-mobile-nav__menu a:hover {\n  color: #9C4DFF;\n}\n\n/* Responsive Breakpoints */\n@media (max-width: 1024px) {\n  .aiq-header__nav {\n    display: none;\n  }\n  \n  .aiq-mobile-menu-toggle {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n  }\n  \n  .aiq-header__container {\n    padding-left: 15px;\n    padding-right: 15px;\n  }\n}\n\n@media (max-width: 767px) {\n  .aiq-header__logo {\n    width: 150px;\n  }\n  \n  .aiq-header__cta {\n    padding: 8px 16px;\n    font-size: 13px;\n  }\n  \n  .aiq-header__actions {\n    gap: 10px;\n  }\n}\n\n/* Accessibility Enhancements */\n.aiq-header a:focus,\n.aiq-header button:focus {\n  outline: 3px solid #9C4DFF;\n  outline-offset: 2px;\n}\n\n/* High Contrast Mode Support */\n@media (prefers-contrast: high) {\n  .aiq-header {\n    background: #000000;\n    border-color: #FFFFFF;\n  }\n  \n  .aiq-header__nav a {\n    color: #FFFFFF;\n  }\n  \n  .aiq-header__nav a:hover,\n  .aiq-header__nav a:focus {\n    color: #FFFF00;\n  }\n}\n\n/* Reduced Motion Support */\n@media (prefers-reduced-motion: reduce) {\n  .aiq-header,\n  .aiq-btn--pro,\n  .aiq-mobile-menu {\n    transition: none;\n  }\n  \n  .aiq-btn--pro:hover,\n  .aiq-header__logo:hover {\n    transform: none;\n  }\n}"
   },
   "js_scripts": {
-    "header_functionality": "/* AIQEngage Header JavaScript */ document.addEventListener('DOMContentLoaded', function() { // Mobile menu toggle const mobileToggle = document.getElementById('aiq-mobile-menu-toggle'); const mobileMenu = document.getElementById('aiq-mobile-menu'); let isMenuOpen = false; if (mobileToggle && mobileMenu) { mobileToggle.addEventListener('click', function(e) { e.preventDefault(); isMenuOpen = !isMenuOpen; // Toggle menu visibility mobileMenu.classList.toggle('aiq-mobile-menu--open', isMenuOpen); // Update ARIA attributes mobileToggle.setAttribute('aria-expanded', isMenuOpen.toString()); mobileMenu.setAttribute('aria-hidden', (!isMenuOpen).toString()); // Update button text mobileToggle.querySelector('.elementor-button-text').textContent = isMenuOpen ? '✕' : '☰'; // Focus management if (isMenuOpen) { const firstLink = mobileMenu.querySelector('a'); if (firstLink) firstLink.focus(); } else { mobileToggle.focus(); } }); // Close menu when clicking outside document.addEventListener('click', function(e) { if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) { isMenuOpen = false; mobileMenu.classList.remove('aiq-mobile-menu--open'); mobileToggle.setAttribute('aria-expanded', 'false'); mobileMenu.setAttribute('aria-hidden', 'true'); mobileToggle.querySelector('.elementor-button-text').textContent = '☰'; } }); // Close menu on escape key document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && isMenuOpen) { isMenuOpen = false; mobileMenu.classList.remove('aiq-mobile-menu--open'); mobileToggle.setAttribute('aria-expanded', 'false'); mobileMenu.setAttribute('aria-hidden', 'true'); mobileToggle.querySelector('.elementor-button-text').textContent = '☰'; mobileToggle.focus(); } }); } // Sticky header scroll effect const header = document.getElementById('aiq-header'); if (header) { let lastScrollY = window.scrollY; window.addEventListener('scroll', function() { const currentScrollY = window.scrollY; // Add/remove scroll class based on position if (currentScrollY > 50) { header.classList.add('aiq-header--scrolled'); } else { header.classList.remove('aiq-header--scrolled'); } lastScrollY = currentScrollY; }); } // Keyboard navigation enhancement const navLinks = document.querySelectorAll('.aiq-header__nav a, .aiq-mobile-nav__menu a'); navLinks.forEach(link => { link.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); } }); }); // Track header interactions for analytics if (window.gtag) { // Track CTA clicks const proButtons = document.querySelectorAll('.aiq-btn--pro'); proButtons.forEach(button => { button.addEventListener('click', function() { gtag('event', 'click', { event_category: 'Header', event_label: 'Pro CTA', value: 1 }); }); }); // Track navigation clicks const navItems = document.querySelectorAll('.aiq-header__nav a'); navItems.forEach(link => { link.addEventListener('click', function() { const linkText = this.textContent.trim(); gtag('event', 'click', { event_category: 'Header Navigation', event_label: linkText }); }); }); } });"
+    "header_functionality": "/* AIQEngage Header JavaScript */\ndocument.addEventListener('DOMContentLoaded', function() {\n  // Mobile menu toggle functionality\n  const mobileToggle = document.getElementById('aiq-mobile-menu-toggle');\n  const mobileMenu = document.getElementById('aiq-mobile-menu');\n  let isMenuOpen = false;\n\n  if (mobileToggle && mobileMenu) {\n    mobileToggle.addEventListener('click', function(e) {\n      e.preventDefault();\n      isMenuOpen = !isMenuOpen;\n      \n      // Toggle menu visibility\n      mobileMenu.classList.toggle('aiq-mobile-menu--open', isMenuOpen);\n      document.body.style.overflow = isMenuOpen ? 'hidden' : '';\n      \n      // Update ARIA attributes\n      mobileToggle.setAttribute('aria-expanded', isMenuOpen.toString());\n      mobileMenu.setAttribute('aria-hidden', (!isMenuOpen).toString());\n      \n      // Update button text\n      const buttonText = mobileToggle.querySelector('.elementor-button-text');\n      if (buttonText) {\n        buttonText.textContent = isMenuOpen ? '✕' : '☰';\n      }\n      \n      // Focus management\n      if (isMenuOpen) {\n        const firstLink = mobileMenu.querySelector('a');\n        if (firstLink) firstLink.focus();\n      } else {\n        mobileToggle.focus();\n      }\n    });\n\n    // Close menu when clicking outside\n    document.addEventListener('click', function(e) {\n      if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {\n        closeMobileMenu();\n      }\n    });\n\n    // Close menu on escape key\n    document.addEventListener('keydown', function(e) {\n      if (e.key === 'Escape' && isMenuOpen) {\n        closeMobileMenu();\n      }\n    });\n\n    function closeMobileMenu() {\n      isMenuOpen = false;\n      mobileMenu.classList.remove('aiq-mobile-menu--open');\n      document.body.style.overflow = '';\n      mobileToggle.setAttribute('aria-expanded', 'false');\n      mobileMenu.setAttribute('aria-hidden', 'true');\n      const buttonText = mobileToggle.querySelector('.elementor-button-text');\n      if (buttonText) buttonText.textContent = '☰';\n      mobileToggle.focus();\n    }\n  }\n\n  // Sticky header scroll effect\n  const header = document.getElementById('aiq-header');\n  if (header) {\n    let lastScrollY = window.scrollY;\n    \n    window.addEventListener('scroll', function() {\n      const currentScrollY = window.scrollY;\n      \n      // Add/remove scroll class based on position\n      if (currentScrollY > 50) {\n        header.classList.add('aiq-header--scrolled');\n      } else {\n        header.classList.remove('aiq-header--scrolled');\n      }\n      \n      lastScrollY = currentScrollY;\n    });\n  }\n\n  // Keyboard navigation enhancement\n  const navLinks = document.querySelectorAll('.aiq-header__nav a, .aiq-mobile-nav__menu a');\n  navLinks.forEach(link => {\n    link.addEventListener('keydown', function(e) {\n      if (e.key === 'Enter' || e.key === ' ') {\n        e.preventDefault();\n        this.click();\n      }\n    });\n  });\n\n  // Track header interactions for analytics\n  if (window.gtag) {\n    // Track CTA clicks\n    const proButtons = document.querySelectorAll('.aiq-btn--pro');\n    proButtons.forEach(button => {\n      button.addEventListener('click', function() {\n        gtag('event', 'click', {\n          event_category: 'Header',\n          event_label: 'Pro CTA',\n          value: 1\n        });\n      });\n    });\n    \n    // Track navigation clicks\n    const navItems = document.querySelectorAll('.aiq-header__nav a, .aiq-mobile-nav__menu a');\n    navItems.forEach(link => {\n      link.addEventListener('click', function() {\n        const linkText = this.textContent.trim();\n        gtag('event', 'click', {\n          event_category: 'Header Navigation',\n          event_label: linkText\n        });\n      });\n    });\n  }\n});"
   }
 }

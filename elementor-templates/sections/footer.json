@@ -1,6 +1,6 @@
 {
   "version": "0.4",
-  "title": "AIQEngage Footer Template",
+  "title": "AIQEngage Footer Template - Production Ready",
   "type": "section",
   "content": [
     {
@@ -43,7 +43,17 @@
           "right": "16",
           "bottom": "20",
           "left": "16"
-        }
+        },
+        "custom_css": [
+          {
+            "selector": ".aiq-footer",
+            "properties": "font-family: 'Inter', sans-serif;"
+          },
+          {
+            "selector": ".aiq-footer a",
+            "properties": "transition: all 0.3s ease;"
+          }
+        ]
       },
       "elements": [
         {
@@ -52,7 +62,13 @@
           "isInner": true,
           "settings": {
             "gap": "default",
-            "css_classes": "aiq-footer__main"
+            "css_classes": "aiq-footer__main",
+            "custom_css": [
+              {
+                "selector": "@media (max-width: 767px)",
+                "properties": "flex-wrap: wrap;"
+              }
+            ]
           },
           "elements": [
             {
@@ -63,7 +79,17 @@
                 "width": 25,
                 "width_tablet": 50,
                 "width_mobile": 100,
-                "css_classes": "aiq-footer__column aiq-footer__column--nav-1"
+                "css_classes": "aiq-footer__column aiq-footer__column--nav-1",
+                "custom_css": [
+                  {
+                    "selector": "@media (max-width: 1024px)",
+                    "properties": "margin-bottom: 30px;"
+                  },
+                  {
+                    "selector": "@media (max-width: 767px)",
+                    "properties": "margin-bottom: 25px;"
+                  }
+                ]
               },
               "elements": [
                 {
@@ -114,11 +140,11 @@
                     "custom_css": [
                       {
                         "selector": ".elementor-nav-menu--main .elementor-item",
-                        "properties": "margin-bottom: 8px; text-decoration: none; transition: color 0.3s ease;"
+                        "properties": "margin-bottom: 8px; text-decoration: none; display: inline-block;"
                       },
                       {
                         "selector": ".elementor-nav-menu--main .elementor-item:hover",
-                        "properties": "opacity: 0.8;"
+                        "properties": "opacity: 0.8; transform: translateX(2px);"
                       }
                     ]
                   }
@@ -133,7 +159,17 @@
                 "width": 25,
                 "width_tablet": 50,
                 "width_mobile": 100,
-                "css_classes": "aiq-footer__column aiq-footer__column--nav-2"
+                "css_classes": "aiq-footer__column aiq-footer__column--nav-2",
+                "custom_css": [
+                  {
+                    "selector": "@media (max-width: 1024px)",
+                    "properties": "margin-bottom: 30px;"
+                  },
+                  {
+                    "selector": "@media (max-width: 767px)",
+                    "properties": "margin-bottom: 25px;"
+                  }
+                ]
               },
               "elements": [
                 {
@@ -165,8 +201,22 @@
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
-                    "editor": "<ul style=\"list-style: none; padding: 0; margin: 0;\"><li style=\"margin-bottom: 8px;\"><a href=\"/privacy\" style=\"color: #9C4DFF; text-decoration: none; font-family: Inter; font-size: 14px; font-weight: 400; transition: color 0.3s ease;\" onmouseover=\"this.style.color='#E0D6FF'\" onmouseout=\"this.style.color='#9C4DFF'\">Privacy Policy</a></li><li style=\"margin-bottom: 8px;\"><a href=\"/terms\" style=\"color: #9C4DFF; text-decoration: none; font-family: Inter; font-size: 14px; font-weight: 400; transition: color 0.3s ease;\" onmouseover=\"this.style.color='#E0D6FF'\" onmouseout=\"this.style.color='#9C4DFF'\">Terms of Service</a></li><li style=\"margin-bottom: 8px;\"><a href=\"/affiliate-disclosure\" style=\"color: #9C4DFF; text-decoration: none; font-family: Inter; font-size: 14px; font-weight: 400; transition: color 0.3s ease;\" onmouseover=\"this.style.color='#E0D6FF'\" onmouseout=\"this.style.color='#9C4DFF'\">Affiliate Disclosure</a></li><li style=\"margin-bottom: 8px;\"><a href=\"/contact\" style=\"color: #9C4DFF; text-decoration: none; font-family: Inter; font-size: 14px; font-weight: 400; transition: color 0.3s ease;\" onmouseover=\"this.style.color='#E0D6FF'\" onmouseout=\"this.style.color='#9C4DFF'\">Contact Support</a></li></ul>",
-                    "css_classes": "aiq-footer__legal-nav"
+                    "editor": "<ul class=\"aiq-footer__legal-list\"><li><a href=\"/privacy\" class=\"aiq-footer__legal-link\">Privacy Policy</a></li><li><a href=\"/terms\" class=\"aiq-footer__legal-link\">Terms of Service</a></li><li><a href=\"/affiliate-disclosure\" class=\"aiq-footer__legal-link\">Affiliate Disclosure</a></li><li><a href=\"/contact\" class=\"aiq-footer__legal-link\">Contact Support</a></li></ul>",
+                    "css_classes": "aiq-footer__legal-nav",
+                    "custom_css": [
+                      {
+                        "selector": ".aiq-footer__legal-list",
+                        "properties": "list-style: none; padding: 0; margin: 0;"
+                      },
+                      {
+                        "selector": ".aiq-footer__legal-link",
+                        "properties": "color: #9C4DFF; text-decoration: none; font-family: Inter; font-size: 14px; font-weight: 400; transition: all 0.3s ease; display: inline-block; margin-bottom: 8px;"
+                      },
+                      {
+                        "selector": ".aiq-footer__legal-link:hover",
+                        "properties": "color: #E0D6FF; transform: translateX(2px);"
+                      }
+                    ]
                   }
                 }
               ]
@@ -179,7 +229,13 @@
                 "width": 25,
                 "width_tablet": 50,
                 "width_mobile": 100,
-                "css_classes": "aiq-footer__column aiq-footer__column--partners"
+                "css_classes": "aiq-footer__column aiq-footer__column--partners",
+                "custom_css": [
+                  {
+                    "selector": "@media (max-width: 1024px)",
+                    "properties": "margin-bottom: 30px;"
+                  }
+                ]
               },
               "elements": [
                 {
@@ -211,8 +267,18 @@
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
-                    "editor": "<p style=\"color: #E0D6FF; font-family: Inter; font-size: 14px; font-weight: 600; margin: 0 0 8px 0;\">Partnered with:</p><p style=\"color: rgba(224, 214, 255, 0.8); font-family: Inter; font-size: 14px; font-weight: 400; line-height: 1.5; margin: 0;\">Switchy.io, Elementor, Claude 3 Opus</p>",
-                    "css_classes": "aiq-footer__partners"
+                    "editor": "<p class=\"aiq-footer__partners-heading\">Partnered with:</p><p class=\"aiq-footer__partners-list\">Switchy.io, Elementor, Claude 3 Opus</p>",
+                    "css_classes": "aiq-footer__partners",
+                    "custom_css": [
+                      {
+                        "selector": ".aiq-footer__partners-heading",
+                        "properties": "color: #E0D6FF; font-family: Inter; font-size: 14px; font-weight: 600; margin: 0 0 8px 0;"
+                      },
+                      {
+                        "selector": ".aiq-footer__partners-list",
+                        "properties": "color: rgba(224, 214, 255, 0.8); font-family: Inter; font-size: 14px; font-weight: 400; line-height: 1.5; margin: 0;"
+                      }
+                    ]
                   }
                 }
               ]
@@ -228,7 +294,13 @@
                 "css_classes": "aiq-footer__column aiq-footer__column--logo",
                 "align": "center",
                 "align_tablet": "left",
-                "align_mobile": "center"
+                "align_mobile": "center",
+                "custom_css": [
+                  {
+                    "selector": "@media (max-width: 767px)",
+                    "properties": "text-align: center !important;"
+                  }
+                ]
               },
               "elements": [
                 {
@@ -255,7 +327,13 @@
                       "bottom": "16",
                       "left": "0"
                     },
-                    "css_classes": "aiq-footer__logo"
+                    "css_classes": "aiq-footer__logo",
+                    "custom_css": [
+                      {
+                        "selector": ".aiq-footer__logo img",
+                        "properties": "max-width: 100%; height: auto;"
+                      }
+                    ]
                   }
                 },
                 {
@@ -315,7 +393,17 @@
                       "right": "0",
                       "bottom": "0",
                       "left": "0"
-                    }
+                    },
+                    "custom_css": [
+                      {
+                        "selector": ".aiq-footer__social .elementor-social-icon",
+                        "properties": "margin: 0 8px;"
+                      },
+                      {
+                        "selector": ".aiq-footer__social .elementor-social-icon:hover",
+                        "properties": "transform: translateY(-2px);"
+                      }
+                    ]
                   }
                 }
               ]
@@ -335,7 +423,13 @@
               "right": "0",
               "bottom": "20",
               "left": "0"
-            }
+            },
+            "custom_css": [
+              {
+                "selector": "@media (max-width: 767px)",
+                "properties": "margin-top: 20px; margin-bottom: 15px;"
+              }
+            ]
           },
           "elements": [
             {
@@ -352,8 +446,14 @@
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
-                    "editor": "<p style=\"color: rgba(224, 214, 255, 0.6); font-family: Inter; font-size: 12px; font-weight: 400; line-height: 1.4; text-align: center; margin: 0;\">Some links on this site may earn us commissions when you click and purchase. We only recommend tools we actively use in our own automation systems. All affiliate relationships are disclosed transparently.</p>",
-                    "css_classes": "aiq-footer__affiliate-disclosure"
+                    "editor": "<p class=\"aiq-footer__affiliate-text\">Some links on this site may earn us commissions when you click and purchase. We only recommend tools we actively use in our own automation systems. All affiliate relationships are disclosed transparently.</p>",
+                    "css_classes": "aiq-footer__affiliate-disclosure",
+                    "custom_css": [
+                      {
+                        "selector": ".aiq-footer__affiliate-text",
+                        "properties": "color: rgba(224, 214, 255, 0.6); font-family: Inter; font-size: 12px; font-weight: 400; line-height: 1.4; text-align: center; margin: 0; max-width: 800px;"
+                      }
+                    ]
                   }
                 }
               ]
@@ -382,7 +482,13 @@
               "right": "0",
               "bottom": "0",
               "left": "0"
-            }
+            },
+            "custom_css": [
+              {
+                "selector": "@media (max-width: 767px)",
+                "properties": "padding-top: 15px;"
+              }
+            ]
           },
           "elements": [
             {
@@ -395,7 +501,13 @@
                 "width_mobile": 100,
                 "align": "left",
                 "align_tablet": "center",
-                "align_mobile": "center"
+                "align_mobile": "center",
+                "custom_css": [
+                  {
+                    "selector": "@media (max-width: 1024px)",
+                    "properties": "margin-bottom: 15px;"
+                  }
+                ]
               },
               "elements": [
                 {
@@ -403,8 +515,14 @@
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
-                    "editor": "<p style=\"color: #E0D6FF; font-family: Inter; font-size: 14px; font-weight: 400; margin: 0;\">© 2025 AIQEngage.com. All rights reserved.</p>",
-                    "css_classes": "aiq-footer__copyright"
+                    "editor": "<p class=\"aiq-footer__copyright-text\">© 2025 AIQEngage.com. All rights reserved.</p>",
+                    "css_classes": "aiq-footer__copyright",
+                    "custom_css": [
+                      {
+                        "selector": ".aiq-footer__copyright-text",
+                        "properties": "color: #E0D6FF; font-family: Inter; font-size: 14px; font-weight: 400; margin: 0;"
+                      }
+                    ]
                   }
                 }
               ]
@@ -419,7 +537,13 @@
                 "width_mobile": 100,
                 "align": "right",
                 "align_tablet": "center",
-                "align_mobile": "center"
+                "align_mobile": "center",
+                "custom_css": [
+                  {
+                    "selector": "@media (max-width: 1024px)",
+                    "properties": "text-align: center !important;"
+                  }
+                ]
               },
               "elements": [
                 {
@@ -427,11 +551,15 @@
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
-                    "editor": "<p style=\"color: rgba(224, 214, 255, 0.8); font-family: Inter; font-size: 14px; font-weight: 400; margin: 0; text-align: right;\" class=\"aiq-footer__tagline-mobile-center\">AIQEngage teaches ethical, automation-first digital strategies.</p>",
+                    "editor": "<p class=\"aiq-footer__tagline-text\">AIQEngage teaches ethical, automation-first digital strategies.</p>",
                     "css_classes": "aiq-footer__tagline",
                     "custom_css": [
                       {
-                        "selector": "@media (max-width: 767px) { .aiq-footer__tagline-mobile-center }",
+                        "selector": ".aiq-footer__tagline-text",
+                        "properties": "color: rgba(224, 214, 255, 0.8); font-family: Inter; font-size: 14px; font-weight: 400; margin: 0; text-align: right;"
+                      },
+                      {
+                        "selector": "@media (max-width: 1024px)",
                         "properties": "text-align: center !important;"
                       }
                     ]
