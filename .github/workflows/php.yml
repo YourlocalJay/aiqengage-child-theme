@@ -1,0 +1,37 @@
+name: WordPress PHPCS Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  phpcs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+
+    - name: Install Composer dependencies
+      run: composer install || true
+
+    - name: Install PHPCS
+      run: composer global require squizlabs/php_codesniffer
+
+    - name: Install WordPress Coding Standards
+      run: composer create-project wp-coding-standards/wpcs --no-dev
+
+    - name: Configure PHPCS for WPCS
+      run: ~/.composer/vendor/bin/phpcs --config-set installed_paths ./wpcs
+
+    - name: Run PHPCS
+      run: ~/.composer/vendor/bin/phpcs --standard=WordPress --ignore=vendor,node_modules . || true
+    # - name: Run test suite
+    #   run: composer run-script test
