@@ -1,0 +1,447 @@
+{
+  "version": "0.4",
+  "title": "AIQEngage Footer Template",
+  "type": "section",
+  "content": [
+    {
+      "id": "footer-section",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "content_width": "boxed",
+        "gap": "default",
+        "background_background": "classic",
+        "background_color": "#1A0938",
+        "border_border": "solid",
+        "border_width": {
+          "unit": "px",
+          "top": "1",
+          "right": "0",
+          "bottom": "0",
+          "left": "0"
+        },
+        "border_color": "rgba(156, 77, 255, 0.2)",
+        "css_classes": "aiq-footer",
+        "padding": {
+          "unit": "px",
+          "top": "60",
+          "right": "40",
+          "bottom": "30",
+          "left": "40"
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "50",
+          "right": "20",
+          "bottom": "25",
+          "left": "20"
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "40",
+          "right": "16",
+          "bottom": "20",
+          "left": "16"
+        }
+      },
+      "elements": [
+        {
+          "id": "footer-main-row",
+          "elType": "section",
+          "isInner": true,
+          "settings": {
+            "gap": "default",
+            "css_classes": "aiq-footer__main"
+          },
+          "elements": [
+            {
+              "id": "footer-nav-column-1",
+              "elType": "column",
+              "isInner": true,
+              "settings": {
+                "width": 25,
+                "width_tablet": 50,
+                "width_mobile": 100,
+                "css_classes": "aiq-footer__column aiq-footer__column--nav-1"
+              },
+              "elements": [
+                {
+                  "id": "footer-nav-1-heading",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Quick Links",
+                    "size": "custom",
+                    "custom_size": {
+                      "unit": "rem",
+                      "size": 1.1
+                    },
+                    "color": "#E0D6FF",
+                    "typography_font_family": "Inter",
+                    "typography_font_weight": "600",
+                    "margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "20",
+                      "left": "0"
+                    },
+                    "css_classes": "aiq-footer__heading"
+                  }
+                },
+                {
+                  "id": "footer-nav-1-links",
+                  "elType": "widget",
+                  "widgetType": "nav-menu",
+                  "settings": {
+                    "menu": "footer-quick-links",
+                    "layout": "vertical",
+                    "align_items": "left",
+                    "typography_font_family": "Inter",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14
+                    },
+                    "color_text": "#9C4DFF",
+                    "color_text_hover": "#E0D6FF",
+                    "pointer_width": {
+                      "unit": "px",
+                      "size": 0
+                    },
+                    "css_classes": "aiq-footer__nav",
+                    "custom_css": [
+                      {
+                        "selector": ".elementor-nav-menu--main .elementor-item",
+                        "properties": "margin-bottom: 8px; text-decoration: none; transition: color 0.3s ease;"
+                      },
+                      {
+                        "selector": ".elementor-nav-menu--main .elementor-item:hover",
+                        "properties": "opacity: 0.8;"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "footer-nav-column-2",
+              "elType": "column",
+              "isInner": true,
+              "settings": {
+                "width": 25,
+                "width_tablet": 50,
+                "width_mobile": 100,
+                "css_classes": "aiq-footer__column aiq-footer__column--nav-2"
+              },
+              "elements": [
+                {
+                  "id": "footer-nav-2-heading",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Legal",
+                    "size": "custom",
+                    "custom_size": {
+                      "unit": "rem",
+                      "size": 1.1
+                    },
+                    "color": "#E0D6FF",
+                    "typography_font_family": "Inter",
+                    "typography_font_weight": "600",
+                    "margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "20",
+                      "left": "0"
+                    },
+                    "css_classes": "aiq-footer__heading"
+                  }
+                },
+                {
+                  "id": "footer-legal-links",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<ul style=\"list-style: none; padding: 0; margin: 0;\"><li style=\"margin-bottom: 8px;\"><a href=\"/privacy\" style=\"color: #9C4DFF; text-decoration: none; font-family: Inter; font-size: 14px; font-weight: 400; transition: color 0.3s ease;\" onmouseover=\"this.style.color='#E0D6FF'\" onmouseout=\"this.style.color='#9C4DFF'\">Privacy Policy</a></li><li style=\"margin-bottom: 8px;\"><a href=\"/terms\" style=\"color: #9C4DFF; text-decoration: none; font-family: Inter; font-size: 14px; font-weight: 400; transition: color 0.3s ease;\" onmouseover=\"this.style.color='#E0D6FF'\" onmouseout=\"this.style.color='#9C4DFF'\">Terms of Service</a></li><li style=\"margin-bottom: 8px;\"><a href=\"/affiliate-disclosure\" style=\"color: #9C4DFF; text-decoration: none; font-family: Inter; font-size: 14px; font-weight: 400; transition: color 0.3s ease;\" onmouseover=\"this.style.color='#E0D6FF'\" onmouseout=\"this.style.color='#9C4DFF'\">Affiliate Disclosure</a></li><li style=\"margin-bottom: 8px;\"><a href=\"/contact\" style=\"color: #9C4DFF; text-decoration: none; font-family: Inter; font-size: 14px; font-weight: 400; transition: color 0.3s ease;\" onmouseover=\"this.style.color='#E0D6FF'\" onmouseout=\"this.style.color='#9C4DFF'\">Contact Support</a></li></ul>",
+                    "css_classes": "aiq-footer__legal-nav"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "footer-partners-column",
+              "elType": "column",
+              "isInner": true,
+              "settings": {
+                "width": 25,
+                "width_tablet": 50,
+                "width_mobile": 100,
+                "css_classes": "aiq-footer__column aiq-footer__column--partners"
+              },
+              "elements": [
+                {
+                  "id": "footer-partners-heading",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Partners",
+                    "size": "custom",
+                    "custom_size": {
+                      "unit": "rem",
+                      "size": 1.1
+                    },
+                    "color": "#E0D6FF",
+                    "typography_font_family": "Inter",
+                    "typography_font_weight": "600",
+                    "margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "20",
+                      "left": "0"
+                    },
+                    "css_classes": "aiq-footer__heading"
+                  }
+                },
+                {
+                  "id": "footer-partners-content",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"color: #E0D6FF; font-family: Inter; font-size: 14px; font-weight: 600; margin: 0 0 8px 0;\">Partnered with:</p><p style=\"color: rgba(224, 214, 255, 0.8); font-family: Inter; font-size: 14px; font-weight: 400; line-height: 1.5; margin: 0;\">Switchy.io, Elementor, Claude 3 Opus</p>",
+                    "css_classes": "aiq-footer__partners"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "footer-logo-column",
+              "elType": "column",
+              "isInner": true,
+              "settings": {
+                "width": 25,
+                "width_tablet": 50,
+                "width_mobile": 100,
+                "css_classes": "aiq-footer__column aiq-footer__column--logo",
+                "align": "center",
+                "align_tablet": "left",
+                "align_mobile": "center"
+              },
+              "elements": [
+                {
+                  "id": "footer-logo",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "image": {
+                      "url": "/wp-content/themes/aiqengage-child/assets/images/aiq-logo-white.svg",
+                      "alt": "AIQEngage Logo"
+                    },
+                    "image_size": "custom",
+                    "image_custom_dimension": {
+                      "width": "120",
+                      "height": "40"
+                    },
+                    "align": "center",
+                    "align_tablet": "left",
+                    "align_mobile": "center",
+                    "margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "16",
+                      "left": "0"
+                    },
+                    "css_classes": "aiq-footer__logo"
+                  }
+                },
+                {
+                  "id": "footer-social-icons",
+                  "elType": "widget",
+                  "widgetType": "social-icons",
+                  "settings": {
+                    "social_icon_list": [
+                      {
+                        "social": "fa-twitter",
+                        "link": {
+                          "url": "https://twitter.com/aiqengage",
+                          "is_external": true,
+                          "nofollow": true
+                        }
+                      },
+                      {
+                        "social": "fa-linkedin",
+                        "link": {
+                          "url": "https://linkedin.com/company/aiqengage",
+                          "is_external": true,
+                          "nofollow": true
+                        }
+                      },
+                      {
+                        "social": "fa-youtube",
+                        "link": {
+                          "url": "https://youtube.com/@aiqengage",
+                          "is_external": true,
+                          "nofollow": true
+                        }
+                      }
+                    ],
+                    "shape": "circle",
+                    "size": {
+                      "unit": "px",
+                      "size": 20
+                    },
+                    "icon_color": "#E0D6FF",
+                    "icon_hover_color": "#9C4DFF",
+                    "icon_background_color": "transparent",
+                    "icon_background_hover_color": "rgba(156, 77, 255, 0.2)",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "50",
+                      "right": "50",
+                      "bottom": "50",
+                      "left": "50"
+                    },
+                    "align": "center",
+                    "align_tablet": "left",
+                    "align_mobile": "center",
+                    "css_classes": "aiq-footer__social",
+                    "margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "footer-affiliate-notice",
+          "elType": "section",
+          "isInner": true,
+          "settings": {
+            "gap": "no",
+            "css_classes": "aiq-footer__affiliate-notice",
+            "margin": {
+              "unit": "px",
+              "top": "30",
+              "right": "0",
+              "bottom": "20",
+              "left": "0"
+            }
+          },
+          "elements": [
+            {
+              "id": "footer-affiliate-column",
+              "elType": "column",
+              "isInner": true,
+              "settings": {
+                "width": 100,
+                "align": "center"
+              },
+              "elements": [
+                {
+                  "id": "footer-affiliate-text",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"color: rgba(224, 214, 255, 0.6); font-family: Inter; font-size: 12px; font-weight: 400; line-height: 1.4; text-align: center; margin: 0;\">Some links on this site may earn us commissions when you click and purchase. We only recommend tools we actively use in our own automation systems. All affiliate relationships are disclosed transparently.</p>",
+                    "css_classes": "aiq-footer__affiliate-disclosure"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "footer-bottom-bar",
+          "elType": "section",
+          "isInner": true,
+          "settings": {
+            "gap": "no",
+            "css_classes": "aiq-footer__bottom",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "0",
+              "bottom": "0",
+              "left": "0"
+            },
+            "border_color": "rgba(156, 77, 255, 0.2)",
+            "padding": {
+              "unit": "px",
+              "top": "20",
+              "right": "0",
+              "bottom": "0",
+              "left": "0"
+            }
+          },
+          "elements": [
+            {
+              "id": "footer-copyright-column",
+              "elType": "column",
+              "isInner": true,
+              "settings": {
+                "width": 60,
+                "width_tablet": 100,
+                "width_mobile": 100,
+                "align": "left",
+                "align_tablet": "center",
+                "align_mobile": "center"
+              },
+              "elements": [
+                {
+                  "id": "footer-copyright",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"color: #E0D6FF; font-family: Inter; font-size: 14px; font-weight: 400; margin: 0;\">© 2025 AIQEngage.com. All rights reserved.</p>",
+                    "css_classes": "aiq-footer__copyright"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "footer-tagline-column",
+              "elType": "column",
+              "isInner": true,
+              "settings": {
+                "width": 40,
+                "width_tablet": 100,
+                "width_mobile": 100,
+                "align": "right",
+                "align_tablet": "center",
+                "align_mobile": "center"
+              },
+              "elements": [
+                {
+                  "id": "footer-tagline",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"color: rgba(224, 214, 255, 0.8); font-family: Inter; font-size: 14px; font-weight: 400; margin: 0; text-align: right;\" class=\"aiq-footer__tagline-mobile-center\">AIQEngage teaches ethical, automation-first digital strategies.</p>",
+                    "css_classes": "aiq-footer__tagline",
+                    "custom_css": [
+                      {
+                        "selector": "@media (max-width: 767px) { .aiq-footer__tagline-mobile-center }",
+                        "properties": "text-align: center !important;"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
