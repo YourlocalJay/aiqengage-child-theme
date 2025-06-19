@@ -1,9 +1,11 @@
 <?php
 /**
  * Prompt Card Template
- * 
- * @package AIQEngage
+ *
+ * @package aiqengage-child
  * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
  */
 
 // Exit if accessed directly
@@ -39,7 +41,7 @@ $category_display = $this->get_category_display_name( $settings );
         </div>
 
         <div class="aiq-prompt-card__actions">
-            <button type="button" class="aiq-prompt-card__copy-btn" 
+            <button type="button" class="aiq-prompt-card__copy-btn"
                     aria-label="<?php esc_attr_e( 'Copy prompt to clipboard', 'aiqengage-child' ); ?>"
                     data-prompt-id="<?php echo esc_attr( $card_id ); ?>">
                 <span class="aiq-prompt-card__copy-icon">
@@ -47,9 +49,9 @@ $category_display = $this->get_category_display_name( $settings );
                 </span>
                 <span class="aiq-prompt-card__copy-text"><?php esc_html_e( 'Copy', 'aiqengage-child' ); ?></span>
             </button>
-            
-            <button type="button" class="aiq-prompt-card__toggle" 
-                    aria-expanded="<?php echo $expanded ? 'true' : 'false'; ?>" 
+
+            <button type="button" class="aiq-prompt-card__toggle"
+                    aria-expanded="<?php echo $expanded ? 'true' : 'false'; ?>"
                     aria-controls="<?php echo esc_attr( $card_id ); ?>-content">
                 <span class="aiq-prompt-card__toggle-text aiq-prompt-card__toggle-text--expand">
                     <?php esc_html_e( 'Show Prompt', 'aiqengage-child' ); ?>
@@ -70,7 +72,7 @@ $category_display = $this->get_category_display_name( $settings );
 
     <div class="aiq-prompt-card__content" id="<?php echo esc_attr( $card_id ); ?>-content">
         <pre class="aiq-prompt-card__prompt"><?php echo esc_html( $settings['prompt_body'] ); ?></pre>
-        
+
         <?php if ( 'yes' === $settings['show_variables'] && ! empty( $settings['variables'] ) ) : ?>
             <div class="aiq-prompt-card__variables">
                 <h4 class="aiq-prompt-card__variables-title"><?php esc_html_e( 'Variables', 'aiqengage-child' ); ?></h4>
@@ -87,7 +89,7 @@ $category_display = $this->get_category_display_name( $settings );
                             <?php foreach ( $settings['variables'] as $index => $variable ) : ?>
                                 <tr>
                                     <td class="aiq-prompt-card__variable-name">
-                                        <button type="button" class="aiq-prompt-card__variable-insert" 
+                                        <button type="button" class="aiq-prompt-card__variable-insert"
                                                 data-variable="<?php echo esc_attr( $variable['variable_name'] ); ?>"
                                                 data-prompt-id="<?php echo esc_attr( $card_id ); ?>">
                                             <?php echo esc_html( $variable['variable_name'] ); ?>

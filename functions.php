@@ -2,9 +2,10 @@
 /**
  * AIQEngage Child Theme - Core Functionality
  *
- * @package     AIQEngage_Child
+ * @package     aiqengage-child
  * @version     1.0.3
- * @author      AIQEngage Team
+ * @since       1.0.0
+ * @author      Jason
  * @copyright   Copyright (c) 2025, AIQEngage
  * @license     GPL-3.0+
  * @link        https://aiqengage.com
@@ -24,12 +25,12 @@ define('AIQENGAGE_CHILD_URL', trailingslashit(get_stylesheet_directory_uri()));
 function aiqengage_child_theme_setup() {
     // Load text domain
     load_child_theme_textdomain('aiqengage-child', AIQENGAGE_CHILD_PATH . 'languages');
-    
+
     // Add theme support
     add_theme_support('post-thumbnails');
     add_theme_support('html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption']);
     add_theme_support('align-wide');
-    
+
     // Register nav menus
     register_nav_menus([
         'primary' => __('Primary Menu', 'aiqengage-child'),
@@ -48,7 +49,7 @@ function aiqengage_child_load_includes() {
         '/inc/widget-loader.php',       // Elementor widgets
         '/inc/template_registrations.php', // Template library
     ];
-    
+
     foreach ($includes as $file) {
         $filepath = AIQENGAGE_CHILD_PATH . ltrim($file, '/');
         if (file_exists($filepath)) {
@@ -82,7 +83,7 @@ function aiqengage_child_enqueue_assets() {
         [],
         AIQENGAGE_CHILD_VERSION
     );
-    
+
     // PRIORITY 1: Main CSS with design tokens (MUST load first)
     wp_enqueue_style(
         'aiq-main-css',
@@ -90,7 +91,7 @@ function aiqengage_child_enqueue_assets() {
         ['hello-elementor'],
         AIQENGAGE_CHILD_VERSION
     );
-    
+
     // PRIORITY 2: Accessibility CSS (critical for screen readers)
     wp_enqueue_style(
         'aiq-accessibility-css',
@@ -98,7 +99,7 @@ function aiqengage_child_enqueue_assets() {
         ['aiq-main-css'],
         AIQENGAGE_CHILD_VERSION
     );
-    
+
     // PRIORITY 3: Child theme styles
     wp_enqueue_style(
         'aiqengage-child',
@@ -126,7 +127,7 @@ add_action('elementor/elements/categories_registered', 'aiqengage_child_add_elem
 function aiqengage_child_activation() {
     // Flush rewrite rules
     flush_rewrite_rules();
-    
+
     // Initialize default settings
     if (!get_option('aiqengage_child_activated')) {
         update_option('aiqengage_child_activated', time());
