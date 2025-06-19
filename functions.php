@@ -27,6 +27,7 @@ function aiqengage_child_theme_setup() {
     load_child_theme_textdomain('aiqengage-child', AIQENGAGE_CHILD_PATH . 'languages');
 
     // Add theme support
+    add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption']);
     add_theme_support('align-wide');
