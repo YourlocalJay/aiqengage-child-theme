@@ -1,12 +1,10 @@
 /**
- * Enhanced Resource Card Widget - Interactive Features
- * Version: 2.0
- * Features:
- * - Smart video embedding (YouTube, Vimeo, Loom)
- * - Usage analytics tracking
- * - Performance optimizations
- * - Accessibility improvements
- * - Progressive enhancement
+ * Resource Card Widget Script
+ *
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
  */
 
 class ResourceCardManager {
@@ -58,13 +56,13 @@ class ResourceCardManager {
     iframe.setAttribute('allow', 'autoplay; fullscreen');
     iframe.setAttribute('allowfullscreen', '');
     iframe.setAttribute('title', 'Embedded video player');
-    
+
     // Load iframe after short delay
     setTimeout(() => {
       container.innerHTML = '';
       container.appendChild(iframe);
       container.classList.remove('loading');
-      
+
       // Track video view
       this.trackEvent('video_view', {
         resource_id: container.closest('.aiq-resource-card').id,
@@ -169,7 +167,7 @@ class ResourceCardManager {
     document.querySelectorAll('.aiq-resource-card').forEach(card => {
       // Ensure cards are keyboard navigable
       card.setAttribute('tabindex', '0');
-      
+
       // Add ARIA labels for video cards
       const video = card.querySelector('.aiq-resource-card__video');
       if (video) {
@@ -185,12 +183,12 @@ class ResourceCardManager {
     if (typeof gtag === 'function') {
       gtag('event', eventName, eventData);
     }
-    
+
     // Facebook Pixel
     if (typeof fbq === 'function') {
       fbq('trackCustom', eventName, eventData);
     }
-    
+
     // Custom analytics
     if (typeof window.trackResourceEvent === 'function') {
       window.trackResourceEvent(eventName, eventData);
@@ -200,14 +198,14 @@ class ResourceCardManager {
     try {
       const profileKey = 'aiq_user_profile';
       const profile = JSON.parse(localStorage.getItem(profileKey) || '{}');
-      
+
       profile.resource_interactions = profile.resource_interactions || [];
       profile.resource_interactions.push({
         event: eventName,
         data: eventData,
         timestamp: new Date().toISOString()
       });
-      
+
       localStorage.setItem(profileKey, JSON.stringify(profile));
     } catch (e) {
       console.warn('Could not store interaction:', e);

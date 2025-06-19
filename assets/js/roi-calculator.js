@@ -1,3 +1,12 @@
+/**
+ * ROI Calculator Widget Script
+ *
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
+ */
+
 class ROICalculator {
   constructor(container) {
     this.container = container;

@@ -1,12 +1,10 @@
 /**
- * AIQEngage Reading Progress Bar - Enhanced
- * Version: 2.0
- * Features: 
- * - Performance optimized scroll handling
- * - Enhanced accessibility
- * - Dynamic content detection
- * - Customizable animation
- * - Intersection Observer support
+ * Progress Bar Widget Script
+ *
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
  */
 
 (function() {
@@ -37,7 +35,7 @@
             this.progressBars = Array.from(bars).map(bar => {
                 // Get animation speed from data attribute or default to 100ms
                 const speed = bar.dataset.animationSpeed || 100;
-                
+
                 return {
                     element: bar,
                     percentageElement: bar.querySelector('.aiq-progress-bar__percentage'),
@@ -146,9 +144,9 @@
         calculateProgress() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const docHeight = this.getDocumentHeight() - window.innerHeight;
-            
+
             if (docHeight <= 0) return 0;
-            
+
             const scrollPercent = (scrollTop / docHeight) * 100;
             return Math.min(100, Math.max(0, Math.round(scrollPercent)));
         }
@@ -165,12 +163,12 @@
 
         updateProgressBars() {
             const progress = this.calculateProgress();
-            
+
             // Only update if progress has changed
             if (progress === this.lastProgress) return;
-            
+
             this.lastProgress = progress;
-            
+
             this.progressBars.forEach(barData => {
                 this.updateSingleBar(barData, progress);
             });
@@ -179,18 +177,18 @@
         updateSingleBar(barData, progress) {
             // Smooth transition for the progress bar
             barData.element.style.setProperty(
-                '--aiq-progress-width', 
+                '--aiq-progress-width',
                 `${progress}%`,
                 progress === 0 ? 'important' : ''
             );
-            
+
             // Update ARIA attributes
             barData.element.setAttribute('aria-valuenow', progress);
-            
+
             // Update percentage display if exists
             if (barData.percentageElement) {
                 barData.percentageElement.textContent = `${progress}%`;
-                
+
                 // Add animation class for percentage change
                 barData.percentageElement.classList.add('aiq-progress-percentage-changing');
                 setTimeout(() => {

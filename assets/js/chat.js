@@ -1,11 +1,13 @@
-// assets/js/chat.js
-
+(function () {
 /**
- * AIQEngage Chat Widget - Enhanced with Full Accessibility Support
- * 
- * A modular chat widget for the AIQEngage Elementor theme
- * Features: Focus management, ARIA support, keyboard navigation, screen reader announcements
+ * Chat Widget Script
+ *
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
  */
+
 (function () {
     'use strict';
 
@@ -29,7 +31,7 @@
 
     /**
      * Initialize a single chat widget
-     * 
+     *
      * @param {HTMLElement} widget - The chat widget element
      * @param {Object} settings - The widget settings
      */
@@ -41,11 +43,11 @@
         const inputField = widget.querySelector('.aiq-chat__input');
         const sendButton = widget.querySelector('.aiq-chat__send-btn');
         const typingIndicator = widget.querySelector('.aiq-chat__typing-indicator');
-        
+
         // Get floating chat elements if applicable
         const bubble = widget.querySelector('.aiq-chat__bubble');
         const closeButton = widget.querySelector('.aiq-chat__close');
-        
+
         // Chat state
         const state = {
             messages: [],
@@ -57,7 +59,7 @@
 
         // Set up accessibility attributes
         setupAccessibilityAttributes();
-        
+
         // Focus management and trap setup
         setupFocusManagement();
 
@@ -87,13 +89,13 @@
 
         // Input and send functionality
         sendButton.addEventListener('click', sendMessage);
-        
+
         inputField.addEventListener('keydown', (e) => {
             if (settings.sendOnEnter === 'yes' && e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 sendMessage();
             }
-            
+
             // Auto-resize textarea
             setTimeout(() => {
                 inputField.style.height = 'auto';
@@ -121,7 +123,7 @@
                 container.setAttribute('aria-modal', 'true');
                 container.setAttribute('aria-labelledby', 'chat-title');
                 container.setAttribute('aria-describedby', 'chat-description');
-                
+
                 // Add heading for screen readers
                 if (!container.querySelector('#chat-title')) {
                     const title = document.createElement('h2');
@@ -130,7 +132,7 @@
                     title.textContent = settings.aiName + ' Chat Assistant';
                     container.insertBefore(title, container.firstChild);
                 }
-                
+
                 // Add description for screen readers
                 if (!container.querySelector('#chat-description')) {
                     const description = document.createElement('p');
@@ -149,14 +151,14 @@
             // Set up input field
             inputField.setAttribute('aria-label', 'Type your message');
             inputField.setAttribute('aria-describedby', 'send-instructions');
-            
+
             // Add instructions for screen readers
             if (!widget.querySelector('#send-instructions')) {
                 const instructions = document.createElement('div');
                 instructions.id = 'send-instructions';
                 instructions.className = 'sr-only';
-                instructions.textContent = settings.sendOnEnter === 'yes' ? 
-                    'Press Enter to send message, Shift+Enter for new line' : 
+                instructions.textContent = settings.sendOnEnter === 'yes' ?
+                    'Press Enter to send message, Shift+Enter for new line' :
                     'Use the send button to send your message';
                 inputField.parentNode.appendChild(instructions);
             }
@@ -209,7 +211,7 @@
                 e.preventDefault();
                 toggleChat();
             }
-            
+
             // Handle Tab key for focus trapping in floating chat
             if (e.key === 'Tab' && state.chatOpen && settings.layoutType === 'floating') {
                 handleTabKey(e);
@@ -245,30 +247,30 @@
          */
         function toggleChat() {
             if (settings.layoutType !== 'floating') return;
-            
+
             const wasOpen = state.chatOpen;
             state.chatOpen = !state.chatOpen;
-            
+
             if (state.chatOpen) {
                 // Store previously focused element
                 state.previouslyFocusedElement = document.activeElement;
-                
+
                 container.style.display = 'flex';
                 // Animate opening
                 setTimeout(() => {
                     container.style.opacity = '1';
                     container.style.transform = 'translateY(0)';
-                    
+
                     // Update focusable elements
                     updateFocusableElements();
-                    
+
                     // Focus on input after opening
                     inputField.focus();
-                    
+
                     // Announce opening to screen readers
                     announceToScreenReader('Chat opened');
                 }, 10);
-                
+
                 // Remove notification pulse
                 if (bubble) {
                     bubble.classList.remove('pulse');
@@ -277,18 +279,18 @@
                 // Animate closing
                 container.style.opacity = '0';
                 container.style.transform = 'translateY(20px)';
-                
+
                 // Hide after animation
                 setTimeout(() => {
                     container.style.display = 'none';
-                    
+
                     // Restore focus to previously focused element
                     if (state.previouslyFocusedElement && document.body.contains(state.previouslyFocusedElement)) {
                         state.previouslyFocusedElement.focus();
                     } else if (bubble) {
                         bubble.focus();
                     }
-                    
+
                     // Announce closing to screen readers
                     announceToScreenReader('Chat closed');
                 }, 300);
@@ -300,32 +302,32 @@
          */
         function sendMessage() {
             const message = inputField.value.trim();
-            
+
             if (!message) return;
-            
+
             // Add user message to chat
             addMessage('user', message);
-            
+
             // Clear input field
             inputField.value = '';
             inputField.style.height = 'auto';
-            
+
             // Hide quick replies
             hideQuickReplies();
-            
+
             // Process the message
             processUserMessage(message);
         }
 
         /**
          * Process user message and generate a response
-         * 
+         *
          * @param {string} message - The user's message
          */
         function processUserMessage(message) {
             // Show typing indicator
             showTypingIndicator();
-            
+
             // If API integration is enabled
             if (settings.enableApi === 'yes' && settings.apiEndpoint) {
                 // Call the API endpoint
@@ -345,7 +347,7 @@
                 .then(data => {
                     // Hide typing indicator
                     hideTypingIndicator();
-                    
+
                     // Add AI response
                     if (data.response) {
                         addMessage('ai', data.response);
@@ -357,7 +359,7 @@
                 .catch(error => {
                     console.error('Error:', error);
                     hideTypingIndicator();
-                    
+
                     // Add fallback message
                     addMessage('ai', settings.fallbackMessage || 'I\'m having trouble connecting right now. Please try again later.');
                 });
@@ -365,11 +367,11 @@
                 // Simulate typing delay for demo
                 setTimeout(() => {
                     hideTypingIndicator();
-                    
+
                     // Add predefined response based on user message
                     const response = getSimulatedResponse(message);
                     addMessage('ai', response);
-                    
+
                     // Show follow-up quick replies if appropriate
                     if (shouldShowFollowUpQuickReplies(message)) {
                         const followUpReplies = getFollowUpQuickReplies(message);
@@ -383,7 +385,7 @@
 
         /**
          * Add a message to the chat
-         * 
+         *
          * @param {string} sender - The message sender ('ai' or 'user')
          * @param {string} text - The message text
          */
@@ -391,16 +393,16 @@
             // Create message element
             const messageEl = document.createElement('div');
             messageEl.className = `aiq-chat__message aiq-chat__message--${sender}`;
-            
+
             // Add ARIA attributes for accessibility
             messageEl.setAttribute('role', 'listitem');
             messageEl.setAttribute('aria-label', `Message from ${sender === 'ai' ? settings.aiName : 'You'}: ${text}`);
-            
+
             // Create avatar
             const avatarEl = document.createElement('div');
             avatarEl.className = 'aiq-chat__avatar';
             avatarEl.setAttribute('aria-hidden', 'true');
-            
+
             const avatarImg = document.createElement('img');
             if (sender === 'ai') {
                 avatarImg.src = settings.aiAvatar;
@@ -410,33 +412,33 @@
                 avatarImg.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI0UwRDZGRiI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTAgM2MyLjY3IDAgOCA1LjMxIDggMTJoLTE2YzAtNi42OSA1LjMzLTEyIDgtMTJ6bTAgMmMtMS4xMSAwLTIgLjktMiAyIDAgMS4xMS44OSAyIDIgMnMyLS44OSAyLTItLjg5LTItMi0yeiIvPjwvc3ZnPg==';
                 avatarImg.alt = 'User';
             }
-            
+
             avatarEl.appendChild(avatarImg);
-            
+
             // Create message bubble
             const bubbleEl = document.createElement('div');
             bubbleEl.className = 'aiq-chat__message-bubble';
             bubbleEl.textContent = text;
-            
+
             // Assemble message
             messageEl.appendChild(avatarEl);
             messageEl.appendChild(bubbleEl);
-            
+
             // Add to messages container
             messagesContainer.appendChild(messageEl);
-            
+
             // Save to state
             state.messages.push({
                 sender,
                 text
             });
-            
+
             // Scroll to bottom
             scrollToBottom();
-            
+
             // Announce new message to screen readers
             announceToScreenReader(`New message from ${sender === 'ai' ? settings.aiName : 'You'}: ${text}`);
-            
+
             // Notify floating chat if minimized
             if (settings.layoutType === 'floating' && !state.chatOpen && sender === 'ai' && bubble) {
                 bubble.classList.add('pulse');
@@ -450,7 +452,7 @@
             state.isTyping = true;
             typingIndicator.style.display = 'flex';
             typingIndicator.setAttribute('aria-label', `${settings.aiName} is typing`);
-            
+
             // Announce typing to screen readers
             announceToScreenReader(`${settings.aiName} is typing...`);
         }
@@ -465,13 +467,13 @@
 
         /**
          * Show quick reply buttons
-         * 
+         *
          * @param {Array} replies - Array of quick reply texts
          */
         function showQuickReplies(replies) {
             // Clear existing quick replies
             quickRepliesContainer.innerHTML = '';
-            
+
             // Add reply buttons
             replies.forEach((reply, index) => {
                 const replyBtn = document.createElement('button');
@@ -479,7 +481,7 @@
                 replyBtn.textContent = reply;
                 replyBtn.setAttribute('type', 'button');
                 replyBtn.setAttribute('aria-label', `Quick reply: ${reply}`);
-                
+
                 // Keyboard support for quick replies
                 replyBtn.addEventListener('keydown', (e) => {
                     if (e.key === 'ArrowLeft' && index > 0) {
@@ -496,28 +498,28 @@
                         quickRepliesContainer.children[replies.length - 1].focus();
                     }
                 });
-                
+
                 replyBtn.addEventListener('click', () => {
                     // Add as user message
                     addMessage('user', reply);
-                    
+
                     // Hide quick replies
                     hideQuickReplies();
-                    
+
                     // Process as user message
                     processUserMessage(reply);
                 });
-                
+
                 quickRepliesContainer.appendChild(replyBtn);
             });
-            
+
             // Show the container
             quickRepliesContainer.style.display = 'block';
             quickRepliesContainer.setAttribute('aria-label', 'Quick reply options');
-            
+
             // Update focusable elements
             updateFocusableElements();
-            
+
             // Announce quick replies availability
             announceToScreenReader(`${replies.length} quick reply options available. Use arrow keys to navigate.`);
         }
@@ -551,15 +553,15 @@
                 announcer.className = 'sr-only';
                 document.body.appendChild(announcer);
             }
-            
+
             // Clear previous announcement
             announcer.textContent = '';
-            
+
             // Make announcement after a brief delay to ensure screen readers pick it up
             setTimeout(() => {
                 announcer.textContent = message;
             }, 100);
-            
+
             // Clear after announcement
             setTimeout(() => {
                 announcer.textContent = '';
@@ -568,58 +570,58 @@
 
         /**
          * Get a simulated response based on user input (for demo without API)
-         * 
+         *
          * @param {string} message - The user's message
          * @return {string} The simulated response
          */
         function getSimulatedResponse(message) {
             const lowerMessage = message.toLowerCase();
-            
+
             // Check for common phrases/keywords
             if (lowerMessage.includes('traffic') || lowerMessage.includes('visitors') || lowerMessage.includes('audience')) {
                 return "Great! For traffic generation, I recommend our Reddit Authority Builder prompt sequence. It helps you create authentic, high-quality Reddit comments that establish expertise without being promotional. Would you like to see how it works?";
             }
-            
+
             if (lowerMessage.includes('conversion') || lowerMessage.includes('sales') || lowerMessage.includes('leads')) {
                 return "For improving conversions, our Landing Page Optimizer prompt kit is highly effective. It helps you identify conversion bottlenecks and create compelling copy that resonates with your target audience. The average conversion lift is around 37% for our users.";
             }
-            
+
             if (lowerMessage.includes('content') || lowerMessage.includes('writing') || lowerMessage.includes('blog')) {
                 return "Content automation is one of Claude's strengths! Our Content Scaling Blueprint helps you create consistent, high-quality content across multiple channels. It includes prompts for outlining, drafting, editing, and repurposing content for different platforms.";
             }
-            
+
             if (lowerMessage.includes('affiliate') || lowerMessage.includes('monetize') || lowerMessage.includes('revenue')) {
                 return "For affiliate marketing, our Ethical Review Generator prompt sequence helps you create authentic, high-converting product reviews without sounding salesy. It includes templates for different product categories and conversion-optimized layouts.";
             }
-            
+
             // Default response for other queries
             return "Thanks for sharing! To help you better, could you tell me more about your specific goals? I can recommend automation templates for traffic generation, content creation, conversions, or monetization.";
         }
 
         /**
          * Determine if follow-up quick replies should be shown
-         * 
+         *
          * @param {string} message - The user's message
          * @return {boolean} Whether to show follow-up quick replies
          */
         function shouldShowFollowUpQuickReplies(message) {
             const lowerMessage = message.toLowerCase();
-            
-            return lowerMessage.includes('traffic') || 
-                   lowerMessage.includes('conversion') || 
-                   lowerMessage.includes('content') || 
+
+            return lowerMessage.includes('traffic') ||
+                   lowerMessage.includes('conversion') ||
+                   lowerMessage.includes('content') ||
                    lowerMessage.includes('affiliate');
         }
 
         /**
          * Get contextual follow-up quick replies based on user message
-         * 
+         *
          * @param {string} message - The user's message
          * @return {Array} Array of quick reply texts
          */
         function getFollowUpQuickReplies(message) {
             const lowerMessage = message.toLowerCase();
-            
+
             if (lowerMessage.includes('traffic') || lowerMessage.includes('visitors')) {
                 return [
                     "Show me the Reddit Strategy",
@@ -627,7 +629,7 @@
                     "I need more specific guidance"
                 ];
             }
-            
+
             if (lowerMessage.includes('conversion') || lowerMessage.includes('sales')) {
                 return [
                     "Tell me about landing page prompts",
@@ -635,7 +637,7 @@
                     "How do I implement this?"
                 ];
             }
-            
+
             if (lowerMessage.includes('content') || lowerMessage.includes('writing')) {
                 return [
                     "Show me content automation examples",
@@ -643,7 +645,7 @@
                     "Tell me about the Blueprint"
                 ];
             }
-            
+
             if (lowerMessage.includes('affiliate') || lowerMessage.includes('monetize')) {
                 return [
                     "Tell me about the Review Generator",
@@ -651,7 +653,7 @@
                     "How do I get started?"
                 ];
             }
-            
+
             return [
                 "Tell me about traffic generation",
                 "I need help with conversions",

@@ -1,14 +1,13 @@
+
 /**
- * AIQEngage Exit Intent Modal - Enhanced
- * Version: 2.1
- * Features:
- * - Improved performance and memory management
- * - Enhanced accessibility
- * - Better mobile detection
- * - Advanced trigger conditions
- * - Cookie-based display tracking
- * - Comprehensive event system
+ * Exit Intent Modal Widget Script
+ *
+ * @package aiqengage-child
+ * @version   1.0.0
+ * @since     1.0.0
+ * @author    Jason
  */
+
 
 class ExitIntentManager {
   constructor() {
@@ -23,7 +22,7 @@ class ExitIntentManager {
 
   init() {
     if (this.isInitialized) return;
-    
+
     // Find and initialize all modals
     document.querySelectorAll('.aiq-exit-intent').forEach(element => {
       try {
@@ -38,7 +37,7 @@ class ExitIntentManager {
     // Set up global event listeners
     this.setupEventListeners();
     this.setupExitIntentDetection();
-    
+
     this.isInitialized = true;
   }
 
@@ -63,13 +62,13 @@ class ExitIntentManager {
 
   handleKeyDown(e) {
     if (!this.currentModal) return;
-    
+
     // ESC key closes modal
     if (e.key === 'Escape' && this.currentModal.closeOnEsc) {
       this.currentModal.close();
       e.preventDefault();
     }
-    
+
     // TAB key for focus trapping
     if (e.key === 'Tab') {
       this.currentModal.handleTabKey(e);
@@ -104,7 +103,7 @@ class ExitIntentManager {
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
     const isTablet = /iPad|Android/i.test(ua) && !/Mobile/i.test(ua);
     const touchEnabled = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
+
     return isMobile || (touchEnabled && (window.innerWidth < 1024 || isTablet));
   }
 
@@ -165,14 +164,14 @@ class ExitIntentModal {
       focusableElements: [],
       animationPaused: false
     };
-    
+
     this.elements = {
       modal: element.querySelector('.aiq-exit-intent__modal'),
       overlay: element.querySelector('.aiq-exit-intent__overlay'),
       closeButton: element.querySelector('.aiq-exit-intent__close'),
       contentWrapper: element.querySelector('.aiq-exit-intent__content-wrapper')
     };
-    
+
     this.bindEvents();
     this.setAccessibilityAttributes();
   }
@@ -187,7 +186,7 @@ class ExitIntentModal {
       animation: this.element.dataset.animation || 'fade-in',
       timeDelay: parseInt(this.element.dataset.delay || 0, 10) * 1000,
       scrollDepth: parseInt(this.element.dataset.scrollDepth || 50, 10),
-      specificPages: this.element.dataset.specificPages ? 
+      specificPages: this.element.dataset.specificPages ?
         this.element.dataset.specificPages.split(',') : [],
       excludeMobile: this.element.dataset.excludeMobile === 'yes'
     };
@@ -197,7 +196,7 @@ class ExitIntentModal {
     if (this.elements.closeButton) {
       this.elements.closeButton.addEventListener('click', this.close.bind(this));
     }
-    
+
     if (this.config.closeOnOverlay && this.elements.overlay) {
       this.elements.overlay.addEventListener('click', (e) => {
         if (e.target === this.elements.overlay) {
@@ -211,7 +210,7 @@ class ExitIntentModal {
     this.elements.modal.setAttribute('role', 'dialog');
     this.elements.modal.setAttribute('aria-modal', 'true');
     this.elements.modal.setAttribute('aria-labelledby', `${this.id}-heading`);
-    
+
     if (this.elements.closeButton) {
       this.elements.closeButton.setAttribute('aria-label', 'Close modal');
     }
@@ -226,15 +225,15 @@ class ExitIntentModal {
       case 'exit_intent':
         // Handled globally by manager
         break;
-        
+
       case 'time_delay':
         setTimeout(() => this.show(), this.config.timeDelay);
         break;
-        
+
       case 'scroll_depth':
         this.setupScrollDepthTrigger();
         break;
-        
+
       case 'inactivity':
         this.setupInactivityTrigger();
         break;
@@ -247,7 +246,7 @@ class ExitIntentModal {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
-      
+
       if (scrollPercentage >= this.config.scrollDepth) {
         this.show();
         window.removeEventListener('scroll', handler);
@@ -261,23 +260,23 @@ class ExitIntentModal {
 
   setupInactivityTrigger() {
     let activityTimeout;
-    
+
     const resetTimer = () => {
       clearTimeout(activityTimeout);
       activityTimeout = setTimeout(() => this.show(), this.config.timeDelay);
     };
-    
+
     ['mousemove', 'keydown', 'scroll', 'touchstart'].forEach(event => {
       window.addEventListener(event, resetTimer);
     });
-    
+
     resetTimer();
   }
 
   shouldShow() {
     return (
-      !this.state.isActive && 
-      !this.state.isClosing && 
+      !this.state.isActive &&
+      !this.state.isClosing &&
       (!this.config.displayOnce || !this.state.hasShown) &&
       this.shouldShowOnCurrentPage()
     );
@@ -285,71 +284,71 @@ class ExitIntentModal {
 
   shouldShowOnCurrentPage() {
     if (this.config.specificPages.length === 0) return true;
-    
+
     const currentPageId = document.body.dataset.postId;
     return currentPageId && this.config.specificPages.includes(currentPageId);
   }
 
   show() {
     if (!this.shouldShow()) return;
-    
+
     // Close any open modal first
     if (this.manager.currentModal) {
       this.manager.currentModal.close();
     }
-    
+
     // Update state
     this.state.isActive = true;
     this.manager.currentModal = this;
-    
+
     // Show modal
     this.element.classList.add('active');
     document.body.style.overflow = 'hidden';
     this.elements.modal.setAttribute('tabindex', '-1');
     this.elements.modal.focus();
-    
+
     // Update focusable elements
     this.updateFocusableElements();
-    
+
     // Track display if needed
     if (this.config.displayOnce) {
       this.setModalShown();
     }
-    
+
     // Dispatch event
     this.manager.dispatchEvent('modal:opened', { id: this.id });
   }
 
   close() {
     if (!this.state.isActive || this.state.isClosing) return;
-    
+
     this.state.isClosing = true;
     this.element.classList.add('closing');
-    
+
     const animationDuration = getComputedStyle(this.elements.modal).animationDuration;
     const duration = parseFloat(animationDuration) * 1000 || 300;
-    
+
     setTimeout(() => {
       this.element.classList.remove('active', 'closing');
       this.state.isActive = false;
       this.state.isClosing = false;
-      
+
       document.body.style.overflow = '';
-      
+
       if (this.manager.currentModal === this) {
         this.manager.currentModal = null;
       }
-      
+
       this.manager.dispatchEvent('modal:closed', { id: this.id });
     }, duration);
   }
 
   handleTabKey(e) {
     if (!this.state.isActive || this.state.focusableElements.length < 2) return;
-    
+
     const firstElement = this.state.focusableElements[0];
     const lastElement = this.state.focusableElements[this.state.focusableElements.length - 1];
-    
+
     if (e.shiftKey && document.activeElement === firstElement) {
       e.preventDefault();
       lastElement.focus();
@@ -369,26 +368,26 @@ class ExitIntentModal {
 
   pauseAnimations() {
     if (this.state.animationPaused) return;
-    
+
     this.element.style.animationPlayState = 'paused';
     this.state.animationPaused = true;
   }
 
   resumeAnimations() {
     if (!this.state.animationPaused) return;
-    
+
     this.element.style.animationPlayState = 'running';
     this.state.animationPaused = false;
   }
 
   checkIfShown() {
     if (!this.config.displayOnce) return false;
-    
+
     const storageKey = `aiq_modal_shown_${this.id}`;
     const savedValue = localStorage.getItem(storageKey);
-    
+
     if (!savedValue) return false;
-    
+
     try {
       const data = JSON.parse(savedValue);
       const now = Date.now();
@@ -400,10 +399,10 @@ class ExitIntentModal {
 
   setModalShown() {
     if (!this.config.displayOnce) return;
-    
+
     const storageKey = `aiq_modal_shown_${this.id}`;
     const data = { timestamp: Date.now() };
-    
+
     localStorage.setItem(storageKey, JSON.stringify(data));
     this.state.hasShown = true;
   }

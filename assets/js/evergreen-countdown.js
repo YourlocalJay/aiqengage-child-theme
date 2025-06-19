@@ -1,13 +1,10 @@
 /**
- * AIQEngage Evergreen Countdown - Enhanced Version 3.0
- * Features:
- * - Multiple display modes (modal, sticky, inline)
- * - Various trigger types (delay, scroll, exit intent)
- * - LocalStorage persistence with cookie fallback
- * - Customizable expiration actions
- * - Accessibility improvements
- * - Testing utilities
- * - Performance optimizations
+ * Evergreen Countdown Widget Script
+ *
+ * @package aiqengage-child
+ * @version   1.0.0
+ * @since     1.0.0
+ * @author    Jason
  */
 
 class EvergreenCountdown {
@@ -21,8 +18,8 @@ class EvergreenCountdown {
 
   init() {
     // Set end time based on type
-    this.endTime = this.config.type === 'evergreen' 
-      ? this.getEvergreenEndTime() 
+    this.endTime = this.config.type === 'evergreen'
+      ? this.getEvergreenEndTime()
       : this.config.endDate * 1000;
 
     // Check expiration
@@ -163,7 +160,7 @@ class EvergreenCountdown {
 
   showModal() {
     if (this.isActive) return;
-    
+
     this.element.classList.add('is-visible');
     document.body.classList.add('aiq-modal-open');
     this.isActive = true;
@@ -220,7 +217,7 @@ class EvergreenCountdown {
 
   updateDisplay() {
     const timeLeft = this.endTime - Date.now();
-    
+
     if (timeLeft <= 0) {
       clearInterval(this.interval);
       this.handleExpiry();
@@ -308,7 +305,7 @@ class EvergreenCountdown {
     if (this.displayStyle === 'modal') {
       document.body.classList.remove('aiq-modal-open');
     }
-    
+
     this.element.classList.remove('is-visible');
     this.setToStorage(`${this.config.cookieId}_closed`, 'true');
     this.isActive = false;
@@ -322,15 +319,15 @@ class EvergreenCountdown {
       case 'hide':
         this.element.style.display = 'none';
         break;
-        
+
       case 'message':
         this.showFallbackContent();
         break;
-        
+
       case 'redirect':
         this.handleRedirect();
         break;
-        
+
       default:
         this.element.style.opacity = '0.5';
     }
@@ -381,7 +378,7 @@ window.AIQCountdown = {
     }
     location.reload();
   },
-  
+
   setTestTime: function(cookieId, minutesLeft) {
     const endTime = Date.now() + (minutesLeft * 60000);
     try {
@@ -393,7 +390,7 @@ window.AIQCountdown = {
     }
     location.reload();
   },
-  
+
   showAll: function() {
     document.querySelectorAll('.aiq-evergreen-countdown').forEach(el => {
       el.classList.add('is-visible');

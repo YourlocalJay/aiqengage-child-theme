@@ -1,15 +1,16 @@
-/**
- * AIQ Prompt Card Widget - Frontend Functionality
- * 
- * @package AIQEngage
+(**
+ * AIQ Prompt Card Widget Script
+ *
+ * @package aiqengage-child
  * @version 1.0.0
+ * @since   1.0.0
  */
 
 ( function( $ ) {
     'use strict';
-    
+
     const AIQPromptCard = {
-        
+
         /**
          * Initialize all prompt cards
          */
@@ -17,10 +18,10 @@
             this.cacheElements();
             this.bindEvents();
             this.setupIntersectionObserver();
-            
+
             // Initialize any cards already in the DOM
             this.initPromptCards( $( '.aiq-prompt-card' ) );
-            
+
             // Support for Elementor preview
             if ( typeof elementorFrontend !== 'undefined' ) {
                 elementorFrontend.hooks.addAction( 'frontend/element_ready/aiq_prompt_card.default', function( $scope ) {
@@ -28,7 +29,7 @@
                 } );
             }
         },
-        
+
         /**
          * Cache frequently used elements
          */
@@ -38,7 +39,7 @@
                 $announcer: $( '#aiq-screen-reader-announcer' )
             };
         },
-        
+
         /**
          * Set up Intersection Observer for lazy loading
          */
@@ -58,7 +59,7 @@
                 } );
             }
         },
-        
+
         /**
          * Handle card visibility
          */
@@ -66,64 +67,64 @@
             // Future implementation for lazy loading
             $card.addClass( 'aiq-prompt-card--visible' );
         },
-        
+
         /**
          * Bind event handlers
          */
         bindEvents: function() {
             // Delegate events for dynamic content
-            this.cache.$body.on( 
-                'click', 
-                '.aiq-prompt-card__toggle', 
-                this.handleToggleClick.bind( this ) 
+            this.cache.$body.on(
+                'click',
+                '.aiq-prompt-card__toggle',
+                this.handleToggleClick.bind( this )
             );
-            
-            this.cache.$body.on( 
-                'click', 
-                '.aiq-prompt-card__copy-btn', 
-                this.handleCopyClick.bind( this ) 
+
+            this.cache.$body.on(
+                'click',
+                '.aiq-prompt-card__copy-btn',
+                this.handleCopyClick.bind( this )
             );
-            
-            this.cache.$body.on( 
-                'click', 
-                '.aiq-prompt-card__variable-insert', 
-                this.handleVariableInsertClick.bind( this ) 
+
+            this.cache.$body.on(
+                'click',
+                '.aiq-prompt-card__variable-insert',
+                this.handleVariableInsertClick.bind( this )
             );
-            
+
             // Keyboard navigation
-            this.cache.$body.on( 
-                'keydown', 
-                '.aiq-prompt-card__toggle, .aiq-prompt-card__copy-btn, .aiq-prompt-card__variable-insert', 
-                this.handleKeyDown.bind( this ) 
+            this.cache.$body.on(
+                'keydown',
+                '.aiq-prompt-card__toggle, .aiq-prompt-card__copy-btn, .aiq-prompt-card__variable-insert',
+                this.handleKeyDown.bind( this )
             );
         },
-        
+
         /**
          * Initialize prompt cards
          */
         initPromptCards: function( $cards ) {
             $cards.each( ( index, card ) => {
                 const $card = $( card );
-                
+
                 // Set up Intersection Observer if available
                 if ( this.observer ) {
                     this.observer.observe( card );
                 } else {
                     this.handleCardVisibility( $card );
                 }
-                
+
                 // Initialize tooltips
                 this.initTooltips( $card );
             } );
         },
-        
+
         /**
          * Initialize tooltips
          */
         initTooltips: function( $card ) {
             // Future implementation for tooltips
         },
-        
+
         /**
          * Handle toggle click
          */
@@ -131,20 +132,20 @@
             e.preventDefault();
             const $button = $( e.currentTarget );
             const $card = $button.closest( '.aiq-prompt-card' );
-            
+
             $card.toggleClass( 'aiq-prompt-card--expanded' );
-            
+
             // Update ARIA attributes
             const isExpanded = $card.hasClass( 'aiq-prompt-card--expanded' );
             $button.attr( 'aria-expanded', isExpanded );
-            
+
             // Focus management
             if ( isExpanded ) {
                 const $content = $card.find( '.aiq-prompt-card__content' );
                 $content.attr( 'tabindex', '-1' ).focus();
             }
         },
-        
+
         /**
          * Handle copy click
          */
@@ -153,7 +154,7 @@
             const $button = $( e.currentTarget );
             const $card = $button.closest( '.aiq-prompt-card' );
             const promptText = $card.find( '.aiq-prompt-card__prompt' ).text();
-            
+
             this.copyToClipboard( promptText )
                 .then( () => {
                     this.showCopiedMessage( $card );
@@ -164,7 +165,7 @@
                     this.announceForScreenReaders( aiqPromptCardConfig.i18n.error );
                 } );
         },
-        
+
         /**
          * Handle variable insert click
          */
@@ -174,12 +175,12 @@
             const variableName = $button.data( 'variable' );
             const promptId = $button.data( 'prompt-id' );
             const $card = $( '#' + promptId );
-            
+
             this.copyToClipboard( variableName )
                 .then( () => {
                     this.highlightVariable( $card, variableName );
-                    this.announceForScreenReaders( 
-                        aiqPromptCardConfig.i18n.variable_copied.replace( '%s', variableName ) 
+                    this.announceForScreenReaders(
+                        aiqPromptCardConfig.i18n.variable_copied.replace( '%s', variableName )
                     );
                 } )
                 .catch( ( err ) => {
@@ -187,20 +188,20 @@
                     this.announceForScreenReaders( aiqPromptCardConfig.i18n.error );
                 } );
         },
-        
+
         /**
          * Handle keyboard navigation
          */
         handleKeyDown: function( e ) {
             const $button = $( e.currentTarget );
-            
+
             // Space or Enter triggers click
             if ( e.key === ' ' || e.key === 'Enter' ) {
                 e.preventDefault();
                 $button.trigger( 'click' );
             }
         },
-        
+
         /**
          * Copy text to clipboard
          */
@@ -216,7 +217,7 @@
                             opacity: 0,
                             left: '-9999px'
                         } ).appendTo( this.cache.$body );
-                        
+
                         $temp.select();
                         document.execCommand( 'copy' );
                         $temp.remove();
@@ -227,19 +228,19 @@
                 } );
             }
         },
-        
+
         /**
          * Show copied message
          */
         showCopiedMessage: function( $card ) {
             $card.addClass( 'aiq-prompt-card--copied' );
-            
+
             // Hide after delay
             setTimeout( () => {
                 $card.removeClass( 'aiq-prompt-card--copied' );
             }, 2000 );
         },
-        
+
         /**
          * Highlight variable in prompt
          */
@@ -247,26 +248,26 @@
             const $promptText = $card.find( '.aiq-prompt-card__prompt' );
             const html = $promptText.html();
             const regex = new RegExp( this.escapeRegExp( variableName ), 'g' );
-            const highlightedHtml = html.replace( 
-                regex, 
-                '<span class="aiq-prompt-card__variable-highlight">$&</span>' 
+            const highlightedHtml = html.replace(
+                regex,
+                '<span class="aiq-prompt-card__variable-highlight">$&</span>'
             );
-            
+
             $promptText.html( highlightedHtml );
-            
+
             // Remove highlighting after delay
             setTimeout( () => {
                 $promptText.html( html );
             }, 2000 );
         },
-        
+
         /**
          * Escape special regex characters
          */
         escapeRegExp: function( string ) {
             return string.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' );
         },
-        
+
         /**
          * Announce message to screen readers
          */
@@ -279,19 +280,19 @@
                     class: 'sr-only'
                 } ).appendTo( this.cache.$body );
             }
-            
+
             this.cache.$announcer.text( message );
-            
+
             // Clear after delay
             setTimeout( () => {
                 this.cache.$announcer.text( '' );
             }, 3000 );
         }
     };
-    
+
     // Initialize when DOM is ready
     $( document ).ready( function() {
         AIQPromptCard.init();
     } );
-    
+
 } )( jQuery );

@@ -1,7 +1,15 @@
-// assets/js/faq-accordion.js
+(**
+ * FAQ Accordion Widget Script
+ *
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
+ */
+
 (function() {
     'use strict';
-    
+
     // Configuration constants
     const CONFIG = {
         animationDuration: 300,
@@ -19,22 +27,22 @@
             hidden: 'is-hidden'
         }
     };
-    
+
     document.addEventListener('DOMContentLoaded', function() {
         initFaqAccordions();
     });
-    
+
     /**
      * Initialize all FAQ accordions on the page
      */
     function initFaqAccordions() {
         const accordions = document.querySelectorAll(CONFIG.selectors.accordion);
-        
+
         if (!accordions.length) return;
-        
+
         accordions.forEach(function(accordion) {
             setupAccordion(accordion);
-            
+
             // Initialize search functionality if enabled
             const searchInput = accordion.querySelector(CONFIG.selectors.search);
             if (searchInput) {
@@ -42,7 +50,7 @@
             }
         });
     }
-    
+
     /**
      * Setup an individual accordion instance
      * @param {HTMLElement} accordion The accordion container element
@@ -50,15 +58,15 @@
     function setupAccordion(accordion) {
         const questions = accordion.querySelectorAll(CONFIG.selectors.question);
         const defaultOpen = accordion.dataset.defaultOpen || 'first';
-        
+
         // Set up accordion container ARIA attributes
         accordion.setAttribute('role', 'presentation');
-        
+
         // Initialize default states
         questions.forEach((question, index) => {
             const item = question.closest(CONFIG.selectors.item);
             const answer = item.querySelector(CONFIG.selectors.answer);
-            
+
             // Generate unique IDs if not present
             if (!question.id) {
                 question.id = `faq-question-${accordion.id || 'default'}-${index}`;
@@ -66,36 +74,36 @@
             if (!answer.id) {
                 answer.id = `faq-answer-${accordion.id || 'default'}-${index}`;
             }
-            
+
             // Set up button attributes for question
             question.setAttribute('role', 'button');
             question.setAttribute('tabindex', '0');
             question.setAttribute('aria-expanded', 'false');
             question.setAttribute('aria-controls', answer.id);
-            
+
             // Set up answer panel attributes
             answer.setAttribute('role', 'region');
             answer.setAttribute('aria-labelledby', question.id);
             answer.setAttribute('aria-hidden', 'true');
-            
+
             // Set initial state based on defaultOpen
             if (defaultOpen === 'all' || (defaultOpen === 'first' && index === 0)) {
                 toggleItem(item, true);
             }
-            
+
             // Add event listeners
             question.addEventListener('click', (e) => {
                 e.preventDefault();
                 toggleItem(item);
             });
-            
+
             question.addEventListener('keydown', (e) => handleKeyboardNavigation(e, questions, index));
         });
-        
+
         // Announce accordion setup to screen readers
         announceToScreenReader(`FAQ accordion with ${questions.length} questions loaded. Use Tab to navigate questions, Enter or Space to expand, arrow keys to move between questions.`);
     }
-    
+
     /**
      * Setup search functionality for an accordion
      * @param {HTMLElement} accordion The accordion container
@@ -104,11 +112,11 @@
     function setupSearch(accordion, searchInput) {
         const items = accordion.querySelectorAll(CONFIG.selectors.item);
         const noResults = accordion.querySelector(CONFIG.selectors.noResults);
-        
+
         // Set up search input accessibility
         searchInput.setAttribute('aria-label', 'Search FAQ questions');
         searchInput.setAttribute('aria-describedby', 'search-instructions');
-        
+
         // Add search instructions for screen readers
         let instructions = accordion.querySelector('#search-instructions');
         if (!instructions) {
@@ -118,28 +126,28 @@
             instructions.textContent = 'Type to search through FAQ questions. Results will be filtered as you type.';
             searchInput.parentNode.appendChild(instructions);
         }
-        
+
         // Debounce search input to improve performance
         const debouncedSearch = debounce(function() {
             const searchTerm = this.value.trim().toLowerCase();
             let hasResults = false;
             let visibleCount = 0;
-            
+
             items.forEach(item => {
-                const questionText = item.dataset.question?.toLowerCase() || 
+                const questionText = item.dataset.question?.toLowerCase() ||
                                    item.querySelector(CONFIG.selectors.question).textContent.toLowerCase();
                 const answerText = item.querySelector(CONFIG.selectors.answer).textContent.toLowerCase();
                 const isMatch = !searchTerm || questionText.includes(searchTerm) || answerText.includes(searchTerm);
-                
+
                 item.classList.toggle(CONFIG.classes.hidden, !isMatch);
                 item.setAttribute('aria-hidden', !isMatch);
-                
+
                 if (isMatch) {
                     hasResults = true;
                     visibleCount++;
                 }
             });
-            
+
             // Show/hide no results message
             if (noResults) {
                 noResults.style.display = hasResults || !searchTerm ? 'none' : 'block';
@@ -148,15 +156,15 @@
                     noResults.textContent = `No results found for "${searchTerm}"`;
                 }
             }
-            
+
             // Announce search results to screen readers
             if (searchTerm) {
                 announceToScreenReader(`${visibleCount} question${visibleCount !== 1 ? 's' : ''} found for "${searchTerm}"`);
             }
         }, 300);
-        
+
         searchInput.addEventListener('input', debouncedSearch);
-        
+
         // Clear search on Escape
         searchInput.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
@@ -166,7 +174,7 @@
             }
         });
     }
-    
+
     /**
      * Toggle an accordion item's state
      * @param {HTMLElement} item The accordion item element
@@ -176,19 +184,19 @@
         const question = item.querySelector(CONFIG.selectors.question);
         const answer = item.querySelector(CONFIG.selectors.answer);
         const isOpening = forceState !== undefined ? forceState : !item.classList.contains(CONFIG.classes.active);
-        
+
         // Update ARIA attributes
         question.setAttribute('aria-expanded', isOpening.toString());
         answer.setAttribute('aria-hidden', (!isOpening).toString());
-        
+
         // Handle animations based on prefers-reduced-motion
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        
+
         if (prefersReducedMotion) {
             // No animation for users who prefer reduced motion
             item.classList.toggle(CONFIG.classes.active, isOpening);
             answer.style.display = isOpening ? 'block' : 'none';
-            
+
             // Focus management for screen readers
             if (isOpening) {
                 // Set tabindex on answer content for potential focus
@@ -201,7 +209,7 @@
             }
             return;
         }
-        
+
         if (isOpening) {
             // Open the item
             item.classList.add(CONFIG.classes.active);
@@ -220,7 +228,7 @@
             });
         }
     }
-    
+
     /**
      * Animate opening an accordion answer
      * @param {HTMLElement} answer The answer element to animate
@@ -231,7 +239,7 @@
         const computedStyle = window.getComputedStyle(answer);
         const paddingTop = computedStyle.paddingTop;
         const paddingBottom = computedStyle.paddingBottom;
-        
+
         // Set initial state
         answer.style.display = 'block';
         answer.style.height = '0';
@@ -243,15 +251,15 @@
             padding-top ${CONFIG.animationDuration}ms ${CONFIG.easing},
             padding-bottom ${CONFIG.animationDuration}ms ${CONFIG.easing}
         `;
-        
+
         // Force reflow
         answer.offsetHeight;
-        
+
         // Animate to full height
         answer.style.height = `${answer.scrollHeight}px`;
         answer.style.paddingTop = paddingTop;
         answer.style.paddingBottom = paddingBottom;
-        
+
         // Clean up after animation
         setTimeout(() => {
             answer.style.removeProperty('height');
@@ -259,11 +267,11 @@
             answer.style.removeProperty('padding-top');
             answer.style.removeProperty('padding-bottom');
             answer.style.removeProperty('transition');
-            
+
             if (callback) callback();
         }, CONFIG.animationDuration);
     }
-    
+
     /**
      * Animate closing an accordion answer
      * @param {HTMLElement} answer The answer element to animate
@@ -275,7 +283,7 @@
         const computedStyle = window.getComputedStyle(answer);
         const paddingTop = computedStyle.paddingTop;
         const paddingBottom = computedStyle.paddingBottom;
-        
+
         // Set up transition
         answer.style.height = `${height}px`;
         answer.style.overflow = 'hidden';
@@ -284,15 +292,15 @@
             padding-top ${CONFIG.animationDuration}ms ${CONFIG.easing},
             padding-bottom ${CONFIG.animationDuration}ms ${CONFIG.easing}
         `;
-        
+
         // Force reflow
         answer.offsetHeight;
-        
+
         // Animate to collapsed state
         answer.style.height = '0';
         answer.style.paddingTop = '0';
         answer.style.paddingBottom = '0';
-        
+
         // Clean up after animation and execute callback
         setTimeout(() => {
             answer.style.display = 'none';
@@ -301,13 +309,13 @@
             answer.style.removeProperty('padding-top');
             answer.style.removeProperty('padding-bottom');
             answer.style.removeProperty('transition');
-            
+
             if (typeof callback === 'function') {
                 callback();
             }
         }, CONFIG.animationDuration);
     }
-    
+
     /**
      * Handle keyboard navigation for accessibility
      * @param {KeyboardEvent} event The keyboard event
@@ -316,7 +324,7 @@
      */
     function handleKeyboardNavigation(event, questions, currentIndex) {
         const key = event.key;
-        
+
         // Handle activation keys
         if (key === 'Enter' || key === ' ') {
             event.preventDefault();
@@ -324,18 +332,18 @@
             toggleItem(item);
             return;
         }
-        
+
         // Handle navigation keys
         const isArrowKey = key === 'ArrowDown' || key === 'ArrowUp';
         const isHomeOrEnd = key === 'Home' || key === 'End';
-        
+
         if (!isArrowKey && !isHomeOrEnd) return;
-        
+
         event.preventDefault();
-        
+
         let targetIndex;
         const lastIndex = questions.length - 1;
-        
+
         switch (key) {
             case 'ArrowDown':
                 targetIndex = currentIndex < lastIndex ? currentIndex + 1 : 0;
@@ -350,20 +358,20 @@
                 targetIndex = lastIndex;
                 break;
         }
-        
+
         // Move focus to target question
         questions[targetIndex].focus();
-        
+
         // Announce navigation to screen readers
         announceToScreenReader(`Question ${targetIndex + 1} of ${questions.length}: ${questions[targetIndex].textContent}`);
-        
+
         // Optionally open the item when navigating with Ctrl+Arrow keys
         if (isArrowKey && event.ctrlKey) {
             const item = questions[targetIndex].closest(CONFIG.selectors.item);
             toggleItem(item, true);
         }
     }
-    
+
     /**
      * Announce message to screen readers
      * @param {string} message The message to announce
@@ -379,21 +387,21 @@
             announcer.className = 'sr-only';
             document.body.appendChild(announcer);
         }
-        
+
         // Clear previous announcement
         announcer.textContent = '';
-        
+
         // Make announcement after a brief delay to ensure screen readers pick it up
         setTimeout(() => {
             announcer.textContent = message;
         }, 100);
-        
+
         // Clear after announcement
         setTimeout(() => {
             announcer.textContent = '';
         }, 3000);
     }
-    
+
     /**
      * Debounce function to limit how often a function is called
      * @param {Function} func The function to debounce

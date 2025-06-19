@@ -1,16 +1,11 @@
-/* assets/js/tool-card.js */
 
 /**
- * AIQEngage Tool Card Widget JS
- * Version: 1.2.0
- * 
- * Features:
- * - Comprehensive click tracking (GA, internal analytics, localStorage)
- * - Performance-optimized animations
- * - Accessibility enhancements
- * - Elementor editor compatibility
- * - Error handling and fallbacks
- * - Configurable category colors
+ * Tool Card Widget Script
+ *
+ * @package aiqengage-child
+ * @version 1.0.0
+ * @since   1.0.0
+ * @author  Jason
  */
 
 (function($) {
@@ -57,7 +52,7 @@
             }
 
             // Internal analytics tracking
-            if (typeof window.aiqAnalytics === 'object' && 
+            if (typeof window.aiqAnalytics === 'object' &&
                 typeof window.aiqAnalytics.trackInteraction === 'function') {
                 try {
                     window.aiqAnalytics.trackInteraction('toolClick', trackingId, {
@@ -86,16 +81,16 @@
 
                 // Initialize profile structure if needed
                 profile.interactions = profile.interactions || {};
-                profile.interactions.toolClicks = 
+                profile.interactions.toolClicks =
                     (profile.interactions.toolClicks || 0) + 1;
 
                 // Track category interests
                 profile.interests = profile.interests || {};
-                profile.interests[category] = 
+                profile.interests[category] =
                     (profile.interests[category] || 0) + 1;
 
                 localStorage.setItem(
-                    CONFIG.LOCAL_STORAGE_KEY, 
+                    CONFIG.LOCAL_STORAGE_KEY,
                     JSON.stringify(profile)
                 );
             } catch (error) {
@@ -112,10 +107,10 @@
          */
         initCardHover: function($card) {
             const $logo = $card.find('.aiq-tool-card__logo');
-            
+
             // Set up logo scale animation
             $logo.css('transition', `transform ${CONFIG.TRANSITION_DURATION} ease`);
-            
+
             $card.on('mouseenter mouseleave', function(e) {
                 const scale = e.type === 'mouseenter' ? CONFIG.LOGO_SCALE : 1;
                 $logo.css('transform', `scale(${scale})`);
@@ -129,10 +124,10 @@
          */
         initButtonHover: function($button, category) {
             const color = CONFIG.CATEGORY_COLORS[category] || CONFIG.CATEGORY_COLORS.default;
-            
+
             $button.on('mouseenter mouseleave', function(e) {
-                const shadow = e.type === 'mouseenter' 
-                    ? `0 4px 12px ${color}66` 
+                const shadow = e.type === 'mouseenter'
+                    ? `0 4px 12px ${color}66`
                     : '';
                 $(this).css('box-shadow', shadow);
             });
@@ -149,7 +144,7 @@
             const category = $card.data('category');
             $card.find('.aiq-tool-card__category')
                 .attr('aria-label', `Category: ${category}`);
-            
+
             // Ensure buttons have proper ARIA attributes
             $card.find('.aiq-tool-card__button')
                 .attr('aria-label', `Visit ${$card.find('.aiq-tool-card__title').text()}`);
@@ -162,14 +157,14 @@
      */
     function initToolCard($card) {
         const category = $card.data('category');
-        
+
         // Initialize animations
         Animations.initCardHover($card);
         Animations.initButtonHover(
-            $card.find('.aiq-tool-card__button'), 
+            $card.find('.aiq-tool-card__button'),
             category
         );
-        
+
         // Apply accessibility enhancements
         Accessibility.enhance($card);
     }
@@ -199,11 +194,11 @@
     $(function() {
         // Standard initialization
         initAllToolCards();
-        
+
         // Elementor-specific initialization
         if (typeof elementorFrontend !== 'undefined') {
             elementorFrontend.hooks.addAction(
-                'frontend/element_ready/aiq_tool_card.default', 
+                'frontend/element_ready/aiq_tool_card.default',
                 function($scope) {
                     $scope.find('.aiq-tool-card').each(function() {
                         initToolCard($(this));
