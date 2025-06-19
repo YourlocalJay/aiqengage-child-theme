@@ -1,120 +1,56 @@
-/**
- * ROI Calculator Widget Styles
- *
- * @package aiqengage-child
- * @since   1.0.0
- */
-
-/* Base Styles */
-.aiq-roi-calculator {
-  background: var(--color-bg-secondary);
-  color: var(--color-text-primary);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-md);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  max-width: 640px;
-  margin: 0 auto;
-  border: 1px solid var(--color-border);
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
 }
 
-/* Header Styles */
-.aiq-roi-calculator__header {
-  margin-bottom: var(--spacing-md);
-  text-align: center;
-}
+class AIQ_ROI_Calculator_Widget extends \Elementor\Widget_Base {
 
-.aiq-roi-calculator__title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: white;
-  margin: 0 0 0.5rem;
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+	public function get_name() {
+		return 'roi_calculator';
+	}
 
-/* Input Grid */
-.aiq-roi-calculator__input-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.25rem;
-  margin-bottom: 1.5rem;
-}
+	public function get_title() {
+		return __( 'ROI Calculator', 'aiqengage-child' );
+	}
 
-.aiq-roi-input-group {
-  display: flex;
-  flex-direction: column;
-}
+	public function get_icon() {
+		return 'eicon-calculator';
+	}
 
-.aiq-roi-input-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--color-text-muted);
-}
+	public function get_categories() {
+		return [ 'general' ];
+	}
 
-.aiq-roi-input {
-  width: 100%;
-  height: var(--spacing-xl);
-  padding: 0 1rem;
-  background: var(--color-bg-secondary-alpha);
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  border-radius: 8px;
-  color: white;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-}
+	protected function _register_controls() {
 
-/* Results Styles */
-.aiq-roi-calculator__results {
-  margin-top: 2rem;
-  background: var(--color-bg-secondary-alpha);
-  backdrop-filter: blur(10px);
-  padding: 1.5rem;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--color-border);
-}
+		$this->start_controls_section(
+			'section_content',
+			[
+				'label' => __( 'Content', 'aiqengage-child' ),
+			]
+		);
 
-.aiq-roi-result-card h4 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: white;
-  font-size: 1.25rem;
-}
+		$this->add_control(
+			'title',
+			[
+				'label' => __( 'Title', 'aiqengage-child' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => __( 'ROI Calculator', 'aiqengage-child' ),
+			]
+		);
 
-.aiq-roi-result-grid {
-  display: grid;
-  gap: 1rem;
-}
+		$this->end_controls_section();
+	}
 
-.aiq-roi-result-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 0;
-  border-bottom: 1px dashed rgba(165, 180, 252, 0.2);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 767px) {
-  .aiq-roi-calculator {
-    padding: 1.25rem;
-  }
-
-  .aiq-roi-calculator__input-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.aiq-roi-calculator__results {
-  animation: fadeIn 0.3s ease-out forwards;
+	protected function render() {
+		$settings = $this->get_settings_for_display();
+		?>
+		<div class="aiq-roi-calculator">
+			<div class="aiq-roi-calculator__header">
+				<h2 class="aiq-roi-calculator__title"><?php echo esc_html( $settings['title'] ); ?></h2>
+			</div>
+			<!-- Widget content goes here -->
+		</div>
+		<?php
+	}
 }

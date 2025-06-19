@@ -9,7 +9,7 @@ use Elementor\Core\Schemes\Color;
 
 if (!defined('ABSPATH')) exit;
 
-class ROI_Calculator_Widget extends Widget_Base {
+class AIQ_Roi_Calculator_Widget extends Widget_Base {
 
     public function get_name() {
         return 'roi-calculator';
