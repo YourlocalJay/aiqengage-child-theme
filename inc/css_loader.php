@@ -6,7 +6,7 @@
  * All widget CSS depends on main.css (design tokens) to ensure proper token availability.
  *
  * @package   AIQEngage_Child
- * @version   1.0.2
+ * @version   1.0.3
  * @author    AIQEngage Team
  * @license   GPL-3.0+
  */
@@ -38,6 +38,21 @@ function aiqengage_get_widget_css_mapping() {
         'faq-accordion'         => 'faq-accordion.css',
         'tool-card'             => 'tool-card.css',
         'archive-loop'          => 'archive-loop.css',
+    ];
+}
+
+/**
+ * Returns mapping of component names to their CSS files.
+ *
+ * @return array<string,string> Associative array of component-name => css-filename.
+ */
+function aiqengage_get_component_css_mapping() {
+    return [
+        'footer'                => 'footer.css',
+        'header'                => 'header.css',
+        'navigation'            => 'navigation.css',
+        'sticky-cta'            => 'sticky-cta.css',
+        'modal'                 => 'modal.css',
     ];
 }
 
@@ -77,6 +92,50 @@ function aiqengage_optimize_image_loading($attr) {
     return $attr;
 }
 add_filter('wp_get_attachment_image_attributes', 'aiqengage_optimize_image_loading');
+
+/**
+ * Enqueue component CSS for common elements like footer, header, etc.
+ * These are always loaded as they appear on every page.
+ */
+function aiqengage_child_enqueue_component_styles() {
+    // Only run on front-end
+    if (is_admin()) {
+        return;
+    }
+
+    $components = aiqengage_get_component_css_mapping();
+    
+    // Always load these core components
+    $core_components = ['footer', 'header', 'navigation'];
+    
+    foreach ($core_components as $component_name) {
+        if (isset($components[$component_name])) {
+            $handle = "aiq-component-{$component_name}";
+            $css_file = $components[$component_name];
+            
+            wp_enqueue_style(
+                $handle,
+                trailingslashit(get_stylesheet_directory_uri()) . "assets/css/components/{$css_file}",
+                ['aiq-main-css'], // Depend on main.css for design tokens
+                AIQENGAGE_CHILD_VERSION
+            );
+        }
+    }
+    
+    // Conditionally load other components based on page type or content
+    if (is_singular() || is_home()) {
+        // Load sticky CTA on content pages
+        if (isset($components['sticky-cta'])) {
+            wp_enqueue_style(
+                'aiq-component-sticky-cta',
+                trailingslashit(get_stylesheet_directory_uri()) . "assets/css/components/{$components['sticky-cta']}",
+                ['aiq-main-css'],
+                AIQENGAGE_CHILD_VERSION
+            );
+        }
+    }
+}
+add_action('wp_enqueue_scripts', 'aiqengage_child_enqueue_component_styles', 18);
 
 /**
  * Enqueue widget CSS based on used widgets.
@@ -175,14 +234,19 @@ add_filter('script_loader_tag', 'aiqengage_script_loader_tag', 10, 2);
  * Check if CSS assets directory exists and log error if not
  */
 function aiqengage_check_css_directory() {
-    $css_dir = get_stylesheet_directory() . '/assets/css/widgets';
+    $css_dirs = [
+        get_stylesheet_directory() . '/assets/css/widgets',
+        get_stylesheet_directory() . '/assets/css/components'
+    ];
     
-    if (!file_exists($css_dir) || !is_dir($css_dir)) {
-        // Log error
-        error_log('AIQEngage Child Theme: Required directory "assets/css/widgets/" does not exist.');
-        
-        // Add admin notice if user is admin
-        add_action('admin_notices', 'aiqengage_missing_css_notice');
+    foreach ($css_dirs as $css_dir) {
+        if (!file_exists($css_dir) || !is_dir($css_dir)) {
+            // Log error
+            error_log("AIQEngage Child Theme: Required directory \"{$css_dir}\" does not exist.");
+            
+            // Add admin notice if user is admin
+            add_action('admin_notices', 'aiqengage_missing_css_notice');
+        }
     }
 }
 add_action('init', 'aiqengage_check_css_directory');
@@ -194,7 +258,7 @@ function aiqengage_missing_css_notice() {
     if (current_user_can('administrator')) {
         ?>
         <div class="notice notice-error">
-            <p><?php _e('AIQEngage Child Theme: Required directory "assets/css/widgets/" does not exist. Widget styling may not work properly.', 'aiqengage-child'); ?></p>
+            <p><?php _e('AIQEngage Child Theme: Required CSS directories "assets/css/widgets/" or "assets/css/components/" do not exist. Styling may not work properly.', 'aiqengage-child'); ?></p>
         </div>
         <?php
     }
