@@ -1,0 +1,25 @@
+{
+  "name": "aiqengage-child-theme",
+  "version": "1.0.0",
+  "description": "![AIQEngage Theme Preview](assets/images/theme-preview.jpg) *Note: The preview image is currently a placeholder. Replace with actual theme screenshot (min. 880x660px) before release.*",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YourlocalJay/aiqengage-child-theme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YourlocalJay/aiqengage-child-theme/issues"
+  },
+  "homepage": "https://github.com/YourlocalJay/aiqengage-child-theme#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "eslint": "^9.29.0",
+    "globals": "^16.2.0"
+  }
+}
