@@ -1,0 +1,1155 @@
+{
+  "version": "0.4",
+  "title": "AIQEngage Home Page Template",
+  "type": "page",
+  "page_settings": [],
+  "content": [
+    {
+      "id": "hero-section",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "content_width": "full",
+        "gap": "default",
+        "height": "min-height",
+        "min_height": {
+          "unit": "vh",
+          "size": 100
+        },
+        "background_background": "gradient",
+        "background_color": "#1A0938",
+        "background_color_b": "#2A1958",
+        "background_gradient_type": "radial",
+        "background_gradient_position": "center center",
+        "css_classes": "aiq-hero-section",
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0"
+        },
+        "padding": {
+          "unit": "px",
+          "top": "120",
+          "right": "40",
+          "bottom": "120",
+          "left": "40"
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20"
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "16",
+          "bottom": "60",
+          "left": "16"
+        }
+      },
+      "elements": [
+        {
+          "id": "hero-column",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "width": 100,
+            "content_position": "middle",
+            "align": "center"
+          },
+          "elements": [
+            {
+              "id": "hero-headline",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Unlock Claude-Powered Automation in Minutes",
+                "size": "custom",
+                "custom_size": {
+                  "unit": "rem",
+                  "size": 4.5
+                },
+                "custom_size_tablet": {
+                  "unit": "rem",
+                  "size": 2.5
+                },
+                "custom_size_mobile": {
+                  "unit": "rem",
+                  "size": 2
+                },
+                "color": "#E0D6FF",
+                "typography_font_family": "Inter",
+                "typography_font_weight": "800",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1
+                },
+                "text_align": "center",
+                "css_classes": "aiq-hero-headline",
+                "margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "24",
+                  "left": "0"
+                }
+              }
+            },
+            {
+              "id": "hero-subheadline",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"color: #E0D6FF; font-family: Inter; font-size: 18px; font-weight: 400; line-height: 1.6; text-align: center; margin: 0 0 32px 0;\">Prompts, Tools &amp; Automation Blueprints for Solo Builders</p>",
+                "css_classes": "aiq-hero-subheadline"
+              }
+            },
+            {
+              "id": "hero-features-list",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<ul style=\"color: #E0D6FF; font-family: Inter; font-size: 16px; list-style: none; padding: 0; margin: 0 0 40px 0; text-align: center;\"><li style=\"margin-bottom: 12px;\">✓ High-Converting Funnels</li><li style=\"margin-bottom: 12px;\">✓ Automated Traffic Growth</li><li style=\"margin-bottom: 12px;\">✓ Affiliate Monetization</li></ul>",
+                "css_classes": "aiq-hero-features"
+              }
+            },
+            {
+              "id": "hero-cta-buttons",
+              "elType": "section",
+              "isInner": true,
+              "settings": {
+                "gap": "narrow"
+              },
+              "elements": [
+                {
+                  "id": "hero-primary-cta",
+                  "elType": "column",
+                  "isInner": true,
+                  "settings": {
+                    "width": 50,
+                    "width_tablet": 100,
+                    "width_mobile": 100,
+                    "content_position": "center",
+                    "align": "center"
+                  },
+                  "elements": [
+                    {
+                      "id": "primary-button",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "Explore the Vault",
+                        "link": {
+                          "url": "/vault"
+                        },
+                        "size": "lg",
+                        "background_color": "#9C4DFF",
+                        "hover_background_color": "#5E72E4",
+                        "color": "#FFFFFF",
+                        "typography_font_family": "Inter",
+                        "typography_font_weight": "600",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 16
+                        },
+                        "button_border_radius": {
+                          "unit": "px",
+                          "top": "8",
+                          "right": "8",
+                          "bottom": "8",
+                          "left": "8"
+                        },
+                        "button_padding": {
+                          "unit": "px",
+                          "top": "14",
+                          "right": "24",
+                          "bottom": "14",
+                          "left": "24"
+                        },
+                        "button_box_shadow_box_shadow_type": "yes",
+                        "button_box_shadow_box_shadow": {
+                          "horizontal": 0,
+                          "vertical": 4,
+                          "blur": 12,
+                          "spread": 0,
+                          "color": "rgba(94, 114, 228, 0.4)"
+                        },
+                        "css_classes": "aiq-btn aiq-btn--primary",
+                        "margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "8",
+                          "bottom": "16",
+                          "left": "8"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "hero-secondary-cta",
+                  "elType": "column",
+                  "isInner": true,
+                  "settings": {
+                    "width": 50,
+                    "width_tablet": 100,
+                    "width_mobile": 100,
+                    "content_position": "center",
+                    "align": "center"
+                  },
+                  "elements": [
+                    {
+                      "id": "secondary-button",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "Get Recommendations",
+                        "link": {
+                          "url": "/ai-guidance"
+                        },
+                        "size": "lg",
+                        "background_color": "transparent",
+                        "border_border": "solid",
+                        "border_width": {
+                          "unit": "px",
+                          "top": "1",
+                          "right": "1",
+                          "bottom": "1",
+                          "left": "1"
+                        },
+                        "border_color": "#9C4DFF",
+                        "hover_background_color": "rgba(156, 77, 255, 0.2)",
+                        "color": "#E0D6FF",
+                        "typography_font_family": "Inter",
+                        "typography_font_weight": "600",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 16
+                        },
+                        "button_border_radius": {
+                          "unit": "px",
+                          "top": "8",
+                          "right": "8",
+                          "bottom": "8",
+                          "left": "8"
+                        },
+                        "button_padding": {
+                          "unit": "px",
+                          "top": "14",
+                          "right": "24",
+                          "bottom": "14",
+                          "left": "24"
+                        },
+                        "css_classes": "aiq-btn aiq-btn--secondary",
+                        "margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "8",
+                          "bottom": "16",
+                          "left": "8"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "value-proposition-section",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "content_width": "boxed",
+        "gap": "default",
+        "background_background": "classic",
+        "background_color": "#1A0938",
+        "css_classes": "aiq-value-section",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "40",
+          "bottom": "100",
+          "left": "40"
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20"
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "16",
+          "bottom": "60",
+          "left": "16"
+        }
+      },
+      "elements": [
+        {
+          "id": "value-headline-column",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "width": 100,
+            "align": "center"
+          },
+          "elements": [
+            {
+              "id": "value-headline",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "What Makes the Claude Vault Different?",
+                "size": "custom",
+                "custom_size": {
+                  "unit": "rem",
+                  "size": 2.5
+                },
+                "custom_size_tablet": {
+                  "unit": "rem",
+                  "size": 1.8
+                },
+                "custom_size_mobile": {
+                  "unit": "rem",
+                  "size": 1.5
+                },
+                "color": "#E0D6FF",
+                "typography_font_family": "Inter",
+                "typography_font_weight": "700",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2
+                },
+                "text_align": "center",
+                "css_classes": "aiq-section-headline",
+                "margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "60",
+                  "left": "0"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features-section",
+      "elType": "section",
+      "isInner": true,
+      "settings": {
+        "gap": "default",
+        "background_background": "classic",
+        "background_color": "#1A0938"
+      },
+      "elements": [
+        {
+          "id": "feature-card-1",
+          "elType": "column",
+          "isInner": true,
+          "settings": {
+            "width": 33.33,
+            "width_tablet": 100,
+            "width_mobile": 100,
+            "background_background": "classic",
+            "background_color": "#2A1958",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1"
+            },
+            "border_color": "rgba(156, 77, 255, 0.3)",
+            "border_radius": {
+              "unit": "px",
+              "top": "15",
+              "right": "15",
+              "bottom": "15",
+              "left": "15"
+            },
+            "box_shadow_box_shadow_type": "yes",
+            "box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 5,
+              "blur": 15,
+              "spread": 0,
+              "color": "rgba(0, 0, 0, 0.3)"
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "24",
+              "bottom": "24",
+              "left": "24"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "16",
+              "bottom": "24",
+              "left": "16"
+            },
+            "css_classes": "aiq-feature-card"
+          },
+          "elements": [
+            {
+              "id": "feature-1-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Prompt Kits",
+                "size": "custom",
+                "custom_size": {
+                  "unit": "rem",
+                  "size": 1.5
+                },
+                "color": "#9C4DFF",
+                "typography_font_family": "Inter",
+                "typography_font_weight": "600",
+                "text_align": "center",
+                "margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "16",
+                  "left": "0"
+                }
+              }
+            },
+            {
+              "id": "feature-1-description",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"color: #E0D6FF; font-family: Inter; font-size: 16px; line-height: 1.6; text-align: center; margin: 0 0 20px 0;\">Pre-built flows for 37% faster results</p>"
+              }
+            },
+            {
+              "id": "feature-1-cta",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "View Prompts",
+                "link": {
+                  "url": "/vault"
+                },
+                "size": "sm",
+                "background_color": "transparent",
+                "color": "#9C4DFF",
+                "typography_font_family": "Inter",
+                "typography_font_weight": "500",
+                "text_align": "center",
+                "button_text_decoration": "underline"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-card-2",
+          "elType": "column",
+          "isInner": true,
+          "settings": {
+            "width": 33.33,
+            "width_tablet": 100,
+            "width_mobile": 100,
+            "background_background": "classic",
+            "background_color": "#2A1958",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1"
+            },
+            "border_color": "rgba(156, 77, 255, 0.3)",
+            "border_radius": {
+              "unit": "px",
+              "top": "15",
+              "right": "15",
+              "bottom": "15",
+              "left": "15"
+            },
+            "box_shadow_box_shadow_type": "yes",
+            "box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 5,
+              "blur": 15,
+              "spread": 0,
+              "color": "rgba(0, 0, 0, 0.3)"
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "24",
+              "bottom": "24",
+              "left": "24"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "16",
+              "bottom": "24",
+              "left": "16"
+            },
+            "css_classes": "aiq-feature-card"
+          },
+          "elements": [
+            {
+              "id": "feature-2-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Tool Discounts",
+                "size": "custom",
+                "custom_size": {
+                  "unit": "rem",
+                  "size": 1.5
+                },
+                "color": "#9C4DFF",
+                "typography_font_family": "Inter",
+                "typography_font_weight": "600",
+                "text_align": "center",
+                "margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "16",
+                  "left": "0"
+                }
+              }
+            },
+            {
+              "id": "feature-2-description",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"color: #E0D6FF; font-family: Inter; font-size: 16px; line-height: 1.6; text-align: center; margin: 0 0 20px 0;\">Exclusive 40–60% partner deals</p>"
+              }
+            },
+            {
+              "id": "feature-2-cta",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Browse Tools",
+                "link": {
+                  "url": "/tools"
+                },
+                "size": "sm",
+                "background_color": "transparent",
+                "color": "#9C4DFF",
+                "typography_font_family": "Inter",
+                "typography_font_weight": "500",
+                "text_align": "center",
+                "button_text_decoration": "underline"
+              }
+            }
+          ]
+        },
+        {
+          "id": "feature-card-3",
+          "elType": "column",
+          "isInner": true,
+          "settings": {
+            "width": 33.33,
+            "width_tablet": 100,
+            "width_mobile": 100,
+            "background_background": "classic",
+            "background_color": "#2A1958",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1"
+            },
+            "border_color": "rgba(156, 77, 255, 0.3)",
+            "border_radius": {
+              "unit": "px",
+              "top": "15",
+              "right": "15",
+              "bottom": "15",
+              "left": "15"
+            },
+            "box_shadow_box_shadow_type": "yes",
+            "box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 5,
+              "blur": 15,
+              "spread": 0,
+              "color": "rgba(0, 0, 0, 0.3)"
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "24",
+              "bottom": "24",
+              "left": "24"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "16",
+              "bottom": "24",
+              "left": "16"
+            },
+            "css_classes": "aiq-feature-card"
+          },
+          "elements": [
+            {
+              "id": "feature-3-title",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Automation Systems",
+                "size": "custom",
+                "custom_size": {
+                  "unit": "rem",
+                  "size": 1.5
+                },
+                "color": "#9C4DFF",
+                "typography_font_family": "Inter",
+                "typography_font_weight": "600",
+                "text_align": "center",
+                "margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "16",
+                  "left": "0"
+                }
+              }
+            },
+            {
+              "id": "feature-3-description",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"color: #E0D6FF; font-family: Inter; font-size: 16px; line-height: 1.6; text-align: center; margin: 0 0 20px 0;\">Done-for-you traffic &amp; conversion stacks</p>"
+              }
+            },
+            {
+              "id": "feature-3-cta",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "See Blueprints",
+                "link": {
+                  "url": "/automation-hub"
+                },
+                "size": "sm",
+                "background_color": "transparent",
+                "color": "#9C4DFF",
+                "typography_font_family": "Inter",
+                "typography_font_weight": "500",
+                "text_align": "center",
+                "button_text_decoration": "underline"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "social-proof-section",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "content_width": "boxed",
+        "gap": "default",
+        "background_background": "classic",
+        "background_color": "#1A0938",
+        "css_classes": "aiq-social-proof-section",
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "40",
+          "bottom": "100",
+          "left": "40"
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20"
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "16",
+          "bottom": "60",
+          "left": "16"
+        }
+      },
+      "elements": [
+        {
+          "id": "social-proof-headline-column",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "width": 100,
+            "align": "center"
+          },
+          "elements": [
+            {
+              "id": "social-proof-headline",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Loved by Builders Using AI Smarter",
+                "size": "custom",
+                "custom_size": {
+                  "unit": "rem",
+                  "size": 2.5
+                },
+                "custom_size_tablet": {
+                  "unit": "rem",
+                  "size": 1.8
+                },
+                "custom_size_mobile": {
+                  "unit": "rem",
+                  "size": 1.5
+                },
+                "color": "#E0D6FF",
+                "typography_font_family": "Inter",
+                "typography_font_weight": "700",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2
+                },
+                "text_align": "center",
+                "css_classes": "aiq-section-headline",
+                "margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "60",
+                  "left": "0"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "testimonials-section",
+      "elType": "section",
+      "isInner": true,
+      "settings": {
+        "gap": "default",
+        "background_background": "classic",
+        "background_color": "#1A0938"
+      },
+      "elements": [
+        {
+          "id": "testimonial-1",
+          "elType": "column",
+          "isInner": true,
+          "settings": {
+            "width": 33.33,
+            "width_tablet": 100,
+            "width_mobile": 100,
+            "background_background": "classic",
+            "background_color": "#2A1958",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1"
+            },
+            "border_color": "rgba(156, 77, 255, 0.3)",
+            "border_radius": {
+              "unit": "px",
+              "top": "15",
+              "right": "15",
+              "bottom": "15",
+              "left": "15"
+            },
+            "box_shadow_box_shadow_type": "yes",
+            "box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 5,
+              "blur": 15,
+              "spread": 0,
+              "color": "rgba(0, 0, 0, 0.3)"
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "24",
+              "bottom": "24",
+              "left": "24"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "16",
+              "bottom": "24",
+              "left": "16"
+            },
+            "css_classes": "aiq-testimonial-card"
+          },
+          "elements": [
+            {
+              "id": "testimonial-1-quote",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<blockquote style=\"color: #E0D6FF; font-family: Inter; font-size: 16px; line-height: 1.6; font-style: italic; margin: 0 0 20px 0; border-left: 3px solid #9C4DFF; padding-left: 16px;\">&quot;I went from zero Reddit traffic to 500+ daily visitors in just 2 weeks using the Claude Vault prompts. The automation blueprints are game-changers.&quot;</blockquote>"
+              }
+            },
+            {
+              "id": "testimonial-1-attribution",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"color: #9C4DFF; font-family: Inter; font-size: 14px; font-weight: 600; margin: 0;\">— Sarah M., Content Creator</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "testimonial-2",
+          "elType": "column",
+          "isInner": true,
+          "settings": {
+            "width": 33.33,
+            "width_tablet": 100,
+            "width_mobile": 100,
+            "background_background": "classic",
+            "background_color": "#2A1958",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1"
+            },
+            "border_color": "rgba(156, 77, 255, 0.3)",
+            "border_radius": {
+              "unit": "px",
+              "top": "15",
+              "right": "15",
+              "bottom": "15",
+              "left": "15"
+            },
+            "box_shadow_box_shadow_type": "yes",
+            "box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 5,
+              "blur": 15,
+              "spread": 0,
+              "color": "rgba(0, 0, 0, 0.3)"
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "24",
+              "bottom": "24",
+              "left": "24"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "16",
+              "bottom": "24",
+              "left": "16"
+            },
+            "css_classes": "aiq-testimonial-card"
+          },
+          "elements": [
+            {
+              "id": "testimonial-2-quote",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<blockquote style=\"color: #E0D6FF; font-family: Inter; font-size: 16px; line-height: 1.6; font-style: italic; margin: 0 0 20px 0; border-left: 3px solid #9C4DFF; padding-left: 16px;\">&quot;The tool discounts alone paid for my Pro membership 3x over. Plus the prompts actually work - no more trial and error.&quot;</blockquote>"
+              }
+            },
+            {
+              "id": "testimonial-2-attribution",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"color: #9C4DFF; font-family: Inter; font-size: 14px; font-weight: 600; margin: 0;\">— Marcus R., Solo Entrepreneur</p>"
+              }
+            }
+          ]
+        },
+        {
+          "id": "testimonial-3",
+          "elType": "column",
+          "isInner": true,
+          "settings": {
+            "width": 33.33,
+            "width_tablet": 100,
+            "width_mobile": 100,
+            "background_background": "classic",
+            "background_color": "#2A1958",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1"
+            },
+            "border_color": "rgba(156, 77, 255, 0.3)",
+            "border_radius": {
+              "unit": "px",
+              "top": "15",
+              "right": "15",
+              "bottom": "15",
+              "left": "15"
+            },
+            "box_shadow_box_shadow_type": "yes",
+            "box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 5,
+              "blur": 15,
+              "spread": 0,
+              "color": "rgba(0, 0, 0, 0.3)"
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "24",
+              "bottom": "24",
+              "left": "24"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "16",
+              "bottom": "24",
+              "left": "16"
+            },
+            "css_classes": "aiq-testimonial-card"
+          },
+          "elements": [
+            {
+              "id": "testimonial-3-quote",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<blockquote style=\"color: #E0D6FF; font-family: Inter; font-size: 16px; line-height: 1.6; font-style: italic; margin: 0 0 20px 0; border-left: 3px solid #9C4DFF; padding-left: 16px;\">&quot;Finally, AI automation that doesn't require a computer science degree. Implementation took me 3 hours, revenue started in 48 hours.&quot;</blockquote>"
+              }
+            },
+            {
+              "id": "testimonial-3-attribution",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"color: #9C4DFF; font-family: Inter; font-size: 14px; font-weight: 600; margin: 0;\">— Alex Chen, Digital Marketer</p>"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trust-badges-section",
+      "elType": "section",
+      "isInner": true,
+      "settings": {
+        "gap": "narrow",
+        "background_background": "classic",
+        "background_color": "#1A0938",
+        "padding": {
+          "unit": "px",
+          "top": "40",
+          "right": "0",
+          "bottom": "0",
+          "left": "0"
+        }
+      },
+      "elements": [
+        {
+          "id": "trust-badges-column",
+          "elType": "column",
+          "isInner": true,
+          "settings": {
+            "width": 100,
+            "align": "center"
+          },
+          "elements": [
+            {
+              "id": "trust-badges",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div style=\"display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin: 0;\"><span style=\"background: rgba(126, 87, 194, 0.2); border: 1px solid #9C4DFF; color: #E0D6FF; padding: 8px 16px; border-radius: 20px; font-family: Inter; font-size: 14px; font-weight: 500;\">Claude-Optimized</span><span style=\"background: rgba(126, 87, 194, 0.2); border: 1px solid #9C4DFF; color: #E0D6FF; padding: 8px 16px; border-radius: 20px; font-family: Inter; font-size: 14px; font-weight: 500;\">500+ Users</span><span style=\"background: rgba(126, 87, 194, 0.2); border: 1px solid #9C4DFF; color: #E0D6FF; padding: 8px 16px; border-radius: 20px; font-family: Inter; font-size: 14px; font-weight: 500;\">Affiliate Safe</span></div>",
+                "css_classes": "aiq-trust-badges"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cta-section",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "content_width": "boxed",
+        "gap": "default",
+        "background_background": "gradient",
+        "background_color": "#635BFF",
+        "background_color_b": "#8E6BFF",
+        "background_gradient_type": "linear",
+        "background_gradient_angle": {
+          "unit": "deg",
+          "size": 90
+        },
+        "css_classes": "aiq-cta-section",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "60",
+          "right": "20",
+          "bottom": "60",
+          "left": "20"
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "40",
+          "right": "16",
+          "bottom": "40",
+          "left": "16"
+        },
+        "border_radius": {
+          "unit": "px",
+          "top": "15",
+          "right": "15",
+          "bottom": "15",
+          "left": "15"
+        },
+        "margin": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40"
+        }
+      },
+      "elements": [
+        {
+          "id": "cta-content",
+          "elType": "section",
+          "isInner": true,
+          "settings": {
+            "gap": "default"
+          },
+          "elements": [
+            {
+              "id": "cta-text-column",
+              "elType": "column",
+              "isInner": true,
+              "settings": {
+                "width": 60,
+                "width_tablet": 100,
+                "width_mobile": 100,
+                "content_position": "middle"
+              },
+              "elements": [
+                {
+                  "id": "cta-headline",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Free: Claude's 2025 Growth Kit",
+                    "size": "custom",
+                    "custom_size": {
+                      "unit": "rem",
+                      "size": 2
+                    },
+                    "custom_size_tablet": {
+                      "unit": "rem",
+                      "size": 1.6
+                    },
+                    "custom_size_mobile": {
+                      "unit": "rem",
+                      "size": 1.4
+                    },
+                    "color": "#FFFFFF",
+                    "typography_font_family": "Inter",
+                    "typography_font_weight": "700",
+                    "margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "16",
+                      "left": "0"
+                    }
+                  }
+                },
+                {
+                  "id": "cta-description",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"color: #FFFFFF; font-family: Inter; font-size: 16px; line-height: 1.6; margin: 0;\">Get our most-used prompts and tool stack — delivered weekly</p>"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "cta-form-column",
+              "elType": "column",
+              "isInner": true,
+              "settings": {
+                "width": 40,
+                "width_tablet": 100,
+                "width_mobile": 100,
+                "content_position": "middle",
+                "align": "center"
+              },
+              "elements": [
+                {
+                  "id": "cta-form",
+                  "elType": "widget",
+                  "widgetType": "shortcode",
+                  "settings": {
+                    "shortcode": "[contact-form-7 id=\"newsletter-signup\" html_class=\"aiq-newsletter-form\"]",
+                    "css_classes": "aiq-newsletter-widget"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
