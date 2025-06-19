@@ -1,11 +1,10 @@
-(function () {
 /**
  * Chat Widget Script
  *
  * @package aiqengage-child
  * @version 1.0.0
- * @since   1.0.0
- * @author  Jason
+ * @since 1.0.0
+ * @author Jason
  */
 
 (function () {
@@ -88,20 +87,24 @@
         document.addEventListener('keydown', handleGlobalKeydown);
 
         // Input and send functionality
-        sendButton.addEventListener('click', sendMessage);
+        if (sendButton) {
+            sendButton.addEventListener('click', sendMessage);
+        }
 
-        inputField.addEventListener('keydown', (e) => {
-            if (settings.sendOnEnter === 'yes' && e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                sendMessage();
-            }
+        if (inputField) {
+            inputField.addEventListener('keydown', (e) => {
+                if (settings.sendOnEnter === 'yes' && e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
 
-            // Auto-resize textarea
-            setTimeout(() => {
-                inputField.style.height = 'auto';
-                inputField.style.height = (inputField.scrollHeight) + 'px';
-            }, 0);
-        });
+                // Auto-resize textarea
+                setTimeout(() => {
+                    inputField.style.height = 'auto';
+                    inputField.style.height = inputField.scrollHeight + 'px';
+                }, 0);
+            });
+        }
 
         // Show the greeting message
         if (settings.greetingMessage) {
@@ -157,14 +160,16 @@
                 const instructions = document.createElement('div');
                 instructions.id = 'send-instructions';
                 instructions.className = 'sr-only';
-                instructions.textContent = settings.sendOnEnter === 'yes' ?
-                    'Press Enter to send message, Shift+Enter for new line' :
-                    'Use the send button to send your message';
+                instructions.textContent = settings.sendOnEnter === 'yes'
+                    ? 'Press Enter to send message, Shift+Enter for new line'
+                    : 'Use the send button to send your message';
                 inputField.parentNode.appendChild(instructions);
             }
 
             // Set up send button
-            sendButton.setAttribute('aria-label', 'Send message');
+            if (sendButton) {
+                sendButton.setAttribute('aria-label', 'Send message');
+            }
 
             // Set up close button if exists
             if (closeButton) {
