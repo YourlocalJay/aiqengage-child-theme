@@ -1,0 +1,885 @@
+{
+  "version": "0.4",
+  "title": "AIQEngage - How it Works Section",
+  "type": "section",
+  "content": [
+    {
+      "id": "how-it-works-section",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "content_width": {
+          "unit": "px",
+          "size": 1200,
+          "sizes": []
+        },
+        "background_background": "classic",
+        "background_color": "#1A0938",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "60",
+          "right": "15",
+          "bottom": "60",
+          "left": "15",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "40",
+          "right": "15",
+          "bottom": "40",
+          "left": "15",
+          "isLinked": false
+        },
+        "css_classes": "aiq-how-it-works"
+      },
+      "elements": [
+        {
+          "id": "how-it-works-column",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "how-it-works-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "How AIQEngage Works",
+                "size": "h2",
+                "header_size": "h2",
+                "typography_typography": "custom",
+                "typography_font_family": "Inter",
+                "typography_font_size": {
+                  "unit": "rem",
+                  "size": 2.5,
+                  "sizes": []
+                },
+                "typography_font_size_tablet": {
+                  "unit": "rem",
+                  "size": 1.8,
+                  "sizes": []
+                },
+                "typography_font_size_mobile": {
+                  "unit": "rem",
+                  "size": 1.5,
+                  "sizes": []
+                },
+                "typography_font_weight": "700",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "color": "#E0D6FF",
+                "align": "center",
+                "margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "60",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "margin_tablet": {
+                  "unit": "px",
+                  "bottom": "40",
+                  "isLinked": false
+                },
+                "margin_mobile": {
+                  "unit": "px",
+                  "bottom": "30",
+                  "isLinked": false
+                },
+                "css_classes": "aiq-section-heading"
+              }
+            },
+            {
+              "id": "how-it-works-subtitle",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "Get started with Claude-powered automation in just three simple steps",
+                "typography_typography": "custom",
+                "typography_font_family": "Inter",
+                "typography_font_size": {
+                  "unit": "rem",
+                  "size": 1.125,
+                  "sizes": []
+                },
+                "typography_font_size_tablet": {
+                  "unit": "rem",
+                  "size": 1,
+                  "sizes": []
+                },
+                "typography_font_size_mobile": {
+                  "unit": "rem",
+                  "size": 1,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.6,
+                  "sizes": []
+                },
+                "text_color": "#E0D6FF",
+                "align": "center",
+                "margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "60",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "margin_tablet": {
+                  "unit": "px",
+                  "bottom": "40",
+                  "isLinked": false
+                },
+                "margin_mobile": {
+                  "unit": "px",
+                  "bottom": "30",
+                  "isLinked": false
+                },
+                "css_classes": "aiq-section-subtitle"
+              }
+            },
+            {
+              "id": "how-it-works-container",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "content_width": "boxed",
+                "flex_direction": "row",
+                "flex_wrap": "wrap",
+                "flex_justify_content": "space-between",
+                "flex_align_items": "stretch",
+                "flex_gap": {
+                  "unit": "px",
+                  "size": 30,
+                  "sizes": []
+                },
+                "flex_gap_tablet": {
+                  "unit": "px",
+                  "size": 20,
+                  "sizes": []
+                },
+                "flex_gap_mobile": {
+                  "unit": "px",
+                  "size": 20,
+                  "sizes": []
+                }
+              },
+              "elements": [
+                {
+                  "id": "step-1-column",
+                  "elType": "container",
+                  "isInner": true,
+                  "settings": {
+                    "_column_size": 33.333,
+                    "_column_size_tablet": 50,
+                    "_column_size_mobile": 100,
+                    "background_background": "classic",
+                    "background_color": "#2A1958",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "15",
+                      "right": "15",
+                      "bottom": "15",
+                      "left": "15",
+                      "isLinked": true
+                    },
+                    "box_shadow_box_shadow_type": "yes",
+                    "box_shadow_box_shadow": {
+                      "horizontal": 0,
+                      "vertical": 5,
+                      "blur": 15,
+                      "spread": 0,
+                      "color": "rgba(0,0,0,0.3)"
+                    },
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "border_color": "rgba(156, 77, 255, 0.3)",
+                    "padding": {
+                      "unit": "px",
+                      "top": "30",
+                      "right": "25",
+                      "bottom": "30",
+                      "left": "25",
+                      "isLinked": false
+                    },
+                    "padding_tablet": {
+                      "unit": "px",
+                      "top": "25",
+                      "right": "20",
+                      "bottom": "25",
+                      "left": "20",
+                      "isLinked": false
+                    },
+                    "padding_mobile": {
+                      "unit": "px",
+                      "top": "20",
+                      "right": "15",
+                      "bottom": "20",
+                      "left": "15",
+                      "isLinked": false
+                    },
+                    "css_classes": "aiq-step-card"
+                  },
+                  "elements": [
+                    {
+                      "id": "step-1-icon",
+                      "elType": "widget",
+                      "widgetType": "icon",
+                      "settings": {
+                        "icon": {
+                          "value": "fas fa-rocket",
+                          "library": "fa-solid"
+                        },
+                        "icon_color": "#9C4DFF",
+                        "size": {
+                          "unit": "px",
+                          "size": 48,
+                          "sizes": []
+                        },
+                        "size_tablet": {
+                          "unit": "px",
+                          "size": 40,
+                          "sizes": []
+                        },
+                        "size_mobile": {
+                          "unit": "px",
+                          "size": 36,
+                          "sizes": []
+                        },
+                        "align": "center",
+                        "margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "20",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "css_classes": "aiq-step-icon"
+                      }
+                    },
+                    {
+                      "id": "step-1-number",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "01",
+                        "size": "h3",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Inter",
+                        "typography_font_size": {
+                          "unit": "rem",
+                          "size": 1.125,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "800",
+                        "color": "#9C4DFF",
+                        "align": "center",
+                        "margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "15",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "css_classes": "aiq-step-number"
+                      }
+                    },
+                    {
+                      "id": "step-1-title",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Choose Your Prompts",
+                        "size": "h3",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Inter",
+                        "typography_font_size": {
+                          "unit": "rem",
+                          "size": 1.25,
+                          "sizes": []
+                        },
+                        "typography_font_size_tablet": {
+                          "unit": "rem",
+                          "size": 1.125,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "rem",
+                          "size": 1,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.3,
+                          "sizes": []
+                        },
+                        "color": "#E0D6FF",
+                        "align": "center",
+                        "margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "15",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "css_classes": "aiq-step-title"
+                      }
+                    },
+                    {
+                      "id": "step-1-description",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "Browse our vault of 50+ battle-tested Claude prompts designed for revenue generation and traffic growth.",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Inter",
+                        "typography_font_size": {
+                          "unit": "rem",
+                          "size": 1,
+                          "sizes": []
+                        },
+                        "typography_font_size_tablet": {
+                          "unit": "rem",
+                          "size": 0.9,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "rem",
+                          "size": 0.875,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.6,
+                          "sizes": []
+                        },
+                        "text_color": "rgba(224, 214, 255, 0.8)",
+                        "align": "center",
+                        "css_classes": "aiq-step-description"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "step-2-column",
+                  "elType": "container",
+                  "isInner": true,
+                  "settings": {
+                    "_column_size": 33.333,
+                    "_column_size_tablet": 50,
+                    "_column_size_mobile": 100,
+                    "background_background": "classic",
+                    "background_color": "#2A1958",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "15",
+                      "right": "15",
+                      "bottom": "15",
+                      "left": "15",
+                      "isLinked": true
+                    },
+                    "box_shadow_box_shadow_type": "yes",
+                    "box_shadow_box_shadow": {
+                      "horizontal": 0,
+                      "vertical": 5,
+                      "blur": 15,
+                      "spread": 0,
+                      "color": "rgba(0,0,0,0.3)"
+                    },
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "border_color": "rgba(156, 77, 255, 0.3)",
+                    "padding": {
+                      "unit": "px",
+                      "top": "30",
+                      "right": "25",
+                      "bottom": "30",
+                      "left": "25",
+                      "isLinked": false
+                    },
+                    "padding_tablet": {
+                      "unit": "px",
+                      "top": "25",
+                      "right": "20",
+                      "bottom": "25",
+                      "left": "20",
+                      "isLinked": false
+                    },
+                    "padding_mobile": {
+                      "unit": "px",
+                      "top": "20",
+                      "right": "15",
+                      "bottom": "20",
+                      "left": "15",
+                      "isLinked": false
+                    },
+                    "css_classes": "aiq-step-card"
+                  },
+                  "elements": [
+                    {
+                      "id": "step-2-icon",
+                      "elType": "widget",
+                      "widgetType": "icon",
+                      "settings": {
+                        "icon": {
+                          "value": "fas fa-cogs",
+                          "library": "fa-solid"
+                        },
+                        "icon_color": "#9C4DFF",
+                        "size": {
+                          "unit": "px",
+                          "size": 48,
+                          "sizes": []
+                        },
+                        "size_tablet": {
+                          "unit": "px",
+                          "size": 40,
+                          "sizes": []
+                        },
+                        "size_mobile": {
+                          "unit": "px",
+                          "size": 36,
+                          "sizes": []
+                        },
+                        "align": "center",
+                        "margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "20",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "css_classes": "aiq-step-icon"
+                      }
+                    },
+                    {
+                      "id": "step-2-number",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "02",
+                        "size": "h3",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Inter",
+                        "typography_font_size": {
+                          "unit": "rem",
+                          "size": 1.125,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "800",
+                        "color": "#9C4DFF",
+                        "align": "center",
+                        "margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "15",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "css_classes": "aiq-step-number"
+                      }
+                    },
+                    {
+                      "id": "step-2-title",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Customize & Deploy",
+                        "size": "h3",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Inter",
+                        "typography_font_size": {
+                          "unit": "rem",
+                          "size": 1.25,
+                          "sizes": []
+                        },
+                        "typography_font_size_tablet": {
+                          "unit": "rem",
+                          "size": 1.125,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "rem",
+                          "size": 1,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.3,
+                          "sizes": []
+                        },
+                        "color": "#E0D6FF",
+                        "align": "center",
+                        "margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "15",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "css_classes": "aiq-step-title"
+                      }
+                    },
+                    {
+                      "id": "step-2-description",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "Personalize the prompts for your niche and implement them across your content platforms and workflows.",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Inter",
+                        "typography_font_size": {
+                          "unit": "rem",
+                          "size": 1,
+                          "sizes": []
+                        },
+                        "typography_font_size_tablet": {
+                          "unit": "rem",
+                          "size": 0.9,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "rem",
+                          "size": 0.875,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.6,
+                          "sizes": []
+                        },
+                        "text_color": "rgba(224, 214, 255, 0.8)",
+                        "align": "center",
+                        "css_classes": "aiq-step-description"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "step-3-column",
+                  "elType": "container",
+                  "isInner": true,
+                  "settings": {
+                    "_column_size": 33.333,
+                    "_column_size_tablet": 100,
+                    "_column_size_mobile": 100,
+                    "background_background": "classic",
+                    "background_color": "#2A1958",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "15",
+                      "right": "15",
+                      "bottom": "15",
+                      "left": "15",
+                      "isLinked": true
+                    },
+                    "box_shadow_box_shadow_type": "yes",
+                    "box_shadow_box_shadow": {
+                      "horizontal": 0,
+                      "vertical": 5,
+                      "blur": 15,
+                      "spread": 0,
+                      "color": "rgba(0,0,0,0.3)"
+                    },
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "border_color": "rgba(156, 77, 255, 0.3)",
+                    "padding": {
+                      "unit": "px",
+                      "top": "30",
+                      "right": "25",
+                      "bottom": "30",
+                      "left": "25",
+                      "isLinked": false
+                    },
+                    "padding_tablet": {
+                      "unit": "px",
+                      "top": "25",
+                      "right": "20",
+                      "bottom": "25",
+                      "left": "20",
+                      "isLinked": false
+                    },
+                    "padding_mobile": {
+                      "unit": "px",
+                      "top": "20",
+                      "right": "15",
+                      "bottom": "20",
+                      "left": "15",
+                      "isLinked": false
+                    },
+                    "css_classes": "aiq-step-card"
+                  },
+                  "elements": [
+                    {
+                      "id": "step-3-icon",
+                      "elType": "widget",
+                      "widgetType": "icon",
+                      "settings": {
+                        "icon": {
+                          "value": "fas fa-chart-line",
+                          "library": "fa-solid"
+                        },
+                        "icon_color": "#9C4DFF",
+                        "size": {
+                          "unit": "px",
+                          "size": 48,
+                          "sizes": []
+                        },
+                        "size_tablet": {
+                          "unit": "px",
+                          "size": 40,
+                          "sizes": []
+                        },
+                        "size_mobile": {
+                          "unit": "px",
+                          "size": 36,
+                          "sizes": []
+                        },
+                        "align": "center",
+                        "margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "20",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "css_classes": "aiq-step-icon"
+                      }
+                    },
+                    {
+                      "id": "step-3-number",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "03",
+                        "size": "h3",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Inter",
+                        "typography_font_size": {
+                          "unit": "rem",
+                          "size": 1.125,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "800",
+                        "color": "#9C4DFF",
+                        "align": "center",
+                        "margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "15",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "css_classes": "aiq-step-number"
+                      }
+                    },
+                    {
+                      "id": "step-3-title",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Scale & Optimize",
+                        "size": "h3",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Inter",
+                        "typography_font_size": {
+                          "unit": "rem",
+                          "size": 1.25,
+                          "sizes": []
+                        },
+                        "typography_font_size_tablet": {
+                          "unit": "rem",
+                          "size": 1.125,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "rem",
+                          "size": 1,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.3,
+                          "sizes": []
+                        },
+                        "color": "#E0D6FF",
+                        "align": "center",
+                        "margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "15",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "css_classes": "aiq-step-title"
+                      }
+                    },
+                    {
+                      "id": "step-3-description",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "Track results and multiply your success with advanced automation blueprints and optimization strategies.",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Inter",
+                        "typography_font_size": {
+                          "unit": "rem",
+                          "size": 1,
+                          "sizes": []
+                        },
+                        "typography_font_size_tablet": {
+                          "unit": "rem",
+                          "size": 0.9,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "rem",
+                          "size": 0.875,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.6,
+                          "sizes": []
+                        },
+                        "text_color": "rgba(224, 214, 255, 0.8)",
+                        "align": "center",
+                        "css_classes": "aiq-step-description"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "how-it-works-cta",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Get Started with the Vault",
+                "link": {
+                  "url": "/vault",
+                  "is_external": false,
+                  "nofollow": false,
+                  "custom_attributes": ""
+                },
+                "align": "center",
+                "size": "lg",
+                "typography_typography": "custom",
+                "typography_font_family": "Inter",
+                "typography_font_size": {
+                  "unit": "rem",
+                  "size": 1.125,
+                  "sizes": []
+                },
+                "typography_font_weight": "600",
+                "button_text_color": "#FFFFFF",
+                "background_color": "#9C4DFF",
+                "button_background_hover_color": "#5E72E4",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "8",
+                  "right": "8",
+                  "bottom": "8",
+                  "left": "8",
+                  "isLinked": true
+                },
+                "button_box_shadow_box_shadow_type": "yes",
+                "button_box_shadow_box_shadow": {
+                  "horizontal": 0,
+                  "vertical": 4,
+                  "blur": 15,
+                  "spread": 0,
+                  "color": "rgba(94, 114, 228, 0.4)"
+                },
+                "hover_animation": "grow",
+                "margin": {
+                  "unit": "px",
+                  "top": "40",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "margin_tablet": {
+                  "unit": "px",
+                  "top": "30",
+                  "isLinked": false
+                },
+                "margin_mobile": {
+                  "unit": "px",
+                  "top": "25",
+                  "isLinked": false
+                },
+                "css_classes": "aiq-cta-button"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
