@@ -38,6 +38,13 @@ class AIQ_Quiz_Widget extends Widget_Base {
 		return [ 'aiq-quiz-script' ];
 	}
 
+	/**
+	 * Optional: Provide a help/documentation URL for this widget.
+	 */
+	public function get_help_url() {
+		return 'https://docs.aiqengage.com/widgets/quiz';
+	}
+
 	protected function register_controls() {
 		// Existing controls follow...
 
@@ -1246,44 +1253,43 @@ class AIQ_Quiz_Widget extends Widget_Base {
 		wp_enqueue_style( 'aiq-quiz-style' );
 		wp_enqueue_script( 'aiq-quiz-script' );
 
-		// Set data for JS
-		$questions = $settings['questions'];
-
-		if ( 'yes' === $settings['randomize_questions'] ) {
+		// Robust fallback for settings that might not be set
+		$questions = isset( $settings['questions'] ) && is_array($settings['questions']) ? $settings['questions'] : [];
+		if ( isset($settings['randomize_questions']) && 'yes' === $settings['randomize_questions'] ) {
 			shuffle( $questions );
 		}
 
 		$quiz_data = [
 			'id'                  => $quiz_id,
-			'title'               => $settings['quiz_title'],
-			'description'         => $settings['quiz_description'],
+			'title'               => isset($settings['quiz_title']) ? $settings['quiz_title'] : '',
+			'description'         => isset($settings['quiz_description']) ? $settings['quiz_description'] : '',
 			'questions'           => $questions,
-			'show_progress_bar'   => $settings['show_progress_bar'],
-			'show_question_numbers' => $settings['show_question_numbers'],
-			'allow_retake'        => $settings['allow_retake'],
-			'show_correct_answers' => $settings['show_correct_answers'],
-			'show_explanation'    => $settings['show_explanation'],
-			'randomize_questions' => $settings['randomize_questions'],
-			'randomize_answers'   => $settings['randomize_answers'],
-			'pass_score'          => $settings['pass_score'],
-			'result_messages'     => $settings['result_messages'],
+			'show_progress_bar'   => isset($settings['show_progress_bar']) ? $settings['show_progress_bar'] : '',
+			'show_question_numbers' => isset($settings['show_question_numbers']) ? $settings['show_question_numbers'] : '',
+			'allow_retake'        => isset($settings['allow_retake']) ? $settings['allow_retake'] : '',
+			'show_correct_answers' => isset($settings['show_correct_answers']) ? $settings['show_correct_answers'] : '',
+			'show_explanation'    => isset($settings['show_explanation']) ? $settings['show_explanation'] : '',
+			'randomize_questions' => isset($settings['randomize_questions']) ? $settings['randomize_questions'] : '',
+			'randomize_answers'   => isset($settings['randomize_answers']) ? $settings['randomize_answers'] : '',
+			'pass_score'          => isset($settings['pass_score']) ? $settings['pass_score'] : '',
+			'result_messages'     => isset($settings['result_messages']) ? $settings['result_messages'] : [],
 			'buttons'             => [
-				'start'    => $settings['start_button_text'],
-				'next'     => $settings['next_button_text'],
-				'prev'     => $settings['prev_button_text'],
-				'finish'   => $settings['finish_button_text'],
-				'restart'  => $settings['restart_button_text'],
+				'start'    => isset($settings['start_button_text']) ? $settings['start_button_text'] : '',
+				'next'     => isset($settings['next_button_text']) ? $settings['next_button_text'] : '',
+				'prev'     => isset($settings['prev_button_text']) ? $settings['prev_button_text'] : '',
+				'finish'   => isset($settings['finish_button_text']) ? $settings['finish_button_text'] : '',
+				'restart'  => isset($settings['restart_button_text']) ? $settings['restart_button_text'] : '',
 			],
-			'enable_lead_capture' => $settings['enable_lead_capture'],
-			'lead_capture_position' => $settings['lead_capture_position'],
-			'lead_capture_title'  => $settings['lead_capture_title'],
-			'lead_capture_description' => $settings['lead_capture_description'],
-			'require_name'        => $settings['require_name'],
-			'name_label'          => $settings['name_label'],
-			'email_label'         => $settings['email_label'],
-			'privacy_notice'      => $settings['privacy_notice'],
-			'submit_button_text'  => $settings['submit_button_text'],
-			'results_title'       => $settings['results_title'],
+			'enable_lead_capture' => isset($settings['enable_lead_capture']) ? $settings['enable_lead_capture'] : '',
+			'lead_capture_position' => isset($settings['lead_capture_position']) ? $settings['lead_capture_position'] : '',
+			'lead_capture_title'  => isset($settings['lead_capture_title']) ? $settings['lead_capture_title'] : '',
+			'lead_capture_description' => isset($settings['lead_capture_description']) ? $settings['lead_capture_description'] : '',
+			'require_name'        => isset($settings['require_name']) ? $settings['require_name'] : '',
+			'name_label'          => isset($settings['name_label']) ? $settings['name_label'] : '',
+			'email_label'         => isset($settings['email_label']) ? $settings['email_label'] : '',
+			'privacy_notice'      => isset($settings['privacy_notice']) ? $settings['privacy_notice'] : '',
+			'submit_button_text'  => isset($settings['submit_button_text']) ? $settings['submit_button_text'] : '',
+			'results_title'       => isset($settings['results_title']) ? $settings['results_title'] : '',
 		];
 
 		// Add script data
@@ -1292,17 +1298,17 @@ class AIQ_Quiz_Widget extends Widget_Base {
 		<div class="aiq-quiz" id="<?php echo esc_attr( $quiz_id ); ?>" data-quiz-id="<?php echo esc_attr( $this->get_id() ); ?>">
 			<!-- Start Screen -->
 			<div class="aiq-quiz__start-screen">
-				<h2 class="aiq-quiz__title"><?php echo esc_html( $settings['quiz_title'] ); ?></h2>
-				<p class="aiq-quiz__description"><?php echo esc_html( $settings['quiz_description'] ); ?></p>
-				<button class="aiq-quiz__button aiq-quiz__button--primary aiq-quiz__start-button"><?php echo esc_html( $settings['start_button_text'] ); ?></button>
+				<h2 class="aiq-quiz__title"><?php echo esc_html( isset($settings['quiz_title']) ? $settings['quiz_title'] : '' ); ?></h2>
+				<p class="aiq-quiz__description"><?php echo esc_html( isset($settings['quiz_description']) ? $settings['quiz_description'] : '' ); ?></p>
+				<button class="aiq-quiz__button aiq-quiz__button--primary aiq-quiz__start-button"><?php echo esc_html( isset($settings['start_button_text']) ? $settings['start_button_text'] : '' ); ?></button>
 			</div>
 
 			<!-- Quiz Container -->
 			<div class="aiq-quiz__container" style="display: none;">
-				<?php if ( 'yes' === $settings['show_progress_bar'] ) : ?>
+				<?php if ( isset($settings['show_progress_bar']) && 'yes' === $settings['show_progress_bar'] ) : ?>
 				<div class="aiq-quiz__progress">
 					<div class="aiq-quiz__progress-text" aria-live="polite">
-						<span class="aiq-quiz__current-question">1</span>/<span class="aiq-quiz__total-questions"><?php echo count( $settings['questions'] ); ?></span>
+						<span class="aiq-quiz__current-question">1</span>/<span class="aiq-quiz__total-questions"><?php echo count( $questions ); ?></span>
 					</div>
 					<div class="aiq-quiz__progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
 						<div class="aiq-quiz__progress-bar-fill" style="width: 0%;"></div>
@@ -1311,34 +1317,34 @@ class AIQ_Quiz_Widget extends Widget_Base {
 				<?php endif; ?>
 
 				<div class="aiq-quiz__questions">
-					<?php foreach ( $settings['questions'] as $index => $question ) :
+					<?php foreach ( $questions as $index => $question ) :
 						$question_id = 'question-' . $index;
 						$is_first_question = $index === 0;
 					?>
 					<div class="aiq-quiz__question" id="<?php echo esc_attr( $question_id ); ?>" data-question-index="<?php echo esc_attr( $index ); ?>" <?php echo $is_first_question ? '' : 'style="display: none;"'; ?>>
-						<?php if ( 'yes' === $settings['show_question_numbers'] ) : ?>
+						<?php if ( isset($settings['show_question_numbers']) && 'yes' === $settings['show_question_numbers'] ) : ?>
 						<div class="aiq-quiz__question-number"><?php echo esc_html__( 'Question', 'aiqengage-child' ); ?> <?php echo $index + 1; ?></div>
 						<?php endif; ?>
 
-						<div class="aiq-quiz__question-text"><?php echo esc_html( $question['question'] ); ?></div>
+						<div class="aiq-quiz__question-text"><?php echo esc_html( isset($question['question']) ? $question['question'] : '' ); ?></div>
 
-						<div class="aiq-quiz__answer-options" data-question-type="<?php echo esc_attr( $question['question_type'] ); ?>">
+						<div class="aiq-quiz__answer-options" data-question-type="<?php echo esc_attr( isset($question['question_type']) ? $question['question_type'] : '' ); ?>">
 							<?php
-							if ( 'open' === $question['question_type'] ) :
+							if ( isset($question['question_type']) && 'open' === $question['question_type'] ) :
 							?>
 								<textarea class="aiq-quiz__form-input aiq-quiz__open-answer" rows="4" placeholder="<?php echo esc_attr__( 'Type your answer here...', 'aiqengage-child' ); ?>" aria-label="<?php echo esc_attr__( 'Answer', 'aiqengage-child' ); ?>"></textarea>
 							<?php
 							else :
-								$options = explode( "\n", $question['options'] );
-								if ( 'yes' === $settings['randomize_answers'] ) {
+								$options = isset($question['options']) ? explode( "\n", $question['options'] ) : [];
+								if ( isset($settings['randomize_answers']) && 'yes' === $settings['randomize_answers'] ) {
 									shuffle( $options );
 								}
 
 								foreach ( $options as $option_index => $option ) :
 									$option = trim( $option );
 									$input_id = 'answer-' . $index . '-' . $option_index;
-									$input_type = 'single' === $question['question_type'] ? 'radio' : 'checkbox';
-									$input_name = 'single' === $question['question_type'] ? 'question-' . $index : 'question-' . $index . '[]';
+									$input_type = (isset($question['question_type']) && 'single' === $question['question_type']) ? 'radio' : 'checkbox';
+									$input_name = (isset($question['question_type']) && 'single' === $question['question_type']) ? 'question-' . $index : 'question-' . $index . '[]';
 							?>
 								<div class="aiq-quiz__answer-option">
 									<input
@@ -1363,13 +1369,13 @@ class AIQ_Quiz_Widget extends Widget_Base {
 
 						<div class="aiq-quiz__navigation">
 							<?php if ( $index > 0 ) : ?>
-							<button class="aiq-quiz__button aiq-quiz__button--secondary aiq-quiz__prev-button"><?php echo esc_html( $settings['prev_button_text'] ); ?></button>
+							<button class="aiq-quiz__button aiq-quiz__button--secondary aiq-quiz__prev-button"><?php echo esc_html( isset($settings['prev_button_text']) ? $settings['prev_button_text'] : '' ); ?></button>
 							<?php endif; ?>
 
-							<?php if ( $index < count( $settings['questions'] ) - 1 ) : ?>
-							<button class="aiq-quiz__button aiq-quiz__button--primary aiq-quiz__next-button"><?php echo esc_html( $settings['next_button_text'] ); ?></button>
+							<?php if ( $index < count( $questions ) - 1 ) : ?>
+							<button class="aiq-quiz__button aiq-quiz__button--primary aiq-quiz__next-button"><?php echo esc_html( isset($settings['next_button_text']) ? $settings['next_button_text'] : '' ); ?></button>
 							<?php else : ?>
-							<button class="aiq-quiz__button aiq-quiz__button--primary aiq-quiz__finish-button"><?php echo esc_html( $settings['finish_button_text'] ); ?></button>
+							<button class="aiq-quiz__button aiq-quiz__button--primary aiq-quiz__finish-button"><?php echo esc_html( isset($settings['finish_button_text']) ? $settings['finish_button_text'] : '' ); ?></button>
 							<?php endif; ?>
 						</div>
 					</div>
@@ -1378,34 +1384,34 @@ class AIQ_Quiz_Widget extends Widget_Base {
 			</div>
 
 			<!-- Lead Capture Form -->
-			<?php if ( 'yes' === $settings['enable_lead_capture'] ) : ?>
+			<?php if ( isset($settings['enable_lead_capture']) && 'yes' === $settings['enable_lead_capture'] ) : ?>
 			<div class="aiq-quiz__form" style="display: none;">
-				<h3 class="aiq-quiz__form-title"><?php echo esc_html( $settings['lead_capture_title'] ); ?></h3>
-				<p class="aiq-quiz__form-description"><?php echo esc_html( $settings['lead_capture_description'] ); ?></p>
+				<h3 class="aiq-quiz__form-title"><?php echo esc_html( isset($settings['lead_capture_title']) ? $settings['lead_capture_title'] : '' ); ?></h3>
+				<p class="aiq-quiz__form-description"><?php echo esc_html( isset($settings['lead_capture_description']) ? $settings['lead_capture_description'] : '' ); ?></p>
 
 				<form class="aiq-quiz__lead-form">
-					<?php if ( 'yes' === $settings['require_name'] ) : ?>
+					<?php if ( isset($settings['require_name']) && 'yes' === $settings['require_name'] ) : ?>
 					<div class="aiq-quiz__form-group">
-						<label for="<?php echo esc_attr( $quiz_id ); ?>-name" class="aiq-quiz__form-label"><?php echo esc_html( $settings['name_label'] ); ?></label>
+						<label for="<?php echo esc_attr( $quiz_id ); ?>-name" class="aiq-quiz__form-label"><?php echo esc_html( isset($settings['name_label']) ? $settings['name_label'] : '' ); ?></label>
 						<input type="text" id="<?php echo esc_attr( $quiz_id ); ?>-name" name="name" class="aiq-quiz__form-input" required>
 					</div>
 					<?php endif; ?>
 
 					<div class="aiq-quiz__form-group">
-						<label for="<?php echo esc_attr( $quiz_id ); ?>-email" class="aiq-quiz__form-label"><?php echo esc_html( $settings['email_label'] ); ?></label>
+						<label for="<?php echo esc_attr( $quiz_id ); ?>-email" class="aiq-quiz__form-label"><?php echo esc_html( isset($settings['email_label']) ? $settings['email_label'] : '' ); ?></label>
 						<input type="email" id="<?php echo esc_attr( $quiz_id ); ?>-email" name="email" class="aiq-quiz__form-input" required>
 					</div>
 
-					<p class="aiq-quiz__form-privacy"><?php echo esc_html( $settings['privacy_notice'] ); ?></p>
+					<p class="aiq-quiz__form-privacy"><?php echo esc_html( isset($settings['privacy_notice']) ? $settings['privacy_notice'] : '' ); ?></p>
 
-					<button type="submit" class="aiq-quiz__button aiq-quiz__button--primary aiq-quiz__submit-button"><?php echo esc_html( $settings['submit_button_text'] ); ?></button>
+					<button type="submit" class="aiq-quiz__button aiq-quiz__button--primary aiq-quiz__submit-button"><?php echo esc_html( isset($settings['submit_button_text']) ? $settings['submit_button_text'] : '' ); ?></button>
 				</form>
 			</div>
 			<?php endif; ?>
 
 			<!-- Results Screen -->
 			<div class="aiq-quiz__results" style="display: none;">
-				<h2 class="aiq-quiz__results-title"><?php echo esc_html( $settings['results_title'] ); ?></h2>
+				<h2 class="aiq-quiz__results-title"><?php echo esc_html( isset($settings['results_title']) ? $settings['results_title'] : '' ); ?></h2>
 
 				<div class="aiq-quiz__score-container">
 					<div class="aiq-quiz__score"></div>
@@ -1418,8 +1424,8 @@ class AIQ_Quiz_Widget extends Widget_Base {
 					<a href="#" class="aiq-quiz__button aiq-quiz__button--primary aiq-quiz__result-cta"></a>
 				</div>
 
-				<?php if ( 'yes' === $settings['allow_retake'] ) : ?>
-				<button class="aiq-quiz__button aiq-quiz__button--secondary aiq-quiz__restart-button"><?php echo esc_html( $settings['restart_button_text'] ); ?></button>
+				<?php if ( isset($settings['allow_retake']) && 'yes' === $settings['allow_retake'] ) : ?>
+				<button class="aiq-quiz__button aiq-quiz__button--secondary aiq-quiz__restart-button"><?php echo esc_html( isset($settings['restart_button_text']) ? $settings['restart_button_text'] : '' ); ?></button>
 				<?php endif; ?>
 			</div>
 		</div>
@@ -1427,6 +1433,7 @@ class AIQ_Quiz_Widget extends Widget_Base {
 	}
 
 	/**
+	 * Must be called externally to register assets.
 	 * Register scripts and styles.
 	 */
 	public static function register_scripts() {

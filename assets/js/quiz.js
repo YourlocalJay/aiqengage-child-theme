@@ -87,6 +87,8 @@
         }
 
         $option.toggleClass('is-selected', this.checked);
+        // Set aria-pressed attribute for accessibility
+        $option.attr('aria-pressed', this.checked ? 'true' : 'false');
       });
 
       // Handle open answer changes
@@ -102,8 +104,10 @@
       const $quiz = $(this.element);
 
       // Make radio buttons and checkboxes accessible
-      $quiz.find('.aiq-quiz__answer-option').attr('tabindex', '0')
-           .attr('role', 'button');
+      $quiz.find('.aiq-quiz__answer-option')
+           .attr('tabindex', '0')
+           .attr('role', 'button')
+           .attr('aria-pressed', 'false');
 
       // Set up aria labels for progress
       if (this.options.show_progress_bar === 'yes') {
@@ -392,6 +396,7 @@
             }
           } else if (question.question_type === 'multiple') {
             // For multiple choice, compare arrays
+            if (!question.correct_answer) return;
             const correctOptions = question.correct_answer.split('\n').map(option => option.trim());
             const allCorrect = userAnswer.length === correctOptions.length &&
                               userAnswer.every(option => correctOptions.includes(option));
@@ -401,6 +406,7 @@
             }
           } else if (question.question_type === 'open') {
             // For open answer, check against acceptable patterns
+            if (!question.correct_answer) return;
             const acceptableAnswers = question.correct_answer.split('\n').map(ans => ans.trim().toLowerCase());
             const userAnswerLower = userAnswer.trim().toLowerCase();
 
@@ -516,10 +522,12 @@
           if (question.question_type === 'single') {
             isCorrect = userAnswer === question.correct_answer;
           } else if (question.question_type === 'multiple') {
+            if (!question.correct_answer) return;
             const correctOptions = question.correct_answer.split('\n').map(option => option.trim());
             isCorrect = userAnswer.length === correctOptions.length &&
                         userAnswer.every(option => correctOptions.includes(option));
           } else if (question.question_type === 'open') {
+            if (!question.correct_answer) return;
             const acceptableAnswers = question.correct_answer.split('\n').map(ans => ans.trim().toLowerCase());
             const userAnswerLower = userAnswer.trim().toLowerCase();
             isCorrect = acceptableAnswers.some(acceptable => userAnswerLower.includes(acceptable));
@@ -547,9 +555,13 @@
           reviewHtml += '<span class="aiq-quiz__review-label">' + 'Correct answer: ' + '</span>';
 
           if (question.question_type === 'multiple') {
-            reviewHtml += question.correct_answer.split('\n').join(', ');
+            if (!question.correct_answer) {
+              reviewHtml += '';
+            } else {
+              reviewHtml += question.correct_answer.split('\n').join(', ');
+            }
           } else {
-            reviewHtml += question.correct_answer;
+            reviewHtml += question.correct_answer || '';
           }
 
           reviewHtml += '</div>';
@@ -608,15 +620,9 @@
     announceToScreenReader(message) {
       // Create an ARIA live region if it doesn't exist
       let $announcer = $('#aiq-quiz-announcer');
-
       if ($announcer.length === 0) {
         $announcer = $('<div id="aiq-quiz-announcer" class="screen-reader-text" aria-live="polite" role="region"></div>');
-        const $container = $(this.element).closest('.aiq-quiz-wrapper');
-        if ($container.length) {
-          $container.append($announcer);
-        } else {
-          $('body').append($announcer);
-        }
+        $('body').append($announcer);
       }
 
       // Update the announcement

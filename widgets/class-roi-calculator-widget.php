@@ -406,9 +406,11 @@ class AIQ_Roi_Calculator_Widget extends Widget_Base {
                 <input
                     type="<?php echo esc_attr($type); ?>"
                     name="<?php echo esc_attr($name); ?>"
-                    <?php foreach ($attrs as $attr => $value) : ?>
-                        <?php echo esc_attr($attr); ?>="<?php echo esc_attr($value); ?>"
-                    <?php endforeach; ?>
+                    <?php
+                    foreach ($attrs as $attr => $value) {
+                        printf('%s="%s" ', esc_attr($attr), esc_attr($value));
+                    }
+                    ?>
                     class="aiq-roi-input"
                 >
                 <?php if (isset($attrs['description'])) : ?>

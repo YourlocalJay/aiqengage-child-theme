@@ -26,6 +26,9 @@ class ROICalculator {
       monthlyRevenue: this.container.querySelector('[data-result="monthly"]'),
       totalRevenue: this.container.querySelector('[data-result="total"]'),
       // Cache other result elements
+      profit: this.container.querySelector('[data-result="profit"]'),
+      roi: this.container.querySelector('[data-result="roi"]'),
+      breakeven: this.container.querySelector('[data-result="breakeven"]')
     };
   }
 
@@ -94,6 +97,9 @@ class ROICalculator {
     this.elements.monthlyRevenue.textContent = formatCurrency(data.monthly);
     this.elements.totalRevenue.textContent = formatCurrency(data.total);
     // Update other elements...
+    this.elements.profit.textContent = formatCurrency(data.profit);
+    this.elements.roi.textContent = `${data.roi}%`;
+    this.elements.breakeven.textContent = `${data.breakeven} days`;
   }
 
   debounce(func, wait) {

@@ -29,7 +29,7 @@
   background-color: #2A1958;
   border: 1px solid rgba(156, 77, 255, 0.3);
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(156, 77, 255, 0.2);
   padding: 30px;
   max-width: 100%;
   width: 100%;
@@ -72,11 +72,6 @@
   margin-bottom: 8px;
   color: rgba(224, 214, 255, 0.8);
 }
-
-.aiq-quiz__progress-bar {
-  height: 6px;
-  background-color: rgba(156, 77, 255, 0.2);
-  border/* Continuing assets/css/widgets/quiz.css */
 
 .aiq-quiz__progress-bar {
   height: 6px;
@@ -277,8 +272,8 @@
 }
 
 .aiq-quiz__button:focus {
-  outline: 2px solid rgba(156, 77, 255, 0.8);
-  outline-offset: 2px;
+  outline: 3px solid #9C4DFF;
+  outline-offset: 3px;
 }
 
 .aiq-quiz__button--primary {
@@ -291,7 +286,7 @@
 .aiq-quiz__button--primary:hover {
   background: linear-gradient(90deg, #8a3cee 0%, #4d61d3 100%);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(94, 114, 228, 0.4);
+  box-shadow: 0 5px 15px rgba(156, 77, 255, 0.4);
 }
 
 .aiq-quiz__button--primary:active {
@@ -319,7 +314,7 @@
   border-radius: 15px;
   padding: 30px;
   margin-bottom: 30px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(156, 77, 255, 0.2);
 }
 
 .aiq-quiz__form-title {
@@ -389,7 +384,7 @@
   border-radius: 15px;
   padding: 30px;
   margin-top: 30px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(156, 77, 255, 0.2);
 }
 
 .aiq-quiz__results-title {
@@ -466,8 +461,8 @@
 
 /* Accessibility */
 .aiq-quiz *:focus-visible {
-  outline: 2px solid #9C4DFF;
-  outline-offset: 2px;
+  outline: 3px solid #9C4DFF;
+  outline-offset: 3px;
 }
 
 .aiq-quiz [aria-hidden="true"] {
