@@ -1,4 +1,4 @@
-(**
+/**
  * AIQ Prompt Card Widget Script
  *
  * @package aiqengage-child
