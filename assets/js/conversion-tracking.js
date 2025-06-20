@@ -1,4 +1,4 @@
-/ **
+/**
  * Conversion Tracking Script
  *
  * @package aiqengage-child
