@@ -208,7 +208,6 @@
     function reorderColumns($matrix, columnOrder) {
         // Make the matrix a CSS grid for easier column reordering
         const $matrixTable = $matrix.find('.aiq-comparison-matrix');
-        const columnCount = columnOrder.length + 1; // +1 for feature column
 
         // Apply flex display to rows
         $matrixTable.css({

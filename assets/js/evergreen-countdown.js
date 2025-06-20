@@ -79,7 +79,7 @@ class EvergreenCountdown {
     // Try localStorage first
     try {
       return localStorage.getItem(key);
-    } catch (e) {
+    } catch {
       // Fallback to cookies if localStorage fails
       const cookie = document.cookie.match(`(^|;)\\s*${key}\\s*=\\s*([^;]+)`);
       return cookie ? cookie.pop() : null;
@@ -90,7 +90,7 @@ class EvergreenCountdown {
     // Try localStorage first
     try {
       localStorage.setItem(key, value);
-    } catch (e) {
+    } catch {
       // Fallback to cookies if localStorage fails
       const date = new Date();
       date.setFullYear(date.getFullYear() + 1);
@@ -169,8 +169,8 @@ class EvergreenCountdown {
     this.trapFocus();
 
     // Close on overlay click
-    this.element.addEventListener('click', e => {
-      if (e.target === this.element) {
+    this.element.addEventListener('click', () => {
+      if (event.target === this.element) {
         this.hide();
       }
     });
@@ -372,7 +372,7 @@ window.AIQCountdown = {
     try {
       localStorage.removeItem(cookieId);
       localStorage.removeItem(`${cookieId}_closed`);
-    } catch (e) {
+    } catch {
       document.cookie = `${cookieId}=; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
       document.cookie = `${cookieId}_closed=; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
     }
@@ -383,7 +383,7 @@ window.AIQCountdown = {
     const endTime = Date.now() + (minutesLeft * 60000);
     try {
       localStorage.setItem(cookieId, endTime.toString());
-    } catch (e) {
+    } catch {
       const date = new Date();
       date.setFullYear(date.getFullYear() + 1);
       document.cookie = `${cookieId}=${endTime}; expires=${date.toUTCString()}; path=/`;
