@@ -6,7 +6,6 @@
  * @since   1.0.0
  */
 
-/* global jQuery */
 
 (function () {
 	'use strict';
