@@ -409,7 +409,7 @@ class ExitIntentModal {
 }
 
 // Initialize the manager
- 
+
 const exitIntentManager = new ExitIntentManager();
 
 // Expose public API

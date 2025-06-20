@@ -1,3 +1,4 @@
+/* global jQuery */
 /**
  * Pricing Table Widget Script
  *
@@ -33,11 +34,11 @@
         // Handle CTA button clicks
         $widget.find('.aiq-pricing-table__cta').on('click', function() {
             // Add click tracking or animations here
-            const $card = $(this).closest('.aiq-pricing-table__card');
-            $card.addClass('is-clicked');
+            const $thisCard = $(this).closest('.aiq-pricing-table__card');
+            $thisCard.addClass('is-clicked');
 
             setTimeout(() => {
-                $card.removeClass('is-clicked');
+                $thisCard.removeClass('is-clicked');
             }, 200);
         });
     }

@@ -1,4 +1,4 @@
-/* global jQuery, elementorFrontend, aiqPromptCardConfig, gtag, fbq */
+/* global */
 /**
  * ROI Calculator Widget Script
  *

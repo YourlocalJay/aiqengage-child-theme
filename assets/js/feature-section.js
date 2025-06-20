@@ -7,6 +7,7 @@
  * @author  Jason
  */
 
+/* eslint-env jquery */
 /* global elementorFrontend */
 (function ($) {
 	'use strict';

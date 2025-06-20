@@ -11,23 +11,6 @@
     'use strict';
 
     /**
-     * Initialize the testimonial card functionality
-     */
-    function initTestimonialCards() {
-        const testimonialCards = document.querySelectorAll('.aiq-testimonial-card');
-
-        if (!testimonialCards.length) {
-            return;
-        }
-
-        // Add animation to star ratings
-        animateStarRatings();
-
-        // Add hover effects to pro badges
-        initProBadges();
-    }
-
-    /**
      * Animate star ratings when they enter the viewport
      */
     function animateStarRatings() {
@@ -94,13 +77,21 @@
 
     // Initialize when DOM is ready
     document.addEventListener('DOMContentLoaded', function() {
-        initTestimonialCards();
+        const testimonialCards = document.querySelectorAll('.aiq-testimonial-card');
+        if (testimonialCards.length) {
+            animateStarRatings();
+            initProBadges();
+        }
     });
 
     // Also initialize when Elementor frontend is ready (for editor preview)
     if (window.elementorFrontend) {
         window.elementorFrontend.hooks.addAction('frontend/element_ready/aiq_testimonial_card.default', function() {
-            initTestimonialCards();
+            const testimonialCards = document.querySelectorAll('.aiq-testimonial-card');
+            if (testimonialCards.length) {
+                animateStarRatings();
+                initProBadges();
+            }
         });
     }
 })();

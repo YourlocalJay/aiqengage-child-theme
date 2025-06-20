@@ -172,7 +172,7 @@
 		// Format the result
 		var formattedResult = formatCurrency( result );
 
-		// Update the result display
+		// Update the result display.
 		$form.find( '.aiq-blueprint-flow__roi-value' ).text( formattedResult );
 	};
 

@@ -1,10 +1,13 @@
-/**
+/ **
  * Conversion Tracking Script
  *
  * @package aiqengage-child
  * @version 1.0.0
  * @since   1.0.0
  */
+
+/* global jQuery */
+/* eslint-disable no-undef */
 
 (function () {
 	'use strict';
@@ -17,7 +20,7 @@
 	}
 
 	// Run on document ready
-	$( document ).ready(
+	jQuery( document ).ready(
 		function () {
 			initConversionTracking();
 		}

@@ -195,11 +195,8 @@
      * Reset matrix to its default column order
      */
     function resetMatrixOrder($matrix) {
-        // Get all columns including the feature column
-        const $columns = $matrix.find('.aiq-comparison-matrix__cell');
-
         // Reset the order by clearing any applied order styles
-        $columns.css('order', '');
+        $matrix.find('.aiq-comparison-matrix__cell').css('order', '');
     }
 
     /**

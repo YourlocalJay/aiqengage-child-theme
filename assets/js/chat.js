@@ -5,6 +5,9 @@
  * @version 1.0.0
  * @since 1.0.0
  * @author Jason
+ *
+ * Suppress global variable re-declare warnings:
+ * global jQuery, elementorFrontend
  */
 
 (function () {

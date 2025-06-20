@@ -1,4 +1,3 @@
-/* global lottie, elementor */
 /**
  * 404 Template Widget Script
  *

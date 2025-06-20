@@ -56,6 +56,7 @@
      * @param {number} duration Animation duration in milliseconds
      * @param {string} suffix Optional suffix (e.g. '%')
      */
+    /* eslint-disable no-unused-vars */
     function animateCounter( $element, startValue, endValue, duration, suffix ) {
         try {
             // Determine if value is an integer or has decimal places

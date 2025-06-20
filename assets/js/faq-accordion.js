@@ -278,11 +278,8 @@
      * @param {Function} callback Function to call after animation completes
      */
     function animateClose(answer, callback) {
-        // Store the current height and padding values
+        // Store the current height value
         const height = answer.offsetHeight;
-        const computedStyle = window.getComputedStyle(answer);
-        // paddingTop and paddingBottom are declared above and can be reused if needed.
-        // In this function, they are not used, so we do not need to redeclare them.
 
         // Set up transition
         answer.style.height = `${height}px`;
