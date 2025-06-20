@@ -154,7 +154,7 @@ function aiqengage_child_enqueue_widget_styles() {
 	$used_widgets = array();
 	$post_id      = get_queried_object_id();
 
-	if ( $post_id !== 0 ) // Yoda condition check.
+	if ( 0 !== $post_id ) {
 		$data = get_post_meta( $post_id, '_elementor_data', true );
 		if ( ! empty( $data ) ) {
 			// Decode JSON structure.
@@ -163,7 +163,7 @@ function aiqengage_child_enqueue_widget_styles() {
 				array_walk_recursive(
 					$elements,
 					function ( $value, $key ) use ( &$used_widgets ) {
-						if ( $key === 'widgetType' ) {
+						if ( 'widgetType' === $key ) {
 							$used_widgets[] = $value;
 						}
 					}
@@ -245,9 +245,6 @@ function aiqengage_check_css_directory() {
 	foreach ( $css_dirs as $css_dir ) {
 		if ( ! file_exists( $css_dir ) || ! is_dir( $css_dir ) ) {
 			// Log the missing directory error.
-			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-			// error_log( "AIQEngage Child Theme: Required directory \"{$css_dir}\" does not exist." );
-
 			// Add admin notice if user is an admin.
 			add_action( 'admin_notices', 'aiqengage_missing_css_notice' );
 		}
