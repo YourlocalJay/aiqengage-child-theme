@@ -10,7 +10,7 @@
 (function () {
 	'use strict';
 
-	const $ = window.jQuery;
+	const $    = window.jQuery;
 	const gtag = window.gtag;
 
 	// Initialize on document ready

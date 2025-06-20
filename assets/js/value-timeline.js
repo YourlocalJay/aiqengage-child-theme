@@ -188,4 +188,3 @@
 	window.AIQValueTimeline = ValueTimeline;
 
 })( jQuery );
-
