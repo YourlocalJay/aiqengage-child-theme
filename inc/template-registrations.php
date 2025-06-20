@@ -71,10 +71,12 @@ if ( ! function_exists( 'aiqengage_child_register_elementor_templates' ) ) {
 			// Process each batch.
 			foreach ( $batch as $file_path ) {
 				try {
-					$template_json = file_get_contents( $file_path );
-					if ( false === $template_json ) {
+					$response = wp_remote_get( $file_path );
+					if ( is_array( $response ) && ! is_wp_error( $response ) ) {
+						$template_json = wp_remote_retrieve_body( $response );
+					} else {
 						if ( WP_DEBUG ) {
-							error_log( "AIQEngage: Failed to read template file - {$file_path}." );
+							error_log( "AIQEngage: Failed to retrieve template file - {$file_path}." );
 						}
 						continue;
 					}
@@ -101,7 +103,7 @@ if ( ! function_exists( 'aiqengage_child_register_elementor_templates' ) ) {
 						continue;
 					}
 
-					// Import the template.
+					// Base64 encoding used here for safe transport of JSON template data
 					$result = $template_manager->import_template(
 						array(
 							'fileData' => base64_encode( $template_json ),
@@ -287,7 +289,7 @@ function aiqengage_missing_templates_notice() {
 	if ( current_user_can( 'manage_options' ) ) {
 		?>
 		<div class="notice notice-error">
-			<p><?php esc_html_e( 'AIQEngage Child Theme: Required directory "elementor-templates/" does not exist. Custom Elementor templates will not be available.', 'aiqengage-child' ); ?></p>
+			<p><?php echo esc_html__( 'AIQEngage Child Theme: Required directory "elementor-templates/" does not exist. Custom Elementor templates will not be available.', 'aiqengage-child' ); ?></p>
 		</div>
 		<?php
 	}
