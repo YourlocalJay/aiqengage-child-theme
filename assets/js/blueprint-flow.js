@@ -163,8 +163,8 @@
 				// Use Function constructor to safely evaluate the custom formula
 				var calculateFunction = new Function( 'fieldValues', customFormula );
 				result                = calculateFunction( fieldValues );
-			} catch (e) {
-				console.error( 'Error in custom formula:', e );
+			} catch (error) {
+				console.error( 'Error in custom formula:', error );
 				result = 0;
 			}
 		}

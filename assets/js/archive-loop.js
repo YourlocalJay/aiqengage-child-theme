@@ -16,14 +16,14 @@
 			$( '.aiq-archive-loop' ).each(
 				function () {
 					// Initialize archive loop functionality
-					initArchiveLoop($( this ));
+					initArchiveLoop();
 				}
 			);
 		}
 	);
 
-	function initArchiveLoop($widget) {
-		// TODO: Implement Archive Loop widget functionality
-	}
+function initArchiveLoop() {
+	// TODO: Implement Archive Loop widget functionality
+}
 
 })( jQuery );

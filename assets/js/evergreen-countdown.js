@@ -148,8 +148,8 @@ class EvergreenCountdown {
   }
 
   initExitIntent() {
-    const handler = (e) => {
-      if (e.clientY < 0) {
+    const handler = () => {
+      if (event.clientY < 0) {
         this.showModal();
         document.removeEventListener('mouseleave', handler);
       }
@@ -169,7 +169,7 @@ class EvergreenCountdown {
     this.trapFocus();
 
     // Close on overlay click
-    this.element.addEventListener('click', (e) => {
+    this.element.addEventListener('click', e => {
       if (e.target === this.element) {
         this.hide();
       }
@@ -188,7 +188,7 @@ class EvergreenCountdown {
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
 
-    const keyHandler = (e) => {
+    const keyHandler = e => {
       if (e.key !== 'Tab') return;
 
       if (e.shiftKey && document.activeElement === first) {

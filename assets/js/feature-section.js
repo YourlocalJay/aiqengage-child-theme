@@ -7,6 +7,7 @@
  * @author  Jason
  */
 
+/* global elementorFrontend */
 (function ($) {
 	'use strict';
 

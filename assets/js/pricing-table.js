@@ -31,7 +31,7 @@
         });
 
         // Handle CTA button clicks
-        $widget.find('.aiq-pricing-table__cta').on('click', function(e) {
+        $widget.find('.aiq-pricing-table__cta').on('click', function() {
             // Add click tracking or animations here
             const $card = $(this).closest('.aiq-pricing-table__card');
             $card.addClass('is-clicked');

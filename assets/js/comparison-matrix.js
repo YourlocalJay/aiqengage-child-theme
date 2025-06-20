@@ -129,9 +129,9 @@
         // Add options for each row that's not a category or header
         const $rows = $matrix.find('.aiq-comparison-matrix__row:not(.aiq-comparison-matrix__header):not(.aiq-comparison-matrix__row--category):not(.aiq-comparison-matrix__row--cta)');
 
-        $rows.each(function(index) {
+        $rows.each(function() {
             const rowName = $(this).find('.aiq-comparison-matrix__feature').text().trim();
-            $sortSelect.append(`<option value="row-${index}">${rowName}</option>`);
+            $sortSelect.append(`<option value="row-${$(this).index()}">${rowName}</option>`);
         });
 
         // Append controls

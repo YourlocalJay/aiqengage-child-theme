@@ -92,99 +92,15 @@
         });
     }
 
-    /**
-     * Optional: Initialize testimonial slider if multiple cards are in a container
-     * Note: This requires a parent element with class 'aiq-testimonial-slider'
-     */
-    function initTestimonialSlider() {
-        const sliders = document.querySelectorAll('.aiq-testimonial-slider');
-
-        if (!sliders.length) {
-            return;
-        }
-
-        sliders.forEach(slider => {
-            const cards = slider.querySelectorAll('.aiq-testimonial-card');
-            const cardCount = cards.length;
-
-            if (cardCount <= 1) {
-                return;
-            }
-
-            // Create navigation elements
-            const nav = document.createElement('div');
-            nav.className = 'aiq-testimonial-slider__nav';
-
-            const prevBtn = document.createElement('button');
-            prevBtn.className = 'aiq-testimonial-slider__nav-btn aiq-testimonial-slider__nav-prev';
-            prevBtn.innerHTML = '&larr;';
-            prevBtn.setAttribute('aria-label', 'Previous testimonial');
-
-            const nextBtn = document.createElement('button');
-            nextBtn.className = 'aiq-testimonial-slider__nav-btn aiq-testimonial-slider__nav-next';
-            nextBtn.innerHTML = '&rarr;';
-            nextBtn.setAttribute('aria-label', 'Next testimonial');
-
-            // Add navigation to slider
-            nav.appendChild(prevBtn);
-            nav.appendChild(nextBtn);
-            slider.appendChild(nav);
-
-            // Set up slider functionality
-            let currentIndex = 0;
-
-            // Update visible card
-            function updateSlider() {
-                cards.forEach((card, index) => {
-                    card.style.display = index === currentIndex ? 'block' : 'none';
-
-                    if (index === currentIndex) {
-                        card.setAttribute('aria-hidden', 'false');
-                    } else {
-                        card.setAttribute('aria-hidden', 'true');
-                    }
-                });
-            }
-
-            // Initialize slider
-            updateSlider();
-
-            // Add event listeners
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + cardCount) % cardCount;
-                updateSlider();
-            });
-
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % cardCount;
-                updateSlider();
-            });
-
-            // Add keyboard navigation
-            slider.setAttribute('tabindex', '0');
-            slider.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') {
-                    prevBtn.click();
-                } else if (e.key === 'ArrowRight') {
-                    nextBtn.click();
-                }
-            });
-        });
-    }
-
     // Initialize when DOM is ready
     document.addEventListener('DOMContentLoaded', function() {
         initTestimonialCards();
-
-        // Uncomment to enable slider functionality
-        // initTestimonialSlider();
     });
 
     // Also initialize when Elementor frontend is ready (for editor preview)
     if (window.elementorFrontend) {
         window.elementorFrontend.hooks.addAction('frontend/element_ready/aiq_testimonial_card.default', function() {
             initTestimonialCards();
-            // initTestimonialSlider();
         });
     }
 })();

@@ -75,9 +75,9 @@
 
         if (closeButton) {
             closeButton.addEventListener('click', toggleChat);
-            closeButton.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
+            closeButton.addEventListener('keydown', (error) => {
+                if (error.key === 'Enter' || error.key === ' ') {
+                    error.preventDefault();
                     toggleChat();
                 }
             });

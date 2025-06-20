@@ -1,3 +1,4 @@
+/* global jQuery, gtag, fbq, elementorFrontend */
 /**
  * Resource Card Widget Script
  *

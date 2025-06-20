@@ -7,7 +7,7 @@
  * @author  Jason
  */
 
-(function ($) {
+(function ($, gtag) {
 	'use strict';
 
 	// Initialize on document ready
@@ -187,4 +187,4 @@
 		}
 	);
 
-})( jQuery );
+})( window.jQuery, window.gtag );

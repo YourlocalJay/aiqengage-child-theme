@@ -1,3 +1,4 @@
+/* global jQuery, elementorFrontend, aiqPromptCardConfig */
 /**
  * Quiz Widget Script
  *

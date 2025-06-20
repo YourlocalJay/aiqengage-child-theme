@@ -123,8 +123,8 @@
 
 			$card.on(
 				'mouseenter mouseleave',
-				function (e) {
-					const scale = e.type === 'mouseenter' ? CONFIG.LOGO_SCALE : 1;
+				function (event) {
+					const scale = event.type === 'mouseenter' ? CONFIG.LOGO_SCALE : 1;
 					$logo.css( 'transform', `scale( ${scale} )` );
 				}
 			);

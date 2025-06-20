@@ -106,17 +106,15 @@
          */
         initPromptCards: function( $cards ) {
             $cards.each( ( index, card ) => {
-                const $card = $( card );
-
                 // Set up Intersection Observer if available
                 if ( this.observer ) {
                     this.observer.observe( card );
                 } else {
-                    this.handleCardVisibility( $card );
+                    this.handleCardVisibility( $( card ) );
                 }
 
                 // Initialize tooltips
-                this.initTooltips( $card );
+                this.initTooltips( $( card ) );
             } );
         },
 
