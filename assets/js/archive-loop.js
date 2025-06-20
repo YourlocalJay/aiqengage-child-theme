@@ -22,8 +22,8 @@
 		}
 	);
 
-function initArchiveLoop() {
-	// TODO: Implement Archive Loop widget functionality
-}
+	function initArchiveLoop() {
+		// TODO: Implement Archive Loop widget functionality
+	}
 
 })( jQuery );
