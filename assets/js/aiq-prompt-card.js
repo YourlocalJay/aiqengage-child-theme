@@ -122,7 +122,7 @@
         /**
          * Initialize tooltips
          */
-        initTooltips: function( $card ) {
+        initTooltips: function() {
             // Future implementation for tooltips
         },
 
@@ -153,12 +153,11 @@
         handleCopyClick: function( e ) {
             e.preventDefault();
             const $button = $( e.currentTarget );
-            const $card = $button.closest( '.aiq-prompt-card' );
-            const promptText = $card.find( '.aiq-prompt-card__prompt' ).text();
+            const promptText = $button.closest( '.aiq-prompt-card' ).find( '.aiq-prompt-card__prompt' ).text();
 
             this.copyToClipboard( promptText )
                 .then( () => {
-                    this.showCopiedMessage( $card );
+                    this.showCopiedMessage( $button.closest( '.aiq-prompt-card' ) );
                     this.announceForScreenReaders( aiqPromptCardConfig.i18n.copied );
                 } )
                 .catch( ( err ) => {

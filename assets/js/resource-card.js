@@ -1,4 +1,3 @@
-/* global jQuery, gtag, fbq */
 /**
  * Resource Card Widget Script
  *
@@ -74,14 +73,14 @@ class ResourceCardManager {
 
   getEmbedUrl(url) {
     // YouTube
-    const youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+    const youtubeRegex = /(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/;
     const youtubeMatch = url.match(youtubeRegex);
     if (youtubeMatch) {
       return `https://www.youtube.com/embed/${youtubeMatch[1]}?autoplay=1&rel=0`;
     }
 
     // Vimeo
-    const vimeoRegex = /vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^\/]*)\/videos\/|)(\d+)(?:|\/\?)/;
+    const vimeoRegex = /vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^/]*)\/videos\/|)(\d+)(?:|\/\?)/;
     const vimeoMatch = url.match(vimeoRegex);
     if (vimeoMatch) {
       return `https://player.vimeo.com/video/${vimeoMatch[1]}?autoplay=1`;
@@ -97,7 +96,7 @@ class ResourceCardManager {
 
   trackInteractions() {
     document.querySelectorAll('.aiq-resource-card__cta').forEach(button => {
-      button.addEventListener('click', (e) => {
+      button.addEventListener('click', () => {
         const card = button.closest('.aiq-resource-card');
         const isLocked = card.classList.contains('aiq-resource-card--locked');
         const resourceId = card.id;

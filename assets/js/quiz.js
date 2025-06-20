@@ -1,4 +1,3 @@
-/* global jQuery, elementorFrontend */
 /**
  * Quiz Widget Script
  *
@@ -93,12 +92,7 @@
 
       // Handle open answer changes
       $quiz.find('.aiq-quiz__open-answer').on('input', function() {
-        // Store answer as user types
-        let openAnswerIndex = $(this).closest('.aiq-quiz__question').data('question-index');
-        // 'this' here is the input, so need to get class context
-        // Use a closure to capture class context
-        // But since 'quiz' variable is not defined, need to use arrow function instead
-        // So, the correct solution is:
+        // no need to store openAnswerIndex since it's not used
       });
     }
 

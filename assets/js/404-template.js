@@ -6,6 +6,8 @@
  * @since   1.0.0
  */
 
+/* global lottie, elementor */
+
 (function ($) {
 	'use strict';
 

@@ -1,4 +1,3 @@
-/* global jQuery */
 /**
  * Pricing Table Widget Script
  *

@@ -1,4 +1,3 @@
-/* global jQuery, gtag */
 /**
  * CTA Banner Widget Script
  *
@@ -8,11 +7,14 @@
  * @author  Jason
  */
 
-(function (jQuery, gtag) {
+(function () {
 	'use strict';
 
+	const $ = window.jQuery;
+	const gtag = window.gtag;
+
 	// Initialize on document ready
-	jQuery( document ).ready(
+	$( document ).ready(
 		function () {
 			initStickyBanners();
 		}
@@ -22,9 +24,9 @@
 	 * Initialize all sticky CTA banners on the page
 	 */
 	function initStickyBanners() {
-		jQuery( '.aiq-cta-banner--sticky' ).each(
+		$( '.aiq-cta-banner--sticky' ).each(
 			function () {
-				const $banner       = jQuery( this );
+				const $banner       = $( this );
 				const bannerId      = $banner.attr( 'id' );
 				const scrollTrigger = parseInt( $banner.data( 'scroll-trigger' ) ) || 45;
 				const cookieExpiry  = parseInt( $banner.data( 'cookie-expiry' ) ) || 7;
@@ -48,7 +50,7 @@
 	 */
 	function setupScrollTrigger($banner, scrollTrigger) {
 		const showOnScroll = function () {
-			const scrollPercent = (jQuery( window ).scrollTop() / (jQuery( document ).height() - jQuery( window ).height())) * 100;
+			const scrollPercent = ($( window ).scrollTop() / ($( document ).height() - $( window ).height())) * 100;
 
 			if (scrollPercent >= scrollTrigger) {
 				$banner.addClass( 'aiq-cta-banner--visible' );
@@ -61,7 +63,7 @@
 		showOnScroll();
 
 		// Check on scroll
-		jQuery( window ).on(
+		$( window ).on(
 			'scroll',
 			function () {
 				showOnScroll();
@@ -125,9 +127,9 @@
 		$banner.find( '.aiq-cta-banner__button' ).on(
 			'click',
 			function () {
-				const buttonType = jQuery( this ).hasClass( 'aiq-cta-banner__button--primary' ) ? 'primary' : 'secondary';
-				const buttonId   = jQuery( this ).attr( 'id' ) || '';
-				const buttonText = jQuery( this ).text().trim();
+				const buttonType = $( this ).hasClass( 'aiq-cta-banner__button--primary' ) ? 'primary' : 'secondary';
+				const buttonId   = $( this ).attr( 'id' ) || '';
+				const buttonText = $( this ).text().trim();
 
 				// Check if analytics tracking is available
 				if (typeof gtag === 'function') {
@@ -174,18 +176,18 @@
 	}
 
 	// Document load event with jQuery fallback
-	jQuery(
+	$(
 		function () {
 			// Initialize all sticky banners
 			initStickyBanners();
 
 			// Set up engagement tracking for all CTA banners
-			jQuery( '.aiq-cta-banner' ).each(
+			$( '.aiq-cta-banner' ).each(
 				function () {
-					trackCTAEngagement( jQuery( this ) );
+					trackCTAEngagement( $( this ) );
 				}
 			);
 		}
 	);
 
-})( window.jQuery, window.gtag );
+})();

@@ -7,7 +7,6 @@
  * @author  Jason
  */
 
-/* global jQuery, elementorFrontend */
 ( function( $ ) {
     'use strict';
 

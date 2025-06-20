@@ -392,7 +392,7 @@ class ExitIntentModal {
       const data = JSON.parse(savedValue);
       const now = Date.now();
       return data.timestamp && (now - data.timestamp) < (this.config.daysToRemember * 86400000);
-    } catch (e) {
+    } catch {
       return false;
     }
   }
