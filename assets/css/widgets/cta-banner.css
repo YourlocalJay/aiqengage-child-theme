@@ -62,7 +62,7 @@
 /* Typography Styles */
 .aiq-cta-banner__headline {
 	color: var(--color-text-primary);
-	font-family: 'Inter', sans-serif;
+	font-family: "Inter", sans-serif;
 	font-weight: 600;
 	font-size: 18px;
 	line-height: 1.4;
@@ -71,7 +71,7 @@
 
 .aiq-cta-banner__subheadline {
 	color: var(--color-text-secondary);
-	font-family: 'Inter', sans-serif;
+	font-family: "Inter", sans-serif;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 1.4;
@@ -97,7 +97,7 @@
 	align-items: center;
 	justify-content: center;
 	padding: 12px 24px;
-	font-family: 'Inter', sans-serif;
+	font-family: "Inter", sans-serif;
 	font-weight: 600;
 	font-size: 16px;
 	line-height: 1.2;
@@ -111,14 +111,14 @@
 /* Primary Button */
 .aiq-cta-banner__button--primary {
 	background: var(--gradient-accent);
-	color: #FFFFFF;
+	color: #ffffff;
 	border: none;
 }
 
 .aiq-cta-banner__button--primary:hover,
 .aiq-cta-banner__button--primary:focus {
 	background: var(--gradient-accent-hover);
-	color: #FFFFFF;
+	color: #ffffff;
 	box-shadow: var(--box-shadow-lg);
 }
 
@@ -151,13 +151,13 @@
 
 @keyframes aiq-pulse {
 	0% {
-		transform: scale(1);
+	transform: scale(1);
 	}
 	50% {
-		transform: scale(1.05);
+	transform: scale(1.05);
 	}
 	100% {
-		transform: scale(1);
+	transform: scale(1);
 	}
 }
 
@@ -165,9 +165,9 @@
 .aiq-cta-banner__pro-badge {
 	display: inline-flex;
 	align-items: center;
-	background-color: #FFD700;
-	color: #1A0938;
-	font-family: 'Inter', sans-serif;
+	background-color: #ffd700;
+	color: #1a0938;
+	font-family: "Inter", sans-serif;
 	font-weight: 700;
 	font-size: 12px;
 	line-height: 1;
@@ -212,63 +212,63 @@
 /* Responsive Layout for Desktop */
 @media (min-width: 768px) {
 	.aiq-cta-banner {
-		padding: 20px 30px;
+	padding: 20px 30px;
 	}
 
 	.aiq-cta-banner[style*="flex-direction: row"] .aiq-cta-banner__content {
-		margin-bottom: 0;
-		margin-right: 20px;
+	margin-bottom: 0;
+	margin-right: 20px;
 	}
 
 	.aiq-cta-banner[style*="flex-direction: row"] .aiq-cta-banner__content,
 	.aiq-cta-banner[style*="flex-direction: row"] .aiq-cta-banner__buttons {
-		padding: 10px 0;
+	padding: 10px 0;
 	}
 }
 
 /* Responsive Layout for Mobile */
 @media (max-width: 767px) {
 	.aiq-cta-banner {
-		padding: 15px;
+	padding: 15px;
 	}
 
 	.aiq-cta-banner__headline {
-		font-size: 16px;
+	font-size: 16px;
 	}
 
 	.aiq-cta-banner__subheadline {
-		font-size: 13px;
+	font-size: 13px;
 	}
 
 	.aiq-cta-banner__button {
-		padding: 10px 16px;
-		font-size: 14px;
+	padding: 10px 16px;
+	font-size: 14px;
 	}
 
 	.aiq-cta-banner__buttons {
-		flex-direction: column;
-		width: 100%;
+	flex-direction: column;
+	width: 100%;
 	}
 
 	.aiq-cta-banner__button:not(:last-child) {
-		margin-right: 0 !important;
-		margin-bottom: 10px !important;
+	margin-right: 0 !important;
+	margin-bottom: 10px !important;
 	}
 
 	.aiq-cta-banner__pro-badge {
-		margin-left: 0;
-		margin-top: 10px;
+	margin-left: 0;
+	margin-top: 10px;
 	}
 }
 
 /* Reverse button order for better mobile UX */
 @media (max-width: 767px) {
 	.aiq-cta-banner[style*="flex-direction: row"] {
-		flex-direction: column !important;
+	flex-direction: column !important;
 	}
 
 	.aiq-cta-banner[style*="flex-direction: row"] .aiq-cta-banner__content,
 	.aiq-cta-banner[style*="flex-direction: row"] .aiq-cta-banner__buttons {
-		width: 100% !important;
+	width: 100% !important;
 	}
 }

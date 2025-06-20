@@ -3,6 +3,7 @@
 This directory contains reusable section templates for use with Elementor in the AIQEngage theme.
 
 These section templates follow the AIQEngage brand style guide and include:
+
 - Hero sections
 - Feature grids
 - Testimonial blocks

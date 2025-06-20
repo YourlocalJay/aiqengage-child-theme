@@ -26,7 +26,7 @@
 
 /* Pro Badge */
 .aiq-prompt-card--pro::after {
-	content: '🤖';
+	content: "🤖";
 	position: absolute;
 	top: 1rem;
 	right: 1rem;
@@ -41,7 +41,7 @@
 	top: 0;
 	right: 2rem;
 	background-color: var(--aiq-gold);
-	color: #1A0938;
+	color: #1a0938;
 	font-weight: 600;
 	font-size: 0.75rem;
 	padding: 0.25rem 0.75rem;
@@ -152,7 +152,9 @@
 .aiq-prompt-card__content {
 	max-height: 0;
 	overflow: hidden;
-	transition: max-height 0.5s ease-in-out, opacity 0.3s ease 0.1s;
+	transition:
+	max-height 0.5s ease-in-out,
+	opacity 0.3s ease 0.1s;
 	opacity: 0;
 }
 
@@ -168,7 +170,7 @@
 	border: 1px solid rgba(156, 77, 255, 0.2);
 	border-radius: 8px;
 	padding: 1rem;
-	font-family: 'Courier New', monospace;
+	font-family: "Courier New", monospace;
 	font-size: 0.9rem;
 	line-height: 1.5;
 	color: var(--aiq-text-primary);
@@ -219,7 +221,7 @@
 	cursor: pointer;
 	padding: 0.25rem 0.5rem;
 	border-radius: 4px;
-	font-family: 'Courier New', monospace;
+	font-family: "Courier New", monospace;
 	transition: var(--aiq-transition);
 	font-weight: inherit;
 	text-align: left;

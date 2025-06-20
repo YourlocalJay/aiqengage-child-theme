@@ -2,7 +2,7 @@
 
 /* Footer Container */
 .aiq-footer {
-	background: #1A0938;
+	background: #1a0938;
 	border-top: 1px solid rgba(156, 77, 255, 0.2);
 	padding: 60px 40px 30px;
 }
@@ -24,8 +24,8 @@
 
 /* Footer Headings */
 .aiq-footer__heading {
-	color: #E0D6FF;
-	font-family: 'Inter', sans-serif;
+	color: #e0d6ff;
+	font-family: "Inter", sans-serif;
 	font-size: 1.1rem;
 	font-weight: 600;
 	margin-bottom: 20px;
@@ -35,9 +35,9 @@
 /* Navigation Links */
 .aiq-footer__nav a,
 .aiq-footer__legal-nav a {
-	color: #9C4DFF;
+	color: #9c4dff;
 	text-decoration: none;
-	font-family: 'Inter', sans-serif;
+	font-family: "Inter", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	transition: color 0.3s ease;
@@ -49,8 +49,8 @@
 .aiq-footer__legal-nav a:hover,
 .aiq-footer__nav a:focus,
 .aiq-footer__legal-nav a:focus {
-	color: #E0D6FF;
-	outline: 2px solid #9C4DFF;
+	color: #e0d6ff;
+	outline: 2px solid #9c4dff;
 	outline-offset: 2px;
 }
 
@@ -68,11 +68,11 @@
 /* Partners Section */
 .aiq-footer__partners p {
 	margin: 0;
-	font-family: 'Inter', sans-serif;
+	font-family: "Inter", sans-serif;
 }
 
 .aiq-footer__partners p:first-child {
-	color: #E0D6FF;
+	color: #e0d6ff;
 	font-size: 14px;
 	font-weight: 600;
 	margin-bottom: 8px;
@@ -94,7 +94,7 @@
 
 /* Social Icons */
 .aiq-footer__social .elementor-social-icon {
-	color: #E0D6FF;
+	color: #e0d6ff;
 	background: transparent;
 	border-radius: 50%;
 	width: 40px;
@@ -106,9 +106,9 @@
 
 .aiq-footer__social .elementor-social-icon:hover,
 .aiq-footer__social .elementor-social-icon:focus {
-	color: #9C4DFF;
+	color: #9c4dff;
 	background: rgba(156, 77, 255, 0.2);
-	outline: 2px solid #9C4DFF;
+	outline: 2px solid #9c4dff;
 	outline-offset: 2px;
 }
 
@@ -119,7 +119,7 @@
 
 .aiq-footer__affiliate-disclosure p {
 	color: rgba(224, 214, 255, 0.6);
-	font-family: 'Inter', sans-serif;
+	font-family: "Inter", sans-serif;
 	font-size: 12px;
 	font-weight: 400;
 	line-height: 1.4;
@@ -134,8 +134,8 @@
 }
 
 .aiq-footer__copyright p {
-	color: #E0D6FF;
-	font-family: 'Inter', sans-serif;
+	color: #e0d6ff;
+	font-family: "Inter", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	margin: 0;
@@ -143,7 +143,7 @@
 
 .aiq-footer__tagline p {
 	color: rgba(224, 214, 255, 0.8);
-	font-family: 'Inter', sans-serif;
+	font-family: "Inter", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	margin: 0;
@@ -198,8 +198,8 @@
 	position: static;
 	width: auto;
 	height: auto;
-	background: #9C4DFF;
-	color: #FFFFFF;
+	background: #9c4dff;
+	color: #ffffff;
 	padding: 8px 16px;
 	text-decoration: none;
 	border-radius: 4px;
@@ -208,17 +208,17 @@
 /* High contrast mode support */
 @media (prefers-contrast: high) {
 	.aiq-footer {
-	border-top: 2px solid #9C4DFF;
+	border-top: 2px solid #9c4dff;
 	}
 
 	.aiq-footer__nav a,
 	.aiq-footer__legal-nav a {
-	color: #FFFFFF;
+	color: #ffffff;
 	}
 
 	.aiq-footer__nav a:hover,
 	.aiq-footer__legal-nav a:hover {
-	background: #9C4DFF;
+	background: #9c4dff;
 	color: #000000;
 	}
 }
@@ -234,7 +234,7 @@
 
 /* BEM-style focus management */
 .aiq-footer__column:focus-within {
-	outline: 2px solid #9C4DFF;
+	outline: 2px solid #9c4dff;
 	outline-offset: 2px;
 	border-radius: 4px;
 }
@@ -242,7 +242,7 @@
 /* Ensure proper keyboard navigation */
 .aiq-footer a:focus,
 .aiq-footer button:focus {
-	outline: 2px solid #9C4DFF;
+	outline: 2px solid #9c4dff;
 	outline-offset: 2px;
 	border-radius: 2px;
 }

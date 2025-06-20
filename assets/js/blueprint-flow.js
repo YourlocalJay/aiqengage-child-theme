@@ -8,7 +8,7 @@
  */
 
 (function ($) {
-	'use strict';
+	"use strict";
 
 	/**
 	 * Initialize Blueprint Flow Widget
@@ -25,48 +25,50 @@
 	 * Initialize Node Highlighting
 	 */
 	var initNodeHighlighting = function () {
-		$( '.aiq-blueprint-flow__node' ).on(
-			'mouseenter focus',
+		$( ".aiq-blueprint-flow__node" )
+		.on(
+			"mouseenter focus",
 			function () {
-				$( this ).addClass( 'is-active' );
+				$( this ).addClass( "is-active" );
 			}
-		).on(
-			'mouseleave blur',
+		)
+		.on(
+			"mouseleave blur",
 			function () {
-				$( this ).removeClass( 'is-active' );
+				$( this ).removeClass( "is-active" );
 			}
 		);
 
 		// Optional: Add interactive highlighting on click
-		$( '.aiq-blueprint-flow__node' ).on(
-			'click',
+		$( ".aiq-blueprint-flow__node" ).on(
+			"click",
 			function () {
-				var $nodes      = $( '.aiq-blueprint-flow__node' );
-				var $connectors = $( '.aiq-blueprint-flow__connector' );
+				var $nodes      = $( ".aiq-blueprint-flow__node" );
+				var $connectors = $( ".aiq-blueprint-flow__connector" );
 
-				if ($( this ).hasClass( 'is-selected' )) {
+				if ($( this ).hasClass( "is-selected" )) {
 					// Deselect if already selected
-					$nodes.removeClass( 'is-selected is-before is-after' );
-					$connectors.removeClass( 'is-selected is-before is-after' );
+					$nodes.removeClass( "is-selected is-before is-after" );
+					$connectors.removeClass( "is-selected is-before is-after" );
 				} else {
 					// Select this node
-					$nodes.removeClass( 'is-selected is-before is-after' );
-					$connectors.removeClass( 'is-selected is-before is-after' );
+					$nodes.removeClass( "is-selected is-before is-after" );
+					$connectors.removeClass( "is-selected is-before is-after" );
 
-					$( this ).addClass( 'is-selected' );
+					$( this ).addClass( "is-selected" );
 
 					// Mark nodes before and after the selected node
-					var $flowNodes     = $( this ).closest( '.aiq-blueprint-flow__nodes' );
-					var $allNodes      = $flowNodes.find( '.aiq-blueprint-flow__node' );
-					var $allConnectors = $flowNodes.find( '.aiq-blueprint-flow__connector' );
+					var $flowNodes     = $( this ).closest( ".aiq-blueprint-flow__nodes" );
+					var $allNodes      = $flowNodes.find( ".aiq-blueprint-flow__node" );
+					var $allConnectors = $flowNodes.find( ".aiq-blueprint-flow__connector" );
 					var currentIndex   = $allNodes.index( this );
 
 					$allNodes.each(
 						function (index) {
 							if (index < currentIndex) {
-								$( this ).addClass( 'is-before' );
+								$( this ).addClass( "is-before" );
 							} else if (index > currentIndex) {
-								$( this ).addClass( 'is-after' );
+								$( this ).addClass( "is-after" );
 							}
 						}
 					);
@@ -74,9 +76,9 @@
 					$allConnectors.each(
 						function (index) {
 							if (index < currentIndex) {
-								$( this ).addClass( 'is-before' );
+								$( this ).addClass( "is-before" );
 							} else {
-								$( this ).addClass( 'is-after' );
+								$( this ).addClass( "is-after" );
 							}
 						}
 					);
@@ -89,42 +91,51 @@
 	 * Initialize ROI Calculator
 	 */
 	var initRoiCalculator = function () {
-		$( '.aiq-blueprint-flow__roi-form' ).each(
+		$( ".aiq-blueprint-flow__roi-form" ).each(
 			function () {
 				var $form         = $( this );
-				var formulaType   = $form.data( 'formula' );
-				var customFormula = '';
+				var formulaType   = $form.data( "formula" );
+				var customFormula = "";
 
 				// Get custom formula if present
-				if (formulaType === 'custom') {
-					var $formulaScript = $form.find( '.aiq-blueprint-flow__roi-custom-formula' );
+				if (formulaType === "custom") {
+					var $formulaScript = $form.find(
+						".aiq-blueprint-flow__roi-custom-formula",
+					);
 					if ($formulaScript.length) {
 						customFormula = $formulaScript.html();
 					}
 				}
 
 				// Handle input changes
-				$form.find( '.aiq-blueprint-flow__roi-input, .aiq-blueprint-flow__roi-slider' ).on(
-					'input change',
+				$form
+				.find( ".aiq-blueprint-flow__roi-input, .aiq-blueprint-flow__roi-slider" )
+				.on(
+					"input change",
 					function () {
 						updateCalculation( $form, formulaType, customFormula );
 					}
 				);
 
 				// Handle slider value display
-				$form.find( '.aiq-blueprint-flow__roi-slider' ).on(
-					'input',
+				$form.find( ".aiq-blueprint-flow__roi-slider" ).on(
+					"input",
 					function () {
 						var $slider = $( this );
 						var value   = $slider.val();
 
 						// Check if this is a percentage field
-						var isPercentage = $slider.closest( '.aiq-blueprint-flow__roi-field' ).find( '.aiq-blueprint-flow__roi-slider-value' ).text().includes( '%' );
+						var isPercentage = $slider
+						.closest( ".aiq-blueprint-flow__roi-field" )
+						.find( ".aiq-blueprint-flow__roi-slider-value" )
+						.text()
+						.includes( "%" );
 
 						// Update the display value
-						$slider.closest( '.aiq-blueprint-flow__roi-slider-container' )
-						.find( '.aiq-blueprint-flow__roi-slider-value' )
-						.text( value + (isPercentage ? '%' : '') );
+						$slider
+						.closest( ".aiq-blueprint-flow__roi-slider-container" )
+						.find( ".aiq-blueprint-flow__roi-slider-value" )
+						.text( value + (isPercentage ? "%" : "") );
 					}
 				);
 
@@ -145,7 +156,9 @@
 		var fieldValues = [];
 
 		// Collect all field values
-		$form.find( '.aiq-blueprint-flow__roi-input, .aiq-blueprint-flow__roi-slider' ).each(
+		$form
+		.find( ".aiq-blueprint-flow__roi-input, .aiq-blueprint-flow__roi-slider" )
+		.each(
 			function () {
 				var value = parseFloat( $( this ).val() ) || 0;
 				fieldValues.push( value );
@@ -155,16 +168,16 @@
 		var result = 0;
 
 		// Calculate result based on formula type
-		if (formulaType === 'traffic_conversion_value' && fieldValues.length >= 3) {
+		if (formulaType === "traffic_conversion_value" && fieldValues.length >= 3) {
 			// Traffic × Conversion × Value
 			result = fieldValues[0] * (fieldValues[1] / 100) * fieldValues[2];
-		} else if (formulaType === 'custom' && customFormula) {
+		} else if (formulaType === "custom" && customFormula) {
 			try {
 				// Use Function constructor to safely evaluate the custom formula
-				var calculateFunction = new Function( 'fieldValues', customFormula );
+				var calculateFunction = new Function( "fieldValues", customFormula );
 				result                = calculateFunction( fieldValues );
 			} catch (error) {
-				console.error( 'Error in custom formula:', error );
+				console.error( "Error in custom formula:", error );
 				result = 0;
 			}
 		}
@@ -173,7 +186,7 @@
 		var formattedResult = formatCurrency( result );
 
 		// Update the result display.
-		$form.find( '.aiq-blueprint-flow__roi-value' ).text( formattedResult );
+		$form.find( ".aiq-blueprint-flow__roi-value" ).text( formattedResult );
 	};
 
 	/**
@@ -187,12 +200,15 @@
 		value = Math.round( value * 100 ) / 100;
 
 		// Format with commas for thousands
-		return '$' + value.toLocaleString(
-			'en-US',
+		return (
+		"$" +
+		value.toLocaleString(
+			"en-US",
 			{
 				minimumFractionDigits: 0,
-				maximumFractionDigits: 2
+				maximumFractionDigits: 2,
 			}
+		)
 		);
 	};
 
@@ -205,10 +221,12 @@
 
 	// Initialize on Elementor frontend init
 	$( window ).on(
-		'elementor/frontend/init',
+		"elementor/frontend/init",
 		function () {
-			elementorFrontend.hooks.addAction( 'frontend/element_ready/aiq_blueprint_flow.default', initBlueprintFlow );
+			elementorFrontend.hooks.addAction(
+				"frontend/element_ready/aiq_blueprint_flow.default",
+				initBlueprintFlow,
+			);
 		}
 	);
-
 })( jQuery );

@@ -8,14 +8,14 @@
  */
 
 (function ($) {
-	'use strict';
+	"use strict";
 
 	var ValueTimeline = {
 		/**
 		 * Initialize the timeline functionality
 		 */
 		init: function () {
-			var $timelines = $( '.aiq-value-timeline' );
+			var $timelines = $( ".aiq-value-timeline" );
 
 			if ($timelines.length === 0) {
 				return;
@@ -29,10 +29,12 @@
 					ValueTimeline.initProgressBar( $timeline );
 
 					// Initialize animations
-					if ($timeline.hasClass( 'aiq-value-timeline--animate-fade' ) ||
-					$timeline.hasClass( 'aiq-value-timeline--animate-slide' ) ||
-					$timeline.hasClass( 'aiq-value-timeline--animate-grow' ) ||
-					$timeline.hasClass( 'aiq-value-timeline--animate-highlight' )) {
+					if (
+					$timeline.hasClass( "aiq-value-timeline--animate-fade" ) ||
+					$timeline.hasClass( "aiq-value-timeline--animate-slide" ) ||
+					$timeline.hasClass( "aiq-value-timeline--animate-grow" ) ||
+					$timeline.hasClass( "aiq-value-timeline--animate-highlight" )
+					) {
 						ValueTimeline.initAnimations( $timeline );
 					}
 
@@ -46,19 +48,24 @@
 		 * Initialize progress bar based on completed items
 		 */
 		initProgressBar: function ($timeline) {
-			var $items         = $timeline.find( '.aiq-value-timeline__item' );
-			var $progress      = $timeline.find( '.aiq-value-timeline__progress' );
-			var completedCount = $timeline.find( '.aiq-value-timeline__item--completed' ).length;
-			var activeCount    = $timeline.find( '.aiq-value-timeline__item--active' ).length;
+			var $items         = $timeline.find( ".aiq-value-timeline__item" );
+			var $progress      = $timeline.find( ".aiq-value-timeline__progress" );
+			var completedCount = $timeline.find(
+				".aiq-value-timeline__item--completed",
+			).length;
+			var activeCount    = $timeline.find(
+				".aiq-value-timeline__item--active",
+			).length;
 			var totalCount     = $items.length;
 
 			// Set progress percentage
-			var progressPercentage = ((completedCount + (activeCount * 0.5)) / totalCount) * 100;
+			var progressPercentage =
+			((completedCount + activeCount * 0.5) / totalCount) * 100;
 
-			if ($timeline.hasClass( 'aiq-value-timeline--vertical' )) {
-				$progress.css( 'height', progressPercentage + '%' );
+			if ($timeline.hasClass( "aiq-value-timeline--vertical" )) {
+				$progress.css( "height", progressPercentage + "%" );
 			} else {
-				$progress.css( 'width', progressPercentage + '%' );
+				$progress.css( "width", progressPercentage + "%" );
 			}
 		},
 
@@ -66,13 +73,13 @@
 		 * Initialize animations using Intersection Observer
 		 */
 		initAnimations: function ($timeline) {
-			var $items = $timeline.find( '.aiq-value-timeline__item' );
+			var $items = $timeline.find( ".aiq-value-timeline__item" );
 
-			if ('IntersectionObserver' in window) {
+			if ("IntersectionObserver" in window) {
 				var options = {
 					root: null,
-					rootMargin: '0px',
-					threshold: 0.1
+					rootMargin: "0px",
+					threshold: 0.1,
 				};
 
 				var observer = new IntersectionObserver(
@@ -80,8 +87,8 @@
 						entries.forEach(
 							function (entry) {
 								if (entry.isIntersecting) {
-									entry.target.classList.add( 'is-visible' );
-									observer.unobserve( entry.target );
+										entry.target.classList.add( "is-visible" );
+										observer.unobserve( entry.target );
 								}
 							}
 						);
@@ -96,7 +103,7 @@
 				);
 			} else {
 				// Fallback for browsers without IntersectionObserver support
-				$items.addClass( 'is-visible' );
+				$items.addClass( "is-visible" );
 			}
 		},
 
@@ -104,14 +111,14 @@
 		 * Initialize keyboard navigation for accessibility
 		 */
 		initKeyboardNavigation: function ($timeline) {
-			var $items = $timeline.find( '.aiq-value-timeline__item' );
+			var $items = $timeline.find( ".aiq-value-timeline__item" );
 
 			// Add tabindex to make items focusable
-			$items.attr( 'tabindex', '0' );
+			$items.attr( "tabindex", "0" );
 
 			// Add keyboard navigation
 			$items.on(
-				'keydown',
+				"keydown",
 				function (e) {
 					var $currentItem = $( this );
 					var currentIndex = $items.index( $currentItem );
@@ -151,7 +158,7 @@
 		 */
 		refresh: function ($timeline) {
 			if ( ! $timeline) {
-				$( '.aiq-value-timeline' ).each(
+				$( ".aiq-value-timeline" ).each(
 					function () {
 						ValueTimeline.initProgressBar( $( this ) );
 					}
@@ -159,7 +166,7 @@
 			} else {
 				ValueTimeline.initProgressBar( $timeline );
 			}
-		}
+		},
 	};
 
 	// Initialize on document ready
@@ -171,14 +178,14 @@
 
 	// Initialize on Elementor frontend init
 	$( window ).on(
-		'elementor/frontend/init',
+		"elementor/frontend/init",
 		function () {
-			if (typeof elementorFrontend !== 'undefined' && elementorFrontend.hooks) {
+			if (typeof elementorFrontend !== "undefined" && elementorFrontend.hooks) {
 				elementorFrontend.hooks.addAction(
-					'frontend/element_ready/aiq_value_timeline.default',
+					"frontend/element_ready/aiq_value_timeline.default",
 					function () {
 						ValueTimeline.init();
-					}
+					},
 				);
 			}
 		}
@@ -186,5 +193,4 @@
 
 	// Add to global scope for external access
 	window.AIQValueTimeline = ValueTimeline;
-
 })( jQuery );

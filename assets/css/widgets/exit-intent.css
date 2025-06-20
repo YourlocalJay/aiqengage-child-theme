@@ -164,7 +164,7 @@
 }
 
 .aiq-exit-intent__close:hover svg {
-	fill: #FFFFFF;
+	fill: #ffffff;
 }
 
 .aiq-exit-intent__close:focus-visible {
@@ -182,11 +182,13 @@
 }
 
 .aiq-exit-intent__animation-fade-in-up {
-	animation: aiqFadeInUp calc(var(--aiq-transition-duration) * 1.33) ease forwards;
+	animation: aiqFadeInUp calc(var(--aiq-transition-duration) * 1.33) ease
+	forwards;
 }
 
 .aiq-exit-intent__animation-fade-in-down {
-	animation: aiqFadeInDown calc(var(--aiq-transition-duration) * 1.33) ease forwards;
+	animation: aiqFadeInDown calc(var(--aiq-transition-duration) * 1.33) ease
+	forwards;
 }
 
 .aiq-exit-intent__animation-zoom-in {
@@ -194,11 +196,13 @@
 }
 
 .aiq-exit-intent__animation-slide-in-right {
-	animation: aiqSlideInRight calc(var(--aiq-transition-duration) * 1.33) ease forwards;
+	animation: aiqSlideInRight calc(var(--aiq-transition-duration) * 1.33) ease
+	forwards;
 }
 
 .aiq-exit-intent__animation-slide-in-left {
-	animation: aiqSlideInLeft calc(var(--aiq-transition-duration) * 1.33) ease forwards;
+	animation: aiqSlideInLeft calc(var(--aiq-transition-duration) * 1.33) ease
+	forwards;
 }
 
 /* Close animations */
@@ -222,13 +226,21 @@
 
 /* Keyframes with consistent timing */
 @keyframes aiqFadeIn {
-	from { opacity: 0; }
-	to { opacity: 1; }
+	from {
+	opacity: 0;
+	}
+	to {
+	opacity: 1;
+	}
 }
 
 @keyframes aiqFadeOut {
-	from { opacity: 1; }
-	to { opacity: 0; }
+	from {
+	opacity: 1;
+	}
+	to {
+	opacity: 0;
+	}
 }
 
 @keyframes aiqFadeInUp {

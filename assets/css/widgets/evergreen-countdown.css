@@ -62,7 +62,9 @@
 	animation: aiq-countdown-fade-in 0.3s ease-out;
 	opacity: 0;
 	visibility: hidden;
-	transition: opacity 0.3s ease, visibility 0.3s ease;
+	transition:
+	opacity 0.3s ease,
+	visibility 0.3s ease;
 }
 
 .aiq-evergreen-countdown--modal.is-visible {
@@ -80,7 +82,9 @@
 	z-index: 9999;
 	opacity: 0;
 	visibility: hidden;
-	transition: opacity 0.3s ease, visibility 0.3s ease;
+	transition:
+	opacity 0.3s ease,
+	visibility 0.3s ease;
 }
 
 .aiq-evergreen-countdown__overlay.is-visible {
@@ -159,8 +163,12 @@
 	justify-content: center;
 	min-height: 48px;
 	padding: 0.9rem 1.6rem;
-	background: linear-gradient(90deg, var(--aiq-countdown-accent) 0%, var(--aiq-countdown-accent-secondary) 100%);
-	color: #FFFFFF;
+	background: linear-gradient(
+	90deg,
+	var(--aiq-countdown-accent) 0%,
+	var(--aiq-countdown-accent-secondary) 100%
+	);
+	color: #ffffff;
 	font-weight: 600;
 	border-radius: 8px;
 	text-decoration: none;

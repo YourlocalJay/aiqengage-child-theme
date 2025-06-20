@@ -18,9 +18,10 @@ class EvergreenCountdown {
 
   init() {
     // Set end time based on type
-    this.endTime = this.config.type === 'evergreen'
-      ? this.getEvergreenEndTime()
-      : this.config.endDate * 1000;
+    this.endTime =
+      this.config.type === "evergreen"
+        ? this.getEvergreenEndTime()
+        : this.config.endDate * 1000;
 
     // Check expiration
     if (this.isExpired()) {
@@ -45,22 +46,22 @@ class EvergreenCountdown {
       modalTrigger: this.element.dataset.modalTrigger,
       modalDelay: parseInt(this.element.dataset.modalDelay, 10),
       scrollPercentage: parseInt(this.element.dataset.scrollPercentage, 10),
-      displayDays: this.element.dataset.displayDays === 'true',
-      displayHours: this.element.dataset.displayHours === 'true',
-      displayMinutes: this.element.dataset.displayMinutes === 'true',
-      displaySeconds: this.element.dataset.displaySeconds === 'true',
-      redirectUrl: this.element.dataset.redirectUrl
+      displayDays: this.element.dataset.displayDays === "true",
+      displayHours: this.element.dataset.displayHours === "true",
+      displayMinutes: this.element.dataset.displayMinutes === "true",
+      displaySeconds: this.element.dataset.displaySeconds === "true",
+      redirectUrl: this.element.dataset.redirectUrl,
     };
   }
 
   getDisplayStyle() {
-    if (this.element.classList.contains('aiq-evergreen-countdown--modal')) {
-      return 'modal';
+    if (this.element.classList.contains("aiq-evergreen-countdown--modal")) {
+      return "modal";
     }
-    if (this.element.classList.contains('aiq-evergreen-countdown--sticky')) {
-      return 'sticky';
+    if (this.element.classList.contains("aiq-evergreen-countdown--sticky")) {
+      return "sticky";
     }
-    return 'inline';
+    return "inline";
   }
 
   getEvergreenEndTime() {
@@ -68,7 +69,7 @@ class EvergreenCountdown {
     let endTime = this.getFromStorage(this.config.cookieId);
 
     if (!endTime) {
-      endTime = Date.now() + (this.config.duration * 1000);
+      endTime = Date.now() + this.config.duration * 1000;
       this.setToStorage(this.config.cookieId, endTime);
     }
 
@@ -103,14 +104,14 @@ class EvergreenCountdown {
   }
 
   initDisplay() {
-    if (this.displayStyle === 'inline') return;
+    if (this.displayStyle === "inline") return;
     if (this.getFromStorage(`${this.config.cookieId}_closed`)) return;
 
     switch (this.displayStyle) {
-      case 'modal':
+      case "modal":
         this.initModal();
         break;
-      case 'sticky':
+      case "sticky":
         this.showSticky();
         break;
     }
@@ -118,13 +119,13 @@ class EvergreenCountdown {
 
   initModal() {
     switch (this.config.modalTrigger) {
-      case 'delay':
+      case "delay":
         setTimeout(() => this.showModal(), this.config.modalDelay * 1000);
         break;
-      case 'scroll':
+      case "scroll":
         this.initScrollTrigger();
         break;
-      case 'exit':
+      case "exit":
         this.initExitIntent();
         break;
       default:
@@ -135,41 +136,42 @@ class EvergreenCountdown {
   initScrollTrigger() {
     const handler = () => {
       const scrollPos = window.scrollY || window.pageYOffset;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = (scrollPos / docHeight) * 100;
 
       if (scrollPercent >= this.config.scrollPercentage) {
         this.showModal();
-        window.removeEventListener('scroll', handler);
+        window.removeEventListener("scroll", handler);
       }
     };
 
-    window.addEventListener('scroll', handler);
+    window.addEventListener("scroll", handler);
   }
 
   initExitIntent() {
     const handler = (e) => {
       if (e.clientY < 0) {
         this.showModal();
-        document.removeEventListener('mouseleave', handler);
+        document.removeEventListener("mouseleave", handler);
       }
     };
 
-    document.addEventListener('mouseleave', handler);
+    document.addEventListener("mouseleave", handler);
   }
 
   showModal() {
     if (this.isActive) return;
 
-    this.element.classList.add('is-visible');
-    document.body.classList.add('aiq-modal-open');
+    this.element.classList.add("is-visible");
+    document.body.classList.add("aiq-modal-open");
     this.isActive = true;
 
     // Trap focus for accessibility
     this.trapFocus();
 
     // Close on overlay click
-    this.element.addEventListener('click', (e) => {
+    this.element.addEventListener("click", (e) => {
       if (e.target === this.element) {
         this.hide();
       }
@@ -177,7 +179,7 @@ class EvergreenCountdown {
   }
 
   showSticky() {
-    this.element.classList.add('is-visible');
+    this.element.classList.add("is-visible");
     this.isActive = true;
   }
 
@@ -188,8 +190,8 @@ class EvergreenCountdown {
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
 
-    const keyHandler = e => {
-      if (e.key !== 'Tab') return;
+    const keyHandler = (e) => {
+      if (e.key !== "Tab") return;
 
       if (e.shiftKey && document.activeElement === first) {
         last.focus();
@@ -200,14 +202,16 @@ class EvergreenCountdown {
       }
     };
 
-    this.element.addEventListener('keydown', keyHandler);
+    this.element.addEventListener("keydown", keyHandler);
     first.focus();
   }
 
   getFocusableElements() {
-    return Array.from(this.element.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    )).filter(el => !el.disabled && el.offsetParent !== null);
+    return Array.from(
+      this.element.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      ),
+    ).filter((el) => !el.disabled && el.offsetParent !== null);
   }
 
   startCountdown() {
@@ -235,22 +239,22 @@ class EvergreenCountdown {
       days: Math.floor(timeLeft / (1000 * 60 * 60 * 24)),
       hours: Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
       minutes: Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
-      seconds: Math.floor((timeLeft % (1000 * 60)) / 1000)
+      seconds: Math.floor((timeLeft % (1000 * 60)) / 1000),
     };
   }
 
   updateTimeDisplay(days, hours, minutes, seconds) {
     if (this.config.displayDays) {
-      this.updateDigit('days', days);
+      this.updateDigit("days", days);
     }
     if (this.config.displayHours) {
-      this.updateDigit('hours', hours);
+      this.updateDigit("hours", hours);
     }
     if (this.config.displayMinutes) {
-      this.updateDigit('minutes', minutes);
+      this.updateDigit("minutes", minutes);
     }
     if (this.config.displaySeconds) {
-      this.updateDigit('seconds', seconds);
+      this.updateDigit("seconds", seconds);
     }
   }
 
@@ -266,12 +270,15 @@ class EvergreenCountdown {
 
   initUrgentState() {
     this.urgentThreshold = 3600000; // 1 hour
-    this.element.classList.toggle('is-urgent', this.endTime - Date.now() <= this.urgentThreshold);
+    this.element.classList.toggle(
+      "is-urgent",
+      this.endTime - Date.now() <= this.urgentThreshold,
+    );
   }
 
   updateUrgentState(timeLeft) {
     const isUrgent = timeLeft <= this.urgentThreshold;
-    this.element.classList.toggle('is-urgent', isUrgent);
+    this.element.classList.toggle("is-urgent", isUrgent);
   }
 
   announceTimePeriodically(timeLeft, days, hours, minutes, seconds) {
@@ -282,72 +289,79 @@ class EvergreenCountdown {
   }
 
   announceTimeLeft(days, hours, minutes, seconds) {
-    const ariaLive = this.element.querySelector('[aria-live]');
+    const ariaLive = this.element.querySelector("[aria-live]");
     if (!ariaLive) return;
 
     const parts = [];
-    if (days > 0) parts.push(`${days} day${days !== 1 ? 's' : ''}`);
-    if (hours > 0 || days > 0) parts.push(`${hours} hour${hours !== 1 ? 's' : ''}`);
-    parts.push(`${minutes} minute${minutes !== 1 ? 's' : ''}`);
-    parts.push(`${seconds} second${seconds !== 1 ? 's' : ''}`);
+    if (days > 0) parts.push(`${days} day${days !== 1 ? "s" : ""}`);
+    if (hours > 0 || days > 0)
+      parts.push(`${hours} hour${hours !== 1 ? "s" : ""}`);
+    parts.push(`${minutes} minute${minutes !== 1 ? "s" : ""}`);
+    parts.push(`${seconds} second${seconds !== 1 ? "s" : ""}`);
 
-    ariaLive.textContent = `Time remaining: ${parts.join(', ')}`;
+    ariaLive.textContent = `Time remaining: ${parts.join(", ")}`;
   }
 
   initCloseButton() {
-    const closeBtn = this.element.querySelector('.aiq-evergreen-countdown__close');
+    const closeBtn = this.element.querySelector(
+      ".aiq-evergreen-countdown__close",
+    );
     if (closeBtn) {
-      closeBtn.addEventListener('click', () => this.hide());
+      closeBtn.addEventListener("click", () => this.hide());
     }
   }
 
   hide() {
-    if (this.displayStyle === 'modal') {
-      document.body.classList.remove('aiq-modal-open');
+    if (this.displayStyle === "modal") {
+      document.body.classList.remove("aiq-modal-open");
     }
 
-    this.element.classList.remove('is-visible');
-    this.setToStorage(`${this.config.cookieId}_closed`, 'true');
+    this.element.classList.remove("is-visible");
+    this.setToStorage(`${this.config.cookieId}_closed`, "true");
     this.isActive = false;
   }
 
   handleExpiry() {
     clearInterval(this.interval);
-    this.element.classList.add('is-expired');
+    this.element.classList.add("is-expired");
 
     switch (this.config.afterExpiry) {
-      case 'hide':
-        this.element.style.display = 'none';
+      case "hide":
+        this.element.style.display = "none";
         break;
 
-      case 'message':
+      case "message":
         this.showFallbackContent();
         break;
 
-      case 'redirect':
+      case "redirect":
         this.handleRedirect();
         break;
 
       default:
-        this.element.style.opacity = '0.5';
+        this.element.style.opacity = "0.5";
     }
   }
 
   showFallbackContent() {
     // Hide original content
-    const originalContent = this.element.querySelector('.aiq-evergreen-countdown__original');
-    if (originalContent) originalContent.style.display = 'none';
+    const originalContent = this.element.querySelector(
+      ".aiq-evergreen-countdown__original",
+    );
+    if (originalContent) originalContent.style.display = "none";
 
     // Show fallback content
-    const fallbackContent = this.element.querySelector('.aiq-evergreen-countdown__fallback');
-    if (fallbackContent) fallbackContent.style.display = 'block';
+    const fallbackContent = this.element.querySelector(
+      ".aiq-evergreen-countdown__fallback",
+    );
+    if (fallbackContent) fallbackContent.style.display = "block";
 
     // Announce expiry
-    const ariaLive = this.element.querySelector('[aria-live]');
+    const ariaLive = this.element.querySelector("[aria-live]");
     if (ariaLive) {
-      ariaLive.setAttribute('aria-live', 'assertive');
-      ariaLive.textContent = 'This offer has expired';
-      setTimeout(() => ariaLive.setAttribute('aria-live', 'polite'), 1000);
+      ariaLive.setAttribute("aria-live", "assertive");
+      ariaLive.textContent = "This offer has expired";
+      setTimeout(() => ariaLive.setAttribute("aria-live", "polite"), 1000);
     }
   }
 
@@ -361,14 +375,14 @@ class EvergreenCountdown {
 }
 
 // Initialize all countdowns on page load
-document.addEventListener('DOMContentLoaded', () => {
-  const countdowns = document.querySelectorAll('.aiq-evergreen-countdown');
-  countdowns.forEach(el => new EvergreenCountdown(el));
+document.addEventListener("DOMContentLoaded", () => {
+  const countdowns = document.querySelectorAll(".aiq-evergreen-countdown");
+  countdowns.forEach((el) => new EvergreenCountdown(el));
 });
 
 // Testing utilities
 window.AIQCountdown = {
-  reset: function(cookieId) {
+  reset: function (cookieId) {
     try {
       localStorage.removeItem(cookieId);
       localStorage.removeItem(`${cookieId}_closed`);
@@ -379,8 +393,8 @@ window.AIQCountdown = {
     location.reload();
   },
 
-  setTestTime: function(cookieId, minutesLeft) {
-    const endTime = Date.now() + (minutesLeft * 60000);
+  setTestTime: function (cookieId, minutesLeft) {
+    const endTime = Date.now() + minutesLeft * 60000;
     try {
       localStorage.setItem(cookieId, endTime.toString());
     } catch {
@@ -391,9 +405,9 @@ window.AIQCountdown = {
     location.reload();
   },
 
-  showAll: function() {
-    document.querySelectorAll('.aiq-evergreen-countdown').forEach(el => {
-      el.classList.add('is-visible');
+  showAll: function () {
+    document.querySelectorAll(".aiq-evergreen-countdown").forEach((el) => {
+      el.classList.add("is-visible");
     });
-  }
+  },
 };

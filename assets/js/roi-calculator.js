@@ -11,8 +11,8 @@
 class ROICalculator {
   constructor(container) {
     this.container = container;
-    this.form = container.querySelector('.aiq-roi-calculator__form');
-    this.results = container.querySelector('.aiq-roi-calculator__results');
+    this.form = container.querySelector(".aiq-roi-calculator__form");
+    this.results = container.querySelector(".aiq-roi-calculator__results");
     this.init();
   }
 
@@ -29,26 +29,31 @@ class ROICalculator {
       // Cache other result elements
       profit: this.container.querySelector('[data-result="profit"]'),
       roi: this.container.querySelector('[data-result="roi"]'),
-      breakeven: this.container.querySelector('[data-result="breakeven"]')
+      breakeven: this.container.querySelector('[data-result="breakeven"]'),
     };
   }
 
   bindEvents() {
     // Form submission
-    this.form.addEventListener('submit', (e) => {
+    this.form.addEventListener("submit", (e) => {
       e.preventDefault();
       this.calculate();
     });
 
     // Input changes
-    this.form.querySelectorAll('input').forEach(input => {
-      input.addEventListener('input', this.debounce(() => this.calculate(), 300));
+    this.form.querySelectorAll("input").forEach((input) => {
+      input.addEventListener(
+        "input",
+        this.debounce(() => this.calculate(), 300),
+      );
     });
 
     // Reset form
-    this.form.querySelector('button[type="reset"]').addEventListener('click', () => {
-      setTimeout(() => this.calculate(), 100);
-    });
+    this.form
+      .querySelector('button[type="reset"]')
+      .addEventListener("click", () => {
+        setTimeout(() => this.calculate(), 100);
+      });
   }
 
   getFormData() {
@@ -58,12 +63,13 @@ class ROICalculator {
       aov: parseFloat(this.form.aov.value) || 0,
       affiliate: parseFloat(this.form.affiliate.value) / 100 || 0,
       cost: parseFloat(this.form.cost.value) || 0,
-      months: parseInt(this.form.months.value) || 1
+      months: parseInt(this.form.months.value) || 1,
     };
   }
 
   calculate() {
-    const { traffic, conversion, aov, affiliate, cost, months } = this.getFormData();
+    const { traffic, conversion, aov, affiliate, cost, months } =
+      this.getFormData();
 
     // Calculations
     const dailyRevenue = traffic * (conversion / 100) * aov * affiliate;
@@ -79,18 +85,18 @@ class ROICalculator {
       total: totalRevenue,
       profit: netProfit,
       roi,
-      breakeven: breakEven
+      breakeven: breakEven,
     });
   }
 
   updateResults(data) {
     // Format currency
     const formatCurrency = (value) => {
-      return new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
         minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+        maximumFractionDigits: 2,
       }).format(value);
     };
 
@@ -113,8 +119,8 @@ class ROICalculator {
 }
 
 // Initialize all calculators on the page
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.aiq-roi-calculator').forEach(container => {
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".aiq-roi-calculator").forEach((container) => {
     new ROICalculator(container);
   });
 });

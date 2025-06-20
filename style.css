@@ -19,39 +19,44 @@ Requires PHP: 7.4
 -------------------------------------------------------------- */
 
 /* Import Inter font from Google */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 /* Import base styles */
-@import 'assets/css/base.css';
+@import "assets/css/base.css";
 
 /* Import component styles */
-@import 'assets/css/components/value-props.css';
-@import 'assets/css/components/prompt-cards.css';
-@import 'assets/css/components/metric-badges.css';
+@import "assets/css/components/value-props.css";
+@import "assets/css/components/prompt-cards.css";
+@import "assets/css/components/metric-badges.css";
 
 /* Import layout styles */
-@import 'assets/css/layouts/header.css';
-@import 'assets/css/layouts/footer.css';
+@import "assets/css/layouts/header.css";
+@import "assets/css/layouts/footer.css";
 
 /* Import utility classes */
-@import 'assets/css/utilities.css';
+@import "assets/css/utilities.css";
 
 /* =Base Styles (fallbacks if imports fail)
 -------------------------------------------------------------- */
 body.aiqengage-child {
-	font-family: var(--aiq-font-primary, 'Inter', sans-serif);
+	font-family: var(--aiq-font-primary, "Inter", sans-serif);
 	line-height: var(--aiq-line-height-body, 1.6);
-	color: var(--aiq-primary-text, #E0D6FF);
-	background-color: var(--aiq-primary-bg, #1A0938);
+	color: var(--aiq-primary-text, #e0d6ff);
+	background-color: var(--aiq-primary-bg, #1a0938);
 }
 
 /* Basic typography - use design tokens from main.css */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-weight: var(--aiq-font-bold, 700);
 	line-height: var(--aiq-line-height-heading, 1.2);
 	margin-bottom: 1rem;
-	color: var(--aiq-primary-text, #E0D6FF);
-	font-family: var(--aiq-font-primary, 'Inter', sans-serif);
+	color: var(--aiq-primary-text, #e0d6ff);
+	font-family: var(--aiq-font-primary, "Inter", sans-serif);
 }
 
 h1 {
@@ -70,27 +75,32 @@ h3 {
 }
 
 a {
-	color: var(--aiq-accent, #9C4DFF);
+	color: var(--aiq-accent, #9c4dff);
 	text-decoration: none;
 	transition: color var(--aiq-transition-fast, 0.2s);
 }
 
 a:hover {
-	color: var(--aiq-gradient-end, #8E6BFF);
+	color: var(--aiq-gradient-end, #8e6bff);
 }
 
 /* =Responsive Breakpoints
 -------------------------------------------------------------- */
 @media (max-width: 767px) {
 	/* Increase touch targets */
-	.cta-button, .nav-link, .prompt-copy {
+	.cta-button,
+	.nav-link,
+	.prompt-copy {
 	min-height: var(--aiq-button-height, 48px);
 	padding: var(--aiq-button-padding, 0.9rem 1.6rem);
 	}
 
 	/* Improve readability on small screens */
 	body {
-	font-size: var(--aiq-body-size, 1rem); /* Ensure no text is smaller than 16px */
+	font-size: var(
+		--aiq-body-size,
+		1rem
+	); /* Ensure no text is smaller than 16px */
 	}
 
 	/* Adjust card layouts for mobile */
@@ -139,7 +149,7 @@ a:hover {
 }
 
 .focus-visible:focus {
-	outline: 3px solid var(--aiq-accent, #9C4DFF) !important;
+	outline: 3px solid var(--aiq-accent, #9c4dff) !important;
 	outline-offset: 2px !important;
 }
 

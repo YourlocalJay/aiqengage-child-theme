@@ -7,7 +7,7 @@
  */
 
 (function ($) {
-	'use strict';
+	"use strict";
 
 	/**
 	 * Initializes the AIQ Prompt Card editor functionality.
@@ -22,5 +22,4 @@
 			initPromptCardEditor();
 		}
 	);
-
 })( jQuery );

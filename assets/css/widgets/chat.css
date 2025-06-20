@@ -9,7 +9,7 @@
 
 /* Main container */
 .aiq-chat {
-	font-family: 'Inter', sans-serif;
+	font-family: "Inter", sans-serif;
 	position: relative;
 	width: 100%;
 	max-width: 800px;
@@ -29,7 +29,7 @@
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
-	background: linear-gradient(135deg, #635BFF, #8E6BFF);
+	background: linear-gradient(135deg, #635bff, #8e6bff);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -56,7 +56,7 @@
 	flex-direction: column;
 	height: 500px;
 	border-radius: 15px;
-	background: #2A1958;
+	background: #2a1958;
 	overflow: hidden;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 	border: 1px solid rgba(156, 77, 255, 0.3);
@@ -73,7 +73,7 @@
 
 /* Header */
 .aiq-chat__header {
-	background: #1A0938;
+	background: #1a0938;
 	padding: 15px;
 	display: flex;
 	justify-content: space-between;
@@ -89,7 +89,7 @@
 	margin: 0 0 5px;
 	font-size: 1.1rem;
 	font-weight: 700;
-	color: #E0D6FF;
+	color: #e0d6ff;
 	line-height: 1.2;
 }
 
@@ -103,7 +103,7 @@
 .aiq-chat__close {
 	background: none;
 	border: none;
-	color: #E0D6FF;
+	color: #e0d6ff;
 	font-size: 24px;
 	line-height: 1;
 	cursor: pointer;
@@ -112,7 +112,7 @@
 }
 
 .aiq-chat__close:hover {
-	color: #9C4DFF;
+	color: #9c4dff;
 }
 
 /* Messages area */
@@ -147,12 +147,12 @@
 
 @keyframes messageFadeIn {
 	from {
-		opacity: 0;
-		transform: translateY(10px);
+	opacity: 0;
+	transform: translateY(10px);
 	}
 	to {
-		opacity: 1;
-		transform: translateY(0);
+	opacity: 1;
+	transform: translateY(0);
 	}
 }
 
@@ -196,14 +196,14 @@
 }
 
 .aiq-chat__message--ai .aiq-chat__message-bubble {
-	background: #1A0938;
-	color: #E0D6FF;
+	background: #1a0938;
+	color: #e0d6ff;
 	border-top-left-radius: 5px;
 }
 
 .aiq-chat__message--user .aiq-chat__message-bubble {
-	background: #9C4DFF;
-	color: #FFFFFF;
+	background: #9c4dff;
+	color: #ffffff;
 	border-top-right-radius: 5px;
 }
 
@@ -212,28 +212,15 @@
 	padding: 0 15px 10px;
 }
 
-.aiq-chat__quick-reply-btn {
-	display: inline-block;
-	margin: 0 8px 8px 0;
-	padding: 8px 15px;
-	background: rgba(126, 87, 194, 0.2);
-	border: 1px solid #9C4DFF;
-	border-radius: 20px;
-	color: #E0D6FF;
-	font-size: 0.9rem;
-	cursor: pointer;
-	transition: all 0.2s
-	/* assets/css/widgets/chat.css (continued) */
-
 /* Quick replies (continued) */
 .aiq-chat__quick-reply-btn {
 	display: inline-block;
 	margin: 0 8px 8px 0;
 	padding: 8px 15px;
 	background: rgba(126, 87, 194, 0.2);
-	border: 1px solid #9C4DFF;
+	border: 1px solid #9c4dff;
 	border-radius: 20px;
-	color: #E0D6FF;
+	color: #e0d6ff;
 	font-size: 0.9rem;
 	cursor: pointer;
 	transition: all 0.2s ease;
@@ -259,7 +246,7 @@
 	top: -8px;
 	left: 15px;
 	padding: 4px 10px;
-	background: #1A0938;
+	background: #1a0938;
 	border-radius: 10px;
 	display: flex;
 	align-items: center;
@@ -271,7 +258,7 @@
 	width: 6px;
 	height: 6px;
 	margin: 0 2px;
-	background: #9C4DFF;
+	background: #9c4dff;
 	border-radius: 50%;
 	opacity: 0.6;
 	animation: typing 1.4s infinite ease-in-out both;
@@ -290,12 +277,13 @@
 }
 
 @keyframes typing {
-	0%, 100% {
-		transform: translateY(0);
+	0%,
+	100% {
+	transform: translateY(0);
 	}
 	50% {
-		transform: translateY(-6px);
-		opacity: 1;
+	transform: translateY(-6px);
+	opacity: 1;
 	}
 }
 
@@ -306,17 +294,19 @@
 	border: 1px solid rgba(156, 77, 255, 0.3);
 	border-radius: 8px;
 	background: rgba(26, 9, 56, 0.6);
-	color: #E0D6FF;
-	font-family: 'Inter', sans-serif;
+	color: #e0d6ff;
+	font-family: "Inter", sans-serif;
 	font-size: 0.95rem;
 	resize: none;
 	overflow-y: auto;
-	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	transition:
+	border-color 0.2s ease,
+	box-shadow 0.2s ease;
 }
 
 .aiq-chat__input:focus {
 	outline: none;
-	border-color: #9C4DFF;
+	border-color: #9c4dff;
 	box-shadow: 0 0 0 3px rgba(156, 77, 255, 0.3);
 }
 
@@ -328,19 +318,21 @@
 	margin-left: 10px;
 	height: 48px;
 	padding: 0 15px;
-	background: #9C4DFF;
-	color: #FFFFFF;
+	background: #9c4dff;
+	color: #ffffff;
 	border: none;
 	border-radius: 8px;
 	font-weight: 600;
 	cursor: pointer;
-	transition: background-color 0.2s ease, transform 0.2s ease;
+	transition:
+	background-color 0.2s ease,
+	transform 0.2s ease;
 	flex-shrink: 0;
 }
 
 .aiq-chat__send-btn:hover,
 .aiq-chat__send-btn:focus {
-	background: #8E6BFF;
+	background: #8e6bff;
 	transform: translateY(-2px);
 }
 
@@ -362,7 +354,7 @@
 }
 
 .aiq-chat__human-help a {
-	color: #9C4DFF;
+	color: #9c4dff;
 	text-decoration: none;
 }
 
@@ -376,7 +368,7 @@
 .aiq-chat__send-btn:focus,
 .aiq-chat__quick-reply-btn:focus,
 .aiq-chat__close:focus {
-	outline: 2px solid #9C4DFF;
+	outline: 2px solid #9c4dff;
 	outline-offset: 2px;
 }
 
@@ -386,7 +378,7 @@
 	background: rgba(244, 67, 54, 0.2);
 	border: 1px solid rgba(244, 67, 54, 0.5);
 	border-radius: 8px;
-	color: #E0D6FF;
+	color: #e0d6ff;
 	margin-bottom: 10px;
 	font-size: 0.9rem;
 }
@@ -405,13 +397,13 @@
 /* Animation for floating chat */
 @keyframes pulse {
 	0% {
-		box-shadow: 0 0 0 0 rgba(156, 77, 255, 0.4);
+	box-shadow: 0 0 0 0 rgba(156, 77, 255, 0.4);
 	}
 	70% {
-		box-shadow: 0 0 0 10px rgba(156, 77, 255, 0);
+	box-shadow: 0 0 0 10px rgba(156, 77, 255, 0);
 	}
 	100% {
-		box-shadow: 0 0 0 0 rgba(156, 77, 255, 0);
+	box-shadow: 0 0 0 0 rgba(156, 77, 255, 0);
 	}
 }
 
@@ -422,39 +414,39 @@
 /* Mobile Responsiveness */
 @media (max-width: 767px) {
 	.aiq-chat__container {
-		height: 400px;
+	height: 400px;
 	}
 
 	.aiq-chat--floating .aiq-chat__container {
-		right: 15px;
-		left: 15px;
-		bottom: 80px;
-		width: auto;
+	right: 15px;
+	left: 15px;
+	bottom: 80px;
+	width: auto;
 	}
 
 	.aiq-chat--floating .aiq-chat__bubble {
-		right: 15px;
-		bottom: 15px;
+	right: 15px;
+	bottom: 15px;
 	}
 
 	.aiq-chat__message-bubble {
-		max-width: 80%;
+	max-width: 80%;
 	}
 
 	.aiq-chat__input-container {
-		padding: 10px;
+	padding: 10px;
 	}
 
 	.aiq-chat__send-btn {
-		padding: 0 10px;
-		font-size: 0.9rem;
+	padding: 0 10px;
+	font-size: 0.9rem;
 	}
 }
 
 /* Dark mode and high contrast support */
 @media (prefers-color-scheme: dark) {
 	.aiq-chat {
-		/* Already dark by default */
+	/* Already dark by default */
 	}
 }
 
@@ -464,13 +456,13 @@
 	.aiq-chat__bubble:hover,
 	.aiq-chat__send-btn:hover,
 	.aiq-chat__quick-reply-btn:hover {
-		animation: none;
-		transition: none;
-		transform: none;
+	animation: none;
+	transition: none;
+	transform: none;
 	}
 
 	.aiq-chat__typing-indicator span {
-		animation: none;
+	animation: none;
 	}
 }
 

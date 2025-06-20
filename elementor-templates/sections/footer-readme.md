@@ -9,6 +9,7 @@ The footer template (`footer.json`) is a production-ready Elementor section temp
 ### Main Sections
 
 1. **Main Footer Row** - 4-column layout containing:
+
    - Quick Links navigation
    - Legal links
    - Partners information
@@ -21,6 +22,7 @@ The footer template (`footer.json`) is a production-ready Elementor section temp
 ## Features
 
 ### Design Elements
+
 - ✅ AIQEngage brand colors (#1A0938, #9C4DFF, #E0D6FF)
 - ✅ Inter font family throughout
 - ✅ Proper spacing and responsive breakpoints
@@ -28,6 +30,7 @@ The footer template (`footer.json`) is a production-ready Elementor section temp
 - ✅ Brand-compliant styling
 
 ### Accessibility Features
+
 - ✅ Proper ARIA labels and roles
 - ✅ Keyboard navigation support
 - ✅ Screen reader optimized
@@ -36,12 +39,14 @@ The footer template (`footer.json`) is a production-ready Elementor section temp
 - ✅ Reduced motion preferences
 
 ### Responsive Design
+
 - ✅ Desktop: 4-column layout
 - ✅ Tablet: 2-column layout
 - ✅ Mobile: Single-column layout
 - ✅ Touch-friendly targets (44px minimum)
 
 ### Performance Optimized
+
 - ✅ Lazy loading for images
 - ✅ Optimized CSS with minimal specificity
 - ✅ Print-friendly styles
@@ -52,6 +57,7 @@ The footer template (`footer.json`) is a production-ready Elementor section temp
 ### Using the Template
 
 1. **Import in Elementor**:
+
    - Go to Elementor Templates
    - Import `footer.json`
    - Place in your page/site footer
@@ -63,21 +69,25 @@ The footer template (`footer.json`) is a production-ready Elementor section temp
 ### Required Assets
 
 The template expects these assets to exist:
+
 - Logo: `/wp-content/themes/aiqengage-child/assets/images/aiq-logo-white.svg`
 - CSS: `/assets/css/components/footer.css` (automatically loaded)
 
 ### Navigation Menus
 
 Create these WordPress menus:
+
 - **Primary Menu**: Main site navigation
 - **Footer Quick Links**: Quick navigation items
 
 Configure in Appearance > Menus:
+
 - Vault, Tools, Automation Hub, Results
 
 ### Legal Pages
 
 Ensure these pages exist:
+
 - `/privacy` - Privacy Policy
 - `/terms` - Terms of Service
 - `/affiliate-disclosure` - Affiliate Disclosure
@@ -86,6 +96,7 @@ Ensure these pages exist:
 ### Social Media
 
 Update social media links in the template:
+
 - Twitter: `https://twitter.com/aiqengage`
 - LinkedIn: `https://linkedin.com/company/aiqengage`
 - YouTube: `https://youtube.com/@aiqengage`
@@ -95,12 +106,13 @@ Update social media links in the template:
 ### Brand Colors
 
 The footer uses these CSS custom properties:
+
 ```css
 :root {
-  --aiq-bg-primary: #1A0938;
-  --aiq-bg-secondary: #2A1958;
-  --aiq-text-primary: #E0D6FF;
-  --aiq-accent: #9C4DFF;
+  --aiq-bg-primary: #1a0938;
+  --aiq-bg-secondary: #2a1958;
+  --aiq-text-primary: #e0d6ff;
+  --aiq-accent: #9c4dff;
   --aiq-text-muted: rgba(224, 214, 255, 0.8);
 }
 ```
@@ -108,6 +120,7 @@ The footer uses these CSS custom properties:
 ### Typography
 
 Uses Inter font family with these weights:
+
 - Regular (400) - Body text
 - Medium (500) - Links
 - Semi-bold (600) - Headings
@@ -115,6 +128,7 @@ Uses Inter font family with these weights:
 ### Spacing
 
 Follows 8px grid system:
+
 - Padding: 60px (desktop), 40px (mobile)
 - Margins: 30px between sections
 - Gap: 20px between elements
@@ -138,15 +152,18 @@ Follows 8px grid system:
 ## File Dependencies
 
 ### CSS Files
+
 - `assets/css/components/footer.css` - Main footer styles
 - `assets/css/main.css` - Design tokens (dependency)
 - `assets/css/accessibility.css` - Accessibility overrides
 
 ### PHP Files
+
 - `inc/css_loader.php` - Handles CSS loading
 - `functions.php` - Enqueues footer styles
 
 ### Template Files
+
 - `elementor-templates/sections/footer.json` - Main template
 
 ## Browser Support
@@ -173,12 +190,14 @@ Before deploying:
 ## Updates & Maintenance
 
 ### Regular Updates
+
 - Review partner information quarterly
 - Update copyright year annually
 - Check legal links monthly
 - Audit accessibility annually
 
 ### Version History
+
 - v1.0.0 - Initial production-ready footer
 - Brand colors: #1A0938, #2A1958, #E0D6FF, #9C4DFF
 - Features: Full responsive layout, accessibility compliant

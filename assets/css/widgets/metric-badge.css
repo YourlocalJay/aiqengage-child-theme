@@ -117,62 +117,66 @@
 
 /* Animations */
 @-webkit-keyframes aiq-pulse-up {
-	0%, 100% {
-		-webkit-transform: translateY(0);
-		transform: translateY(0);
+	0%,
+	100% {
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
 	}
 	50% {
-		-webkit-transform: translateY(-3px);
-		transform: translateY(-3px);
+	-webkit-transform: translateY(-3px);
+	transform: translateY(-3px);
 	}
 }
 
 @keyframes aiq-pulse-up {
-	0%, 100% {
-		-webkit-transform: translateY(0);
-		transform: translateY(0);
+	0%,
+	100% {
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
 	}
 	50% {
-		-webkit-transform: translateY(-3px);
-		transform: translateY(-3px);
+	-webkit-transform: translateY(-3px);
+	transform: translateY(-3px);
 	}
 }
 
 @-webkit-keyframes aiq-pulse-down {
-	0%, 100% {
-		-webkit-transform: translateY(0);
-		transform: translateY(0);
+	0%,
+	100% {
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
 	}
 	50% {
-		-webkit-transform: translateY(3px);
-		transform: translateY(3px);
+	-webkit-transform: translateY(3px);
+	transform: translateY(3px);
 	}
 }
 
 @keyframes aiq-pulse-down {
-	0%, 100% {
-		-webkit-transform: translateY(0);
-		transform: translateY(0);
+	0%,
+	100% {
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
 	}
 	50% {
-		-webkit-transform: translateY(3px);
-		transform: translateY(3px);
+	-webkit-transform: translateY(3px);
+	transform: translateY(3px);
 	}
 }
 
 /* Responsive Styles */
 @media (max-width: 767px) {
 	.aiq-metric-badge {
-		padding: 15px 20px;
+	padding: 15px 20px;
 	}
 
 	.aiq-metric-badge__value {
-		font-size: 1.5rem;
+	font-size: 1.5rem;
 	}
 
 	.aiq-metric-badge--circle {
-		width: 120px;
-		height: 120px;
+	width: 120px;
+	height: 120px;
 	}
 }
 
@@ -187,34 +191,34 @@
 	.aiq-metric-badge,
 	.aiq-metric-badge__trend--up,
 	.aiq-metric-badge__trend--down {
-		-webkit-animation: none !important;
-		animation: none !important;
-		transition: none !important;
+	-webkit-animation: none !important;
+	animation: none !important;
+	transition: none !important;
 	}
 }
 
 /* High Contrast Mode */
 @media (forced-colors: active) {
 	.aiq-metric-badge {
-		border: 2px solid CanvasText;
-		forced-color-adjust: none;
+	border: 2px solid CanvasText;
+	forced-color-adjust: none;
 	}
 
 	.aiq-metric-badge__value,
 	.aiq-metric-badge__label,
 	.aiq-metric-badge__supporting-text {
-		color: CanvasText;
+	color: CanvasText;
 	}
 
 	.aiq-metric-badge__trend--up {
-		color: LinkText;
+	color: LinkText;
 	}
 
 	.aiq-metric-badge__trend--down {
-		color: Mark;
+	color: Mark;
 	}
 
 	.aiq-metric-badge__trend--neutral {
-		color: GrayText;
+	color: GrayText;
 	}
 }

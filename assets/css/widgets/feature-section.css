@@ -44,14 +44,14 @@
 
 .aiq-feature-section__headline {
 	margin: 0 0 15px;
-	color: #E0D6FF;
+	color: #e0d6ff;
 	font-size: 2.5rem;
 	font-weight: 700;
 	line-height: 1.2;
 }
 
 .aiq-feature-section__subheadline {
-	color: #E0D6FF;
+	color: #e0d6ff;
 	font-size: 1rem;
 	line-height: 1.6;
 	max-width: 800px;
@@ -189,7 +189,7 @@
 }
 
 .aiq-feature-section__feature-description {
-	color: #E0D6FF;
+	color: #e0d6ff;
 	font-size: 1rem;
 	line-height: 1.6;
 	margin: 0;
@@ -215,7 +215,7 @@
 
 .aiq-feature-section__cta-button--primary {
 	background-color: var(--color-accent);
-	color: #FFFFFF;
+	color: #ffffff;
 	box-shadow: var(--box-shadow-md);
 }
 
@@ -227,7 +227,7 @@
 
 .aiq-feature-section__cta-button--secondary {
 	background-color: var(--color-bg-secondary-alpha);
-	color: #E0D6FF;
+	color: #e0d6ff;
 	border: 1px solid var(--color-accent);
 }
 
@@ -249,4 +249,4 @@
 	transition-duration: 0.001ms !important;
 	animation-duration: 0.001ms !important;
 	}
-}/* Styles for feature section widget */
+} /* Styles for feature section widget */

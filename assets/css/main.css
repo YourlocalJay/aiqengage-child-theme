@@ -8,42 +8,50 @@
  *=================================*/
 :root {
 	/* Primary Colors */
-	--color-bg-primary: #1A0938;
-	--color-bg-secondary: #2A1958;
-	--color-text-primary: #E0D6FF;
-	--color-accent: #9C4DFF;
+	--color-bg-primary: #1a0938;
+	--color-bg-secondary: #2a1958;
+	--color-text-primary: #e0d6ff;
+	--color-accent: #9c4dff;
 
 	/* Gradient Colors */
-	--aiq-gradient-start: #635BFF;
-	--aiq-gradient-mid: #7F5AF0;
-	--aiq-gradient-end: #8E6BFF;
+	--aiq-gradient-start: #635bff;
+	--aiq-gradient-mid: #7f5af0;
+	--aiq-gradient-end: #8e6bff;
 
 	/* CTA Colors */
-	--aiq-cta-gradient-start: #9C4DFF;
-	--aiq-cta-gradient-end: #5E72E4;
+	--aiq-cta-gradient-start: #9c4dff;
+	--aiq-cta-gradient-end: #5e72e4;
 	--aiq-cta-hover-shadow: rgba(94, 114, 228, 0.4);
 
 	/* Gradient Tokens */
-	--gradient-accent: linear-gradient(90deg, var(--aiq-cta-gradient-start), var(--aiq-cta-gradient-end));
-	--gradient-accent-light: linear-gradient(to bottom, rgba(156, 77, 255, 0.1), rgba(156, 77, 255, 0.5));
-	--gradient-gold: linear-gradient(90deg, #FFD700, #FFA500);
+	--gradient-accent: linear-gradient(
+	90deg,
+	var(--aiq-cta-gradient-start),
+	var(--aiq-cta-gradient-end)
+	);
+	--gradient-accent-light: linear-gradient(
+	to bottom,
+	rgba(156, 77, 255, 0.1),
+	rgba(156, 77, 255, 0.5)
+	);
+	--gradient-gold: linear-gradient(90deg, #ffd700, #ffa500);
 
 	/* Badge Colors */
 	--aiq-badge-bg: rgba(126, 87, 194, 0.2);
-	--aiq-badge-border: #9C4DFF;
+	--aiq-badge-border: #9c4dff;
 
 	/* Pro Tier Colors */
-	--color-gold: #FFD700;
-	--color-text-inverse: #1A0938;
+	--color-gold: #ffd700;
+	--color-text-inverse: #1a0938;
 
 	/* Semantic Colors */
-	--color-success: #4CAF50;
-	--color-warning: #FFC107;
-	--color-error: #F44336;
-	--color-info: #2196F3;
+	--color-success: #4caf50;
+	--color-warning: #ffc107;
+	--color-error: #f44336;
+	--color-info: #2196f3;
 
 	/* Accessibility Colors */
-	--aiq-focus-color: #FFFF00;
+	--aiq-focus-color: #ffff00;
 	--aiq-focus-ring: 3px solid var(--aiq-focus-color);
 	--aiq-focus-shadow: 0 0 0 3px rgba(255, 255, 0, 0.5);
 }
@@ -53,7 +61,7 @@
  *=================================*/
 :root {
 	/* Font Family */
-	--aiq-font-primary: 'Inter', sans-serif;
+	--aiq-font-primary: "Inter", sans-serif;
 
 	/* Font Sizes */
 	--aiq-h1-size: 4.5rem;
@@ -198,9 +206,9 @@ select:focus {
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
 	:root {
-	--aiq-primary-text: #FFFFFF;
-	--aiq-accent: #FFFF00;
-	--aiq-focus-color: #FF0000;
+	--aiq-primary-text: #ffffff;
+	--aiq-accent: #ffff00;
+	--aiq-focus-color: #ff0000;
 	}
 }
 
@@ -215,7 +223,12 @@ body {
 	font-weight: var(--aiq-font-regular);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	color: var(--color-text-primary);
 	font-family: var(--aiq-font-primary);
 	line-height: var(--aiq-line-height-heading);

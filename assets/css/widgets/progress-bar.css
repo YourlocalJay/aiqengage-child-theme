@@ -132,7 +132,6 @@
 
 /* Responsive Adjustments */
 @media (max-width: 767px) {
-
 	.aiq-progress-bar__percentage {
 	min-width: 30px;
 	padding: 1px 6px;

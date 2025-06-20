@@ -14,7 +14,7 @@
 	border-radius: 15px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 	border: 1px solid rgba(156, 77, 255, 0.3);
-	font-family: 'Inter', sans-serif;
+	font-family: "Inter", sans-serif;
 }
 
 /* Header Section */
@@ -72,7 +72,7 @@
 /* Node Item */
 .aiq-blueprint-flow__node {
 	--node-accent: var(--flow-accent-color);
-	--node-background-color: #1A0938;
+	--node-background-color: #1a0938;
 
 	position: relative;
 	background-color: var(--node-background-color);
@@ -82,7 +82,9 @@
 	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 	flex: 1;
 	min-width: 200px;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	transition:
+	transform 0.3s ease,
+	box-shadow 0.3s ease;
 }
 
 .aiq-blueprint-flow__node:hover,
@@ -161,8 +163,8 @@
 	top: -10px;
 	right: 10px;
 	background-color: rgba(126, 87, 194, 0.2);
-	color: #E0D6FF;
-	border: 1px solid #9C4DFF;
+	color: #e0d6ff;
+	border: 1px solid #9c4dff;
 	border-radius: 20px;
 	padding: 5px 10px;
 	font-size: 0.75rem;
@@ -173,26 +175,26 @@
 
 .aiq-blueprint-flow__node-callout--pro-tip {
 	background-color: rgba(255, 215, 0, 0.2);
-	border-color: #FFD700;
-	color: #FFD700;
+	border-color: #ffd700;
+	color: #ffd700;
 }
 
 .aiq-blueprint-flow__node-callout--automated {
 	background-color: rgba(76, 175, 80, 0.2);
-	border-color: #4CAF50;
-	color: #4CAF50;
+	border-color: #4caf50;
+	color: #4caf50;
 }
 
 .aiq-blueprint-flow__node-callout--manual {
 	background-color: rgba(33, 150, 243, 0.2);
-	border-color: #2196F3;
-	color: #2196F3;
+	border-color: #2196f3;
+	color: #2196f3;
 }
 
 .aiq-blueprint-flow__node-callout--critical {
 	background-color: rgba(244, 67, 54, 0.2);
-	border-color: #F44336;
-	color: #F44336;
+	border-color: #f44336;
+	color: #f44336;
 }
 
 /* Connectors */
@@ -208,7 +210,7 @@
 }
 
 .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector::before {
-	content: '';
+	content: "";
 	position: absolute;
 	top: 50%;
 	left: 0;
@@ -227,7 +229,7 @@
 }
 
 .aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector::before {
-	content: '';
+	content: "";
 	position: absolute;
 	left: 50%;
 	top: 0;
@@ -244,7 +246,7 @@
 
 /* Connector Styles - Arrow */
 .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--arrow::after {
-	content: '';
+	content: "";
 	position: absolute;
 	top: 50%;
 	right: 0;
@@ -257,7 +259,7 @@
 }
 
 .aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector--arrow::after {
-	content: '';
+	content: "";
 	position: absolute;
 	left: 50%;
 	bottom: 0;
@@ -272,47 +274,61 @@
 /* Connector Styles - Dashed */
 .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--dashed::before {
 	background-image: linear-gradient(
-		to right,
-		var(--connector-color) var(--connector-dash-length),
-		transparent var(--connector-dash-length),
-		transparent calc(var(--connector-dash-length) + var(--connector-gap-length)),
-		var(--connector-color) calc(var(--connector-dash-length) + var(--connector-gap-length))
+	to right,
+	var(--connector-color) var(--connector-dash-length),
+	transparent var(--connector-dash-length),
+	transparent calc(var(--connector-dash-length) + var(--connector-gap-length)),
+	var(--connector-color)
+		calc(var(--connector-dash-length) + var(--connector-gap-length))
 	);
-	background-size: calc(var(--connector-dash-length) + var(--connector-gap-length) + var(--connector-dash-length)) 100%;
+	background-size: calc(
+		var(--connector-dash-length) + var(--connector-gap-length) +
+		var(--connector-dash-length)
+	)
+	100%;
 	background-repeat: repeat-x;
 }
 
 .aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector--dashed::before {
 	background-image: linear-gradient(
-		to bottom,
-		var(--connector-color) var(--connector-dash-length),
-		transparent var(--connector-dash-length),
-		transparent calc(var(--connector-dash-length) + var(--connector-gap-length)),
-		var(--connector-color) calc(var(--connector-dash-length) + var(--connector-gap-length))
+	to bottom,
+	var(--connector-color) var(--connector-dash-length),
+	transparent var(--connector-dash-length),
+	transparent calc(var(--connector-dash-length) + var(--connector-gap-length)),
+	var(--connector-color)
+		calc(var(--connector-dash-length) + var(--connector-gap-length))
 	);
-	background-size: 100% calc(var(--connector-dash-length) + var(--connector-gap-length) + var(--connector-dash-length));
+	background-size: 100%
+	calc(
+		var(--connector-dash-length) + var(--connector-gap-length) +
+		var(--connector-dash-length)
+	);
 	background-repeat: repeat-y;
 }
 
 /* Connector Styles - Dotted */
 .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--dotted::before {
 	background-image: radial-gradient(
-		circle,
-		var(--connector-color) 25%,
-		transparent 25%
+	circle,
+	var(--connector-color) 25%,
+	transparent 25%
 	);
-	background-size: calc(var(--connector-dash-length) + var(--connector-gap-length)) 100%;
+	background-size: calc(
+		var(--connector-dash-length) + var(--connector-gap-length)
+	)
+	100%;
 	background-repeat: repeat-x;
 	height: var(--connector-dash-length);
 }
 
 .aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector--dotted::before {
 	background-image: radial-gradient(
-		circle,
-		var(--connector-color) 25%,
-		transparent 25%
+	circle,
+	var(--connector-color) 25%,
+	transparent 25%
 	);
-	background-size: 100% calc(var(--connector-dash-length) + var(--connector-gap-length));
+	background-size: 100%
+	calc(var(--connector-dash-length) + var(--connector-gap-length));
 	background-repeat: repeat-y;
 	width: var(--connector-dash-length);
 }
@@ -323,8 +339,9 @@
 	padding-left: 30px;
 }
 
-.aiq-blueprint-flow--timeline.aiq-blueprint-flow--vertical .aiq-blueprint-flow__nodes::before {
-	content: '';
+.aiq-blueprint-flow--timeline.aiq-blueprint-flow--vertical
+	.aiq-blueprint-flow__nodes::before {
+	content: "";
 	position: absolute;
 	left: 15px;
 	top: 0;
@@ -333,8 +350,9 @@
 	background-color: var(--connector-color);
 }
 
-.aiq-blueprint-flow--timeline.aiq-blueprint-flow--vertical .aiq-blueprint-flow__node::before {
-	content: '';
+.aiq-blueprint-flow--timeline.aiq-blueprint-flow--vertical
+	.aiq-blueprint-flow__node::before {
+	content: "";
 	position: absolute;
 	left: -35px;
 	top: 20px;
@@ -345,8 +363,9 @@
 	z-index: 1;
 }
 
-.aiq-blueprint-flow--timeline.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes::before {
-	content: '';
+.aiq-blueprint-flow--timeline.aiq-blueprint-flow--horizontal
+	.aiq-blueprint-flow__nodes::before {
+	content: "";
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -355,8 +374,9 @@
 	background-color: var(--connector-color);
 }
 
-.aiq-blueprint-flow--timeline.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__node::before {
-	content: '';
+.aiq-blueprint-flow--timeline.aiq-blueprint-flow--horizontal
+	.aiq-blueprint-flow__node::before {
+	content: "";
 	position: absolute;
 	top: -35px;
 	left: 20px;
@@ -370,7 +390,7 @@
 /* ROI Calculator Styles */
 .aiq-blueprint-flow__roi-calculator {
 	margin-top: 40px;
-	background-color: #1A0938;
+	background-color: #1a0938;
 	border-radius: 15px;
 	padding: 30px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -503,85 +523,94 @@
 /* Responsive Styles */
 @media (max-width: 1024px) {
 	.aiq-blueprint-flow {
-		padding: 25px;
+	padding: 25px;
 	}
 
 	.aiq-blueprint-flow__title {
-		font-size: 1.8rem;
+	font-size: 1.8rem;
 	}
 
 	.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes {
-		flex-wrap: wrap;
+	flex-wrap: wrap;
 	}
 
 	.aiq-blueprint-flow__roi-form {
-		grid-template-columns: 1fr;
+	grid-template-columns: 1fr;
 	}
 }
 
 @media (max-width: 767px) {
 	.aiq-blueprint-flow {
-		padding: 20px;
+	padding: 20px;
 	}
 
 	.aiq-blueprint-flow__title {
-		font-size: 1.5rem;
+	font-size: 1.5rem;
 	}
 
 	.aiq-blueprint-flow__node-title {
-		font-size: 1.1rem;
+	font-size: 1.1rem;
 	}
 
 	.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes {
-		flex-direction: column;
+	flex-direction: column;
 	}
 
 	.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector {
-		width: auto;
-		height: 30px;
+	width: auto;
+	height: 30px;
 	}
 
 	.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector::before {
-		width: 2px;
-		height: 100%;
-		top: 0;
-		left: 50%;
-		transform: translateX(-50%);
+	width: 2px;
+	height: 100%;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
 	}
 
 	.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--arrow::after {
-		top: auto;
-		bottom: 0;
-		right: auto;
-		left: 50%;
-		border-left: var(--arrow-size) solid transparent;
-		border-right: var(--arrow-size) solid transparent;
-		border-top: var(--arrow-size) solid var(--connector-color);
-		border-bottom: none;
-		transform: translateX(-50%);
+	top: auto;
+	bottom: 0;
+	right: auto;
+	left: 50%;
+	border-left: var(--arrow-size) solid transparent;
+	border-right: var(--arrow-size) solid transparent;
+	border-top: var(--arrow-size) solid var(--connector-color);
+	border-bottom: none;
+	transform: translateX(-50%);
 	}
 
-	.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--dashed::before {
-		background-image: linear-gradient(
-			to bottom,
-			var(--connector-color) var(--connector-dash-length),
-			transparent var(--connector-dash-length),
-			transparent calc(var(--connector-dash-length) + var(--connector-gap-length)),
-			var(--connector-color) calc(var(--connector-dash-length) + var(--connector-gap-length))
+	.aiq-blueprint-flow--horizontal
+	.aiq-blueprint-flow__connector--dashed::before {
+	background-image: linear-gradient(
+		to bottom,
+		var(--connector-color) var(--connector-dash-length),
+		transparent var(--connector-dash-length),
+		transparent
+		calc(var(--connector-dash-length) + var(--connector-gap-length)),
+		var(--connector-color)
+		calc(var(--connector-dash-length) + var(--connector-gap-length))
+	);
+	background-size: 100%
+		calc(
+		var(--connector-dash-length) + var(--connector-gap-length) +
+			var(--connector-dash-length)
 		);
-		background-size: 100% calc(var(--connector-dash-length) + var(--connector-gap-length) + var(--connector-dash-length));
-		background-repeat: repeat-y;
+	background-repeat: repeat-y;
 	}
 
-	.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--dotted::before {
-		background-image: radial-gradient(
-			circle,
-			var(--connector-color) 25%,
-			transparent 25%
-		);
-		background-size: 100% calc(var(--connector-dash-length) + var(--connector-gap-length));
-		background-repeat: repeat-y;
-		width: var(--connector-dash-length);
-		height: auto;
+	.aiq-blueprint-flow--horizontal
+	.aiq-blueprint-flow__connector--dotted::before {
+	background-image: radial-gradient(
+		circle,
+		var(--connector-color) 25%,
+		transparent 25%
+	);
+	background-size: 100%
+		calc(var(--connector-dash-length) + var(--connector-gap-length));
+	background-repeat: repeat-y;
+	width: var(--connector-dash-length);
+	height: auto;
 	}
 }

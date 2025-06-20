@@ -6,9 +6,8 @@
  * @since   1.0.0
  */
 
-
 (function () {
-	'use strict';
+	"use strict";
 
 	/**
 	 * Initialize conversion tracking logic.
@@ -23,5 +22,4 @@
 			initConversionTracking();
 		}
 	);
-
 })();
