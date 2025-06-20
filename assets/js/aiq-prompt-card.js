@@ -50,8 +50,7 @@
                 this.observer = new IntersectionObserver( ( entries ) => {
                     entries.forEach( entry => {
                         if ( entry.isIntersecting ) {
-                            const $card = $( entry.target );
-                            this.handleCardVisibility( $card );
+                            this.handleCardVisibility( $( entry.target ) );
                             this.observer.unobserve( entry.target );
                         }
                     } );
@@ -106,15 +105,17 @@
          */
         initPromptCards: function( $cards ) {
             $cards.each( ( index, card ) => {
+                const $card = $( card );
+
                 // Set up Intersection Observer if available
                 if ( this.observer ) {
                     this.observer.observe( card );
                 } else {
-                    this.handleCardVisibility( $( card ) );
+                    this.handleCardVisibility( $card );
                 }
 
                 // Initialize tooltips
-                this.initTooltips( $( card ) );
+                this.initTooltips( $card );
             } );
         },
 
