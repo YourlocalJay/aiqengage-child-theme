@@ -47,10 +47,10 @@ add_action( 'after_setup_theme', 'aiqengage_child_theme_setup' );
  */
 function aiqengage_child_load_includes() {
 	$includes = array(
-		'/inc/css_loader.php',          // Asset management
+		'/inc/css-loader.php',          // Asset management
 		'/inc/widget-assets.php',       // Widget asset registration
 		'/inc/widget-loader.php',       // Elementor widgets
-		'/inc/template_registrations.php', // Template library
+		'/inc/template-registrations.php', // Template library
 	);
 
 	foreach ( $includes as $file ) {
