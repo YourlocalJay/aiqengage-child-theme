@@ -141,12 +141,12 @@
 
 			$button.on(
 				'mouseenter mouseleave',
-				function (e) {
-					const shadow = e.type === 'mouseenter'
-					? `0 4px 12px ${color}66`
-					: '';
-					$( this ).css( 'box-shadow', shadow );
-				}
+		function () {
+			const shadow = event.type === 'mouseenter'
+			? `0 4px 12px ${color}66`
+			: '';
+			$( this ).css( 'box-shadow', shadow );
+		}
 			);
 		}
 	};
