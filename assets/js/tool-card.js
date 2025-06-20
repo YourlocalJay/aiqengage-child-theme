@@ -205,7 +205,7 @@
 		.on(
 			'click',
 			'.aiq-tool-card__button',
-			function (e) {
+			function () {
 				const $card = $( this ).closest( '.aiq-tool-card' );
 				Tracking.trackClick(
 					$( this ).data( 'tracking-id' ),
