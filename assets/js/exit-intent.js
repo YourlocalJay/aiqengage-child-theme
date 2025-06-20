@@ -409,7 +409,7 @@ class ExitIntentModal {
 }
 
 // Initialize the manager
-/* eslint-disable no-unused-vars */
+ 
 const exitIntentManager = new ExitIntentManager();
 
 // Expose public API
