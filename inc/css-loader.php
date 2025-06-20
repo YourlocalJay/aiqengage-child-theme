@@ -192,7 +192,7 @@ function aiqengage_child_enqueue_widget_styles() {
 	}
 
 	// Enqueue only common CSS if no specific widgets detected.
-	if ( $used_widgets === false ) {
+	if ( false === $used_widgets ) {
 		$common_widgets = array( 'prompt-card', 'feature-section', 'cta-banner' );
 		foreach ( $common_widgets as $widget_name ) {
 			if ( isset( $mapping[ $widget_name ] ) ) {
@@ -244,7 +244,8 @@ function aiqengage_check_css_directory() {
 
 	foreach ( $css_dirs as $css_dir ) {
 		if ( ! file_exists( $css_dir ) || ! is_dir( $css_dir ) ) {
-			// Log error.
+			// Log the missing directory error.
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			// error_log( "AIQEngage Child Theme: Required directory \"{$css_dir}\" does not exist." );
 
 			// Add admin notice if user is admin.
@@ -258,7 +259,7 @@ add_action( 'init', 'aiqengage_check_css_directory' );
  * Admin notice for missing CSS directory.
  */
 function aiqengage_missing_css_notice() {
-	if ( current_user_can( 'manage_options' ) ) {
+	if ( 'manage_options' === key( array_filter( wp_get_current_user()->allcaps ) ) ) {
 		?>
 		<div class="notice notice-error">
 			<p><?php esc_html_e( 'AIQEngage Child Theme: Required CSS directories "assets/css/widgets/" or "assets/css/components/" do not exist. Styling may not work properly.', 'aiqengage-child' ); ?></p>
