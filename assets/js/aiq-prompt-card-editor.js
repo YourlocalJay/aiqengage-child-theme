@@ -1,5 +1,3 @@
-/* exported jQuery */
-/* eslint-disable no-redeclare */
 /**
  * AIQ Prompt Card Editor Script
  *

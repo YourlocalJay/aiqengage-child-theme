@@ -1,4 +1,4 @@
-/* global lottie, elementor, jQuery */
+/* global lottie, elementor */
 /**
  * 404 Template Widget Script
  *
