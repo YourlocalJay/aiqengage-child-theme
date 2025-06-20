@@ -152,9 +152,7 @@
             const rowIndex = parseInt(selectedValue.split('-')[1]);
             const $targetRow = $rows.eq(rowIndex);
 
-            // Get all columns
-            const $columns = $matrix.find('.aiq-comparison-matrix__header').not('.aiq-comparison-matrix__feature-header');
-            const columnValues = [];
+        const columnValues = [];
 
             // Get values for the target row in each column
             $targetRow.find('.aiq-comparison-matrix__cell').not('.aiq-comparison-matrix__feature').each(function(colIndex) {

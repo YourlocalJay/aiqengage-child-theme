@@ -207,8 +207,8 @@ class ResourceCardManager {
       });
 
       localStorage.setItem(profileKey, JSON.stringify(profile));
-    } catch (e) {
-      console.warn('Could not store interaction:', e);
+    } catch {
+      console.warn('Could not store interaction:');
     }
   }
 }

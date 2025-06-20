@@ -6,6 +6,8 @@
  * @since   1.0.0
  */
 
+/* global jQuery, elementorFrontend, aiqPromptCardConfig */
+
 ( function( $ ) {
     'use strict';
 

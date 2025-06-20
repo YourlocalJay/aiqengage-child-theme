@@ -15,10 +15,8 @@
 		function () {
 			$( '.aiq-archive-loop' ).each(
 				function () {
-					const $widget = $( this );
-
 					// Initialize archive loop functionality
-					initArchiveLoop( $widget );
+					initArchiveLoop($( this ));
 				}
 			);
 		}

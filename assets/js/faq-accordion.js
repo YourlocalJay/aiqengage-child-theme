@@ -1,4 +1,4 @@
-(**
+/**
  * FAQ Accordion Widget Script
  *
  * @package aiqengage-child

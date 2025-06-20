@@ -141,10 +141,6 @@
 							'button_id': buttonId
 						}
 					);
-				} else if (typeof _gaq !== 'undefined') {
-					_gaq.push( ['_trackEvent', 'CTA Banner', 'Click', buttonText] );
-				} else if (typeof ga === 'function') {
-					ga( 'send', 'event', 'CTA Banner', 'Click', buttonText );
 				}
 
 				// Optional: Store interaction in localStorage for personalization
