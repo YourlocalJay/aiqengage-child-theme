@@ -6,8 +6,7 @@
  * @since   1.0.0
  */
 
-/* global jQuery */
-/* eslint-disable no-undef */
+/* global jQuery:false */
 
 (function () {
 	'use strict';
