@@ -7,610 +7,610 @@
 
 /* Main Blueprint Flow Container */
 .aiq-blueprint-flow {
-	position: relative;
-	background-color: var(--flow-background-color);
-	color: var(--flow-text-color);
-	padding: 30px;
-	border-radius: 15px;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-	border: 1px solid rgba(156, 77, 255, 0.3);
-	font-family: "Inter", sans-serif;
+  position: relative;
+  background-color: var(--flow-background-color);
+  color: var(--flow-text-color);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(156, 77, 255, 0.3);
+  font-family: "Inter", sans-serif;
 }
 
 /* Header Section */
 .aiq-blueprint-flow__header {
-	margin-bottom: 30px;
-	text-align: center;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .aiq-blueprint-flow__title {
-	color: var(--flow-text-color);
-	font-size: 2rem;
-	font-weight: 700;
-	margin: 0 0 10px;
-	line-height: 1.2;
+  color: var(--flow-text-color);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  line-height: 1.2;
 }
 
 .aiq-blueprint-flow__description {
-	color: rgba(224, 214, 255, 0.8);
-	font-size: 1rem;
-	line-height: 1.6;
-	max-width: 800px;
-	margin: 0 auto;
+  color: rgba(224, 214, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Nodes Container */
 .aiq-blueprint-flow__nodes {
-	display: flex;
-	position: relative;
-	list-style: none;
-	padding: 0;
-	margin: 0;
+  display: flex;
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* Horizontal Flow */
 .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes {
-	flex-direction: row;
-	align-items: stretch;
-	flex-wrap: wrap;
-	gap: 30px;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 /* Vertical Flow */
 .aiq-blueprint-flow--vertical .aiq-blueprint-flow__nodes {
-	flex-direction: column;
-	gap: 30px;
+  flex-direction: column;
+  gap: 30px;
 }
 
 /* Grid Flow */
 .aiq-blueprint-flow--grid .aiq-blueprint-flow__nodes {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
 }
 
 /* Node Item */
 .aiq-blueprint-flow__node {
-	--node-accent: var(--flow-accent-color);
-	--node-background-color: #1a0938;
+  --node-accent: var(--flow-accent-color);
+  --node-background-color: #1a0938;
 
-	position: relative;
-	background-color: var(--node-background-color);
-	border-radius: 10px;
-	padding: 20px;
-	border-left: 3px solid var(--node-accent);
-	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-	flex: 1;
-	min-width: 200px;
-	transition:
-	transform 0.3s ease,
-	box-shadow 0.3s ease;
+  position: relative;
+  background-color: var(--node-background-color);
+  border-radius: 10px;
+  padding: 20px;
+  border-left: 3px solid var(--node-accent);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  min-width: 200px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .aiq-blueprint-flow__node:hover,
 .aiq-blueprint-flow__node:focus {
-	transform: translateY(-3px);
-	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-	outline: none;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  outline: none;
 }
 
 .aiq-blueprint-flow__node:focus-visible {
-	outline: 2px solid var(--node-accent);
-	outline-offset: 2px;
+  outline: 2px solid var(--node-accent);
+  outline-offset: 2px;
 }
 
 /* Node Title */
 .aiq-blueprint-flow__node-title {
-	color: var(--flow-text-color);
-	font-size: 1.2rem;
-	font-weight: 600;
-	margin: 0 0 10px;
-	line-height: 1.3;
+  color: var(--flow-text-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 10px;
+  line-height: 1.3;
 }
 
 /* Node Description */
 .aiq-blueprint-flow__node-description {
-	color: rgba(224, 214, 255, 0.8);
-	font-size: 0.9rem;
-	line-height: 1.6;
-	margin-bottom: 15px;
+  color: rgba(224, 214, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
 /* Node Icon */
 .aiq-blueprint-flow__node-icon {
-	color: var(--node-accent);
-	font-size: 24px;
-	margin-bottom: 15px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 48px;
-	width: 48px;
-	border-radius: 50%;
-	background-color: rgba(156, 77, 255, 0.1);
-	margin-left: auto;
-	margin-right: auto;
+  color: var(--node-accent);
+  font-size: 24px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background-color: rgba(156, 77, 255, 0.1);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Node Image */
 .aiq-blueprint-flow__node-image {
-	margin-bottom: 15px;
-	text-align: center;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .aiq-blueprint-flow__node-image img {
-	max-width: 80px;
-	height: auto;
-	border-radius: 50%;
-	object-fit: cover;
+  max-width: 80px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* Node Metric */
 .aiq-blueprint-flow__node-metric {
-	background-color: rgba(156, 77, 255, 0.1);
-	color: var(--node-accent);
-	padding: 5px 10px;
-	border-radius: 4px;
-	font-size: 0.85rem;
-	font-weight: 600;
-	display: inline-block;
-	margin-top: 10px;
+  background-color: rgba(156, 77, 255, 0.1);
+  color: var(--node-accent);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 /* Node Callout */
 .aiq-blueprint-flow__node-callout {
-	position: absolute;
-	top: -10px;
-	right: 10px;
-	background-color: rgba(126, 87, 194, 0.2);
-	color: #e0d6ff;
-	border: 1px solid #9c4dff;
-	border-radius: 20px;
-	padding: 5px 10px;
-	font-size: 0.75rem;
-	font-weight: 600;
-	z-index: 2;
-	line-height: 1;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background-color: rgba(126, 87, 194, 0.2);
+  color: #e0d6ff;
+  border: 1px solid #9c4dff;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 2;
+  line-height: 1;
 }
 
 .aiq-blueprint-flow__node-callout--pro-tip {
-	background-color: rgba(255, 215, 0, 0.2);
-	border-color: #ffd700;
-	color: #ffd700;
+  background-color: rgba(255, 215, 0, 0.2);
+  border-color: #ffd700;
+  color: #ffd700;
 }
 
 .aiq-blueprint-flow__node-callout--automated {
-	background-color: rgba(76, 175, 80, 0.2);
-	border-color: #4caf50;
-	color: #4caf50;
+  background-color: rgba(76, 175, 80, 0.2);
+  border-color: #4caf50;
+  color: #4caf50;
 }
 
 .aiq-blueprint-flow__node-callout--manual {
-	background-color: rgba(33, 150, 243, 0.2);
-	border-color: #2196f3;
-	color: #2196f3;
+  background-color: rgba(33, 150, 243, 0.2);
+  border-color: #2196f3;
+  color: #2196f3;
 }
 
 .aiq-blueprint-flow__node-callout--critical {
-	background-color: rgba(244, 67, 54, 0.2);
-	border-color: #f44336;
-	color: #f44336;
+  background-color: rgba(244, 67, 54, 0.2);
+  border-color: #f44336;
+  color: #f44336;
 }
 
 /* Connectors */
 .aiq-blueprint-flow__connector {
-	position: relative;
-	flex: 0 0 auto;
+  position: relative;
+  flex: 0 0 auto;
 }
 
 /* Horizontal Connectors */
 .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector {
-	width: 30px;
-	align-self: center;
+  width: 30px;
+  align-self: center;
 }
 
 .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector::before {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 0;
-	right: 0;
-	height: var(--connector-width);
-	background-color: var(--connector-color);
-	transform: translateY(-50%);
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: var(--connector-width);
+  background-color: var(--connector-color);
+  transform: translateY(-50%);
 }
 
 /* Vertical Connectors */
 .aiq-blueprint/* Styles for blueprint flow widget *//* Vertical Connectors */
 .aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector {
-	height: 30px;
-	align-self: center;
-	width: 100%;
+  height: 30px;
+  align-self: center;
+  width: 100%;
 }
 
 .aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector::before {
-	content: "";
-	position: absolute;
-	left: 50%;
-	top: 0;
-	bottom: 0;
-	width: var(--connector-width);
-	background-color: var(--connector-color);
-	transform: translateX(-50%);
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: var(--connector-width);
+  background-color: var(--connector-color);
+  transform: translateX(-50%);
 }
 
 /* Connector Styles - Line */
 .aiq-blueprint-flow__connector--line::before {
-	/* Default style, no additional properties needed */
+  /* Default style, no additional properties needed */
 }
 
 /* Connector Styles - Arrow */
 .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--arrow::after {
-	content: "";
-	position: absolute;
-	top: 50%;
-	right: 0;
-	width: 0;
-	height: 0;
-	border-top: var(--arrow-size) solid transparent;
-	border-bottom: var(--arrow-size) solid transparent;
-	border-left: var(--arrow-size) solid var(--connector-color);
-	transform: translateY(-50%);
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: var(--arrow-size) solid transparent;
+  border-bottom: var(--arrow-size) solid transparent;
+  border-left: var(--arrow-size) solid var(--connector-color);
+  transform: translateY(-50%);
 }
 
 .aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector--arrow::after {
-	content: "";
-	position: absolute;
-	left: 50%;
-	bottom: 0;
-	width: 0;
-	height: 0;
-	border-left: var(--arrow-size) solid transparent;
-	border-right: var(--arrow-size) solid transparent;
-	border-top: var(--arrow-size) solid var(--connector-color);
-	transform: translateX(-50%);
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: var(--arrow-size) solid transparent;
+  border-right: var(--arrow-size) solid transparent;
+  border-top: var(--arrow-size) solid var(--connector-color);
+  transform: translateX(-50%);
 }
 
 /* Connector Styles - Dashed */
 .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--dashed::before {
-	background-image: linear-gradient(
-	to right,
-	var(--connector-color) var(--connector-dash-length),
-	transparent var(--connector-dash-length),
-	transparent calc(var(--connector-dash-length) + var(--connector-gap-length)),
-	var(--connector-color)
-		calc(var(--connector-dash-length) + var(--connector-gap-length))
-	);
-	background-size: calc(
-		var(--connector-dash-length) + var(--connector-gap-length) +
-		var(--connector-dash-length)
-	)
-	100%;
-	background-repeat: repeat-x;
+  background-image: linear-gradient(
+    to right,
+    var(--connector-color) var(--connector-dash-length),
+    transparent var(--connector-dash-length),
+    transparent calc(var(--connector-dash-length) + var(--connector-gap-length)),
+    var(--connector-color)
+      calc(var(--connector-dash-length) + var(--connector-gap-length))
+  );
+  background-size: calc(
+      var(--connector-dash-length) + var(--connector-gap-length) +
+        var(--connector-dash-length)
+    )
+    100%;
+  background-repeat: repeat-x;
 }
 
 .aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector--dashed::before {
-	background-image: linear-gradient(
-	to bottom,
-	var(--connector-color) var(--connector-dash-length),
-	transparent var(--connector-dash-length),
-	transparent calc(var(--connector-dash-length) + var(--connector-gap-length)),
-	var(--connector-color)
-		calc(var(--connector-dash-length) + var(--connector-gap-length))
-	);
-	background-size: 100%
-	calc(
-		var(--connector-dash-length) + var(--connector-gap-length) +
-		var(--connector-dash-length)
-	);
-	background-repeat: repeat-y;
+  background-image: linear-gradient(
+    to bottom,
+    var(--connector-color) var(--connector-dash-length),
+    transparent var(--connector-dash-length),
+    transparent calc(var(--connector-dash-length) + var(--connector-gap-length)),
+    var(--connector-color)
+      calc(var(--connector-dash-length) + var(--connector-gap-length))
+  );
+  background-size: 100%
+    calc(
+      var(--connector-dash-length) + var(--connector-gap-length) +
+        var(--connector-dash-length)
+    );
+  background-repeat: repeat-y;
 }
 
 /* Connector Styles - Dotted */
 .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--dotted::before {
-	background-image: radial-gradient(
-	circle,
-	var(--connector-color) 25%,
-	transparent 25%
-	);
-	background-size: calc(
-		var(--connector-dash-length) + var(--connector-gap-length)
-	)
-	100%;
-	background-repeat: repeat-x;
-	height: var(--connector-dash-length);
+  background-image: radial-gradient(
+    circle,
+    var(--connector-color) 25%,
+    transparent 25%
+  );
+  background-size: calc(
+      var(--connector-dash-length) + var(--connector-gap-length)
+    )
+    100%;
+  background-repeat: repeat-x;
+  height: var(--connector-dash-length);
 }
 
 .aiq-blueprint-flow--vertical .aiq-blueprint-flow__connector--dotted::before {
-	background-image: radial-gradient(
-	circle,
-	var(--connector-color) 25%,
-	transparent 25%
-	);
-	background-size: 100%
-	calc(var(--connector-dash-length) + var(--connector-gap-length));
-	background-repeat: repeat-y;
-	width: var(--connector-dash-length);
+  background-image: radial-gradient(
+    circle,
+    var(--connector-color) 25%,
+    transparent 25%
+  );
+  background-size: 100%
+    calc(var(--connector-dash-length) + var(--connector-gap-length));
+  background-repeat: repeat-y;
+  width: var(--connector-dash-length);
 }
 
 /* Timeline Layout */
 .aiq-blueprint-flow--timeline .aiq-blueprint-flow__nodes {
-	position: relative;
-	padding-left: 30px;
+  position: relative;
+  padding-left: 30px;
 }
 
 .aiq-blueprint-flow--timeline.aiq-blueprint-flow--vertical
-	.aiq-blueprint-flow__nodes::before {
-	content: "";
-	position: absolute;
-	left: 15px;
-	top: 0;
-	bottom: 0;
-	width: 2px;
-	background-color: var(--connector-color);
+  .aiq-blueprint-flow__nodes::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--connector-color);
 }
 
 .aiq-blueprint-flow--timeline.aiq-blueprint-flow--vertical
-	.aiq-blueprint-flow__node::before {
-	content: "";
-	position: absolute;
-	left: -35px;
-	top: 20px;
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
-	background-color: var(--node-accent);
-	z-index: 1;
+  .aiq-blueprint-flow__node::before {
+  content: "";
+  position: absolute;
+  left: -35px;
+  top: 20px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--node-accent);
+  z-index: 1;
 }
 
 .aiq-blueprint-flow--timeline.aiq-blueprint-flow--horizontal
-	.aiq-blueprint-flow__nodes::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 15px;
-	height: 2px;
-	background-color: var(--connector-color);
+  .aiq-blueprint-flow__nodes::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 15px;
+  height: 2px;
+  background-color: var(--connector-color);
 }
 
 .aiq-blueprint-flow--timeline.aiq-blueprint-flow--horizontal
-	.aiq-blueprint-flow__node::before {
-	content: "";
-	position: absolute;
-	top: -35px;
-	left: 20px;
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
-	background-color: var(--node-accent);
-	z-index: 1;
+  .aiq-blueprint-flow__node::before {
+  content: "";
+  position: absolute;
+  top: -35px;
+  left: 20px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--node-accent);
+  z-index: 1;
 }
 
 /* ROI Calculator Styles */
 .aiq-blueprint-flow__roi-calculator {
-	margin-top: 40px;
-	background-color: #1a0938;
-	border-radius: 15px;
-	padding: 30px;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-	border: 1px solid rgba(156, 77, 255, 0.3);
+  margin-top: 40px;
+  background-color: #1a0938;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(156, 77, 255, 0.3);
 }
 
 .aiq-blueprint-flow__roi-title {
-	color: var(--flow-text-color);
-	font-size: 1.5rem;
-	font-weight: 700;
-	margin: 0 0 15px;
-	text-align: center;
+  color: var(--flow-text-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 15px;
+  text-align: center;
 }
 
 .aiq-blueprint-flow__roi-description {
-	color: rgba(224, 214, 255, 0.8);
-	font-size: 0.95rem;
-	line-height: 1.6;
-	margin-bottom: 25px;
-	text-align: center;
+  color: rgba(224, 214, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
 .aiq-blueprint-flow__roi-form {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .aiq-blueprint-flow__roi-field {
-	margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .aiq-blueprint-flow__roi-label {
-	display: block;
-	margin-bottom: 8px;
-	font-weight: 600;
-	color: var(--flow-text-color);
-	font-size: 0.9rem;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--flow-text-color);
+  font-size: 0.9rem;
 }
 
 .aiq-blueprint-flow__roi-input {
-	width: 100%;
-	padding: 10px 15px;
-	border-radius: 8px;
-	border: 1px solid rgba(156, 77, 255, 0.3);
-	background-color: rgba(26, 9, 56, 0.6);
-	color: var(--flow-text-color);
-	font-size: 0.9rem;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(156, 77, 255, 0.3);
+  background-color: rgba(26, 9, 56, 0.6);
+  color: var(--flow-text-color);
+  font-size: 0.9rem;
 }
 
 .aiq-blueprint-flow__roi-input:focus {
-	outline: none;
-	border-color: var(--flow-accent-color);
-	box-shadow: 0 0 0 2px rgba(156, 77, 255, 0.3);
+  outline: none;
+  border-color: var(--flow-accent-color);
+  box-shadow: 0 0 0 2px rgba(156, 77, 255, 0.3);
 }
 
 .aiq-blueprint-flow__roi-slider-container {
-	display: flex;
-	align-items: center;
-	gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .aiq-blueprint-flow__roi-slider {
-	flex: 1;
-	-webkit-appearance: none;
-	height: 6px;
-	background: rgba(156, 77, 255, 0.2);
-	border-radius: 3px;
-	outline: none;
+  flex: 1;
+  -webkit-appearance: none;
+  height: 6px;
+  background: rgba(156, 77, 255, 0.2);
+  border-radius: 3px;
+  outline: none;
 }
 
 .aiq-blueprint-flow__roi-slider::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 18px;
-	height: 18px;
-	border-radius: 50%;
-	background: var(--flow-accent-color);
-	cursor: pointer;
-	transition: background 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--flow-accent-color);
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .aiq-blueprint-flow__roi-slider::-moz-range-thumb {
-	width: 18px;
-	height: 18px;
-	border: none;
-	border-radius: 50%;
-	background: var(--flow-accent-color);
-	cursor: pointer;
-	transition: background 0.2s ease;
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  background: var(--flow-accent-color);
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .aiq-blueprint-flow__roi-slider:focus::-webkit-slider-thumb {
-	box-shadow: 0 0 0 3px rgba(156, 77, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(156, 77, 255, 0.3);
 }
 
 .aiq-blueprint-flow__roi-slider:focus::-moz-range-thumb {
-	box-shadow: 0 0 0 3px rgba(156, 77, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(156, 77, 255, 0.3);
 }
 
 .aiq-blueprint-flow__roi-slider-value {
-	min-width: 50px;
-	font-size: 0.9rem;
-	color: var(--flow-text-color);
-	font-weight: 600;
+  min-width: 50px;
+  font-size: 0.9rem;
+  color: var(--flow-text-color);
+  font-weight: 600;
 }
 
 .aiq-blueprint-flow__roi-result {
-	grid-column: 1 / -1;
-	background-color: rgba(156, 77, 255, 0.1);
-	padding: 20px;
-	border-radius: 10px;
-	margin-top: 20px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  grid-column: 1 / -1;
+  background-color: rgba(156, 77, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .aiq-blueprint-flow__roi-result-label {
-	font-weight: 600;
-	font-size: 1.1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 .aiq-blueprint-flow__roi-value {
-	color: var(--flow-accent-color);
-	font-size: 1.5rem;
-	font-weight: 700;
+  color: var(--flow-accent-color);
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
-	.aiq-blueprint-flow {
-	padding: 25px;
-	}
+  .aiq-blueprint-flow {
+    padding: 25px;
+  }
 
-	.aiq-blueprint-flow__title {
-	font-size: 1.8rem;
-	}
+  .aiq-blueprint-flow__title {
+    font-size: 1.8rem;
+  }
 
-	.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes {
-	flex-wrap: wrap;
-	}
+  .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes {
+    flex-wrap: wrap;
+  }
 
-	.aiq-blueprint-flow__roi-form {
-	grid-template-columns: 1fr;
-	}
+  .aiq-blueprint-flow__roi-form {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 767px) {
-	.aiq-blueprint-flow {
-	padding: 20px;
-	}
+  .aiq-blueprint-flow {
+    padding: 20px;
+  }
 
-	.aiq-blueprint-flow__title {
-	font-size: 1.5rem;
-	}
+  .aiq-blueprint-flow__title {
+    font-size: 1.5rem;
+  }
 
-	.aiq-blueprint-flow__node-title {
-	font-size: 1.1rem;
-	}
+  .aiq-blueprint-flow__node-title {
+    font-size: 1.1rem;
+  }
 
-	.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes {
-	flex-direction: column;
-	}
+  .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__nodes {
+    flex-direction: column;
+  }
 
-	.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector {
-	width: auto;
-	height: 30px;
-	}
+  .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector {
+    width: auto;
+    height: 30px;
+  }
 
-	.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector::before {
-	width: 2px;
-	height: 100%;
-	top: 0;
-	left: 50%;
-	transform: translateX(-50%);
-	}
+  .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector::before {
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-	.aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--arrow::after {
-	top: auto;
-	bottom: 0;
-	right: auto;
-	left: 50%;
-	border-left: var(--arrow-size) solid transparent;
-	border-right: var(--arrow-size) solid transparent;
-	border-top: var(--arrow-size) solid var(--connector-color);
-	border-bottom: none;
-	transform: translateX(-50%);
-	}
+  .aiq-blueprint-flow--horizontal .aiq-blueprint-flow__connector--arrow::after {
+    top: auto;
+    bottom: 0;
+    right: auto;
+    left: 50%;
+    border-left: var(--arrow-size) solid transparent;
+    border-right: var(--arrow-size) solid transparent;
+    border-top: var(--arrow-size) solid var(--connector-color);
+    border-bottom: none;
+    transform: translateX(-50%);
+  }
 
-	.aiq-blueprint-flow--horizontal
-	.aiq-blueprint-flow__connector--dashed::before {
-	background-image: linear-gradient(
-		to bottom,
-		var(--connector-color) var(--connector-dash-length),
-		transparent var(--connector-dash-length),
-		transparent
-		calc(var(--connector-dash-length) + var(--connector-gap-length)),
-		var(--connector-color)
-		calc(var(--connector-dash-length) + var(--connector-gap-length))
-	);
-	background-size: 100%
-		calc(
-		var(--connector-dash-length) + var(--connector-gap-length) +
-			var(--connector-dash-length)
-		);
-	background-repeat: repeat-y;
-	}
+  .aiq-blueprint-flow--horizontal
+    .aiq-blueprint-flow__connector--dashed::before {
+    background-image: linear-gradient(
+      to bottom,
+      var(--connector-color) var(--connector-dash-length),
+      transparent var(--connector-dash-length),
+      transparent
+        calc(var(--connector-dash-length) + var(--connector-gap-length)),
+      var(--connector-color)
+        calc(var(--connector-dash-length) + var(--connector-gap-length))
+    );
+    background-size: 100%
+      calc(
+        var(--connector-dash-length) + var(--connector-gap-length) +
+          var(--connector-dash-length)
+      );
+    background-repeat: repeat-y;
+  }
 
-	.aiq-blueprint-flow--horizontal
-	.aiq-blueprint-flow__connector--dotted::before {
-	background-image: radial-gradient(
-		circle,
-		var(--connector-color) 25%,
-		transparent 25%
-	);
-	background-size: 100%
-		calc(var(--connector-dash-length) + var(--connector-gap-length));
-	background-repeat: repeat-y;
-	width: var(--connector-dash-length);
-	height: auto;
-	}
+  .aiq-blueprint-flow--horizontal
+    .aiq-blueprint-flow__connector--dotted::before {
+    background-image: radial-gradient(
+      circle,
+      var(--connector-color) 25%,
+      transparent 25%
+    );
+    background-size: 100%
+      calc(var(--connector-dash-length) + var(--connector-gap-length));
+    background-repeat: repeat-y;
+    width: var(--connector-dash-length);
+    height: auto;
+  }
 }

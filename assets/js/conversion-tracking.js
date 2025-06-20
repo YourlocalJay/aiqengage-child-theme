@@ -7,19 +7,17 @@
  */
 
 (function () {
-	"use strict";
+  "use strict";
 
-	/**
-	 * Initialize conversion tracking logic.
-	 */
-	function initConversionTracking() {
-		// TODO: Add code to send conversion events (e.g., Google Analytics, Facebook Pixel)
-	}
+  /**
+   * Initialize conversion tracking logic.
+   */
+  function initConversionTracking() {
+    // TODO: Add code to send conversion events (e.g., Google Analytics, Facebook Pixel)
+  }
 
-	// Run on document ready
-	jQuery( document ).ready(
-		function () {
-			initConversionTracking();
-		}
-	);
+  // Run on document ready
+  jQuery(document).ready(function () {
+    initConversionTracking();
+  });
 })();

@@ -1,23 +1,23 @@
 .aiq-roi-calculator {
-	display: flex;
-	flex-direction: column;
-	background-color: #ffffff;
-	border: 1px solid #e0e0e0;
-	border-radius: 8px;
-	padding: 24px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-	max-width: 600px;
-	margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .aiq-roi-calculator__header {
-	margin-bottom: 16px;
-	text-align: center;
+  margin-bottom: 16px;
+  text-align: center;
 }
 
 .aiq-roi-calculator__title {
-	font-size: 1.75rem;
-	font-weight: 600;
-	color: #1a1a1a;
-	margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
 }

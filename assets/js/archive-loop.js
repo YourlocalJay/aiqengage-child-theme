@@ -7,21 +7,17 @@
  */
 
 (function ($) {
-	"use strict";
+  "use strict";
 
-	// Archive Loop Widget JavaScript functionality
-	$( document ).ready(
-		function () {
-			$( ".aiq-archive-loop" ).each(
-				function () {
-					// Initialize archive loop functionality
-					initArchiveLoop();
-				}
-			);
-		}
-	);
+  // Archive Loop Widget JavaScript functionality
+  $(document).ready(function () {
+    $(".aiq-archive-loop").each(function () {
+      // Initialize archive loop functionality
+      initArchiveLoop();
+    });
+  });
 
-	function initArchiveLoop() {
-		// TODO: Implement Archive Loop widget functionality
-	}
-})( jQuery );
+  function initArchiveLoop() {
+    // TODO: Implement Archive Loop widget functionality
+  }
+})(jQuery);
