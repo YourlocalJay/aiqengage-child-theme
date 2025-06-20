@@ -176,7 +176,7 @@
 			if (typeof elementorFrontend !== 'undefined' && elementorFrontend.hooks) {
 				elementorFrontend.hooks.addAction(
 					'frontend/element_ready/aiq_value_timeline.default',
-					function ($scope) {
+					function () {
 						ValueTimeline.init();
 					}
 				);
