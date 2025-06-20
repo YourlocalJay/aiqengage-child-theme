@@ -208,7 +208,7 @@ if ( ! function_exists( 'aiqengage_child_register_elementor_templates' ) ) {
  */
 function aiqengage_child_localize_template_data() {
 	// Only run in Elementor editor.
-	if ( ! isset( $_GET['action'] ) || $_GET['action'] !== 'elementor' ) {
+	if ( ! isset( $_GET['action'] ) || 'elementor' !== $_GET['action'] ) {
 		return;
 	}
 

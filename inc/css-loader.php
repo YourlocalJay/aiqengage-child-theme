@@ -192,7 +192,7 @@ function aiqengage_child_enqueue_widget_styles() {
 	}
 
 	// Enqueue only common CSS if no specific widgets detected.
-	if ( false === $used_widgets ) {
+	if ( $used_widgets === false ) {
 		$common_widgets = array( 'prompt-card', 'feature-section', 'cta-banner' );
 		foreach ( $common_widgets as $widget_name ) {
 			if ( isset( $mapping[ $widget_name ] ) ) {
