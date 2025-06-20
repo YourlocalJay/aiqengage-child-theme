@@ -161,7 +161,9 @@
                     this.announceForScreenReaders( aiqPromptCardConfig.i18n.copied );
                 } )
                 .catch( ( err ) => {
-                    console.error( 'Failed to copy:', err );
+                    if (window?.aiqPromptCardDebug) {
+                        console.error( 'Failed to copy:', err );
+                    }
                     this.announceForScreenReaders( aiqPromptCardConfig.i18n.error );
                 } );
         },
@@ -184,7 +186,9 @@
                     );
                 } )
                 .catch( ( err ) => {
-                    console.error( 'Failed to copy variable:', err );
+                    if (window?.aiqPromptCardDebug) {
+                        console.error( 'Failed to copy variable:', err );
+                    }
                     this.announceForScreenReaders( aiqPromptCardConfig.i18n.error );
                 } );
         },

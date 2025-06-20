@@ -253,7 +253,6 @@
         function toggleChat() {
             if (settings.layoutType !== 'floating') return;
 
-            const wasOpen = state.chatOpen;
             state.chatOpen = !state.chatOpen;
 
             if (state.chatOpen) {

@@ -1,3 +1,4 @@
+/* global lottie, elementor, jQuery */
 /**
  * 404 Template Widget Script
  *
@@ -202,7 +203,7 @@
 
 		// Add animation class and random delay to each element
 		$paths.each(
-			function (index) {
+			function () {
 				const $element = $( this );
 				$element.addClass( 'aiq-svg-animated' );
 

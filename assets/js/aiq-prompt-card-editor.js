@@ -1,3 +1,4 @@
+/* global jQuery */
 /**
  * AIQ Prompt Card Editor Script
  *
