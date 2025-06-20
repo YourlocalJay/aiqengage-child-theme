@@ -5,7 +5,7 @@
  * @package     AIQEngage_Child
  * @version     1.0.1
  * @author      AIQEngage Team
- * @copyright   Copyright (c) 2025, AIQEngage
+ * @copyright   Copyright (c) 2025, AIQEngage.
  * @license     GPL-3.0+
  * @file        template-registrations.php
  */
@@ -103,7 +103,7 @@ if ( ! function_exists( 'aiqengage_child_register_elementor_templates' ) ) {
 						continue;
 					}
 
-					// Base64 encoding used here for safe transport of JSON template data
+					// Safe use: encoding Elementor JSON template data for import.
 					$result = $template_manager->import_template(
 						array(
 							'fileData' => base64_encode( $template_json ),
@@ -294,3 +294,4 @@ function aiqengage_missing_templates_notice() {
 		<?php
 	}
 }
+?>
