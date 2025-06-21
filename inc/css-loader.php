@@ -60,17 +60,10 @@ function aiqengage_get_component_css_mapping() {
  * Adds resource hints for better performance.
  */
 function aiqengage_add_resource_hints() {
-	// Add preconnect for Google Fonts.
+	// Add preconnect and preload for Google Fonts
 	echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
 	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
-
-	// Preload critical fonts.
 	echo '<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style">';
-
-	// Add preconnect for external resources (if needed).
-	if ( function_exists( 'elementor_pro_is_active' ) && elementor_pro_is_active() ) {
-		echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
-	}
 }
 add_action( 'wp_head', 'aiqengage_add_resource_hints', 1 );
 
