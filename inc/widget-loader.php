@@ -60,18 +60,18 @@ if ( ! function_exists( 'aiqengage_child_load_elementor_widgets' ) ) {
                   document.querySelectorAll(".feature-reveal").forEach(container => {
                     const triggers = container.querySelectorAll(".reveal-trigger");
                     const content = container.querySelector(".reveal-content");
-                    
+
                     if (!triggers.length || !content) return;
-                    
+
                     // Show minimal content first
                     content.setAttribute("aria-hidden", "true");
-                    
+
                     // Add interaction for revealing more
                     triggers.forEach(trigger => {
                       trigger.addEventListener("click", () => {
                         content.setAttribute("aria-hidden", "false");
                         content.classList.add("revealed");
-                        
+
                         // Track engagement
                         if (window.gtag) {
                           gtag("event", "feature_expand", {
@@ -82,7 +82,7 @@ if ( ! function_exists( 'aiqengage_child_load_elementor_widgets' ) ) {
                     });
                   });
                 };
-                
+
                 // Initialize progressive reveal
                 progressiveReveal();
             });
@@ -222,14 +222,14 @@ if ( ! function_exists( 'aiqengage_child_load_elementor_widgets' ) ) {
 	 */
 	function aiqengage_child_register_with_elementor( $widget_classes ) {
 		// Early exit if Elementor is not loaded properly
-		if ( ! class_exists( '\\Elementor\\Plugin' ) || ! isset( \\Elementor\\Plugin::instance()->widgets_manager ) ) {
+		if ( ! class_exists( \Elementor\Plugin::class ) || ! isset( \Elementor\Plugin::instance()->widgets_manager ) ) {
 			if ( WP_DEBUG ) {
 				error_log( 'AIQEngage: Elementor Plugin or widgets_manager not available' );
 			}
 			return;
 		}
 
-		$widget_manager   = \\Elementor\\Plugin::instance()->widgets_manager;
+		$widget_manager   = \Elementor\Plugin::instance()->widgets_manager;
 		$registered_count = 0;
 		$failed_widgets   = array();
 

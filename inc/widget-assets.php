@@ -172,15 +172,15 @@ function aiqengage_register_widget_assets() {
 		if ( file_exists( $css_path ) ) {
 			wp_register_style(
 				$handle,
-				AIQENGAGE_CHILD_URL . $asset_config['css'],
+				trailingslashit( AIQENGAGE_CHILD_URL ) . $asset_config['css'],
 				array( 'aiq-main-css' ), // CRITICAL: All widget CSS depends on main.css for design tokens.
 				$version
 			);
+		} elseif ( WP_DEBUG ) {
+			error_log( "AIQEngage: Missing CSS file for widget handle '{$handle}': {$css_path}" );
 		} else {
-			// Log for debugging when file is missing.
-			if ( WP_DEBUG ) {
-				// DEBUG: error_log( "AIQEngage: Missing CSS file for widget handle '{$handle}': {$css_path}" );
-			}
+			// Production fallback logging disabled for performance, enable if needed.
+			// error_log( "AIQEngage: Missing CSS file for widget handle '{$handle}': {$css_path}" );
 		}
 
 		// Register JS if file exists.
@@ -188,16 +188,16 @@ function aiqengage_register_widget_assets() {
 		if ( file_exists( $js_path ) ) {
 			wp_register_script(
 				$handle,
-				AIQENGAGE_CHILD_URL . $asset_config['js'],
+				trailingslashit( AIQENGAGE_CHILD_URL ) . $asset_config['js'],
 				$asset_config['deps'],
 				$version,
 				true
 			);
+		} elseif ( WP_DEBUG ) {
+			error_log( "AIQEngage: Missing JS file for widget handle '{$handle}': {$js_path}" );
 		} else {
-			// Log for debugging when file is missing.
-			if ( WP_DEBUG ) {
-				// DEBUG: error_log( "AIQEngage: Missing JS file for widget handle '{$handle}': {$js_path}" );
-			}
+			// Production fallback logging disabled for performance, enable if needed.
+			// error_log( "AIQEngage: Missing JS file for widget handle '{$handle}': {$js_path}" );
 		}
 	}
 

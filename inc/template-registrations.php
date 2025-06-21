@@ -14,7 +14,9 @@
 defined( 'ABSPATH' ) || exit;
 
 use Elementor\Plugin;
-use Elementor\TemplateLibrary\Manager;
+if ( class_exists( 'Elementor\TemplateLibrary\Manager' ) ) {
+    use Elementor\TemplateLibrary\Manager;
+}
 
 if ( ! function_exists( 'aiqengage_child_register_elementor_templates' ) ) {
 	/**
