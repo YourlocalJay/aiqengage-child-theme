@@ -94,6 +94,15 @@ class Blueprint_Flow_Widget extends Widget_Base {
 	 * Register widget controls.
 	 */
 	protected function register_controls() {
+		$this->register_content_controls();
+		$this->register_roi_controls();
+		$this->register_style_controls();
+	}
+
+	/**
+	 * Register content controls.
+	 */
+	private function register_content_controls() {
 		$this->start_controls_section(
 			'section_content',
 			array(
@@ -336,7 +345,12 @@ class Blueprint_Flow_Widget extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register ROI controls.
+	 */
+	private function register_roi_controls() {
 		// ROI Calculator Section
 		$this->start_controls_section(
 			'section_roi_calculator',
@@ -518,7 +532,12 @@ class Blueprint_Flow_Widget extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register style controls.
+	 */
+	private function register_style_controls() {
 		// Style Section - General
 		$this->start_controls_section(
 			'section_style_general',

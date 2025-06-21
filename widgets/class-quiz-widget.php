@@ -46,8 +46,17 @@ class AIQ_Quiz_Widget extends Widget_Base {
 	}
 
 	protected function register_controls() {
-		// Existing controls follow...
+		$this->register_answer_controls();
+		$this->register_progress_bar_controls();
+		$this->register_feedback_controls();
+		$this->register_results_controls();
+		$this->register_form_controls();
+	}
 
+	/**
+	 * Register answer option style controls.
+	 */
+	private function register_answer_controls() {
 		$this->add_group_control(
 			\Elementor\Group_Control_Border::get_type(),
 			array(
@@ -255,8 +264,12 @@ class AIQ_Quiz_Widget extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+	}
 
-		// Progress Bar Style Section
+	/**
+	 * Register progress bar style controls.
+	 */
+	private function register_progress_bar_controls() {
 		$this->start_controls_section(
 			'section_progress_style',
 			array(
@@ -380,8 +393,12 @@ class AIQ_Quiz_Widget extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+	}
 
-		// Feedback Style Section
+	/**
+	 * Register answer feedback style controls.
+	 */
+	private function register_feedback_controls() {
 		$this->start_controls_section(
 			'section_feedback_style',
 			array(
@@ -527,8 +544,12 @@ class AIQ_Quiz_Widget extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+	}
 
-		// Results Style Section
+	/**
+	 * Register results style controls.
+	 */
+	private function register_results_controls() {
 		$this->start_controls_section(
 			'section_results_style',
 			array(
@@ -812,8 +833,12 @@ class AIQ_Quiz_Widget extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+	}
 
-		// Lead Capture Form Style Section
+	/**
+	 * Register lead capture form style controls.
+	 */
+	private function register_form_controls() {
 		$this->start_controls_section(
 			'section_form_style',
 			array(

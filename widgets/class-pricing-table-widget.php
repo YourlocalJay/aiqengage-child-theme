@@ -63,6 +63,11 @@ class Pricing_Table_Widget extends Widget_Base {
 	}
 
 	protected function register_controls() {
+		$this->register_content_controls();
+		$this->register_style_controls();
+	}
+
+	protected function register_content_controls() {
 		$this->start_controls_section(
 			'section_content',
 			array(
@@ -324,7 +329,9 @@ class Pricing_Table_Widget extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+	}
 
+	protected function register_style_controls() {
 		// Style Tab
 		$this->start_controls_section(
 			'section_style_general',

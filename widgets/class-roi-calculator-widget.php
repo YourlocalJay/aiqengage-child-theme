@@ -33,6 +33,16 @@ class AIQ_Roi_Calculator_Widget extends Widget_Base {
 	}
 
 	protected function register_controls() {
+		$this->register_content_controls();
+		$this->register_default_value_controls();
+		$this->register_option_controls();
+		$this->register_style_controls();
+	}
+
+	/**
+	 * Register Content controls section.
+	 */
+	private function register_content_controls() {
 		// Content Section
 		$this->start_controls_section(
 			'content_section',
@@ -63,7 +73,12 @@ class AIQ_Roi_Calculator_Widget extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Default Values controls section.
+	 */
+	private function register_default_value_controls() {
 		// Input Defaults Section
 		$this->start_controls_section(
 			'defaults_section',
@@ -141,7 +156,12 @@ class AIQ_Roi_Calculator_Widget extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Calculator Options controls section.
+	 */
+	private function register_option_controls() {
 		// Calculator Options Section
 		$this->start_controls_section(
 			'options_section',
@@ -211,7 +231,12 @@ class AIQ_Roi_Calculator_Widget extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+	}
 
+	/**
+	 * Register Style controls section.
+	 */
+	private function register_style_controls() {
 		// Style Section
 		$this->start_controls_section(
 			'style_section',
