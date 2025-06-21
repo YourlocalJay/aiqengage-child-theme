@@ -12,6 +12,22 @@
 // Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * This file dynamically loads Elementor widgets from the /widgets/ directory.
+ *
+ * The aiqengage_child_register_widgets() function scans the /widgets/ folder for files matching:
+ *   - class-*-widget.php
+ *   - aiq-*-widget.php
+ * For each file, aiqengage_child_process_widget_file() requires the file, generates the expected class name,
+ * and checks that it exists and extends \Elementor\Widget_Base.
+ * All valid widget classes are then registered with Elementor via aiqengage_child_register_with_elementor().
+ *
+ * If widgets are not appearing, check:
+ *   - The widget file name matches the required pattern (e.g. class-my-widget-widget.php)
+ *   - The class name within the file matches the expected class name (e.g. AIQ_My_Widget_Widget)
+ *   - The widget class properly extends \Elementor\Widget_Base
+ */
+
 if ( ! function_exists( 'aiqengage_child_load_elementor_widgets' ) ) {
 	/**
 	 * Main function to initialize widget loading
